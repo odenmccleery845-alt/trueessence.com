@@ -6,6 +6,7 @@
     <title>TrueEssence – Premium Sexual Wellness</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         /* ============================================================ */
         /* RESET & BASE */
@@ -260,7 +261,7 @@
         }
 
         /* ============================================================ */
-        /* NAVIGATION - NEW TABS FROM ADULTTOYMEGASTORE */
+        /* NAVIGATION */
         /* ============================================================ */
         .nav {
             background: #6A2C99;
@@ -560,6 +561,7 @@
             font-size: 12px;
             color: #7A6F7E;
             position: relative;
+            background: #F5EDF2;
         }
 
         .product-card .image .badge {
@@ -594,8 +596,20 @@
             color: #FFFFFF;
         }
 
+        .product-card .image .badge.sale {
+            background: #FA4616;
+            color: #FFFFFF;
+        }
+
         .product-card .info {
             padding: 14px;
+        }
+
+        .product-card .info .brand {
+            font-size: 11px;
+            color: #7A6F7E;
+            font-weight: 500;
+            margin-bottom: 2px;
         }
 
         .product-card .info .rating {
@@ -1286,402 +1300,498 @@
                 letter-spacing: 2px;
             }
         }
+
+        /* Loading spinner */
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: #6A2C99;
+            font-size: 16px;
+            gap: 12px;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner i {
+            font-size: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-products {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7A6F7E;
+            grid-column: 1 / -1;
+        }
+
+        .empty-products i {
+            font-size: 48px;
+            color: #E9E1EC;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!-- TOP BAR -->
-<!-- ============================================================ -->
-<div class="top-bar">
-    <div>
-        <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
-    </div>
-    <div>
-        <a href="#">Log In</a>
-        <a href="#">Register</a>
-    </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- HEADER -->
-<!-- ============================================================ -->
-<header class="header">
-    <a href="/" class="logo-wrapper">
-        <div class="logo-icon">TE</div>
+    <!-- ============================================================ -->
+    <!-- TOP BAR -->
+    <!-- ============================================================ -->
+    <div class="top-bar">
         <div>
-            <div class="logo-text">
-                <span class="purple">✦</span> 
-                True<span class="purple">Essence</span>
-                <span class="orange">✦</span>
-            </div>
-            <div class="logo-sub">Wellness</div>
+            <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
         </div>
-    </a>
-
-    <div class="search-bar">
-        <input type="text" placeholder="Search 500+ products..."/>
-        <button><i class="fa-light fa-search"></i></button>
-    </div>
-
-    <div class="account-cart">
-        <a href="#"><i class="fa-light fa-user"></i> Account</a>
-        <a href="#" class="cart-icon">
-            <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
-            <span class="badge">0</span>
-        </a>
-    </div>
-</header>
-
-<!-- ============================================================ -->
-<!-- NAVIGATION - NEW TABS (Exactly as you requested) -->
-<!-- ============================================================ -->
-<nav class="nav">
-    <ul>
-        <li><a href="sex-toys.html">Sex Toys</a></li>
-       <li><a href="for-vulvas.html">For Vulvas</a></li>
-        <li><a href="for-penises.html">For Penises</a></li>
-        <li><a href="for-couples.html">For Couples</a></li>
-        <li><a href="vibrators.html">Vibrators</a></li>
-        <li><a href="dildos.html">Dildos</a></li>
-        <li><a href="anal-toys.html" class="active">Anal Toys</a></li>
-        <li><a href="lingerie.html">Lingerie</a></li>
-        <li><a href="bdsm.html">BDSM</a></li>
-        <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
-        <li><a href="brands.html">Brands</a></li>
-        <li><a href="sale.html">Sale</a></li>
-        <li><a href="gift-cards.html">Gift Cards</a></li>
-    </ul>
-</nav>
-
-
-<!-- ============================================================ -->
-<!-- TRUST BAR -->
-<!-- ============================================================ -->
-<div class="trust-bar">
-    <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
-    <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
-    <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
-    <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- HERO BANNER -->
-<!-- ============================================================ -->
-<section class="hero">
-    <div class="content">
-        <div class="tag">Welcome to TrueEssence</div>
-        <h1>Discover Your<br/><span>True Essence</span></h1>
-        <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
-        <div class="btn-group">
-            <a href="#" class="btn-primary">Shop Now</a>
-            <a href="#" class="btn-secondary">Learn More</a>
-        </div>
-    </div>
-    <div class="image">
-        <div class="box">
-            <span style="color:rgba(255,255,255,0.2);font-size:12px;letter-spacing:1px;">[ PRODUCT IMAGE ]</span>
-            <div class="icons">
-                <div class="badge-box"><span>★</span>Premium Quality</div>
-                <div class="badge-box"><span>🔒</span>Discreet</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- LIMITED TIME BANNER -->
-<!-- ============================================================ -->
-<div class="limited-time">
-    <span class="label">Limited Time</span>
-    <span class="title">Pick & Mix — Build your own wellness edit from hundreds of products</span>
-    <a href="#" class="btn">Start Mixing →</a>
-</div>
-
-<!-- ============================================================ -->
-<!-- TRENDING / BEST SELLERS -->
-<!-- ============================================================ -->
-<section class="section">
-    <div class="section-header">
         <div>
-            <h2>Trending</h2>
-            <span class="sub">Products the internet won't shut up about</span>
-        </div>
-        <a href="#">View All →</a>
-    </div>
-    <div class="product-grid">
-        <!-- Product 1: Titan Gel -->
-        <div class="product-card">
-            <div class="image" style="background:#6A2C99;">
-                <span class="badge best-seller">BEST SELLER</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="rating"><span class="stars">★★★★★</span><span class="count">(128)</span></div>
-                <div class="name">Titan Gel</div>
-                <div class="desc">Male enhancement gel</div>
-                <div class="price-row">
-                    <span class="price">$49.99</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-        <!-- Product 2: Feminine Wash -->
-        <div class="product-card">
-            <div class="image" style="background:#55217A;">
-                <span class="badge top-rated">TOP RATED</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="rating"><span class="stars">★★★★★</span><span class="count">(95)</span></div>
-                <div class="name">Feminine Wash</div>
-                <div class="desc">pH-balanced cleansing</div>
-                <div class="price-row">
-                    <span class="price">$24.99</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-        <!-- Product 3: Silicone Lubricant -->
-        <div class="product-card">
-            <div class="image" style="background:#FA4616;">
-                <span class="badge new">NEW</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="rating"><span class="stars">★★★★☆</span><span class="count">(42)</span></div>
-                <div class="name">Silicone Lubricant</div>
-                <div class="desc">Long-lasting, silky</div>
-                <div class="price-row">
-                    <span class="price">$19.99</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-        <!-- Product 4: Intimate Wipes -->
-        <div class="product-card">
-            <div class="image" style="background:#B89BBE;">
-                <span class="badge popular">POPULAR</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="rating"><span class="stars">★★★★★</span><span class="count">(67)</span></div>
-                <div class="name">Intimate Wipes</div>
-                <div class="desc">On-the-go freshness</div>
-                <div class="price-row">
-                    <span class="price">$12.99</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-        <!-- Product 5: Vitality Supplements -->
-        <div class="product-card">
-            <div class="image" style="background:#2E1033;">
-                <span class="badge best-seller">BEST SELLER</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="rating"><span class="stars">★★★★★</span><span class="count">(53)</span></div>
-                <div class="name">Vitality Supplements</div>
-                <div class="desc">Natural energy</div>
-                <div class="price-row">
-                    <span class="price">$34.99</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Register</a>
         </div>
     </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- BY DESIRE -->
-<!-- ============================================================ -->
-<section class="section" style="padding-top:0;">
-    <div class="section-header">
-        <div>
-            <h2>By Desire</h2>
-            <span class="sub">What are you in the mood for?</span>
-        </div>
-    </div>
-    <div class="desire-grid">
-        <a href="#" class="desire-card">
-            <div class="image" style="background:#6A2C99;"><i class="fa-light fa-person"></i></div>
-            <div class="info">
-                <h3>For Men</h3>
-                <p>Enhancement & Vitality</p>
-                <span class="count">45+ products</span>
+    <!-- ============================================================ -->
+    <!-- HEADER -->
+    <!-- ============================================================ -->
+    <header class="header">
+        <a href="index.html" class="logo-wrapper">
+            <div class="logo-icon">TE</div>
+            <div>
+                <div class="logo-text">
+                    <span class="purple">✦</span> 
+                    True<span class="purple">Essence</span>
+                    <span class="orange">✦</span>
+                </div>
+                <div class="logo-sub">Wellness</div>
             </div>
         </a>
-        <a href="#" class="desire-card">
-            <div class="image" style="background:#55217A;"><i class="fa-light fa-person-dress"></i></div>
-            <div class="info">
-                <h3>For Women</h3>
-                <p>Care & Freshness</p>
-                <span class="count">35+ products</span>
-            </div>
-        </a>
-        <a href="#" class="desire-card">
-            <div class="image" style="background:#FA4616;"><i class="fa-light fa-droplet"></i></div>
-            <div class="info">
-                <h3>Lubricants</h3>
-                <p>Smooth & Sensual</p>
-                <span class="count">25+ products</span>
-            </div>
-        </a>
-        <a href="#" class="desire-card">
-            <div class="image" style="background:#B89BBE;"><i class="fa-light fa-leaf"></i></div>
-            <div class="info">
-                <h3>Wellness</h3>
-                <p>Natural Health</p>
-                <span class="count">30+ products</span>
-            </div>
-        </a>
-    </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- SPOTLIGHT -->
-<!-- ============================================================ -->
-<section class="spotlight">
-    <div class="image">
-        <div class="box">[ SPOTLIGHT IMAGE ]</div>
-    </div>
-    <div class="content">
-        <div class="tag">Product Spotlight</div>
-        <h2>The Gold Standard</h2>
-        <p>It looks like a premium wellness product. It very much is. Quiet, easy to use, and discreet enough to leave out on the nightstand.</p>
-        <div class="price">$69.95</div>
-        <a href="#" class="btn">Take Me Home</a>
-    </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- FREE GIFT -->
-<!-- ============================================================ -->
-<div class="free-gift">
-    <div class="title">🎁 Free Gift With Every Order</div>
-    <div class="sub">Everyone deserves a plus-one that always shows up. Use code</div>
-    <div class="code">FREEGIFT25</div>
-    <a href="#" class="btn">Claim Yours</a>
-</div>
-
-<!-- ============================================================ -->
-<!-- BLOG / THE ESSENCE -->
-<!-- ============================================================ -->
-<section class="section">
-    <div class="section-header">
-        <div>
-            <h2>The Essence</h2>
-            <span class="sub">No-judgement guides, honest reviews & expert advice</span>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products..."/>
+            <button><i class="fa-light fa-search"></i></button>
         </div>
-        <a href="#">Visit hub →</a>
+
+        <div class="account-cart">
+            <a href="login.html"><i class="fa-light fa-user"></i> Account</a>
+            <a href="#" class="cart-icon">
+                <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+                <span class="badge">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================================ -->
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="sex-toys.html">Sex Toys</a></li>
+            <li><a href="for-vulvas.html">For Vulvas</a></li>
+            <li><a href="for-penises.html">For Penises</a></li>
+            <li><a href="for-couples.html">For Couples</a></li>
+            <li><a href="vibrators.html">Vibrators</a></li>
+            <li><a href="dildos.html">Dildos</a></li>
+            <li><a href="anal-toys.html">Anal Toys</a></li>
+            <li><a href="lingerie.html">Lingerie</a></li>
+            <li><a href="bdsm.html">BDSM</a></li>
+            <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="sale.html">Sale</a></li>
+            <li><a href="gift-cards.html">Gift Cards</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- TRUST BAR -->
+    <!-- ============================================================ -->
+    <div class="trust-bar">
+        <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
+        <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
+        <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
+        <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
     </div>
-    <div class="blog-grid">
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Wellness Guide</span><span class="date">· 7 Aug</span>
-                <h4>Beginner's Guide to Sexual Wellness</h4>
-                <p>Everything you need to know about starting your wellness journey...</p>
-            </div>
-        </div>
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Sexual Health</span><span class="date">· 7 Aug</span>
-                <h4>How to Choose the Right Products</h4>
-                <p>Finding the perfect products for your unique needs...</p>
-            </div>
-        </div>
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Sex Tips</span><span class="date">· 21 Jul</span>
-                <h4>5 Ways to Enhance Intimacy</h4>
-                <p>Simple, effective tips to deepen your connection...</p>
-            </div>
-        </div>
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Sex Toy Guides</span><span class="date">· 12 Jul</span>
-                <h4>Understanding Your True Essence</h4>
-                <p>A guide to self-discovery and embracing your unique desires...</p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- TESTIMONIAL -->
-<!-- ============================================================ -->
-<div class="testimonial">
-    <div class="rating">★★★★★</div>
-    <div class="text">"Incredibly fast. Website's easy to navigate. Love it!! So much fun!!"</div>
-    <div class="author">Amber · Verified Buyer</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- NEWSLETTER -->
-<!-- ============================================================ -->
-<section class="newsletter">
-    <h2>Subscribe & get 10% off</h2>
-    <p>Valid during August. T&C's apply.</p>
-    <form>
-        <input type="email" placeholder="Email address..."/>
-        <button>Subscribe</button>
-    </form>
-    <div class="small">No spam. Unsubscribe anytime.</div>
-</section>
-
-<!-- ============================================================ -->
-<!-- FOOTER -->
-<!-- ============================================================ -->
-<footer class="footer">
-    <div class="footer-grid">
-        <div class="brand">
-            <h3>TRUE<span>ESSENCE</span></h3>
+    <!-- ============================================================ -->
+    <!-- HERO BANNER -->
+    <!-- ============================================================ -->
+    <section class="hero">
+        <div class="content">
+            <div class="tag">Welcome to TrueEssence</div>
+            <h1>Discover Your<br/><span>True Essence</span></h1>
             <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
-        </div>
-        <div>
-            <h4>Help & Information</h4>
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Accounts & Loyalty</a></li>
-                <li><a href="#">Payment Info</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Returns</a></li>
-                <li><a href="#">Shipping</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Discover More</h4>
-            <ul>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="#">Partner with Us</a></li>
-                <li><a href="#">The Essence Blog</a></li>
-                <li><a href="#">Student Discount</a></li>
-            </ul>
-        </div>
-        <div class="contact">
-            <h4>Customer Service</h4>
-            <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
-            <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
-            <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
-            <p><i class="fa-light fa-comment"></i> Live Chat</p>
-            <div class="social">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <div class="btn-group">
+                <a href="sex-toys.html" class="btn-primary">Shop Now</a>
+                <a href="#" class="btn-secondary">Learn More</a>
             </div>
         </div>
+        <div class="image">
+            <div class="box">
+                <span style="color:rgba(255,255,255,0.2);font-size:12px;letter-spacing:1px;">[ PRODUCT IMAGE ]</span>
+                <div class="icons">
+                    <div class="badge-box"><span>★</span>Premium Quality</div>
+                    <div class="badge-box"><span>🔒</span>Discreet</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- LIMITED TIME BANNER -->
+    <!-- ============================================================ -->
+    <div class="limited-time">
+        <span class="label">Limited Time</span>
+        <span class="title">Pick & Mix — Build your own wellness edit from hundreds of products</span>
+        <a href="#" class="btn">Start Mixing →</a>
     </div>
-    <div class="bottom">
-        &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+
+    <!-- ============================================================ -->
+    <!-- TRENDING / BEST SELLERS -->
+    <!-- ============================================================ -->
+    <section class="section">
+        <div class="section-header">
+            <div>
+                <h2>Trending</h2>
+                <span class="sub">Products the internet won't shut up about</span>
+            </div>
+            <a href="#">View All →</a>
+        </div>
+        <div class="product-grid" id="trendingProducts">
+            <div class="loading-spinner">
+                <i class="fa-light fa-spinner"></i> Loading products...
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BY DESIRE -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="section-header">
+            <div>
+                <h2>By Desire</h2>
+                <span class="sub">What are you in the mood for?</span>
+            </div>
+        </div>
+        <div class="desire-grid">
+            <a href="for-penises.html" class="desire-card">
+                <div class="image" style="background:#6A2C99;"><i class="fa-light fa-person"></i></div>
+                <div class="info">
+                    <h3>For Men</h3>
+                    <p>Enhancement & Vitality</p>
+                    <span class="count">Loading...</span>
+                </div>
+            </a>
+            <a href="for-vulvas.html" class="desire-card">
+                <div class="image" style="background:#55217A;"><i class="fa-light fa-person-dress"></i></div>
+                <div class="info">
+                    <h3>For Women</h3>
+                    <p>Care & Freshness</p>
+                    <span class="count">Loading...</span>
+                </div>
+            </a>
+            <a href="lubes-essentials.html" class="desire-card">
+                <div class="image" style="background:#FA4616;"><i class="fa-light fa-droplet"></i></div>
+                <div class="info">
+                    <h3>Lubricants</h3>
+                    <p>Smooth & Sensual</p>
+                    <span class="count">Loading...</span>
+                </div>
+            </a>
+            <a href="#" class="desire-card">
+                <div class="image" style="background:#B89BBE;"><i class="fa-light fa-leaf"></i></div>
+                <div class="info">
+                    <h3>Wellness</h3>
+                    <p>Natural Health</p>
+                    <span class="count">Loading...</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SPOTLIGHT -->
+    <!-- ============================================================ -->
+    <section class="spotlight">
+        <div class="image">
+            <div class="box">[ SPOTLIGHT IMAGE ]</div>
+        </div>
+        <div class="content">
+            <div class="tag">Product Spotlight</div>
+            <h2>The Gold Standard</h2>
+            <p>It looks like a premium wellness product. It very much is. Quiet, easy to use, and discreet enough to leave out on the nightstand.</p>
+            <div class="price">$69.95</div>
+            <a href="#" class="btn">Take Me Home</a>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FREE GIFT -->
+    <!-- ============================================================ -->
+    <div class="free-gift">
+        <div class="title">🎁 Free Gift With Every Order</div>
+        <div class="sub">Everyone deserves a plus-one that always shows up. Use code</div>
+        <div class="code">FREEGIFT25</div>
+        <a href="#" class="btn">Claim Yours</a>
     </div>
-</footer>
+
+    <!-- ============================================================ -->
+    <!-- BLOG / THE ESSENCE -->
+    <!-- ============================================================ -->
+    <section class="section">
+        <div class="section-header">
+            <div>
+                <h2>The Essence</h2>
+                <span class="sub">No-judgement guides, honest reviews & expert advice</span>
+            </div>
+            <a href="#">Visit hub →</a>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Wellness Guide</span><span class="date">· 7 Aug</span>
+                    <h4>Beginner's Guide to Sexual Wellness</h4>
+                    <p>Everything you need to know about starting your wellness journey...</p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Sexual Health</span><span class="date">· 7 Aug</span>
+                    <h4>How to Choose the Right Products</h4>
+                    <p>Finding the perfect products for your unique needs...</p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Sex Tips</span><span class="date">· 21 Jul</span>
+                    <h4>5 Ways to Enhance Intimacy</h4>
+                    <p>Simple, effective tips to deepen your connection...</p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Sex Toy Guides</span><span class="date">· 12 Jul</span>
+                    <h4>Understanding Your True Essence</h4>
+                    <p>A guide to self-discovery and embracing your unique desires...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TESTIMONIAL -->
+    <!-- ============================================================ -->
+    <div class="testimonial">
+        <div class="rating">★★★★★</div>
+        <div class="text">"Incredibly fast. Website's easy to navigate. Love it!! So much fun!!"</div>
+        <div class="author">Amber · Verified Buyer</div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- NEWSLETTER -->
+    <!-- ============================================================ -->
+    <section class="newsletter">
+        <h2>Subscribe & get 10% off</h2>
+        <p>Valid during August. T&C's apply.</p>
+        <form>
+            <input type="email" placeholder="Email address..."/>
+            <button>Subscribe</button>
+        </form>
+        <div class="small">No spam. Unsubscribe anytime.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="brand">
+                <h3>TRUE<span>ESSENCE</span></h3>
+                <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+            </div>
+            <div>
+                <h4>Help & Information</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Accounts & Loyalty</a></li>
+                    <li><a href="#">Payment Info</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Discover More</h4>
+                <ul>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Partner with Us</a></li>
+                    <li><a href="#">The Essence Blog</a></li>
+                    <li><a href="#">Student Discount</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Customer Service</h4>
+                <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
+                <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
+                <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
+                <p><i class="fa-light fa-comment"></i> Live Chat</p>
+                <div class="social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================ //
+        // SUPABASE CONFIG
+        // ============================================================ //
+        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+        // ============================================================ //
+        // LOAD PRODUCTS
+        // ============================================================ //
+        async function loadProducts() {
+            const container = document.getElementById('trendingProducts');
+
+            try {
+                const { data: products, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .eq('is_active', true)
+                    .order('created_at', { ascending: false })
+                    .limit(5);
+
+                if (error) throw error;
+
+                if (!products || products.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-products">
+                            <i class="fa-light fa-box"></i>
+                            <p>No products available yet.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+
+                products.forEach(function(p) {
+                    const priceDisplay = p.sale_price ? 
+                        `<span class="price">$${p.sale_price} <span class="was">$${p.price}</span></span>` :
+                        `<span class="price">$${p.price}</span>`;
+
+                    const badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
+                    const badgeHtml = p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
+
+                    const ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
+                    const reviewCount = p.review_count || 0;
+
+                    html += `
+                        <div class="product-card">
+                            <div class="image" style="background:${p.image_url ? `url('${p.image_url}') center/cover` : '#F5EDF2'};">
+                                ${badgeHtml}
+                                ${p.image_url ? '' : '[Image]'}
+                            </div>
+                            <div class="info">
+                                ${p.brand ? `<div class="brand">${p.brand}</div>` : ''}
+                                <div class="rating">
+                                    <span class="stars">${ratingStars}</span>
+                                    <span class="count">(${reviewCount})</span>
+                                </div>
+                                <div class="name">${p.name}</div>
+                                <div class="desc">${p.short_description || ''}</div>
+                                <div class="price-row">
+                                    ${priceDisplay}
+                                    <button class="btn-add">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error loading products:', error);
+                container.innerHTML = `
+                    <div class="empty-products" style="grid-column:1/-1;">
+                        <i class="fa-light fa-circle-exclamation"></i>
+                        <p>Error loading products. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================================ //
+        // LOAD CATEGORY COUNTS
+        // ============================================================ //
+        async function loadCategoryCounts() {
+            const categories = ['For Men', 'For Women', 'Lubricants'];
+
+            const cards = document.querySelectorAll('.desire-card .count');
+            const cardLinks = document.querySelectorAll('.desire-card');
+
+            try {
+                const { data: products, error } = await supabase
+                    .from('products')
+                    .select('category')
+                    .eq('is_active', true);
+
+                if (error) throw error;
+
+                const counts = {};
+                products.forEach(p => {
+                    if (p.category) {
+                        counts[p.category] = (counts[p.category] || 0) + 1;
+                    }
+                });
+
+                // Update counts
+                cards.forEach((card, index) => {
+                    const categoryMap = {
+                        'For Men': 'For Men',
+                        'For Women': 'For Women',
+                        'Lubricants': 'Lubricants'
+                    };
+
+                    const catName = cardLinks[index]?.querySelector('h3')?.textContent.trim();
+                    const key = categoryMap[catName] || catName;
+
+                    if (key && counts[key]) {
+                        card.textContent = `${counts[key]}+ products`;
+                    } else {
+                        card.textContent = '0 products';
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading category counts:', error);
+            }
+        }
+
+        // ============================================================ //
+        // INIT
+        // ============================================================ //
+        loadProducts();
+        loadCategoryCounts();
+    </script>
 
 </body>
 </html>
