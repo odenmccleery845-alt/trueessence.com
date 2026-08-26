@@ -255,12 +255,11 @@
 
     <script>
         // ============================================================ //
-        // SUPABASE CONFIG
+        // SUPABASE CONFIG - USE WINDOW OBJECT TO AVOID DUPLICATE ERROR
         // ============================================================ //
-        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
-        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
-
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        // IMPORTANT: The Supabase CDN script above already creates a global 'supabase' object.
+        // We MUST use that existing object instead of declaring a new one.
+        // 'window.supabase' is the same as 'supabase' in the global scope.
 
         // ============================================================ //
         // LOGIN HANDLER
@@ -288,7 +287,8 @@
             loginBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Signing in...';
 
             try {
-                const { data, error } = await supabase.auth.signInWithPassword({
+                // Use the existing supabase client from the CDN
+                const { data, error } = await window.supabase.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
@@ -320,7 +320,8 @@
         // ============================================================ //
         async function checkSession() {
             try {
-                const { data: { user }, error } = await supabase.auth.getUser();
+                // Use the existing supabase client from the CDN
+                const { data: { user }, error } = await window.supabase.auth.getUser();
                 if (user && !error) {
                     window.location.href = 'admin-panel.html';
                 }
