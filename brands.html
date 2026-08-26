@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Brands – TrueEssence Premium Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            font-size: 14px;
+            color: #2E1033;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: #FAF6F8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #FA4616;
+        }
+
+        ::selection {
+            background: #E6D2EA;
+            color: #2E1033;
+        }
+
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --atms-purple: #6A2C99;
+            --atms-purple-deep: #55217A;
+            --atms-ink: #2E1033;
+            --atms-orchid: #B89BBE;
+            --atms-lavender: #E6D2EA;
+            --atms-lilac-mist: #F3E8F4;
+            --atms-blush: #FAF6F8;
+            --atms-orange: #FA4616;
+            --atms-orange-bright: #FB6B42;
+            --atms-peach: #FFB59F;
+            --atms-peach-mist: #FBE8E2;
+            --atms-flame: #C5462B;
+            --atms-jade: #1C8C6A;
+            --atms-jade-mist: #E4F2EC;
+            --atms-berry: #C22B3D;
+            --atms-berry-mist: #F9E7EA;
+            --atms-color-action: var(--atms-orange);
+            --atms-color-action-hover: var(--atms-orange-bright);
+            --atms-color-action-active: var(--atms-flame);
+            --atms-color-link: var(--atms-flame);
+            --atms-color-link-hover: var(--atms-orange);
+            --atms-color-brand: var(--atms-purple);
+            --atms-text: var(--atms-ink);
+            --atms-text-muted: #7A6F7E;
+            --atms-text-invert: #FFFFFF;
+            --atms-bg-page: var(--atms-blush);
+            --atms-bg-panel: #F5EDF2;
+            --atms-bg-card: #FFFFFF;
+            --atms-border: #E9E1EC;
+            --atms-border-strong: #D3C0D8;
+            --atms-purple-divider: #5C3F73;
+            --atms-purple-text-muted: #CDBADB;
+            --atms-font-sans: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            --atms-text-xs: 12px;
+            --atms-text-sm: 13px;
+            --atms-text-base: 15px;
+            --atms-text-md: 17px;
+            --atms-text-lg: 20px;
+            --atms-text-xl: 24px;
+            --atms-text-2xl: 30px;
+            --atms-text-3xl: 38px;
+            --atms-text-4xl: 48px;
+            --atms-leading-tight: 1.15;
+            --atms-leading-snug: 1.3;
+            --atms-leading-body: 1.5;
+            --atms-weight-regular: 400;
+            --atms-weight-medium: 500;
+            --atms-weight-bold: 700;
+            --atms-weight-extrabold: 800;
+            --atms-weight-black: 900;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: #55217A;
+            color: rgba(255,255,255,0.8);
+            padding: 6px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.7);
+            margin-left: 14px;
+            font-size: 12px;
+        }
+
+        .top-bar a:hover {
+            color: #FA4616;
+        }
+
+        .top-bar .highlight {
+            color: #FA4616;
+            font-weight: 600;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: #FFFFFF;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #E9E1EC;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: 'DM Sans', Arial, sans-serif;
+            border: 2px solid #FA4616;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2E1033;
+            line-height: 1;
+            font-family: 'DM Sans', Arial, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .logo-text .purple {
+            color: #6A2C99;
+        }
+
+        .logo-text .orange {
+            color: #FA4616;
+        }
+
+        .logo-sub {
+            font-size: 9px;
+            font-weight: 600;
+            color: #FA4616;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 460px;
+            display: flex;
+            border: 1px solid #E9E1EC;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #FAF6F8;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 9px 18px;
+            font-size: 13px;
+            background: transparent;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .search-bar button {
+            background: #6A2C99;
+            border: none;
+            padding: 9px 18px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #55217A;
+        }
+
+        .account-cart {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .account-cart a {
+            color: #2E1033;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .account-cart a:hover {
+            color: #6A2C99;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #FA4616;
+            color: #FFFFFF;
+            border-radius: 50%;
+            padding: 1px 7px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            background: #6A2C99;
+            padding: 0 30px;
+            border-bottom: 3px solid #FA4616;
+            overflow-x: auto;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav ul li a {
+            display: block;
+            padding: 12px 16px;
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav ul li a:hover {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        .nav ul li a.active {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            background: #6A2C99;
+            padding: 8px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .trust-bar .item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+
+        .trust-bar .item i {
+            color: #FA4616;
+            font-size: 14px;
+        }
+
+        /* ===== HERO BANNER ===== */
+        .category-hero {
+            background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(250,70,22,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .category-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(250,70,22,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .category-hero .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .category-hero .content h1 {
+            color: #FFFFFF;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .category-hero .content h1 span {
+            color: #FA4616;
+        }
+
+        .category-hero .content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .category-hero .content .breadcrumb {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .category-hero .content .breadcrumb a {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .category-hero .content .breadcrumb a:hover {
+            color: #FA4616;
+        }
+
+        .category-hero .content .breadcrumb .sep {
+            color: rgba(255,255,255,0.3);
+            margin: 0 8px;
+        }
+
+        /* ===== CATEGORY DESCRIPTION ===== */
+        .category-description {
+            background: #F5EDF2;
+            padding: 30px 30px 25px;
+            border-radius: 10px;
+            margin: 30px auto 0;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #2E1033;
+        }
+
+        .category-description p {
+            margin-bottom: 12px;
+        }
+
+        .category-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-description a {
+            color: #FA4616;
+            font-weight: 600;
+        }
+
+        .category-description a:hover {
+            color: #C5462B;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2E1033;
+        }
+
+        .section-header .sub {
+            color: #7A6F7E;
+            font-size: 13px;
+        }
+
+        .section-header a {
+            color: #FA4616;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .section-header a:hover {
+            color: #C5462B;
+        }
+
+        /* ===== BIGGEST BRANDS ===== */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .brand-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+            color: #2E1033;
+            display: block;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+            border-color: #6A2C99;
+        }
+
+        .brand-card .icon {
+            font-size: 32px;
+            color: #6A2C99;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .brand-card .name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2E1033;
+        }
+
+        /* ===== BRANDS A-Z ===== */
+        .brands-alpha {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .brands-alpha .letter {
+            font-size: 28px;
+            font-weight: 800;
+            color: #6A2C99;
+            border-bottom: 2px solid #E9E1EC;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .brands-alpha ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .brands-alpha ul li {
+            padding: 4px 0;
+        }
+
+        .brands-alpha ul li a {
+            color: #2E1033;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .brands-alpha ul li a:hover {
+            color: #FA4616;
+        }
+
+        .brands-alpha .column {
+            margin-bottom: 20px;
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
+            background: #6A2C99;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            color: #FFFFFF;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin: 6px 0 16px;
+        }
+
+        .newsletter form {
+            display: flex;
+            gap: 10px;
+            max-width: 420px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: #FFFFFF;
+            font-size: 13px;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .newsletter form input::placeholder {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .newsletter form button {
+            background: #FA4616;
+            border: none;
+            color: #FFFFFF;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter form button:hover {
+            background: #FB6B42;
+            transform: scale(1.02);
+        }
+
+        .newsletter .small {
+            color: rgba(255,255,255,0.25);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #2E1033;
+            color: rgba(255,255,255,0.7);
+            padding: 40px 30px 16px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+        }
+
+        .footer-grid .brand h3 {
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-grid .brand h3 span {
+            color: #FA4616;
+        }
+
+        .footer-grid .brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 240px;
+            margin-top: 8px;
+        }
+
+        .footer-grid h4 {
+            color: #FFFFFF;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-grid ul li a {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            line-height: 2;
+            transition: all 0.3s;
+        }
+
+        .footer-grid ul li a:hover {
+            color: #FA4616;
+        }
+
+        .footer-grid .contact p {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer-grid .contact i {
+            color: #FA4616;
+            width: 18px;
+        }
+
+        .footer-grid .social {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-grid .social a {
+            color: rgba(255,255,255,0.4);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .footer-grid .social a:hover {
+            color: #FA4616;
+        }
+
+        .footer .bottom {
+            max-width: 1200px;
+            margin: 25px auto 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .footer .bottom .heart {
+            color: #FA4616;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .brand-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .brands-alpha {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                font-size: 10px;
+                padding: 5px 14px;
+                justify-content: center;
+                text-align: center;
+            }
+            .header {
+                padding: 10px 14px;
+                flex-direction: column;
+            }
+            .search-bar {
+                max-width: 100%;
+                width: 100%;
+            }
+            .account-cart {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav {
+                padding: 0 10px;
+            }
+            .nav ul li a {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            .trust-bar {
+                padding: 6px 14px;
+                justify-content: center;
+                gap: 4px;
+            }
+            .trust-bar .item {
+                font-size: 10px;
+            }
+            .category-hero {
+                padding: 30px 14px;
+                min-height: 200px;
+            }
+            .category-hero .content h1 {
+                font-size: 28px;
+            }
+            .category-hero .content p {
+                font-size: 14px;
+            }
+            .category-description {
+                padding: 20px 16px;
+                font-size: 13px;
+                margin: 20px 14px 0;
+            }
+            .section {
+                padding: 25px 14px;
+            }
+            .brand-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .brands-alpha {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-grid .brand p {
+                max-width: 100%;
+            }
+            .footer-grid .social {
+                justify-content: center;
+            }
+            .newsletter {
+                padding: 25px 14px;
+            }
+            .newsletter h2 {
+                font-size: 22px;
+            }
+            .section-header h2 {
+                font-size: 20px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .logo-text {
+                font-size: 18px;
+            }
+            .logo-sub {
+                font-size: 8px;
+                letter-spacing: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .brand-card {
+                padding: 16px 12px;
+            }
+            .brand-card .name {
+                font-size: 14px;
+            }
+            .brands-alpha .letter {
+                font-size: 22px;
+            }
+            .brands-alpha ul li a {
+                font-size: 13px;
+            }
+            .category-hero .content h1 {
+                font-size: 22px;
+            }
+            .category-hero .content p {
+                font-size: 13px;
+            }
+            .trust-bar .item {
+                font-size: 9px;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .logo-text {
+                font-size: 16px;
+            }
+            .logo-sub {
+                font-size: 7px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    <div>
+        <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
+    </div>
+    <div>
+        <a href="#">Log In</a>
+        <a href="#">Register</a>
+    </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">TE</div>
+        <div>
+            <div class="logo-text">
+                <span class="purple">✦</span> 
+                True<span class="purple">Essence</span>
+                <span class="orange">✦</span>
+            </div>
+            <div class="logo-sub">Wellness</div>
+        </div>
+    </a>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search 500+ products..."/>
+        <button><i class="fa-light fa-search"></i></button>
+    </div>
+
+    <div class="account-cart">
+        <a href="#"><i class="fa-light fa-user"></i> Account</a>
+        <a href="#" class="cart-icon">
+            <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+            <span class="badge">0</span>
+        </a>
+    </div>
+</header>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+    <ul>
+        <li><a href="sex-toys.html">Sex Toys</a></li>
+        <li><a href="for-vulvas.html">For Vulvas</a></li>
+        <li><a href="for-penises.html">For Penises</a></li>
+        <li><a href="for-couples.html">For Couples</a></li>
+        <li><a href="vibrators.html">Vibrators</a></li>
+        <li><a href="dildos.html">Dildos</a></li>
+        <li><a href="anal-toys.html">Anal Toys</a></li>
+        <li><a href="lingerie.html">Lingerie</a></li>
+        <li><a href="bdsm.html">BDSM</a></li>
+        <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
+        <li><a href="brands.html" class="active">Brands</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Gift Cards</a></li>
+    </ul>
+</nav>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+    <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
+    <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
+    <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
+    <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
+</div>
+
+<!-- ===== HERO BANNER ===== -->
+<section class="category-hero">
+    <div class="content">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">›</span>
+            <span style="color:rgba(255,255,255,0.8);">Brands</span>
+        </div>
+        <h1><span>Brands</span></h1>
+        <p>Explore pleasure with the world's most popular sex toy brands! We stock brands from all around the world to ensure that we can offer you a wide range of the best sex toys.</p>
+    </div>
+</section>
+
+<!-- ===== CATEGORY DESCRIPTION ===== -->
+<div class="category-description">
+    <p>If you are looking for vulva sex toys, brands like <strong>Satisfyer</strong>, <strong>Share Satisfaction</strong> and <strong>Vush</strong> have amazing toys designed to please.</p>
+    <p>For penis toys, <strong>Fleshlight</strong> and <strong>Tenga</strong> have incredible strokers, masturbators and sleeves. For an affordable sex toy brand with a bit of everything, <strong>Rocks Off</strong> is the perfect place to start. And if luxury is your thing, <strong>Lelo</strong> and <strong>We-vibe</strong> make beautiful, high-tech toys for all genders.</p>
+</div>
+
+<!-- ===== BIGGEST BRANDS ===== -->
+<section class="section" style="padding-top:20px;">
+    <div class="section-header">
+        <div>
+            <h2>Biggest Brands</h2>
+            <span class="sub">Our most popular and trusted brands</span>
+        </div>
+    </div>
+
+    <div class="brand-grid">
+        <a href="#" class="brand-card">
+            <span class="icon"><i class="fa-light fa-star"></i></span>
+            <div class="name">Share Satisfaction</div>
+        </a>
+        <a href="#" class="brand-card">
+            <span class="icon"><i class="fa-light fa-star"></i></span>
+            <div class="name">Satisfyer</div>
+        </a>
+        <a href="#" class="brand-card">
+            <span class="icon"><i class="fa-light fa-star"></i></span>
+            <div class="name">Doc Johnson</div>
+        </a>
+        <a href="#" class="brand-card">
+            <span class="icon"><i class="fa-light fa-star"></i></span>
+            <div class="name">Rocks Off</div>
+        </a>
+        <a href="#" class="brand-card">
+            <span class="icon"><i class="fa-light fa-star"></i></span>
+            <div class="name">Pipedream</div>
+        </a>
+        <a href="#" class="brand-card">
+            <span class="icon"><i class="fa-light fa-star"></i></span>
+            <div class="name">Lelo</div>
+        </a>
+    </div>
+</section>
+
+<!-- ===== ALL BRANDS A-Z ===== -->
+<section class="section" style="padding-top:0;">
+    <div class="section-header">
+        <div>
+            <h2>All Brands A–Z</h2>
+            <span class="sub">Browse our complete collection of brands</span>
+        </div>
+    </div>
+
+    <div class="brands-alpha">
+        <!-- Column 1: A-G -->
+        <div>
+            <div class="column">
+                <div class="letter">A</div>
+                <ul>
+                    <li><a href="#">Adam and Eve</a></li>
+                    <li><a href="#">Adore By Allure</a></li>
+                    <li><a href="#">Aeystheter Collection</a></li>
+                    <li><a href="#">Allure Lingerie</a></li>
+                    <li><a href="#">American Pop</a></li>
+                    <li><a href="#">Amore by Share Satisfaction</a></li>
+                    <li><a href="#">Anal Fantasy</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">B</div>
+                <ul>
+                    <li><a href="#">Bachelorette</a></li>
+                    <li><a href="#">Baci Lingerie</a></li>
+                    <li><a href="#">Baile Health</a></li>
+                    <li><a href="#">Basix</a></li>
+                    <li><a href="#">Bathmate</a></li>
+                    <li><a href="#">Bewicked Lingerie</a></li>
+                    <li><a href="#">Biird</a></li>
+                    <li><a href="#">Bijoux Indiscrets</a></li>
+                    <li><a href="#">Black Level</a></li>
+                    <li><a href="#">BMS</a></li>
+                    <li><a href="#">Bodywand</a></li>
+                    <li><a href="#">Boners</a></li>
+                    <li><a href="#">Booty Call</a></li>
+                    <li><a href="#">Bound by Share Satisfaction</a></li>
+                    <li><a href="#">Bound X</a></li>
+                    <li><a href="#">B-Vibe</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">C</div>
+                <ul>
+                    <li><a href="#">Cal Exotics</a></li>
+                    <li><a href="#">CBX</a></li>
+                    <li><a href="#">Chrystalino</a></li>
+                    <li><a href="#">CleanStream</a></li>
+                    <li><a href="#">Climax</a></li>
+                    <li><a href="#">Climax Elite</a></li>
+                    <li><a href="#">Clone-a-willy</a></li>
+                    <li><a href="#">Colours</a></li>
+                    <li><a href="#">Colt</a></li>
+                    <li><a href="#">Cosmopolitan</a></li>
+                    <li><a href="#">Cottelli Collection</a></li>
+                    <li><a href="#">Creative Concepts</a></li>
+                    <li><a href="#">Cyberskin</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">D</div>
+                <ul>
+                    <li><a href="#">Dillio</a></li>
+                    <li><a href="#">Diogol</a></li>
+                    <li><a href="#">Doc Johnson</a></li>
+                    <li><a href="#">Doxy</a></li>
+                    <li><a href="#">Dr Joel Kaplan</a></li>
+                    <li><a href="#">Drywell</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">E</div>
+                <ul>
+                    <li><a href="#">EasyToys</a></li>
+                    <li><a href="#">ElectraStim</a></li>
+                    <li><a href="#">Electroshock</a></li>
+                    <li><a href="#">Entice by Share Satisfaction</a></li>
+                    <li><a href="#">Envy</a></li>
+                    <li><a href="#">EROS</a></li>
+                    <li><a href="#">Euro Extreme</a></li>
+                    <li><a href="#">Evolve by Share Satisfaction</a></li>
+                    <li><a href="#">Evolved</a></li>
+                    <li><a href="#">Eyden by Share Satisfaction</a></li>
+                    <li><a href="#">Eye of Love</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">F</div>
+                <ul>
+                    <li><a href="#">Fantasy C-Ringz</a></li>
+                    <li><a href="#">Fantasy For Her</a></li>
+                    <li><a href="#">Fantasy X-Tensions</a></li>
+                    <li><a href="#">Fetish Fantasy</a></li>
+                    <li><a href="#">Fetish Fantasy Gold</a></li>
+                    <li><a href="#">Fifi</a></li>
+                    <li><a href="#">Fifty Shades of Grey</a></li>
+                    <li><a href="#">Fire Fly</a></li>
+                    <li><a href="#">First Time</a></li>
+                    <li><a href="#">Fleshlight</a></li>
+                    <li><a href="#">Flintts Mints</a></li>
+                    <li><a href="#">Fredricks of Hollywood</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">G</div>
+                <ul>
+                    <li><a href="#">Glas</a></li>
+                    <li><a href="#">GoodHead</a></li>
+                    <li><a href="#">G-Vibe</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Column 2: H-N -->
+        <div>
+            <div class="column">
+                <div class="letter">H</div>
+                <ul>
+                    <li><a href="#">Happy Rabbit</a></li>
+                    <li><a href="#">Herbal Ignite</a></li>
+                    <li><a href="#">High On Love</a></li>
+                    <li><a href="#">Hot Octopuss</a></li>
+                    <li><a href="#">Hott Products</a></li>
+                    <li><a href="#">Hustler Sex Toys</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">I</div>
+                <ul>
+                    <li><a href="#">Icicles</a></li>
+                    <li><a href="#">Inspire</a></li>
+                    <li><a href="#">Intimate Earth</a></li>
+                    <li><a href="#">INYA</a></li>
+                    <li><a href="#">iVibe</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">J</div>
+                <ul>
+                    <li><a href="#">Jil</a></li>
+                    <li><a href="#">JimmyJane</a></li>
+                    <li><a href="#">Joyballs</a></li>
+                    <li><a href="#">JOYDIVISION</a></li>
+                    <li><a href="#">Juicy Jewels</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">K</div>
+                <ul>
+                    <li><a href="#">Kama Sutra</a></li>
+                    <li><a href="#">Key by Jopen</a></li>
+                    <li><a href="#">Kheper Games</a></li>
+                    <li><a href="#">Kiiroo</a></li>
+                    <li><a href="#">King Cock</a></li>
+                    <li><a href="#">Kink</a></li>
+                    <li><a href="#">Kink Range</a></li>
+                    <li><a href="#">KinkLab</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">L</div>
+                <ul>
+                    <li><a href="#">Late X</a></li>
+                    <li><a href="#">Latex Wear</a></li>
+                    <li><a href="#">Le Desir</a></li>
+                    <li><a href="#">Le Reve</a></li>
+                    <li><a href="#">Le Wand</a></li>
+                    <li><a href="#">Leather Play</a></li>
+                    <li><a href="#">Lelo</a></li>
+                    <li><a href="#">Liberator</a></li>
+                    <li><a href="#">Little Genie</a></li>
+                    <li><a href="#">LivCo Corsetti</a></li>
+                    <li><a href="#">Love Hamma</a></li>
+                    <li><a href="#">Loveline</a></li>
+                    <li><a href="#">Lovense</a></li>
+                    <li><a href="#">Lucent by Share Satisfaction</a></li>
+                    <li><a href="#">Luna</a></li>
+                    <li><a href="#">Lustre</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">M</div>
+                <ul>
+                    <li><a href="#">Male Edge</a></li>
+                    <li><a href="#">Mapale</a></li>
+                    <li><a href="#">Mystim</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">N</div>
+                <ul>
+                    <li><a href="#">Nalone</a></li>
+                    <li><a href="#">Nass Toys</a></li>
+                    <li><a href="#">Neon Luv Touch</a></li>
+                    <li><a href="#">Neva Nude</a></li>
+                    <li><a href="#">Nexus</a></li>
+                    <li><a href="#">Noir</a></li>
+                    <li><a href="#">Nood by Share Satisfaction</a></li>
+                    <li><a href="#">NS Novelties</a></li>
+                    <li><a href="#">Nu Sensuelle</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Column 3: O-T -->
+        <div>
+            <div class="column">
+                <div class="letter">O</div>
+                <ul>
+                    <li><a href="#">Obsessive Lingerie</a></li>
+                    <li><a href="#">Ohmibod</a></li>
+                    <li><a href="#">OMG</a></li>
+                    <li><a href="#">Optimale</a></li>
+                    <li><a href="#">Ouch</a></li>
+                    <li><a href="#">OVO</a></li>
+                    <li><a href="#">OxBalls</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">P</div>
+                <ul>
+                    <li><a href="#">PalmPower</a></li>
+                    <li><a href="#">Party Up</a></li>
+                    <li><a href="#">PDX Elite</a></li>
+                    <li><a href="#">Penthouse</a></li>
+                    <li><a href="#">Penthouse Lingerie</a></li>
+                    <li><a href="#">Perfect Fit</a></li>
+                    <li><a href="#">Petits Joujoux</a></li>
+                    <li><a href="#">Pillow Talk</a></li>
+                    <li><a href="#">Pipedream</a></li>
+                    <li><a href="#">Pipedream Extreme Toyz</a></li>
+                    <li><a href="#">Play by Share Satisfaction</a></li>
+                    <li><a href="#">Playboy Pleasure</a></li>
+                    <li><a href="#">Plug and Play</a></li>
+                    <li><a href="#">PowerBullet</a></li>
+                    <li><a href="#">Pretty Love</a></li>
+                    <li><a href="#">Private</a></li>
+                    <li><a href="#">Pump Worx</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">R</div>
+                <ul>
+                    <li><a href="#">Rabbit Company</a></li>
+                    <li><a href="#">Rabbit Essentials</a></li>
+                    <li><a href="#">Real Feel Deluxe</a></li>
+                    <li><a href="#">Rear Assets</a></li>
+                    <li><a href="#">Rene Rofe</a></li>
+                    <li><a href="#">Renegade</a></li>
+                    <li><a href="#">Rocks Off</a></li>
+                    <li><a href="#">Roomfun</a></li>
+                    <li><a href="#">Rosy Gold</a></li>
+                    <li><a href="#">Rouge</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">S</div>
+                <ul>
+                    <li><a href="#">S.L.T</a></li>
+                    <li><a href="#">Satisfyer</a></li>
+                    <li><a href="#">Scandal</a></li>
+                    <li><a href="#">Screaming O</a></li>
+                    <li><a href="#">Secret Kisses</a></li>
+                    <li><a href="#">Sensuva</a></li>
+                    <li><a href="#">Seven Creations</a></li>
+                    <li><a href="#">Seven Til Midnight</a></li>
+                    <li><a href="#">Sex and Mischief</a></li>
+                    <li><a href="#">Shaki</a></li>
+                    <li><a href="#">Share Satisfaction</a></li>
+                    <li><a href="#">Shots Toys</a></li>
+                    <li><a href="#">Shunga</a></li>
+                    <li><a href="#">Simplicity</a></li>
+                    <li><a href="#">Sincerely</a></li>
+                    <li><a href="#">Sir Richards</a></li>
+                    <li><a href="#">Sportsheets</a></li>
+                    <li><a href="#">Strict Leather</a></li>
+                    <li><a href="#">SVAKOM</a></li>
+                    <li><a href="#">SWAN</a></li>
+                    <li><a href="#">System JO</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">T</div>
+                <ul>
+                    <li><a href="#">Tantus</a></li>
+                    <li><a href="#">TENGA</a></li>
+                    <li><a href="#">The Cowgirl</a></li>
+                    <li><a href="#">The D</a></li>
+                    <li><a href="#">The Hung System</a></li>
+                    <li><a href="#">Tom of Finland</a></li>
+                    <li><a href="#">Touche</a></li>
+                    <li><a href="#">Truine</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Column 4: U-Z + # -->
+        <div>
+            <div class="column">
+                <div class="letter">U</div>
+                <ul>
+                    <li><a href="#">Ultrazone</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">V</div>
+                <ul>
+                    <li><a href="#">Vibe Therapy</a></li>
+                    <li><a href="#">Vive</a></li>
+                    <li><a href="#">Voulez-vous</a></li>
+                    <li><a href="#">VUSH</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">W</div>
+                <ul>
+                    <li><a href="#">We-Vibe</a></li>
+                    <li><a href="#">Whip Smart</a></li>
+                    <li><a href="#">Wicked</a></li>
+                    <li><a href="#">Wild by Share Satisfaction</a></li>
+                    <li><a href="#">Wildfire</a></li>
+                    <li><a href="#">Womanizer</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">X</div>
+                <ul>
+                    <li><a href="#">XMen</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">Z</div>
+                <ul>
+                    <li><a href="#">Zado</a></li>
+                    <li><a href="#">Zalo</a></li>
+                    <li><a href="#">Zero Tolerance</a></li>
+                    <li><a href="#">Zeus Electrosex</a></li>
+                    <li><a href="#">Zolo</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="letter">#</div>
+                <ul>
+                    <li><a href="#">3Some</a></li>
+                    <li><a href="#">59S V Guard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+    <h2>Subscribe & get 10% off</h2>
+    <p>Valid during August. T&C's apply.</p>
+    <form>
+        <input type="email" placeholder="Email address..."/>
+        <button>Subscribe</button>
+    </form>
+    <div class="small">No spam. Unsubscribe anytime.</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="brand">
+            <h3>TRUE<span>ESSENCE</span></h3>
+            <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+        </div>
+        <div>
+            <h4>Help & Information</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Accounts & Loyalty</a></li>
+                <li><a href="#">Payment Info</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Shipping</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Discover More</h4>
+            <ul>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Partner with Us</a></li>
+                <li><a href="#">The Essence Blog</a></li>
+                <li><a href="#">Student Discount</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <h4>Customer Service</h4>
+            <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
+            <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
+            <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
+            <p><i class="fa-light fa-comment"></i> Live Chat</p>
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+    </div>
+</footer>
+
+</body>
+</html>

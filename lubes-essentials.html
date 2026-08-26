@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Lubes & Essentials – TrueEssence Premium Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            font-size: 14px;
+            color: #2E1033;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: #FAF6F8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #FA4616;
+        }
+
+        ::selection {
+            background: #E6D2EA;
+            color: #2E1033;
+        }
+
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --atms-purple: #6A2C99;
+            --atms-purple-deep: #55217A;
+            --atms-ink: #2E1033;
+            --atms-orchid: #B89BBE;
+            --atms-lavender: #E6D2EA;
+            --atms-lilac-mist: #F3E8F4;
+            --atms-blush: #FAF6F8;
+            --atms-orange: #FA4616;
+            --atms-orange-bright: #FB6B42;
+            --atms-peach: #FFB59F;
+            --atms-peach-mist: #FBE8E2;
+            --atms-flame: #C5462B;
+            --atms-jade: #1C8C6A;
+            --atms-jade-mist: #E4F2EC;
+            --atms-berry: #C22B3D;
+            --atms-berry-mist: #F9E7EA;
+            --atms-color-action: var(--atms-orange);
+            --atms-color-action-hover: var(--atms-orange-bright);
+            --atms-color-action-active: var(--atms-flame);
+            --atms-color-link: var(--atms-flame);
+            --atms-color-link-hover: var(--atms-orange);
+            --atms-color-brand: var(--atms-purple);
+            --atms-text: var(--atms-ink);
+            --atms-text-muted: #7A6F7E;
+            --atms-text-invert: #FFFFFF;
+            --atms-bg-page: var(--atms-blush);
+            --atms-bg-panel: #F5EDF2;
+            --atms-bg-card: #FFFFFF;
+            --atms-border: #E9E1EC;
+            --atms-border-strong: #D3C0D8;
+            --atms-purple-divider: #5C3F73;
+            --atms-purple-text-muted: #CDBADB;
+            --atms-font-sans: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            --atms-text-xs: 12px;
+            --atms-text-sm: 13px;
+            --atms-text-base: 15px;
+            --atms-text-md: 17px;
+            --atms-text-lg: 20px;
+            --atms-text-xl: 24px;
+            --atms-text-2xl: 30px;
+            --atms-text-3xl: 38px;
+            --atms-text-4xl: 48px;
+            --atms-leading-tight: 1.15;
+            --atms-leading-snug: 1.3;
+            --atms-leading-body: 1.5;
+            --atms-weight-regular: 400;
+            --atms-weight-medium: 500;
+            --atms-weight-bold: 700;
+            --atms-weight-extrabold: 800;
+            --atms-weight-black: 900;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: #55217A;
+            color: rgba(255,255,255,0.8);
+            padding: 6px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.7);
+            margin-left: 14px;
+            font-size: 12px;
+        }
+
+        .top-bar a:hover {
+            color: #FA4616;
+        }
+
+        .top-bar .highlight {
+            color: #FA4616;
+            font-weight: 600;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: #FFFFFF;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #E9E1EC;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: 'DM Sans', Arial, sans-serif;
+            border: 2px solid #FA4616;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2E1033;
+            line-height: 1;
+            font-family: 'DM Sans', Arial, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .logo-text .purple {
+            color: #6A2C99;
+        }
+
+        .logo-text .orange {
+            color: #FA4616;
+        }
+
+        .logo-sub {
+            font-size: 9px;
+            font-weight: 600;
+            color: #FA4616;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 460px;
+            display: flex;
+            border: 1px solid #E9E1EC;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #FAF6F8;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 9px 18px;
+            font-size: 13px;
+            background: transparent;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .search-bar button {
+            background: #6A2C99;
+            border: none;
+            padding: 9px 18px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #55217A;
+        }
+
+        .account-cart {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .account-cart a {
+            color: #2E1033;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .account-cart a:hover {
+            color: #6A2C99;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #FA4616;
+            color: #FFFFFF;
+            border-radius: 50%;
+            padding: 1px 7px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            background: #6A2C99;
+            padding: 0 30px;
+            border-bottom: 3px solid #FA4616;
+            overflow-x: auto;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav ul li a {
+            display: block;
+            padding: 12px 16px;
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav ul li a:hover {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        .nav ul li a.active {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            background: #6A2C99;
+            padding: 8px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .trust-bar .item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+
+        .trust-bar .item i {
+            color: #FA4616;
+            font-size: 14px;
+        }
+
+        /* ===== HERO BANNER ===== */
+        .category-hero {
+            background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(250,70,22,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .category-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(250,70,22,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .category-hero .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .category-hero .content h1 {
+            color: #FFFFFF;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .category-hero .content h1 span {
+            color: #FA4616;
+        }
+
+        .category-hero .content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .category-hero .content .breadcrumb {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .category-hero .content .breadcrumb a {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .category-hero .content .breadcrumb a:hover {
+            color: #FA4616;
+        }
+
+        .category-hero .content .breadcrumb .sep {
+            color: rgba(255,255,255,0.3);
+            margin: 0 8px;
+        }
+
+        /* ===== CATEGORY DESCRIPTION ===== */
+        .category-description {
+            background: #F5EDF2;
+            padding: 30px 30px 25px;
+            border-radius: 10px;
+            margin: 30px auto 0;
+            max-width: 1200px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #2E1033;
+        }
+
+        .category-description p {
+            margin-bottom: 12px;
+        }
+
+        .category-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-description a {
+            color: #FA4616;
+            font-weight: 600;
+        }
+
+        .category-description a:hover {
+            color: #C5462B;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2E1033;
+        }
+
+        .section-header .sub {
+            color: #7A6F7E;
+            font-size: 13px;
+        }
+
+        .section-header a {
+            color: #FA4616;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .section-header a:hover {
+            color: #C5462B;
+        }
+
+        /* ===== SUB-CATEGORY GRID ===== */
+        .sub-category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .sub-category-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+            color: #2E1033;
+            display: block;
+        }
+
+        .sub-category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+            border-color: #6A2C99;
+        }
+
+        .sub-category-card .icon {
+            font-size: 28px;
+            color: #6A2C99;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .sub-category-card .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2E1033;
+        }
+
+        .sub-category-card .count {
+            font-size: 11px;
+            color: #7A6F7E;
+        }
+
+        .show-all-link {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .show-all-link a {
+            color: #6A2C99;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .show-all-link a:hover {
+            color: #FA4616;
+        }
+
+        /* ===== PRODUCT GRID ===== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .product-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+        }
+
+        .product-card .image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #7A6F7E;
+            position: relative;
+            background: #F5EDF2;
+        }
+
+        .product-card .image .badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .product-card .image .badge.sale {
+            background: #FA4616;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.deal {
+            background: #55217A;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.best-seller {
+            background: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        .product-card .info {
+            padding: 14px;
+        }
+
+        .product-card .info .brand {
+            font-size: 11px;
+            color: #7A6F7E;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .product-card .info .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .product-card .info .rating .stars {
+            color: #FA4616;
+            font-size: 12px;
+        }
+
+        .product-card .info .rating .count {
+            color: #7A6F7E;
+            font-size: 11px;
+        }
+
+        .product-card .info .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2E1033;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+
+        .product-card .info .name a {
+            color: #2E1033;
+        }
+
+        .product-card .info .name a:hover {
+            color: #6A2C99;
+        }
+
+        .product-card .info .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .product-card .info .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2E1033;
+        }
+
+        .product-card .info .price .was {
+            font-size: 13px;
+            font-weight: 400;
+            color: #7A6F7E;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .product-card .info .btn-add {
+            background: #6A2C99;
+            border: none;
+            color: #FFFFFF;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .product-card .info .btn-add:hover {
+            background: #55217A;
+            transform: scale(1.05);
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: 1px solid #E9E1EC;
+            color: #2E1033;
+            font-size: 13px;
+            font-weight: 500;
+            background: #FFFFFF;
+            transition: all 0.3s;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .pagination a:hover {
+            border-color: #6A2C99;
+            color: #6A2C99;
+        }
+
+        .pagination a.active {
+            background: #6A2C99;
+            border-color: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        .pagination a.active:hover {
+            background: #55217A;
+        }
+
+        .pagination .dots {
+            padding: 8px 6px;
+            color: #7A6F7E;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #E9E1EC;
+            margin-top: 30px;
+        }
+
+        .faq-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2E1033;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #E9E1EC;
+            padding: 14px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .question {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2E1033;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-item .question:hover {
+            color: #6A2C99;
+        }
+
+        .faq-item .question .icon {
+            color: #FA4616;
+            font-size: 14px;
+        }
+
+        .faq-item .answer {
+            font-size: 14px;
+            color: #7A6F7E;
+            line-height: 1.7;
+            margin-top: 8px;
+            padding-left: 4px;
+        }
+
+        .faq-item .answer ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        .faq-item .answer ul li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== TRUST BADGES ===== */
+        .trust-badges {
+            background: #F5EDF2;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .trust-badges .item {
+            text-align: center;
+        }
+
+        .trust-badges .item .number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #6A2C99;
+        }
+
+        .trust-badges .item .label {
+            font-size: 13px;
+            color: #7A6F7E;
+        }
+
+        .trust-badges .item .sub-label {
+            font-size: 11px;
+            color: #B89BBE;
+        }
+
+        /* ===== BLOG SECTION ===== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .blog-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+        }
+
+        .blog-card .image {
+            height: 140px;
+            background: #6A2C99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.2);
+            font-size: 12px;
+        }
+
+        .blog-card .info {
+            padding: 16px;
+        }
+
+        .blog-card .info .category {
+            font-size: 10px;
+            font-weight: 600;
+            color: #FA4616;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .blog-card .info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2E1033;
+            margin: 6px 0 4px;
+            line-height: 1.3;
+        }
+
+        .blog-card .info p {
+            font-size: 13px;
+            color: #7A6F7E;
+            line-height: 1.5;
+        }
+
+        .blog-card .info .read-more {
+            color: #FA4616;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        .blog-card .info .read-more:hover {
+            color: #C5462B;
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
+            background: #6A2C99;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            color: #FFFFFF;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin: 6px 0 16px;
+        }
+
+        .newsletter form {
+            display: flex;
+            gap: 10px;
+            max-width: 420px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: #FFFFFF;
+            font-size: 13px;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .newsletter form input::placeholder {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .newsletter form button {
+            background: #FA4616;
+            border: none;
+            color: #FFFFFF;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter form button:hover {
+            background: #FB6B42;
+            transform: scale(1.02);
+        }
+
+        .newsletter .small {
+            color: rgba(255,255,255,0.25);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #2E1033;
+            color: rgba(255,255,255,0.7);
+            padding: 40px 30px 16px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+        }
+
+        .footer-grid .brand h3 {
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-grid .brand h3 span {
+            color: #FA4616;
+        }
+
+        .footer-grid .brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 240px;
+            margin-top: 8px;
+        }
+
+        .footer-grid h4 {
+            color: #FFFFFF;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-grid ul li a {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            line-height: 2;
+            transition: all 0.3s;
+        }
+
+        .footer-grid ul li a:hover {
+            color: #FA4616;
+        }
+
+        .footer-grid .contact p {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer-grid .contact i {
+            color: #FA4616;
+            width: 18px;
+        }
+
+        .footer-grid .social {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-grid .social a {
+            color: rgba(255,255,255,0.4);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .footer-grid .social a:hover {
+            color: #FA4616;
+        }
+
+        .footer .bottom {
+            max-width: 1200px;
+            margin: 25px auto 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .footer .bottom .heart {
+            color: #FA4616;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .sub-category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                font-size: 10px;
+                padding: 5px 14px;
+                justify-content: center;
+                text-align: center;
+            }
+            .header {
+                padding: 10px 14px;
+                flex-direction: column;
+            }
+            .search-bar {
+                max-width: 100%;
+                width: 100%;
+            }
+            .account-cart {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav {
+                padding: 0 10px;
+            }
+            .nav ul li a {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            .trust-bar {
+                padding: 6px 14px;
+                justify-content: center;
+                gap: 4px;
+            }
+            .trust-bar .item {
+                font-size: 10px;
+            }
+            .category-hero {
+                padding: 30px 14px;
+                min-height: 200px;
+            }
+            .category-hero .content h1 {
+                font-size: 28px;
+            }
+            .category-hero .content p {
+                font-size: 14px;
+            }
+            .category-description {
+                padding: 20px 16px;
+                font-size: 13px;
+                margin: 20px 14px 0;
+            }
+            .section {
+                padding: 25px 14px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .sub-category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-grid .brand p {
+                max-width: 100%;
+            }
+            .footer-grid .social {
+                justify-content: center;
+            }
+            .newsletter {
+                padding: 25px 14px;
+            }
+            .newsletter h2 {
+                font-size: 22px;
+            }
+            .section-header h2 {
+                font-size: 20px;
+            }
+            .faq-section {
+                padding: 20px 14px;
+            }
+            .trust-badges {
+                padding: 20px 14px;
+                gap: 12px;
+            }
+            .trust-badges .item .number {
+                font-size: 22px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .logo-text {
+                font-size: 18px;
+            }
+            .logo-sub {
+                font-size: 8px;
+                letter-spacing: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .sub-category-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .product-card .info .name {
+                font-size: 13px;
+            }
+            .product-card .info .price {
+                font-size: 16px;
+            }
+            .product-card .info .btn-add {
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+            .category-hero .content h1 {
+                font-size: 22px;
+            }
+            .category-hero .content p {
+                font-size: 13px;
+            }
+            .trust-bar .item {
+                font-size: 9px;
+            }
+            .pagination a {
+                padding: 6px 10px;
+                font-size: 12px;
+                min-width: 32px;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .logo-text {
+                font-size: 16px;
+            }
+            .logo-sub {
+                font-size: 7px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    <div>
+        <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
+    </div>
+    <div>
+        <a href="#">Log In</a>
+        <a href="#">Register</a>
+    </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">TE</div>
+        <div>
+            <div class="logo-text">
+                <span class="purple">✦</span> 
+                True<span class="purple">Essence</span>
+                <span class="orange">✦</span>
+            </div>
+            <div class="logo-sub">Wellness</div>
+        </div>
+    </a>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search 500+ products..."/>
+        <button><i class="fa-light fa-search"></i></button>
+    </div>
+
+    <div class="account-cart">
+        <a href="#"><i class="fa-light fa-user"></i> Account</a>
+        <a href="#" class="cart-icon">
+            <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+            <span class="badge">0</span>
+        </a>
+    </div>
+</header>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+    <ul>
+        <li><a href="sex-toys.html">Sex Toys</a></li>
+        <li><a href="for-vulvas.html">For Vulvas</a></li>
+        <li><a href="for-penises.html">For Penises</a></li>
+        <li><a href="for-couples.html">For Couples</a></li>
+        <li><a href="vibrators.html">Vibrators</a></li>
+        <li><a href="dildos.html">Dildos</a></li>
+        <li><a href="anal-toys.html">Anal Toys</a></li>
+        <li><a href="lingerie.html">Lingerie</a></li>
+        <li><a href="bdsm.html">BDSM</a></li>
+        <li><a href="lubes-essentials.html" class="active">Lubes & Essentials</a></li>
+        <li><a href="#">Brands</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Gift Cards</a></li>
+    </ul>
+</nav>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+    <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
+    <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
+    <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
+    <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
+</div>
+
+<!-- ===== HERO BANNER ===== -->
+<section class="category-hero">
+    <div class="content">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">›</span>
+            <span style="color:rgba(255,255,255,0.8);">Lubes & Essentials</span>
+        </div>
+        <h1>Lubes & <span>Essentials</span></h1>
+        <p>Introducing our range of sexual essentials: lubricants, condoms, and toy cleaners. Our premium lubricants are designed to enhance comfort and pleasure during solo play, partnered sex or toy time.</p>
+    </div>
+</section>
+
+<!-- ===== CATEGORY DESCRIPTION ===== -->
+<div class="category-description">
+    <p>Water-based lubricant is safe with all sex toy materials and is a must-have in your toy collection. If you want a more silky and luxurious feeling, silicone lube is bound to please.</p>
+    <p>Safe sex is great sex, that's why we stock a huge range of condoms! Did you know condoms aren't a one-size-fits-all? While the average condom will fit many, there are also smaller and larger condoms to ensure a safe and comfortable fit.</p>
+</div>
+
+<!-- ===== TOP SUB-CATEGORIES ===== -->
+<section class="section" style="padding-top:20px;">
+    <div class="section-header">
+        <div>
+            <h2>Top Lubes & Essential Categories</h2>
+            <span class="sub">Explore our most popular lubes and essential sub-categories</span>
+        </div>
+    </div>
+
+    <div class="sub-category-grid">
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-circle"></i></span>
+            <div class="name">All Condoms</div>
+            <div class="count">60+ products</div>
+        </a>
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-droplet"></i></span>
+            <div class="name">All Lubricant</div>
+            <div class="count">80+ products</div>
+        </a>
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-water"></i></span>
+            <div class="name">Water-based Lubricant</div>
+            <div class="count">45+ products</div>
+        </a>
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-spray-can"></i></span>
+            <div class="name">Sex Toy Cleaner</div>
+            <div class="count">20+ products</div>
+        </a>
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-arrow-right"></i></span>
+            <div class="name">Anal Lubricant</div>
+            <div class="count">25+ products</div>
+        </a>
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-box"></i></span>
+            <div class="name">Toy Storage</div>
+            <div class="count">30+ products</div>
+        </a>
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-heart"></i></span>
+            <div class="name">Romance</div>
+            <div class="count">15+ products</div>
+        </a>
+        <a href="#" class="sub-category-card">
+            <span class="icon"><i class="fa-light fa-venus-mars"></i></span>
+            <div class="name">Gender Affirming</div>
+            <div class="count">10+ products</div>
+        </a>
+    </div>
+
+    <div class="show-all-link">
+        <a href="#">Show all Lubes & Essential Categories <i class="fa-light fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- ===== TOP PRODUCTS ===== -->
+<section class="section" style="padding-top:0;">
+    <div class="section-header">
+        <div>
+            <h2>Top Lubes & Essential Products</h2>
+            <span class="sub">Our most popular and best-selling lubes and essentials</span>
+        </div>
+        <a href="#">View All →</a>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge deal">3 for $50</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Share Satisfaction</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(48)</span>
+                </div>
+                <div class="name"><a href="#">Share Satisfaction Water Based Lubricant - 120ml</a></div>
+                <div class="price-row">
+                    <span class="price">$29.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge deal">3 for $50</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Share Satisfaction</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(127)</span>
+                </div>
+                <div class="name"><a href="#">Share Satisfaction Foaming Toy Cleaner</a></div>
+                <div class="price-row">
+                    <span class="price">$29.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge sale">SALE</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Share Satisfaction</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(6)</span>
+                </div>
+                <div class="name"><a href="#">Share Satisfaction Anal Hybrid Lubricant</a></div>
+                <div class="price-row">
+                    <span class="price"><span class="was">$4.95</span> $0.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge sale">SALE</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Share Satisfaction</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(16)</span>
+                </div>
+                <div class="name"><a href="#">Share Satisfaction Water Based Lubricant</a></div>
+                <div class="price-row">
+                    <span class="price"><span class="was">$2.95</span> $0.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge deal">3 for $50</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Share Satisfaction</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(57)</span>
+                </div>
+                <div class="name"><a href="#">Share Satisfaction Small Luxury Satin Bag</a></div>
+                <div class="price-row">
+                    <span class="price">$19.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge sale">SALE</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Wet Stuff</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(482)</span>
+                </div>
+                <div class="name"><a href="#">Wet Stuff Gold 100ml</a></div>
+                <div class="price-row">
+                    <span class="price"><span class="was">$24.95</span> $19.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge sale">SALE</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Chocolust</div>
+                <div class="rating">
+                    <span class="stars">★★★☆☆</span>
+                    <span class="count">(14)</span>
+                </div>
+                <div class="name"><a href="#">Chocolust Bar</a></div>
+                <div class="price-row">
+                    <span class="price">$7.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge sale">SALE</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Wet Stuff</div>
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="count">(13)</span>
+                </div>
+                <div class="name"><a href="#">Wet Stuff 4g - Peppermint</a></div>
+                <div class="price-row">
+                    <span class="price"><span class="was">$1.95</span> $0.45</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge deal">3 for $50</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Share Satisfaction</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(8)</span>
+                </div>
+                <div class="name"><a href="#">Share Satisfaction Ultra Thin Condoms - 12 Pack</a></div>
+                <div class="price-row">
+                    <span class="price">$18.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product-card">
+            <div class="image" style="background:#F5EDF2;">
+                <span class="badge sale">SALE</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="brand">Wet Stuff</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="count">(100)</span>
+                </div>
+                <div class="name"><a href="#">Wet Stuff Plus 270g Disc</a></div>
+                <div class="price-row">
+                    <span class="price"><span class="was">$29.95</span> $19.95</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PAGINATION ===== -->
+    <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <span class="dots">…</span>
+        <a href="#">29</a>
+        <a href="#"><i class="fa-light fa-chevron-right"></i></a>
+    </div>
+</section>
+
+<!-- ===== FAQ SECTION ===== -->
+<section class="section" style="padding-top:0;">
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="question">
+                What are lubricants and sex toy essentials?
+                <span class="icon"><i class="fa-light fa-plus"></i></span>
+            </div>
+            <div class="answer">
+                Lubricants and essentials are key components in enhancing intimate experiences. Lubricants provide smoothness and reduce friction, making intimate moments more comfortable and enjoyable. They come in various types, including water-based, silicone-based, and oil-based, catering to different preferences and needs. Essentials, such as condoms, are crucial for safe practices, preventing unwanted pregnancies and protecting against sexually transmitted infections. Additionally, toy cleaners maintain hygiene for intimate accessories, ensuring a safe and clean environment. Together, lubricants and essentials contribute to a pleasurable, safe, and worry-free exploration of intimacy.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">
+                What types of lubricants and sex toy essentials are there?
+                <span class="icon"><i class="fa-light fa-plus"></i></span>
+            </div>
+            <div class="answer">
+                Water-based lubricants are versatile, easy to clean, and compatible with most sex toys and condoms. Silicone-based lubricants offer a longer-lasting glide, making them ideal for extended sessions. Oil-based lubricants, though less common, can be suitable for specific activities. As for sex toy essentials, condoms are crucial for protection, preventing both unwanted pregnancies and sexually transmitted infections. Toy cleaners ensure hygiene and longevity of intimate accessories, creating a safe and clean environment. Whether it's exploring different sensations with lubricants or maintaining a safe play environment with essentials, the variety available allows individuals and couples to customize their intimate experiences according to their desires.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">
+                What makes a good first time lubricant?
+                <span class="icon"><i class="fa-light fa-plus"></i></span>
+            </div>
+            <div class="answer">
+                A good first-time lubricant is all about comfort and ease. Opt for a water-based lubricant, as it's versatile, compatible with most sex toys and condoms, and easy to clean. Look for a formula that is free from irritants and fragrances to minimize the risk of irritation. Choosing a lube with a pump or easy-to-use dispenser ensures a mess-free application. Consider a small, travel-sized bottle for convenience and to explore different options without committing to a large quantity. Prioritizing a lube that enhances pleasure and reduces friction, while being easy to use and clean, sets the stage for a positive and enjoyable first-time experience.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TRUST BADGES ===== -->
+<section class="section" style="padding-top:0;">
+    <div class="trust-badges">
+        <div class="item">
+            <div class="number">4.9 / 5</div>
+            <div class="label">Google Reviews</div>
+            <div class="sub-label">7,000+ reviews</div>
+        </div>
+        <div class="item">
+            <div class="number">97%</div>
+            <div class="label">On-time Delivery</div>
+            <div class="sub-label">Average delivery: Next Day</div>
+        </div>
+        <div class="item">
+            <div class="number">Under 1 Hour</div>
+            <div class="label">Queries Resolved</div>
+            <div class="sub-label">Customer support response time</div>
+        </div>
+        <div class="item">
+            <div class="number">★</div>
+            <div class="label">Most Trusted</div>
+            <div class="sub-label">Adult Provider</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BLOG SECTION ===== -->
+<section class="section" style="padding-top:0;">
+    <div class="section-header">
+        <div>
+            <h2>From The Essence</h2>
+            <span class="sub">Guides, reviews, and expert advice</span>
+        </div>
+        <a href="#">Visit the hub →</a>
+    </div>
+
+    <div class="blog-grid">
+        <div class="blog-card">
+            <div class="image">[Image]</div>
+            <div class="info">
+                <span class="category">Product Range</span>
+                <h4>7 Best Anal Lubricants</h4>
+                <p>When it comes to anal sex, using a lubricant is essential for comfort and pleasure. The anus is not self-lubricating, which means inserting fingers, toys, or a penis can be uncomfortable without the use of lube.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <div class="image">[Image]</div>
+            <div class="info">
+                <span class="category">Guide</span>
+                <h4>Ultimate Guide to Toy Cleaners</h4>
+                <p>Whether you are playing with a partner or enjoying some solo time, ensuring your sex toys are properly cleaned before and after use is essential for safe and healthy play.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <div class="image">[Image]</div>
+            <div class="info">
+                <span class="category">Podcast</span>
+                <h4>Sexual Pain & Pelvic Floor Health</h4>
+                <p>Listen to our very own podcast featuring sex educator Emma Hewitt and Caitlin Fris as we talk sexual pain and pelvic floor health.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+    <h2>Subscribe & get 10% off</h2>
+    <p>Valid during August. T&C's apply.</p>
+    <form>
+        <input type="email" placeholder="Email address..."/>
+        <button>Subscribe</button>
+    </form>
+    <div class="small">No spam. Unsubscribe anytime.</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="brand">
+            <h3>TRUE<span>ESSENCE</span></h3>
+            <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+        </div>
+        <div>
+            <h4>Help & Information</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Accounts & Loyalty</a></li>
+                <li><a href="#">Payment Info</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Shipping</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Discover More</h4>
+            <ul>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Partner with Us</a></li>
+                <li><a href="#">The Essence Blog</a></li>
+                <li><a href="#">Student Discount</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <h4>Customer Service</h4>
+            <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
+            <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
+            <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
+            <p><i class="fa-light fa-comment"></i> Live Chat</p>
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+    </div>
+</footer>
+
+</body>
+</html>

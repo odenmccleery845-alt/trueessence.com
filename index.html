@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TrueEssence – Premium Sexual Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ============================================================ */
+        /* RESET & BASE */
+        /* ============================================================ */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            font-size: 14px;
+            color: #2E1033;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: #FAF6F8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #FA4616;
+        }
+
+        ::selection {
+            background: #E6D2EA;
+            color: #2E1033;
+        }
+
+        /* ============================================================ */
+        /* CSS VARIABLES */
+        /* ============================================================ */
+        :root {
+            --atms-purple: #6A2C99;
+            --atms-purple-deep: #55217A;
+            --atms-ink: #2E1033;
+            --atms-orchid: #B89BBE;
+            --atms-lavender: #E6D2EA;
+            --atms-lilac-mist: #F3E8F4;
+            --atms-blush: #FAF6F8;
+            --atms-orange: #FA4616;
+            --atms-orange-bright: #FB6B42;
+            --atms-peach: #FFB59F;
+            --atms-peach-mist: #FBE8E2;
+            --atms-flame: #C5462B;
+            --atms-jade: #1C8C6A;
+            --atms-jade-mist: #E4F2EC;
+            --atms-berry: #C22B3D;
+            --atms-berry-mist: #F9E7EA;
+            --atms-color-action: var(--atms-orange);
+            --atms-color-action-hover: var(--atms-orange-bright);
+            --atms-color-action-active: var(--atms-flame);
+            --atms-color-link: var(--atms-flame);
+            --atms-color-link-hover: var(--atms-orange);
+            --atms-color-brand: var(--atms-purple);
+            --atms-text: var(--atms-ink);
+            --atms-text-muted: #7A6F7E;
+            --atms-text-invert: #FFFFFF;
+            --atms-bg-page: var(--atms-blush);
+            --atms-bg-panel: #F5EDF2;
+            --atms-bg-card: #FFFFFF;
+            --atms-border: #E9E1EC;
+            --atms-border-strong: #D3C0D8;
+            --atms-purple-divider: #5C3F73;
+            --atms-purple-text-muted: #CDBADB;
+            --atms-font-sans: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            --atms-text-xs: 12px;
+            --atms-text-sm: 13px;
+            --atms-text-base: 15px;
+            --atms-text-md: 17px;
+            --atms-text-lg: 20px;
+            --atms-text-xl: 24px;
+            --atms-text-2xl: 30px;
+            --atms-text-3xl: 38px;
+            --atms-text-4xl: 48px;
+            --atms-leading-tight: 1.15;
+            --atms-leading-snug: 1.3;
+            --atms-leading-body: 1.5;
+            --atms-weight-regular: 400;
+            --atms-weight-medium: 500;
+            --atms-weight-bold: 700;
+            --atms-weight-extrabold: 800;
+            --atms-weight-black: 900;
+        }
+
+        /* ============================================================ */
+        /* TOP BAR */
+        /* ============================================================ */
+        .top-bar {
+            background: #55217A;
+            color: rgba(255,255,255,0.8);
+            padding: 6px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.7);
+            margin-left: 14px;
+            font-size: 12px;
+        }
+
+        .top-bar a:hover {
+            color: #FA4616;
+        }
+
+        .top-bar .highlight {
+            color: #FA4616;
+            font-weight: 600;
+        }
+
+        /* ============================================================ */
+        /* HEADER */
+        /* ============================================================ */
+        .header {
+            background: #FFFFFF;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #E9E1EC;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: 'DM Sans', Arial, sans-serif;
+            border: 2px solid #FA4616;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2E1033;
+            line-height: 1;
+            font-family: 'DM Sans', Arial, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .logo-text .purple {
+            color: #6A2C99;
+        }
+
+        .logo-text .orange {
+            color: #FA4616;
+        }
+
+        .logo-sub {
+            font-size: 9px;
+            font-weight: 600;
+            color: #FA4616;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 460px;
+            display: flex;
+            border: 1px solid #E9E1EC;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #FAF6F8;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 9px 18px;
+            font-size: 13px;
+            background: transparent;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .search-bar button {
+            background: #6A2C99;
+            border: none;
+            padding: 9px 18px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #55217A;
+        }
+
+        .account-cart {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .account-cart a {
+            color: #2E1033;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .account-cart a:hover {
+            color: #6A2C99;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #FA4616;
+            color: #FFFFFF;
+            border-radius: 50%;
+            padding: 1px 7px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* ============================================================ */
+        /* NAVIGATION - NEW TABS FROM ADULTTOYMEGASTORE */
+        /* ============================================================ */
+        .nav {
+            background: #6A2C99;
+            padding: 0 30px;
+            border-bottom: 3px solid #FA4616;
+            overflow-x: auto;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav ul li a {
+            display: block;
+            padding: 12px 16px;
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav ul li a:hover {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        .nav ul li a.active {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* TRUST BAR */
+        /* ============================================================ */
+        .trust-bar {
+            background: #6A2C99;
+            padding: 8px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .trust-bar .item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+
+        .trust-bar .item i {
+            color: #FA4616;
+            font-size: 14px;
+        }
+
+        /* ============================================================ */
+        /* HERO BANNER */
+        /* ============================================================ */
+        .hero {
+            background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
+            padding: 45px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .hero .content {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .hero .content .tag {
+            color: #FA4616;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero .content h1 {
+            color: #FFFFFF;
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 10px 0 16px;
+        }
+
+        .hero .content h1 span {
+            color: #FA4616;
+        }
+
+        .hero .content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            max-width: 480px;
+        }
+
+        .hero .content .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero .content .btn-primary {
+            background: #FA4616;
+            color: #FFFFFF;
+            padding: 13px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .hero .content .btn-primary:hover {
+            background: #FB6B42;
+            transform: translateY(-2px);
+        }
+
+        .hero .content .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 13px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 2px solid rgba(255,255,255,0.25);
+            display: inline-block;
+        }
+
+        .hero .content .btn-secondary:hover {
+            border-color: #FA4616;
+            color: #FA4616;
+        }
+
+        .hero .image {
+            flex: 1;
+            min-width: 240px;
+            text-align: center;
+        }
+
+        .hero .image .box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 14px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .hero .image .box .icons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero .image .box .icons .badge-box {
+            background: rgba(250,70,22,0.12);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(250,70,22,0.15);
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+
+        .hero .image .box .icons .badge-box span {
+            display: block;
+            font-size: 20px;
+            color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* LIMITED TIME BANNER */
+        /* ============================================================ */
+        .limited-time {
+            background: #FA4616;
+            padding: 12px 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .limited-time .label {
+            background: #55217A;
+            color: #FA4616;
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .limited-time .title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .limited-time .btn {
+            background: #55217A;
+            color: #FFFFFF;
+            padding: 7px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .limited-time .btn:hover {
+            background: #3A1555;
+            color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* SECTION */
+        /* ============================================================ */
+        .section {
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2E1033;
+        }
+
+        .section-header .sub {
+            color: #7A6F7E;
+            font-size: 13px;
+        }
+
+        .section-header a {
+            color: #FA4616;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .section-header a:hover {
+            color: #C5462B;
+        }
+
+        /* ============================================================ */
+        /* PRODUCT GRID */
+        /* ============================================================ */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .product-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+        }
+
+        .product-card .image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #7A6F7E;
+            position: relative;
+        }
+
+        .product-card .image .badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .product-card .image .badge.best-seller {
+            background: #FA4616;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.top-rated {
+            background: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.new {
+            background: #2E1033;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.popular {
+            background: #FA4616;
+            color: #FFFFFF;
+        }
+
+        .product-card .info {
+            padding: 14px;
+        }
+
+        .product-card .info .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .product-card .info .rating .stars {
+            color: #FA4616;
+            font-size: 12px;
+        }
+
+        .product-card .info .rating .count {
+            color: #7A6F7E;
+            font-size: 11px;
+        }
+
+        .product-card .info .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2E1033;
+            margin-bottom: 2px;
+        }
+
+        .product-card .info .desc {
+            font-size: 12px;
+            color: #7A6F7E;
+            margin-bottom: 8px;
+        }
+
+        .product-card .info .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .product-card .info .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2E1033;
+        }
+
+        .product-card .info .price .was {
+            font-size: 13px;
+            font-weight: 400;
+            color: #7A6F7E;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .product-card .info .btn-add {
+            background: #6A2C99;
+            border: none;
+            color: #FFFFFF;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .product-card .info .btn-add:hover {
+            background: #55217A;
+            transform: scale(1.05);
+        }
+
+        /* ============================================================ */
+        /* DESIRE GRID */
+        /* ============================================================ */
+        .desire-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .desire-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+            color: inherit;
+        }
+
+        .desire-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+        }
+
+        .desire-card .image {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #FFFFFF;
+        }
+
+        .desire-card .info {
+            padding: 14px;
+            text-align: center;
+        }
+
+        .desire-card .info h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2E1033;
+            margin-bottom: 2px;
+        }
+
+        .desire-card .info p {
+            font-size: 12px;
+            color: #7A6F7E;
+            margin-bottom: 3px;
+        }
+
+        .desire-card .info .count {
+            font-size: 11px;
+            color: #FA4616;
+            font-weight: 600;
+        }
+
+        /* ============================================================ */
+        /* SPOTLIGHT */
+        /* ============================================================ */
+        .spotlight {
+            background: #55217A;
+            padding: 40px 30px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .spotlight .image {
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+        }
+
+        .spotlight .image .box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 14px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.25);
+            font-size: 12px;
+        }
+
+        .spotlight .content {
+            flex: 1.5;
+            min-width: 260px;
+        }
+
+        .spotlight .content .tag {
+            color: #FA4616;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .spotlight .content h2 {
+            color: #FFFFFF;
+            font-size: 30px;
+            font-weight: 800;
+            margin: 6px 0 10px;
+        }
+
+        .spotlight .content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            max-width: 460px;
+        }
+
+        .spotlight .content .price {
+            color: #FA4616;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .spotlight .content .btn {
+            display: inline-block;
+            background: #FA4616;
+            color: #FFFFFF;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 12px;
+            transition: all 0.3s;
+        }
+
+        .spotlight .content .btn:hover {
+            background: #FB6B42;
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================ */
+        /* FREE GIFT */
+        /* ============================================================ */
+        .free-gift {
+            background: #FA4616;
+            padding: 16px 30px;
+            text-align: center;
+        }
+
+        .free-gift .title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .free-gift .sub {
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .free-gift .code {
+            background: #55217A;
+            color: #FA4616;
+            padding: 3px 18px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            margin: 4px 0 6px;
+        }
+
+        .free-gift .btn {
+            background: #55217A;
+            color: #FFFFFF;
+            padding: 8px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .free-gift .btn:hover {
+            background: #3A1555;
+            color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* BLOG GRID */
+        /* ============================================================ */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .blog-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+        }
+
+        .blog-card .image {
+            height: 100px;
+            background: #6A2C99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.2);
+            font-size: 11px;
+        }
+
+        .blog-card .info {
+            padding: 14px;
+        }
+
+        .blog-card .info .category {
+            font-size: 10px;
+            font-weight: 600;
+            color: #FA4616;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .blog-card .info .date {
+            font-size: 10px;
+            color: #7A6F7E;
+            margin-left: 6px;
+        }
+
+        .blog-card .info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2E1033;
+            margin: 4px 0 3px;
+            line-height: 1.3;
+        }
+
+        .blog-card .info p {
+            font-size: 12px;
+            color: #7A6F7E;
+            line-height: 1.5;
+        }
+
+        /* ============================================================ */
+        /* TESTIMONIAL */
+        /* ============================================================ */
+        .testimonial {
+            background: #F5EDF2;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #E9E1EC;
+            border-bottom: 1px solid #E9E1EC;
+        }
+
+        .testimonial .rating {
+            color: #FA4616;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .testimonial .text {
+            font-size: 20px;
+            font-weight: 500;
+            color: #2E1033;
+            max-width: 680px;
+            margin: 0 auto 6px;
+            line-height: 1.5;
+        }
+
+        .testimonial .author {
+            font-size: 13px;
+            color: #7A6F7E;
+        }
+
+        /* ============================================================ */
+        /* NEWSLETTER */
+        /* ============================================================ */
+        .newsletter {
+            background: #6A2C99;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            color: #FFFFFF;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin: 6px 0 16px;
+        }
+
+        .newsletter form {
+            display: flex;
+            gap: 10px;
+            max-width: 420px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: #FFFFFF;
+            font-size: 13px;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .newsletter form input::placeholder {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .newsletter form button {
+            background: #FA4616;
+            border: none;
+            color: #FFFFFF;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter form button:hover {
+            background: #FB6B42;
+            transform: scale(1.02);
+        }
+
+        .newsletter .small {
+            color: rgba(255,255,255,0.25);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        /* ============================================================ */
+        /* FOOTER */
+        /* ============================================================ */
+        .footer {
+            background: #2E1033;
+            color: rgba(255,255,255,0.7);
+            padding: 40px 30px 16px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+        }
+
+        .footer-grid .brand h3 {
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-grid .brand h3 span {
+            color: #FA4616;
+        }
+
+        .footer-grid .brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 240px;
+            margin-top: 8px;
+        }
+
+        .footer-grid h4 {
+            color: #FFFFFF;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-grid ul li a {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            line-height: 2;
+            transition: all 0.3s;
+        }
+
+        .footer-grid ul li a:hover {
+            color: #FA4616;
+        }
+
+        .footer-grid .contact p {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer-grid .contact i {
+            color: #FA4616;
+            width: 18px;
+        }
+
+        .footer-grid .social {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-grid .social a {
+            color: rgba(255,255,255,0.4);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .footer-grid .social a:hover {
+            color: #FA4616;
+        }
+
+        .footer .bottom {
+            max-width: 1200px;
+            margin: 25px auto 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .footer .bottom .heart {
+            color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* RESPONSIVE */
+        /* ============================================================ */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .desire-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                font-size: 10px;
+                padding: 5px 14px;
+                justify-content: center;
+                text-align: center;
+            }
+            .header {
+                padding: 10px 14px;
+                flex-direction: column;
+            }
+            .search-bar {
+                max-width: 100%;
+                width: 100%;
+            }
+            .account-cart {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav {
+                padding: 0 10px;
+            }
+            .nav ul li a {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            .trust-bar {
+                padding: 6px 14px;
+                justify-content: center;
+                gap: 4px;
+            }
+            .trust-bar .item {
+                font-size: 10px;
+            }
+            .hero {
+                padding: 25px 14px;
+                text-align: center;
+            }
+            .hero .content h1 {
+                font-size: 28px;
+            }
+            .hero .content .btn-group {
+                justify-content: center;
+            }
+            .hero .content p {
+                max-width: 100%;
+            }
+            .section {
+                padding: 25px 14px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .desire-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-grid .brand p {
+                max-width: 100%;
+            }
+            .footer-grid .social {
+                justify-content: center;
+            }
+            .spotlight {
+                padding: 25px 14px;
+                text-align: center;
+            }
+            .spotlight .content p {
+                max-width: 100%;
+            }
+            .limited-time {
+                padding: 10px 14px;
+            }
+            .limited-time .title {
+                font-size: 14px;
+            }
+            .free-gift {
+                padding: 12px 14px;
+            }
+            .newsletter {
+                padding: 25px 14px;
+            }
+            .newsletter h2 {
+                font-size: 22px;
+            }
+            .testimonial .text {
+                font-size: 17px;
+            }
+            .section-header h2 {
+                font-size: 22px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .logo-text {
+                font-size: 18px;
+            }
+            .logo-sub {
+                font-size: 8px;
+                letter-spacing: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .desire-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .product-card .info .name {
+                font-size: 13px;
+            }
+            .product-card .info .price {
+                font-size: 16px;
+            }
+            .product-card .info .btn-add {
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+            .hero .content h1 {
+                font-size: 24px;
+            }
+            .hero .content p {
+                font-size: 14px;
+            }
+            .trust-bar .item {
+                font-size: 9px;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .logo-text {
+                font-size: 16px;
+            }
+            .logo-sub {
+                font-size: 7px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- TOP BAR -->
+<!-- ============================================================ -->
+<div class="top-bar">
+    <div>
+        <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
+    </div>
+    <div>
+        <a href="#">Log In</a>
+        <a href="#">Register</a>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HEADER -->
+<!-- ============================================================ -->
+<header class="header">
+    <a href="/" class="logo-wrapper">
+        <div class="logo-icon">TE</div>
+        <div>
+            <div class="logo-text">
+                <span class="purple">✦</span> 
+                True<span class="purple">Essence</span>
+                <span class="orange">✦</span>
+            </div>
+            <div class="logo-sub">Wellness</div>
+        </div>
+    </a>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search 500+ products..."/>
+        <button><i class="fa-light fa-search"></i></button>
+    </div>
+
+    <div class="account-cart">
+        <a href="#"><i class="fa-light fa-user"></i> Account</a>
+        <a href="#" class="cart-icon">
+            <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+            <span class="badge">0</span>
+        </a>
+    </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- NAVIGATION - NEW TABS (Exactly as you requested) -->
+<!-- ============================================================ -->
+<nav class="nav">
+    <ul>
+        <li><a href="#" class="active">Sex Toys</a></li>
+        <li><a href="#">For Vulvas</a></li>
+        <li><a href="#">For Penises</a></li>
+        <li><a href="#">For Couples</a></li>
+        <li><a href="#">Vibrators</a></li>
+        <li><a href="#">Dildos</a></li>
+        <li><a href="#">Anal Toys</a></li>
+        <li><a href="#">Lingerie</a></li>
+        <li><a href="#">BDSM</a></li>
+        <li><a href="#">Lubes & Essentials</a></li>
+        <li><a href="#">Brands</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Gift Cards</a></li>
+    </ul>
+</nav>
+
+<!-- ============================================================ -->
+<!-- TRUST BAR -->
+<!-- ============================================================ -->
+<div class="trust-bar">
+    <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
+    <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
+    <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
+    <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HERO BANNER -->
+<!-- ============================================================ -->
+<section class="hero">
+    <div class="content">
+        <div class="tag">Welcome to TrueEssence</div>
+        <h1>Discover Your<br/><span>True Essence</span></h1>
+        <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+        <div class="btn-group">
+            <a href="#" class="btn-primary">Shop Now</a>
+            <a href="#" class="btn-secondary">Learn More</a>
+        </div>
+    </div>
+    <div class="image">
+        <div class="box">
+            <span style="color:rgba(255,255,255,0.2);font-size:12px;letter-spacing:1px;">[ PRODUCT IMAGE ]</span>
+            <div class="icons">
+                <div class="badge-box"><span>★</span>Premium Quality</div>
+                <div class="badge-box"><span>🔒</span>Discreet</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- LIMITED TIME BANNER -->
+<!-- ============================================================ -->
+<div class="limited-time">
+    <span class="label">Limited Time</span>
+    <span class="title">Pick & Mix — Build your own wellness edit from hundreds of products</span>
+    <a href="#" class="btn">Start Mixing →</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- TRENDING / BEST SELLERS -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div>
+            <h2>Trending</h2>
+            <span class="sub">Products the internet won't shut up about</span>
+        </div>
+        <a href="#">View All →</a>
+    </div>
+    <div class="product-grid">
+        <!-- Product 1: Titan Gel -->
+        <div class="product-card">
+            <div class="image" style="background:#6A2C99;">
+                <span class="badge best-seller">BEST SELLER</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="rating"><span class="stars">★★★★★</span><span class="count">(128)</span></div>
+                <div class="name">Titan Gel</div>
+                <div class="desc">Male enhancement gel</div>
+                <div class="price-row">
+                    <span class="price">$49.99</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product 2: Feminine Wash -->
+        <div class="product-card">
+            <div class="image" style="background:#55217A;">
+                <span class="badge top-rated">TOP RATED</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="rating"><span class="stars">★★★★★</span><span class="count">(95)</span></div>
+                <div class="name">Feminine Wash</div>
+                <div class="desc">pH-balanced cleansing</div>
+                <div class="price-row">
+                    <span class="price">$24.99</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product 3: Silicone Lubricant -->
+        <div class="product-card">
+            <div class="image" style="background:#FA4616;">
+                <span class="badge new">NEW</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="rating"><span class="stars">★★★★☆</span><span class="count">(42)</span></div>
+                <div class="name">Silicone Lubricant</div>
+                <div class="desc">Long-lasting, silky</div>
+                <div class="price-row">
+                    <span class="price">$19.99</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product 4: Intimate Wipes -->
+        <div class="product-card">
+            <div class="image" style="background:#B89BBE;">
+                <span class="badge popular">POPULAR</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="rating"><span class="stars">★★★★★</span><span class="count">(67)</span></div>
+                <div class="name">Intimate Wipes</div>
+                <div class="desc">On-the-go freshness</div>
+                <div class="price-row">
+                    <span class="price">$12.99</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+        <!-- Product 5: Vitality Supplements -->
+        <div class="product-card">
+            <div class="image" style="background:#2E1033;">
+                <span class="badge best-seller">BEST SELLER</span>
+                [Image]
+            </div>
+            <div class="info">
+                <div class="rating"><span class="stars">★★★★★</span><span class="count">(53)</span></div>
+                <div class="name">Vitality Supplements</div>
+                <div class="desc">Natural energy</div>
+                <div class="price-row">
+                    <span class="price">$34.99</span>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BY DESIRE -->
+<!-- ============================================================ -->
+<section class="section" style="padding-top:0;">
+    <div class="section-header">
+        <div>
+            <h2>By Desire</h2>
+            <span class="sub">What are you in the mood for?</span>
+        </div>
+    </div>
+    <div class="desire-grid">
+        <a href="#" class="desire-card">
+            <div class="image" style="background:#6A2C99;"><i class="fa-light fa-person"></i></div>
+            <div class="info">
+                <h3>For Men</h3>
+                <p>Enhancement & Vitality</p>
+                <span class="count">45+ products</span>
+            </div>
+        </a>
+        <a href="#" class="desire-card">
+            <div class="image" style="background:#55217A;"><i class="fa-light fa-person-dress"></i></div>
+            <div class="info">
+                <h3>For Women</h3>
+                <p>Care & Freshness</p>
+                <span class="count">35+ products</span>
+            </div>
+        </a>
+        <a href="#" class="desire-card">
+            <div class="image" style="background:#FA4616;"><i class="fa-light fa-droplet"></i></div>
+            <div class="info">
+                <h3>Lubricants</h3>
+                <p>Smooth & Sensual</p>
+                <span class="count">25+ products</span>
+            </div>
+        </a>
+        <a href="#" class="desire-card">
+            <div class="image" style="background:#B89BBE;"><i class="fa-light fa-leaf"></i></div>
+            <div class="info">
+                <h3>Wellness</h3>
+                <p>Natural Health</p>
+                <span class="count">30+ products</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SPOTLIGHT -->
+<!-- ============================================================ -->
+<section class="spotlight">
+    <div class="image">
+        <div class="box">[ SPOTLIGHT IMAGE ]</div>
+    </div>
+    <div class="content">
+        <div class="tag">Product Spotlight</div>
+        <h2>The Gold Standard</h2>
+        <p>It looks like a premium wellness product. It very much is. Quiet, easy to use, and discreet enough to leave out on the nightstand.</p>
+        <div class="price">$69.95</div>
+        <a href="#" class="btn">Take Me Home</a>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FREE GIFT -->
+<!-- ============================================================ -->
+<div class="free-gift">
+    <div class="title">🎁 Free Gift With Every Order</div>
+    <div class="sub">Everyone deserves a plus-one that always shows up. Use code</div>
+    <div class="code">FREEGIFT25</div>
+    <a href="#" class="btn">Claim Yours</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- BLOG / THE ESSENCE -->
+<!-- ============================================================ -->
+<section class="section">
+    <div class="section-header">
+        <div>
+            <h2>The Essence</h2>
+            <span class="sub">No-judgement guides, honest reviews & expert advice</span>
+        </div>
+        <a href="#">Visit hub →</a>
+    </div>
+    <div class="blog-grid">
+        <div class="blog-card">
+            <div class="image">[Image]</div>
+            <div class="info">
+                <span class="category">Wellness Guide</span><span class="date">· 7 Aug</span>
+                <h4>Beginner's Guide to Sexual Wellness</h4>
+                <p>Everything you need to know about starting your wellness journey...</p>
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="image">[Image]</div>
+            <div class="info">
+                <span class="category">Sexual Health</span><span class="date">· 7 Aug</span>
+                <h4>How to Choose the Right Products</h4>
+                <p>Finding the perfect products for your unique needs...</p>
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="image">[Image]</div>
+            <div class="info">
+                <span class="category">Sex Tips</span><span class="date">· 21 Jul</span>
+                <h4>5 Ways to Enhance Intimacy</h4>
+                <p>Simple, effective tips to deepen your connection...</p>
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="image">[Image]</div>
+            <div class="info">
+                <span class="category">Sex Toy Guides</span><span class="date">· 12 Jul</span>
+                <h4>Understanding Your True Essence</h4>
+                <p>A guide to self-discovery and embracing your unique desires...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TESTIMONIAL -->
+<!-- ============================================================ -->
+<div class="testimonial">
+    <div class="rating">★★★★★</div>
+    <div class="text">"Incredibly fast. Website's easy to navigate. Love it!! So much fun!!"</div>
+    <div class="author">Amber · Verified Buyer</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- NEWSLETTER -->
+<!-- ============================================================ -->
+<section class="newsletter">
+    <h2>Subscribe & get 10% off</h2>
+    <p>Valid during August. T&C's apply.</p>
+    <form>
+        <input type="email" placeholder="Email address..."/>
+        <button>Subscribe</button>
+    </form>
+    <div class="small">No spam. Unsubscribe anytime.</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="brand">
+            <h3>TRUE<span>ESSENCE</span></h3>
+            <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+        </div>
+        <div>
+            <h4>Help & Information</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Accounts & Loyalty</a></li>
+                <li><a href="#">Payment Info</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Shipping</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Discover More</h4>
+            <ul>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Partner with Us</a></li>
+                <li><a href="#">The Essence Blog</a></li>
+                <li><a href="#">Student Discount</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <h4>Customer Service</h4>
+            <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
+            <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
+            <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
+            <p><i class="fa-light fa-comment"></i> Live Chat</p>
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+    </div>
+</footer>
+
+</body>
+</html>

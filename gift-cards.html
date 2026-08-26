@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gift Cards – TrueEssence Premium Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            font-size: 14px;
+            color: #2E1033;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: #FAF6F8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #FA4616;
+        }
+
+        ::selection {
+            background: #E6D2EA;
+            color: #2E1033;
+        }
+
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --atms-purple: #6A2C99;
+            --atms-purple-deep: #55217A;
+            --atms-ink: #2E1033;
+            --atms-orchid: #B89BBE;
+            --atms-lavender: #E6D2EA;
+            --atms-lilac-mist: #F3E8F4;
+            --atms-blush: #FAF6F8;
+            --atms-orange: #FA4616;
+            --atms-orange-bright: #FB6B42;
+            --atms-peach: #FFB59F;
+            --atms-peach-mist: #FBE8E2;
+            --atms-flame: #C5462B;
+            --atms-jade: #1C8C6A;
+            --atms-jade-mist: #E4F2EC;
+            --atms-berry: #C22B3D;
+            --atms-berry-mist: #F9E7EA;
+            --atms-color-action: var(--atms-orange);
+            --atms-color-action-hover: var(--atms-orange-bright);
+            --atms-color-action-active: var(--atms-flame);
+            --atms-color-link: var(--atms-flame);
+            --atms-color-link-hover: var(--atms-orange);
+            --atms-color-brand: var(--atms-purple);
+            --atms-text: var(--atms-ink);
+            --atms-text-muted: #7A6F7E;
+            --atms-text-invert: #FFFFFF;
+            --atms-bg-page: var(--atms-blush);
+            --atms-bg-panel: #F5EDF2;
+            --atms-bg-card: #FFFFFF;
+            --atms-border: #E9E1EC;
+            --atms-border-strong: #D3C0D8;
+            --atms-purple-divider: #5C3F73;
+            --atms-purple-text-muted: #CDBADB;
+            --atms-font-sans: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            --atms-text-xs: 12px;
+            --atms-text-sm: 13px;
+            --atms-text-base: 15px;
+            --atms-text-md: 17px;
+            --atms-text-lg: 20px;
+            --atms-text-xl: 24px;
+            --atms-text-2xl: 30px;
+            --atms-text-3xl: 38px;
+            --atms-text-4xl: 48px;
+            --atms-leading-tight: 1.15;
+            --atms-leading-snug: 1.3;
+            --atms-leading-body: 1.5;
+            --atms-weight-regular: 400;
+            --atms-weight-medium: 500;
+            --atms-weight-bold: 700;
+            --atms-weight-extrabold: 800;
+            --atms-weight-black: 900;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: #55217A;
+            color: rgba(255,255,255,0.8);
+            padding: 6px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .top-bar a {
+            color: rgba(255,255,255,0.7);
+            margin-left: 14px;
+            font-size: 12px;
+        }
+
+        .top-bar a:hover {
+            color: #FA4616;
+        }
+
+        .top-bar .highlight {
+            color: #FA4616;
+            font-weight: 600;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: #FFFFFF;
+            padding: 12px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #E9E1EC;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: 'DM Sans', Arial, sans-serif;
+            border: 2px solid #FA4616;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2E1033;
+            line-height: 1;
+            font-family: 'DM Sans', Arial, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .logo-text .purple {
+            color: #6A2C99;
+        }
+
+        .logo-text .orange {
+            color: #FA4616;
+        }
+
+        .logo-sub {
+            font-size: 9px;
+            font-weight: 600;
+            color: #FA4616;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 460px;
+            display: flex;
+            border: 1px solid #E9E1EC;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #FAF6F8;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 9px 18px;
+            font-size: 13px;
+            background: transparent;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .search-bar button {
+            background: #6A2C99;
+            border: none;
+            padding: 9px 18px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #55217A;
+        }
+
+        .account-cart {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .account-cart a {
+            color: #2E1033;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .account-cart a:hover {
+            color: #6A2C99;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #FA4616;
+            color: #FFFFFF;
+            border-radius: 50%;
+            padding: 1px 7px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            background: #6A2C99;
+            padding: 0 30px;
+            border-bottom: 3px solid #FA4616;
+            overflow-x: auto;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav ul li a {
+            display: block;
+            padding: 12px 16px;
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav ul li a:hover {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        .nav ul li a.active {
+            color: #FA4616;
+            border-bottom-color: #FA4616;
+        }
+
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            background: #6A2C99;
+            padding: 8px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .trust-bar .item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+
+        .trust-bar .item i {
+            color: #FA4616;
+            font-size: 14px;
+        }
+
+        /* ===== HERO BANNER ===== */
+        .category-hero {
+            background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(250,70,22,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .category-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(250,70,22,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .category-hero .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .category-hero .content .gift-icon {
+            font-size: 56px;
+            color: #FA4616;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-hero .content h1 {
+            color: #FFFFFF;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .category-hero .content h1 span {
+            color: #FA4616;
+        }
+
+        .category-hero .content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .category-hero .content .breadcrumb {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .category-hero .content .breadcrumb a {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .category-hero .content .breadcrumb a:hover {
+            color: #FA4616;
+        }
+
+        .category-hero .content .breadcrumb .sep {
+            color: rgba(255,255,255,0.3);
+            margin: 0 8px;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2E1033;
+        }
+
+        .section-header .sub {
+            color: #7A6F7E;
+            font-size: 13px;
+        }
+
+        .section-header a {
+            color: #FA4616;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .section-header a:hover {
+            color: #C5462B;
+        }
+
+        /* ===== FILTER & SORT BAR ===== */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            background: #FFFFFF;
+            border-radius: 10px;
+            border: 1px solid #E9E1EC;
+        }
+
+        .filter-bar .filter-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2E1033;
+        }
+
+        .filter-bar .filter-label i {
+            color: #6A2C99;
+            margin-right: 6px;
+        }
+
+        .filter-bar .sort-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-bar .sort-dropdown select {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #E9E1EC;
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 13px;
+            color: #2E1033;
+            background: #FAF6F8;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .filter-bar .sort-dropdown select:focus {
+            border-color: #6A2C99;
+        }
+
+        .filter-bar .product-count {
+            font-size: 13px;
+            color: #7A6F7E;
+        }
+
+        /* ===== GIFT CARD GRID ===== */
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gift-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+            text-align: center;
+            padding: 30px 20px 25px;
+        }
+
+        .gift-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(106,44,153,0.12);
+            border-color: #6A2C99;
+        }
+
+        .gift-card .icon {
+            font-size: 48px;
+            color: #6A2C99;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .gift-card .icon .fa-gift {
+            background: linear-gradient(145deg, #6A2C99, #FA4616);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gift-card .amount {
+            font-size: 32px;
+            font-weight: 800;
+            color: #2E1033;
+            margin-bottom: 4px;
+        }
+
+        .gift-card .label {
+            font-size: 14px;
+            color: #7A6F7E;
+            margin-bottom: 16px;
+        }
+
+        .gift-card .btn-buy {
+            background: #6A2C99;
+            border: none;
+            color: #FFFFFF;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .gift-card .btn-buy:hover {
+            background: #55217A;
+            transform: scale(1.02);
+        }
+
+        .gift-card .btn-buy i {
+            margin-right: 6px;
+        }
+
+        /* ===== GIFT CARD VARIATIONS ===== */
+        .gift-card.xmas {
+            border-color: #FA4616;
+        }
+
+        .gift-card.xmas .icon .fa-gift {
+            background: linear-gradient(145deg, #FA4616, #C5462B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gift-card.xmas .badge-xmas {
+            display: inline-block;
+            background: #FA4616;
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .gift-card .badge-xmas {
+            display: none;
+        }
+
+        .gift-card.xmas .badge-xmas {
+            display: inline-block;
+        }
+
+        .gift-card .rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 6px;
+        }
+
+        .gift-card .rating .stars {
+            color: #FA4616;
+            font-size: 13px;
+        }
+
+        .gift-card .rating .count {
+            color: #7A6F7E;
+            font-size: 12px;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .description-section {
+            background: #F5EDF2;
+            padding: 30px 30px 25px;
+            border-radius: 12px;
+            margin: 30px 0 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #2E1033;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .description-section p {
+            margin-bottom: 10px;
+        }
+
+        .description-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: 1px solid #E9E1EC;
+            color: #2E1033;
+            font-size: 13px;
+            font-weight: 500;
+            background: #FFFFFF;
+            transition: all 0.3s;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .pagination a:hover {
+            border-color: #6A2C99;
+            color: #6A2C99;
+        }
+
+        .pagination a.active {
+            background: #6A2C99;
+            border-color: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        .pagination a.active:hover {
+            background: #55217A;
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
+            background: #6A2C99;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            color: #FFFFFF;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .newsletter p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin: 6px 0 16px;
+        }
+
+        .newsletter form {
+            display: flex;
+            gap: 10px;
+            max-width: 420px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.06);
+            color: #FFFFFF;
+            font-size: 13px;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .newsletter form input::placeholder {
+            color: rgba(255,255,255,0.35);
+        }
+
+        .newsletter form button {
+            background: #FA4616;
+            border: none;
+            color: #FFFFFF;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter form button:hover {
+            background: #FB6B42;
+            transform: scale(1.02);
+        }
+
+        .newsletter .small {
+            color: rgba(255,255,255,0.25);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #2E1033;
+            color: rgba(255,255,255,0.7);
+            padding: 40px 30px 16px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+        }
+
+        .footer-grid .brand h3 {
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .footer-grid .brand h3 span {
+            color: #FA4616;
+        }
+
+        .footer-grid .brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 240px;
+            margin-top: 8px;
+        }
+
+        .footer-grid h4 {
+            color: #FFFFFF;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-grid ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-grid ul li a {
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            line-height: 2;
+            transition: all 0.3s;
+        }
+
+        .footer-grid ul li a:hover {
+            color: #FA4616;
+        }
+
+        .footer-grid .contact p {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer-grid .contact i {
+            color: #FA4616;
+            width: 18px;
+        }
+
+        .footer-grid .social {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-grid .social a {
+            color: rgba(255,255,255,0.4);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .footer-grid .social a:hover {
+            color: #FA4616;
+        }
+
+        .footer .bottom {
+            max-width: 1200px;
+            margin: 25px auto 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+        }
+
+        .footer .bottom .heart {
+            color: #FA4616;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .gift-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                font-size: 10px;
+                padding: 5px 14px;
+                justify-content: center;
+                text-align: center;
+            }
+            .header {
+                padding: 10px 14px;
+                flex-direction: column;
+            }
+            .search-bar {
+                max-width: 100%;
+                width: 100%;
+            }
+            .account-cart {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav {
+                padding: 0 10px;
+            }
+            .nav ul li a {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            .trust-bar {
+                padding: 6px 14px;
+                justify-content: center;
+                gap: 4px;
+            }
+            .trust-bar .item {
+                font-size: 10px;
+            }
+            .category-hero {
+                padding: 30px 14px;
+                min-height: 200px;
+            }
+            .category-hero .content h1 {
+                font-size: 28px;
+            }
+            .category-hero .content p {
+                font-size: 14px;
+            }
+            .category-hero .content .gift-icon {
+                font-size: 40px;
+            }
+            .section {
+                padding: 25px 14px;
+            }
+            .gift-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .gift-card {
+                padding: 20px 14px;
+            }
+            .gift-card .amount {
+                font-size: 26px;
+            }
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .filter-bar .sort-dropdown {
+                justify-content: space-between;
+            }
+            .filter-bar .sort-dropdown select {
+                flex: 1;
+            }
+            .description-section {
+                padding: 20px 16px;
+                font-size: 13px;
+                margin: 20px 14px 0;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-grid .brand p {
+                max-width: 100%;
+            }
+            .footer-grid .social {
+                justify-content: center;
+            }
+            .newsletter {
+                padding: 25px 14px;
+            }
+            .newsletter h2 {
+                font-size: 22px;
+            }
+            .section-header h2 {
+                font-size: 20px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .logo-text {
+                font-size: 18px;
+            }
+            .logo-sub {
+                font-size: 8px;
+                letter-spacing: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gift-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .gift-card {
+                padding: 16px 12px;
+            }
+            .gift-card .amount {
+                font-size: 22px;
+            }
+            .gift-card .icon {
+                font-size: 36px;
+            }
+            .gift-card .btn-buy {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+            .category-hero .content h1 {
+                font-size: 22px;
+            }
+            .category-hero .content p {
+                font-size: 13px;
+            }
+            .trust-bar .item {
+                font-size: 9px;
+            }
+            .pagination a {
+                padding: 6px 10px;
+                font-size: 12px;
+                min-width: 32px;
+            }
+            .filter-bar .filter-label {
+                font-size: 12px;
+            }
+            .filter-bar .sort-dropdown select {
+                font-size: 12px;
+                padding: 4px 10px;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .logo-text {
+                font-size: 16px;
+            }
+            .logo-sub {
+                font-size: 7px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    <div>
+        <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
+    </div>
+    <div>
+        <a href="#">Log In</a>
+        <a href="#">Register</a>
+    </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <a href="index.html" class="logo-wrapper">
+        <div class="logo-icon">TE</div>
+        <div>
+            <div class="logo-text">
+                <span class="purple">✦</span> 
+                True<span class="purple">Essence</span>
+                <span class="orange">✦</span>
+            </div>
+            <div class="logo-sub">Wellness</div>
+        </div>
+    </a>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search 500+ products..."/>
+        <button><i class="fa-light fa-search"></i></button>
+    </div>
+
+    <div class="account-cart">
+        <a href="#"><i class="fa-light fa-user"></i> Account</a>
+        <a href="#" class="cart-icon">
+            <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+            <span class="badge">0</span>
+        </a>
+    </div>
+</header>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+    <ul>
+        <li><a href="sex-toys.html">Sex Toys</a></li>
+        <li><a href="for-vulvas.html">For Vulvas</a></li>
+        <li><a href="for-penises.html">For Penises</a></li>
+        <li><a href="for-couples.html">For Couples</a></li>
+        <li><a href="vibrators.html">Vibrators</a></li>
+        <li><a href="dildos.html">Dildos</a></li>
+        <li><a href="anal-toys.html">Anal Toys</a></li>
+        <li><a href="lingerie.html">Lingerie</a></li>
+        <li><a href="bdsm.html">BDSM</a></li>
+        <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
+        <li><a href="brands.html">Brands</a></li>
+        <li><a href="sale.html">Sale</a></li>
+        <li><a href="gift-cards.html" class="active">Gift Cards</a></li>
+    </ul>
+</nav>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+    <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
+    <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
+    <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
+    <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
+</div>
+
+<!-- ===== HERO BANNER ===== -->
+<section class="category-hero">
+    <div class="content">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">›</span>
+            <span style="color:rgba(255,255,255,0.8);">Gift Cards</span>
+        </div>
+        <span class="gift-icon"><i class="fa-light fa-gift"></i></span>
+        <h1>Digital <span>Gift Cards</span></h1>
+        <p>Give the gift of pleasure with a TrueEssence digital gift card. Perfect for any occasion — let your loved ones choose exactly what they desire.</p>
+    </div>
+</section>
+
+<!-- ===== GIFT CARDS SECTION ===== -->
+<section class="section">
+    <div class="section-header">
+        <div>
+            <h2>Choose Your Gift Card</h2>
+            <span class="sub">Select the perfect amount for your loved one</span>
+        </div>
+    </div>
+
+    <!-- ===== FILTER BAR ===== -->
+    <div class="filter-bar">
+        <div class="filter-label">
+            <i class="fa-light fa-sliders"></i> Filter
+        </div>
+        <div class="sort-dropdown">
+            <span style="font-size:13px;color:#7A6F7E;">Sort by:</span>
+            <select>
+                <option>Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest</option>
+            </select>
+        </div>
+        <div class="product-count">12 of 12 Products</div>
+    </div>
+
+    <!-- ===== GIFT CARD GRID ===== -->
+    <div class="gift-grid">
+        <!-- Gift Card: $50 -->
+        <div class="gift-card">
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$50</div>
+            <div class="label">Digital Gift Card</div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <!-- Gift Card: $50 Xmas -->
+        <div class="gift-card xmas">
+            <span class="badge-xmas">🎄 Christmas</span>
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$50</div>
+            <div class="label">Xmas Digital Gift Card</div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <!-- Gift Card: $100 -->
+        <div class="gift-card">
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$100</div>
+            <div class="label">Digital Gift Card</div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <!-- Gift Card: $100 Xmas -->
+        <div class="gift-card xmas">
+            <span class="badge-xmas">🎄 Christmas</span>
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$100</div>
+            <div class="label">Xmas Digital Gift Card</div>
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="count">(1)</span>
+            </div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <!-- Gift Card: $150 -->
+        <div class="gift-card">
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$150</div>
+            <div class="label">Digital Gift Card</div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <!-- Gift Card: $150 Xmas -->
+        <div class="gift-card xmas">
+            <span class="badge-xmas">🎄 Christmas</span>
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$150</div>
+            <div class="label">Xmas Digital Gift Card</div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <!-- Gift Card: $200 -->
+        <div class="gift-card">
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$200</div>
+            <div class="label">Digital Gift Card</div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <!-- Gift Card: $200 Xmas -->
+        <div class="gift-card xmas">
+            <span class="badge-xmas">🎄 Christmas</span>
+            <span class="icon"><i class="fa-regular fa-gift"></i></span>
+            <div class="amount">$200</div>
+            <div class="label">Xmas Digital Gift Card</div>
+            <button class="btn-buy"><i class="fa-light fa-cart-plus"></i> Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- ===== PAGINATION ===== -->
+    <div class="pagination">
+        <a href="#" class="active">1</a>
+    </div>
+</section>
+
+<!-- ===== DESCRIPTION SECTION ===== -->
+<div class="description-section">
+    <p>Discover an exhilarating way to enhance connections and heighten pleasure at our premier adult store, where our gift cards provide an ideal opportunity to explore sensuality and intimacy.</p>
+    <p>Perfect for reigniting passion in your own relationship or delighting someone special, our gift cards open the door to a world of excitement and sexuality. Dive into our collection and give the ultimate gift of sensual well-being and joy today!</p>
+</div>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+    <h2>Subscribe & get 10% off</h2>
+    <p>Valid during August. T&C's apply.</p>
+    <form>
+        <input type="email" placeholder="Email address..."/>
+        <button>Subscribe</button>
+    </form>
+    <div class="small">No spam. Unsubscribe anytime.</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="brand">
+            <h3>TRUE<span>ESSENCE</span></h3>
+            <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+        </div>
+        <div>
+            <h4>Help & Information</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Accounts & Loyalty</a></li>
+                <li><a href="#">Payment Info</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Shipping</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Discover More</h4>
+            <ul>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Partner with Us</a></li>
+                <li><a href="#">The Essence Blog</a></li>
+                <li><a href="#">Student Discount</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <h4>Customer Service</h4>
+            <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
+            <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
+            <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
+            <p><i class="fa-light fa-comment"></i> Live Chat</p>
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+    </div>
+</footer>
+
+</body>
+</html>
