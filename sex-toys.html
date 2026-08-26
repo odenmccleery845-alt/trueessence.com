@@ -6,6 +6,7 @@
     <title>Sex Toys – TrueEssence Premium Wellness</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         /* ============================================================ */
         /* RESET & BASE */
@@ -326,10 +327,10 @@
         }
 
         /* ============================================================ */
-        /* HERO BANNER - Category Page */
+        /* CATEGORY HERO BANNER */
         /* ============================================================ */
         .category-hero {
-            background: linear-gradient(145deg, #6A2C99 0%, #3A1555 100%);
+            background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
             padding: 50px 30px;
             text-align: center;
             position: relative;
@@ -409,7 +410,7 @@
         }
 
         /* ============================================================ */
-        /* CATEGORY DESCRIPTION BOX */
+        /* CATEGORY DESCRIPTION */
         /* ============================================================ */
         .category-description {
             background: #F5EDF2;
@@ -523,12 +524,6 @@
             color: #7A6F7E;
         }
 
-        .sub-category-card .arrow {
-            color: #FA4616;
-            font-size: 12px;
-            margin-left: 4px;
-        }
-
         .show-all-link {
             text-align: center;
             margin-top: 12px;
@@ -590,12 +585,17 @@
             letter-spacing: 0.3px;
         }
 
-        .product-card .image .badge.best-seller {
+        .product-card .image .badge.sale {
             background: #FA4616;
             color: #FFFFFF;
         }
 
-        .product-card .image .badge.top-rated {
+        .product-card .image .badge.deal {
+            background: #55217A;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.best-seller {
             background: #6A2C99;
             color: #FFFFFF;
         }
@@ -605,13 +605,13 @@
             color: #FFFFFF;
         }
 
-        .product-card .image .badge.sale {
+        .product-card .image .badge.popular {
             background: #FA4616;
             color: #FFFFFF;
         }
 
-        .product-card .image .badge.deal {
-            background: #55217A;
+        .product-card .image .badge.top-rated {
+            background: #6A2C99;
             color: #FFFFFF;
         }
 
@@ -685,10 +685,6 @@
             color: #7A6F7E;
             text-decoration: line-through;
             margin-left: 5px;
-        }
-
-        .product-card .info .price .sale-price {
-            color: #FA4616;
         }
 
         .product-card .info .btn-add {
@@ -819,7 +815,7 @@
         }
 
         /* ============================================================ */
-        /* TRUST BADGES SECTION */
+        /* TRUST BADGES */
         /* ============================================================ */
         .trust-badges {
             background: #F5EDF2;
@@ -1264,380 +1260,221 @@
                 letter-spacing: 2px;
             }
         }
+
+        /* Loading spinner */
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: #6A2C99;
+            font-size: 16px;
+            gap: 12px;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner i {
+            font-size: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-products {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7A6F7E;
+            grid-column: 1 / -1;
+        }
+
+        .empty-products i {
+            font-size: 48px;
+            color: #E9E1EC;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!-- TOP BAR -->
-<!-- ============================================================ -->
-<div class="top-bar">
-    <div>
-        <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
-    </div>
-    <div>
-        <a href="#">Log In</a>
-        <a href="#">Register</a>
-    </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- HEADER -->
-<!-- ============================================================ -->
-<header class="header">
-    <a href="index.html" class="logo-wrapper">
-        <div class="logo-icon">TE</div>
+    <!-- ============================================================ -->
+    <!-- TOP BAR -->
+    <!-- ============================================================ -->
+    <div class="top-bar">
         <div>
-            <div class="logo-text">
-                <span class="purple">✦</span> 
-                True<span class="purple">Essence</span>
-                <span class="orange">✦</span>
-            </div>
-            <div class="logo-sub">Wellness</div>
+            <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
         </div>
-    </a>
-
-    <div class="search-bar">
-        <input type="text" placeholder="Search 500+ products..."/>
-        <button><i class="fa-light fa-search"></i></button>
-    </div>
-
-    <div class="account-cart">
-        <a href="#"><i class="fa-light fa-user"></i> Account</a>
-        <a href="#" class="cart-icon">
-            <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
-            <span class="badge">0</span>
-        </a>
-    </div>
-</header>
-
-<!-- ============================================================ -->
-<!-- NAVIGATION -->
-<!-- ============================================================ -->
-<nav class="nav">
-    <ul>
-        <li><a href="sex-toys.html">Sex Toys</a></li>
-       <li><a href="for-vulvas.html">For Vulvas</a></li>
-        <li><a href="for-penises.html">For Penises</a></li>
-        <li><a href="for-couples.html">For Couples</a></li>
-        <li><a href="vibrators.html">Vibrators</a></li>
-        <li><a href="dildos.html">Dildos</a></li>
-        <li><a href="anal-toys.html" class="active">Anal Toys</a></li>
-        <li><a href="lingerie.html">Lingerie</a></li>
-        <li><a href="bdsm.html">BDSM</a></li>
-        <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
-        <li><a href="brands.html">Brands</a></li>
-        <li><a href="sale.html">Sale</a></li>
-        <li><a href="gift-cards.html">Gift Cards</a></li>
-    </ul>
-</nav>
-
-<!-- ============================================================ -->
-<!-- TRUST BAR -->
-<!-- ============================================================ -->
-<div class="trust-bar">
-    <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
-    <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
-    <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
-    <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
-</div>
-
-<!-- ============================================================ -->
-<!-- HERO BANNER - Sex Toys Category -->
-<!-- ============================================================ -->
-<section class="category-hero">
-    <div class="content">
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span class="sep">›</span>
-            <span style="color:rgba(255,255,255,0.8);">Sex Toys</span>
-        </div>
-        <h1>Sex <span>Toys</span></h1>
-        <p>Discover New Zealand's largest range of sex toys to bring some extra fun to your sex life. Whether you want a toy for solo or partnered fun, you'll find just the thing in our range of best-selling adult toys.</p>
-    </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- CATEGORY DESCRIPTION -->
-<!-- ============================================================ -->
-<div class="category-description">
-    <p>No matter which part of your body you want to stimulate, or how you want to be stimulated, there will be a toy to replicate that feeling. Check out our <a href="#">vibrators</a>, <a href="#">dildos</a>, <a href="#">anal toys</a>, <a href="#">penis toys</a>, <a href="#">couples toys</a> and <a href="#">bondage and BDSM gear</a> and try something new.</p>
-    <p>Not sure where to start? Let us help you! Check out our <a href="#">sex toy guides</a> to learn more about the most popular sex toys.</p>
-    <p>Buy from TrueEssence and we'll deliver your order in 100% discreet and secure packaging. Shop now and explore your pleasure.</p>
-</div>
-
-<!-- ============================================================ -->
-<!-- TOP SUB-CATEGORIES -->
-<!-- ============================================================ -->
-<section class="section" style="padding-top:20px;">
-    <div class="section-header">
         <div>
-            <h2>Top Sex Toy Categories</h2>
-            <span class="sub">Explore our most popular sub-categories</span>
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Register</a>
         </div>
     </div>
 
-    <div class="sub-category-grid">
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-hand-sparkles"></i></span>
-            <div class="name">Clitoral Toys</div>
-            <div class="count">120+ products</div>
+    <!-- ============================================================ -->
+    <!-- HEADER -->
+    <!-- ============================================================ -->
+    <header class="header">
+        <a href="index.html" class="logo-wrapper">
+            <div class="logo-icon">TE</div>
+            <div>
+                <div class="logo-text">
+                    <span class="purple">✦</span> 
+                    True<span class="purple">Essence</span>
+                    <span class="orange">✦</span>
+                </div>
+                <div class="logo-sub">Wellness</div>
+            </div>
         </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-ring"></i></span>
-            <div class="name">Cock Rings</div>
-            <div class="count">80+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-bullseye"></i></span>
-            <div class="name">G-Spot Toys</div>
-            <div class="count">95+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-pump"></i></span>
-            <div class="name">Pussy Pumps</div>
-            <div class="count">45+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-people-arrows"></i></span>
-            <div class="name">Couples Anal Toys</div>
-            <div class="count">60+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-users"></i></span>
-            <div class="name">Couples Vibrators</div>
-            <div class="count">70+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-pump"></i></span>
-            <div class="name">Penis Pumps</div>
-            <div class="count">50+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-tshirt"></i></span>
-            <div class="name">Vibrating Panties</div>
-            <div class="count">35+ products</div>
-        </a>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search 500+ products..."/>
+            <button><i class="fa-light fa-search"></i></button>
+        </div>
+
+        <div class="account-cart">
+            <a href="login.html"><i class="fa-light fa-user"></i> Account</a>
+            <a href="#" class="cart-icon">
+                <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+                <span class="badge">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================================ -->
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sex-toys.html" class="active">Sex Toys</a></li>
+            <li><a href="for-vulvas.html">For Vulvas</a></li>
+            <li><a href="for-penises.html">For Penises</a></li>
+            <li><a href="for-couples.html">For Couples</a></li>
+            <li><a href="vibrators.html">Vibrators</a></li>
+            <li><a href="dildos.html">Dildos</a></li>
+            <li><a href="anal-toys.html">Anal Toys</a></li>
+            <li><a href="lingerie.html">Lingerie</a></li>
+            <li><a href="bdsm.html">BDSM</a></li>
+            <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="sale.html">Sale</a></li>
+            <li><a href="gift-cards.html">Gift Cards</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- TRUST BAR -->
+    <!-- ============================================================ -->
+    <div class="trust-bar">
+        <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
+        <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
+        <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
+        <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
     </div>
 
-    <div class="show-all-link">
-        <a href="#">Show all Sex Toy Categories <i class="fa-light fa-arrow-right"></i></a>
+    <!-- ============================================================ -->
+    <!-- HERO BANNER -->
+    <!-- ============================================================ -->
+    <section class="category-hero">
+        <div class="content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="sep">›</span>
+                <span style="color:rgba(255,255,255,0.8);">Sex Toys</span>
+            </div>
+            <h1>Sex <span>Toys</span></h1>
+            <p>Discover New Zealand's largest range of sex toys to bring some extra fun to your sex life. Whether you want a toy for solo or partnered fun, you'll find just the thing in our range of best-selling adult toys.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CATEGORY DESCRIPTION -->
+    <!-- ============================================================ -->
+    <div class="category-description">
+        <p>No matter which part of your body you want to stimulate, or how you want to be stimulated, there will be a toy to replicate that feeling. Check out our vibrators, dildos, anal toys, penis toys, couples toys and bondage and BDSM gear and try something new.</p>
+        <p>Not sure where to start? Let us help you! Check out our sex toy guides to learn more about the most popular sex toys.</p>
+        <p>Buy from TrueEssence and we'll deliver your order in 100% discreet and secure packaging. Shop now and explore your pleasure.</p>
     </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- TOP PRODUCTS -->
-<!-- ============================================================ -->
-<section class="section" style="padding-top:0;">
-    <div class="section-header">
-        <div>
-            <h2>Top Sex Toy Products</h2>
-            <span class="sub">Our most popular and best-selling items</span>
-        </div>
-        <a href="#">View All →</a>
-    </div>
-
-    <div class="product-grid">
-        <!-- Product 1 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Share Satisfaction</div>
-                <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(466)</span>
-                </div>
-                <div class="name"><a href="#">Share Satisfaction KAMA</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$169.95</span> $89.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
+    <!-- ============================================================ -->
+    <!-- TOP SUB-CATEGORIES -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:20px;">
+        <div class="section-header">
+            <div>
+                <h2>Top Sex Toy Categories</h2>
+                <span class="sub">Explore our most popular sub-categories</span>
             </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Satisfyer</div>
-                <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(2420)</span>
-                </div>
-                <div class="name"><a href="#">Satisfyer Pro 2 Generation 2</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$129.95</span> $79.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
+        <div class="sub-category-grid">
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-hand-sparkles"></i></span>
+                <div class="name">Clitoral Toys</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-ring"></i></span>
+                <div class="name">Cock Rings</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-bullseye"></i></span>
+                <div class="name">G-Spot Toys</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-pump"></i></span>
+                <div class="name">Pussy Pumps</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-people-arrows"></i></span>
+                <div class="name">Couples Anal Toys</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-users"></i></span>
+                <div class="name">Couples Vibrators</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-pump"></i></span>
+                <div class="name">Penis Pumps</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-tshirt"></i></span>
+                <div class="name">Vibrating Panties</div>
+                <div class="count">Loading...</div>
+            </a>
         </div>
 
-        <!-- Product 3 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge deal">3 for $50</span>
-                [Image]
+        <div class="show-all-link">
+            <a href="#">Show all Sex Toy Categories <i class="fa-light fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TOP PRODUCTS -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="section-header">
+            <div>
+                <h2>Top Sex Toy Products</h2>
+                <span class="sub">Our most popular and best-selling items</span>
             </div>
-            <div class="info">
-                <div class="brand">Share Satisfaction</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(29)</span>
-                </div>
-                <div class="name"><a href="#">Masturbator Egg - Cool</a></div>
-                <div class="price-row">
-                    <span class="price">$19.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
+            <a href="#">View All →</a>
         </div>
 
-        <!-- Product 4 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge deal">3 for $150</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Lemon</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(18)</span>
-                </div>
-                <div class="name"><a href="#">Lemon Clitoral Suction Vibrator</a></div>
-                <div class="price-row">
-                    <span class="price">$69.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
+        <div class="product-grid" id="productsList">
+            <div class="loading-spinner">
+                <i class="fa-light fa-spinner"></i> Loading products...
             </div>
         </div>
-
-        <!-- Product 5 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Sucking Succubus</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(13)</span>
-                </div>
-                <div class="name"><a href="#">Sucking Succubus Automatic Masturbator</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$159.95</span> $89.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 6 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge deal">3 for $50</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Share Satisfaction</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(19)</span>
-                </div>
-                <div class="name"><a href="#">Stamina C-ring Set</a></div>
-                <div class="price-row">
-                    <span class="price">$18.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 7 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Rose</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(18)</span>
-                </div>
-                <div class="name"><a href="#">Rose Suction Vibrator</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$89.95</span> $49.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 8 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Share Satisfaction</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(17)</span>
-                </div>
-                <div class="name"><a href="#">Dela Thrusting Suction Vibrator</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$179.95</span> $89.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 9 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">OMG</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(18)</span>
-                </div>
-                <div class="name"><a href="#">OMG Licking Suction Toy</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$99.95</span> $79.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 10 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Satisfyer</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(8)</span>
-                </div>
-                <div class="name"><a href="#">Satisfyer Pro 2 Generation 3</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$149.95</span> $99.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
 
     <!-- ============================================================ -->
     <!-- PAGINATION -->
@@ -1650,207 +1487,353 @@
         <a href="#">61</a>
         <a href="#"><i class="fa-light fa-chevron-right"></i></a>
     </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- FAQ SECTION -->
-<!-- ============================================================ -->
-<section class="section" style="padding-top:0;">
-    <div class="faq-section">
-        <h2>Frequently Asked Questions</h2>
+    <!-- ============================================================ -->
+    <!-- FAQ SECTION -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
 
-        <div class="faq-item">
-            <div class="question">
-                What types of sex toys are there?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
+            <div class="faq-item">
+                <div class="question">
+                    What types of sex toys are there?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    There are many types of adult toys designed to enhance sexual pleasure and satisfaction during solo or partnered play. Popular types include vibrators, dildos, couples toys, masturbators, anal toys, and bondage gear. Sex toys are available in a range of shapes, materials, and functions to suit different preferences, anatomy, and fantasies. Explore our full sex toy categories to discover what excites you.
+                </div>
             </div>
-            <div class="answer">
-                There are many types of adult toys designed to enhance sexual pleasure and satisfaction during solo or partnered play. Popular types include vibrators, dildos, couples toys, masturbators, anal toys, and bondage gear. Sex toys are available in a range of shapes, materials, and functions to suit different preferences, anatomy, and fantasies. Explore our full <a href="#">sex toy categories</a> to discover what excites you.
+
+            <div class="faq-item">
+                <div class="question">
+                    What is the most popular sex toy type?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    Vibrators are consistently the most popular sex toy due to their versatility, ease of use, and ability to provide intense stimulation. Whether you're looking for a discreet bullet, a powerful wand, or a rabbit vibrator that stimulates multiple erogenous zones, there's something for everyone.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    How do I clean my sex toys?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    Cleaning your sex toys is essential for hygiene and toy longevity. Most non-porous toys (like silicone, ABS plastic, or glass) can be cleaned with warm water and mild soap, or a specialised toy cleaner. Always check the instructions on your specific toy and avoid submerging anything with electrical components unless it is waterproof.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    What lube should I use with my sex toys?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    Choosing the right lubricant depends on your toy's material and how you plan to use it:
+                    <ul>
+                        <li><strong>Water-based lubes</strong> are safe for all toy types.</li>
+                        <li><strong>Silicone-based lubes</strong> are longer-lasting but shouldn't be used with silicone toys.</li>
+                        <li><strong>Hybrid lubes</strong> combine both.</li>
+                    </ul>
+                    Need help choosing? Explore our lube guide.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="question">
+                    Are your sex toys discreetly packaged?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    Yes. All orders from TrueEssence are shipped in plain, unmarked packaging with no logos or brand names. The return address is generic, and we take your privacy seriously. You can shop with confidence knowing your purchase is for your eyes only.
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <div class="question">
-                What is the most popular sex toy type?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
+    <!-- ============================================================ -->
+    <!-- TRUST BADGES -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="trust-badges">
+            <div class="item">
+                <div class="number">4.9 / 5</div>
+                <div class="label">Google Reviews</div>
+                <div class="sub-label">7,000+ reviews</div>
             </div>
-            <div class="answer">
-                Vibrators are consistently the most popular sex toy due to their versatility, ease of use, and ability to provide intense stimulation. Whether you're looking for a discreet bullet, a powerful wand, or a rabbit vibrator that stimulates multiple erogenous zones, there's something for everyone. Explore our <a href="#">best-selling vibrators</a> here.
+            <div class="item">
+                <div class="number">97%</div>
+                <div class="label">On-time Delivery</div>
+                <div class="sub-label">Average delivery: Next Day</div>
+            </div>
+            <div class="item">
+                <div class="number">Under 1 Hour</div>
+                <div class="label">Queries Resolved</div>
+                <div class="sub-label">Customer support response time</div>
+            </div>
+            <div class="item">
+                <div class="number">★</div>
+                <div class="label">Most Trusted</div>
+                <div class="sub-label">Adult Provider</div>
             </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <div class="question">
-                How do I clean my sex toys?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
+    <!-- ============================================================ -->
+    <!-- BLOG / CONTENT SECTION -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="section-header">
+            <div>
+                <h2>From The Essence</h2>
+                <span class="sub">Guides, reviews, and expert advice</span>
             </div>
-            <div class="answer">
-                Cleaning your sex toys is essential for hygiene and toy longevity. Most non-porous toys (like silicone, ABS plastic, or glass) can be cleaned with warm water and mild soap, or a specialised toy cleaner. Always check the instructions on your specific toy and avoid submerging anything with electrical components unless it is waterproof. For more, check out our <a href="#">guide to cleaning sex toys</a>.
-            </div>
+            <a href="#">Visit the hub →</a>
         </div>
 
-        <div class="faq-item">
-            <div class="question">
-                What lube should I use with my sex toys?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Product Review</span>
+                    <h4>Introducing Coco — A Comprehensive Review</h4>
+                    <p>Boasting smart controls and whisper-quiet vibrations, we put Share Satisfaction's Coco to the test...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
             </div>
-            <div class="answer">
-                Choosing the right lubricant depends on your toy's material and how you plan to use it:
+
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Sex Tips</span>
+                    <h4>Spice Up Your Same-Sex Play</h4>
+                    <p>If you're looking for some inspiration, we've compiled a list of our favourite toys for people with vulvas...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Podcast</span>
+                    <h4>Sex Toy Myths — Let's Talk About It</h4>
+                    <p>Listen to our podcast featuring sex educator Emma Hewitt as we talk vibrator addiction and sex toy myths...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- NEWSLETTER -->
+    <!-- ============================================================ -->
+    <section class="newsletter">
+        <h2>Subscribe & get 10% off</h2>
+        <p>Valid during August. T&C's apply.</p>
+        <form>
+            <input type="email" placeholder="Email address..."/>
+            <button>Subscribe</button>
+        </form>
+        <div class="small">No spam. Unsubscribe anytime.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="brand">
+                <h3>TRUE<span>ESSENCE</span></h3>
+                <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+            </div>
+            <div>
+                <h4>Help & Information</h4>
                 <ul>
-                    <li><strong>Water-based lubes</strong> are safe for all toy types.</li>
-                    <li><strong>Silicone-based lubes</strong> are longer-lasting but shouldn't be used with silicone toys.</li>
-                    <li><strong>Hybrid lubes</strong> combine both.</li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Accounts & Loyalty</a></li>
+                    <li><a href="#">Payment Info</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
                 </ul>
-                Need help choosing? Explore our <a href="#">lube guide</a>.
+            </div>
+            <div>
+                <h4>Discover More</h4>
+                <ul>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Partner with Us</a></li>
+                    <li><a href="#">The Essence Blog</a></li>
+                    <li><a href="#">Student Discount</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Customer Service</h4>
+                <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
+                <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
+                <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
+                <p><i class="fa-light fa-comment"></i> Live Chat</p>
+                <div class="social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
             </div>
         </div>
+        <div class="bottom">
+            &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+        </div>
+    </footer>
 
-        <div class="faq-item">
-            <div class="question">
-                Are your sex toys discreetly packaged?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
-            </div>
-            <div class="answer">
-                Yes. All orders from TrueEssence are shipped in plain, unmarked packaging with no logos or brand names. The return address is generic, and we take your privacy seriously. You can shop with confidence knowing your purchase is for your eyes only.
-            </div>
-        </div>
-    </div>
-</section>
+    <script>
+        // ============================================================ //
+        // SUPABASE CONFIG
+        // ============================================================ //
+        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
 
-<!-- ============================================================ -->
-<!-- TRUST BADGES -->
-<!-- ============================================================ -->
-<section class="section" style="padding-top:0;">
-    <div class="trust-badges">
-        <div class="item">
-            <div class="number">4.9 / 5</div>
-            <div class="label">Google Reviews</div>
-            <div class="sub-label">7,000+ reviews</div>
-        </div>
-        <div class="item">
-            <div class="number">97%</div>
-            <div class="label">On-time Delivery</div>
-            <div class="sub-label">Average delivery: Next Day</div>
-        </div>
-        <div class="item">
-            <div class="number">Under 1 Hour</div>
-            <div class="label">Queries Resolved</div>
-            <div class="sub-label">Customer support response time</div>
-        </div>
-        <div class="item">
-            <div class="number">★</div>
-            <div class="label">Most Trusted</div>
-            <div class="sub-label">Adult Provider</div>
-        </div>
-    </div>
-</section>
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
-<!-- ============================================================ -->
-<!-- BLOG / CONTENT SECTION -->
-<!-- ============================================================ -->
-<section class="section" style="padding-top:0;">
-    <div class="section-header">
-        <div>
-            <h2>From The Essence</h2>
-            <span class="sub">Guides, reviews, and expert advice</span>
-        </div>
-        <a href="#">Visit the hub →</a>
-    </div>
+        // ============================================================ //
+        // LOAD PRODUCTS BY CATEGORY
+        // ============================================================ //
+        async function loadProducts() {
+            const container = document.getElementById('productsList');
 
-    <div class="blog-grid">
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Product Review</span>
-                <h4>Introducing Coco — A Comprehensive Review</h4>
-                <p>Boasting smart controls and whisper-quiet vibrations, we put Share Satisfaction's Coco to the test...</p>
-                <a href="#" class="read-more">Read More →</a>
-            </div>
-        </div>
+            try {
+                const { data: products, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .eq('category', 'Sex Toys')
+                    .eq('is_active', true)
+                    .order('created_at', { ascending: false });
 
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Sex Tips</span>
-                <h4>Spice Up Your Same-Sex Play</h4>
-                <p>If you're looking for some inspiration, we've compiled a list of our favourite toys for people with vulvas...</p>
-                <a href="#" class="read-more">Read More →</a>
-            </div>
-        </div>
+                if (error) throw error;
 
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Podcast</span>
-                <h4>Sex Toy Myths — Let's Talk About It</h4>
-                <p>Listen to our podcast featuring sex educator Emma Hewitt as we talk vibrator addiction and sex toy myths...</p>
-                <a href="#" class="read-more">Read More →</a>
-            </div>
-        </div>
-    </div>
-</section>
+                if (!products || products.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-products">
+                            <i class="fa-light fa-box"></i>
+                            <p>No products found in this category.</p>
+                        </div>
+                    `;
+                    return;
+                }
 
-<!-- ============================================================ -->
-<!-- NEWSLETTER -->
-<!-- ============================================================ -->
-<section class="newsletter">
-    <h2>Subscribe & get 10% off</h2>
-    <p>Valid during August. T&C's apply.</p>
-    <form>
-        <input type="email" placeholder="Email address..."/>
-        <button>Subscribe</button>
-    </form>
-    <div class="small">No spam. Unsubscribe anytime.</div>
-</section>
+                let html = '';
 
-<!-- ============================================================ -->
-<!-- FOOTER -->
-<!-- ============================================================ -->
-<footer class="footer">
-    <div class="footer-grid">
-        <div class="brand">
-            <h3>TRUE<span>ESSENCE</span></h3>
-            <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
-        </div>
-        <div>
-            <h4>Help & Information</h4>
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Accounts & Loyalty</a></li>
-                <li><a href="#">Payment Info</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Returns</a></li>
-                <li><a href="#">Shipping</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Discover More</h4>
-            <ul>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="#">Partner with Us</a></li>
-                <li><a href="#">The Essence Blog</a></li>
-                <li><a href="#">Student Discount</a></li>
-            </ul>
-        </div>
-        <div class="contact">
-            <h4>Customer Service</h4>
-            <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
-            <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
-            <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
-            <p><i class="fa-light fa-comment"></i> Live Chat</p>
-            <div class="social">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="bottom">
-        &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
-    </div>
-</footer>
+                products.forEach(function(p) {
+                    const priceDisplay = p.sale_price ? 
+                        `<span class="price"><span class="was">$${p.price}</span> $${p.sale_price}</span>` :
+                        `<span class="price">$${p.price}</span>`;
+
+                    const badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
+                    const badgeHtml = p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
+
+                    const ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
+                    const reviewCount = p.review_count || 0;
+
+                    // Determine background color based on badge
+                    let bgColor = '#F5EDF2';
+                    if (p.badge === 'Best Seller') bgColor = '#6A2C99';
+                    else if (p.badge === 'Sale') bgColor = '#FA4616';
+                    else if (p.badge === 'New') bgColor = '#2E1033';
+                    else if (p.badge === 'Popular') bgColor = '#FA4616';
+                    else if (p.badge === 'Top Rated') bgColor = '#55217A';
+
+                    html += `
+                        <div class="product-card">
+                            <div class="image" style="background:${p.image_url ? `url('${p.image_url}') center/cover` : bgColor};">
+                                ${badgeHtml}
+                                ${p.image_url ? '' : '[Image]'}
+                            </div>
+                            <div class="info">
+                                ${p.brand ? `<div class="brand">${p.brand}</div>` : ''}
+                                <div class="rating">
+                                    <span class="stars">${ratingStars}</span>
+                                    <span class="count">(${reviewCount})</span>
+                                </div>
+                                <div class="name"><a href="#">${p.name}</a></div>
+                                <div class="desc">${p.short_description || ''}</div>
+                                <div class="price-row">
+                                    ${priceDisplay}
+                                    <button class="btn-add">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error loading products:', error);
+                container.innerHTML = `
+                    <div class="empty-products">
+                        <i class="fa-light fa-circle-exclamation"></i>
+                        <p>Error loading products. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================================ //
+        // LOAD SUB-CATEGORY COUNTS
+        // ============================================================ //
+        async function loadSubCategoryCounts() {
+            const subCategories = [
+                'Clitoral Toys',
+                'Cock Rings',
+                'G-Spot Toys',
+                'Pussy Pumps',
+                'Couples Anal Toys',
+                'Couples Vibrators',
+                'Penis Pumps',
+                'Vibrating Panties'
+            ];
+
+            try {
+                const { data: products, error } = await supabase
+                    .from('products')
+                    .select('sub_category')
+                    .eq('is_active', true);
+
+                if (error) throw error;
+
+                const counts = {};
+                products.forEach(p => {
+                    if (p.sub_category) {
+                        counts[p.sub_category] = (counts[p.sub_category] || 0) + 1;
+                    }
+                });
+
+                // Update sub-category counts
+                const cards = document.querySelectorAll('.sub-category-card .count');
+                const names = document.querySelectorAll('.sub-category-card .name');
+
+                cards.forEach((card, index) => {
+                    const name = names[index]?.textContent.trim();
+                    if (name && counts[name]) {
+                        card.textContent = `${counts[name]}+ products`;
+                    } else {
+                        card.textContent = '0 products';
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading sub-category counts:', error);
+            }
+        }
+
+        // ============================================================ //
+        // INIT
+        // ============================================================ //
+        loadProducts();
+        loadSubCategoryCounts();
+    </script>
 
 </body>
 </html>
