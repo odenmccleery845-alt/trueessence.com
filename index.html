@@ -141,6 +141,10 @@
             border-bottom: 1px solid #E9E1EC;
             flex-wrap: wrap;
             gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         .logo-icon {
@@ -261,7 +265,177 @@
         }
 
         /* ============================================================ */
-        /* NAVIGATION */
+        /* HAMBURGER MENU */
+        /* ============================================================ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            background: transparent;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #2E1033;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ============================================================ */
+        /* MOBILE NAV OVERLAY */
+        /* ============================================================ */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-nav-overlay.open {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background: #1A1A2E;
+            z-index: 1000;
+            padding: 30px 24px;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.open {
+            right: 0;
+        }
+
+        .mobile-nav .mobile-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 20px;
+        }
+
+        .mobile-nav .mobile-brand .logo-icon-sm {
+            width: 40px;
+            height: 40px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFFFFF;
+            border: 2px solid #FA4616;
+        }
+
+        .mobile-nav .mobile-brand .logo-text-sm {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .mobile-nav .mobile-brand .logo-text-sm span {
+            color: #FA4616;
+        }
+
+        .mobile-nav .mobile-brand .logo-sub-sm {
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .mobile-nav .mobile-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav .mobile-menu li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .mobile-nav .mobile-menu li a {
+            display: block;
+            padding: 14px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav .mobile-menu li a:hover {
+            color: #FA4616;
+            padding-left: 8px;
+        }
+
+        .mobile-nav .mobile-menu li a i {
+            width: 24px;
+            text-align: center;
+            margin-right: 12px;
+            color: #6A2C99;
+        }
+
+        .mobile-nav .mobile-menu .menu-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 0 6px;
+        }
+
+        .mobile-nav .mobile-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .mobile-nav .mobile-footer a {
+            display: block;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            padding: 6px 0;
+        }
+
+        .mobile-nav .mobile-footer a:hover {
+            color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* DESKTOP NAVIGATION */
         /* ============================================================ */
         .nav {
             background: #6A2C99;
@@ -331,33 +505,48 @@
         /* ============================================================ */
         .hero {
             background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
-            padding: 45px 30px;
+            padding: 60px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 35px;
+            gap: 40px;
             flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(250,70,22,0.08) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .hero .content {
             flex: 1;
-            min-width: 260px;
+            min-width: 280px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero .content .tag {
             color: #FA4616;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .hero .content h1 {
             color: #FFFFFF;
-            font-size: 38px;
+            font-size: 44px;
             font-weight: 800;
             line-height: 1.1;
-            margin: 10px 0 16px;
+            margin: 12px 0 18px;
         }
 
         .hero .content h1 span {
@@ -366,10 +555,10 @@
 
         .hero .content p {
             color: rgba(255,255,255,0.8);
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 22px;
-            max-width: 480px;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 500px;
         }
 
         .hero .content .btn-group {
@@ -381,10 +570,10 @@
         .hero .content .btn-primary {
             background: #FA4616;
             color: #FFFFFF;
-            padding: 13px 32px;
+            padding: 14px 36px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             display: inline-block;
             transition: all 0.3s;
         }
@@ -392,16 +581,17 @@
         .hero .content .btn-primary:hover {
             background: #FB6B42;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(250,70,22,0.3);
         }
 
         .hero .content .btn-secondary {
             background: transparent;
             color: #FFFFFF;
-            padding: 13px 32px;
+            padding: 14px 36px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 14px;
-            border: 2px solid rgba(255,255,255,0.25);
+            font-size: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
             display: inline-block;
         }
 
@@ -412,15 +602,17 @@
 
         .hero .image {
             flex: 1;
-            min-width: 240px;
+            min-width: 260px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero .image .box {
-            background: rgba(255,255,255,0.05);
-            border-radius: 14px;
-            padding: 35px;
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
         .hero .image .box .icons {
@@ -432,10 +624,10 @@
         }
 
         .hero .image .box .icons .badge-box {
-            background: rgba(250,70,22,0.12);
+            background: rgba(250,70,22,0.1);
             padding: 12px 20px;
             border-radius: 8px;
-            border: 1px solid rgba(250,70,22,0.15);
+            border: 1px solid rgba(250,70,22,0.12);
             color: #FFFFFF;
             font-size: 12px;
         }
@@ -451,7 +643,7 @@
         /* ============================================================ */
         .limited-time {
             background: #FA4616;
-            padding: 12px 30px;
+            padding: 14px 30px;
             text-align: center;
             display: flex;
             align-items: center;
@@ -496,35 +688,38 @@
         /* SECTION */
         /* ============================================================ */
         .section {
-            padding: 40px 30px;
+            padding: 50px 30px;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .section-header h2 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
             color: #2E1033;
         }
 
         .section-header .sub {
             color: #7A6F7E;
-            font-size: 13px;
+            font-size: 14px;
+            display: block;
+            margin-top: 2px;
         }
 
         .section-header a {
             color: #FA4616;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .section-header a:hover {
@@ -537,24 +732,24 @@
         .product-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .product-card {
             background: #FFFFFF;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid #E9E1EC;
             transition: all 0.3s;
         }
 
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(106,44,153,0.10);
         }
 
         .product-card .image {
-            height: 160px;
+            height: 170px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -566,14 +761,14 @@
 
         .product-card .image .badge {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            padding: 2px 12px;
+            top: 10px;
+            left: 10px;
+            padding: 3px 14px;
             border-radius: 20px;
             font-size: 9px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         .product-card .image .badge.best-seller {
@@ -602,7 +797,7 @@
         }
 
         .product-card .info {
-            padding: 14px;
+            padding: 16px;
         }
 
         .product-card .info .brand {
@@ -634,6 +829,15 @@
             font-weight: 600;
             color: #2E1033;
             margin-bottom: 2px;
+            line-height: 1.3;
+        }
+
+        .product-card .info .name a {
+            color: #2E1033;
+        }
+
+        .product-card .info .name a:hover {
+            color: #6A2C99;
         }
 
         .product-card .info .desc {
@@ -668,7 +872,7 @@
             background: #6A2C99;
             border: none;
             color: #FFFFFF;
-            padding: 5px 14px;
+            padding: 6px 16px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 11px;
@@ -679,6 +883,15 @@
         .product-card .info .btn-add:hover {
             background: #55217A;
             transform: scale(1.05);
+        }
+
+        .product-card .info .btn-add .fa-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* ============================================================ */
@@ -692,47 +905,47 @@
 
         .desire-card {
             background: #FFFFFF;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid #E9E1EC;
             transition: all 0.3s;
             color: inherit;
+            text-align: center;
+            padding: 24px 16px;
         }
 
         .desire-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(106,44,153,0.10);
+            border-color: #6A2C99;
         }
 
-        .desire-card .image {
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            color: #FFFFFF;
+        .desire-card .icon {
+            font-size: 36px;
+            color: #6A2C99;
+            margin-bottom: 10px;
         }
 
-        .desire-card .info {
-            padding: 14px;
-            text-align: center;
-        }
+        .desire-card .icon .fa-person { color: #6A2C99; }
+        .desire-card .icon .fa-person-dress { color: #55217A; }
+        .desire-card .icon .fa-droplet { color: #FA4616; }
+        .desire-card .icon .fa-leaf { color: #1C8C6A; }
 
-        .desire-card .info h3 {
-            font-size: 15px;
+        .desire-card h3 {
+            font-size: 16px;
             font-weight: 700;
             color: #2E1033;
             margin-bottom: 2px;
         }
 
-        .desire-card .info p {
-            font-size: 12px;
+        .desire-card p {
+            font-size: 13px;
             color: #7A6F7E;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
-        .desire-card .info .count {
-            font-size: 11px;
+        .desire-card .count {
+            font-size: 12px;
             color: #FA4616;
             font-weight: 600;
         }
@@ -742,36 +955,36 @@
         /* ============================================================ */
         .spotlight {
             background: #55217A;
-            padding: 40px 30px;
+            padding: 50px 30px;
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
         .spotlight .image {
             flex: 1;
-            min-width: 220px;
+            min-width: 240px;
             text-align: center;
         }
 
         .spotlight .image .box {
             background: rgba(255,255,255,0.05);
-            border-radius: 14px;
-            padding: 35px;
-            border: 1px solid rgba(255,255,255,0.08);
-            color: rgba(255,255,255,0.25);
-            font-size: 12px;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.2);
+            font-size: 13px;
         }
 
         .spotlight .content {
             flex: 1.5;
-            min-width: 260px;
+            min-width: 280px;
         }
 
         .spotlight .content .tag {
             color: #FA4616;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -779,22 +992,22 @@
 
         .spotlight .content h2 {
             color: #FFFFFF;
-            font-size: 30px;
+            font-size: 32px;
             font-weight: 800;
-            margin: 6px 0 10px;
+            margin: 8px 0 12px;
         }
 
         .spotlight .content p {
             color: rgba(255,255,255,0.7);
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.7;
-            margin-bottom: 16px;
-            max-width: 460px;
+            margin-bottom: 18px;
+            max-width: 480px;
         }
 
         .spotlight .content .price {
             color: #FA4616;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
         }
 
@@ -802,17 +1015,18 @@
             display: inline-block;
             background: #FA4616;
             color: #FFFFFF;
-            padding: 12px 32px;
+            padding: 12px 34px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 14px;
-            margin-top: 12px;
+            font-size: 15px;
+            margin-top: 14px;
             transition: all 0.3s;
         }
 
         .spotlight .content .btn:hover {
             background: #FB6B42;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(250,70,22,0.3);
         }
 
         /* ============================================================ */
@@ -820,39 +1034,40 @@
         /* ============================================================ */
         .free-gift {
             background: #FA4616;
-            padding: 16px 30px;
+            padding: 20px 30px;
             text-align: center;
         }
 
         .free-gift .title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: #FFFFFF;
         }
 
         .free-gift .sub {
-            font-size: 13px;
+            font-size: 14px;
             color: rgba(255,255,255,0.9);
+            margin-top: 4px;
         }
 
         .free-gift .code {
             background: #55217A;
             color: #FA4616;
-            padding: 3px 18px;
+            padding: 4px 20px;
             border-radius: 4px;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
             display: inline-block;
-            margin: 4px 0 6px;
+            margin: 6px 0 8px;
         }
 
         .free-gift .btn {
             background: #55217A;
             color: #FFFFFF;
-            padding: 8px 28px;
+            padding: 10px 30px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             display: inline-block;
             transition: all 0.3s;
         }
@@ -868,38 +1083,38 @@
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .blog-card {
             background: #FFFFFF;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid #E9E1EC;
             transition: all 0.3s;
         }
 
         .blog-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(106,44,153,0.10);
         }
 
         .blog-card .image {
-            height: 100px;
+            height: 120px;
             background: #6A2C99;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255,255,255,0.2);
-            font-size: 11px;
+            color: rgba(255,255,255,0.15);
+            font-size: 12px;
         }
 
         .blog-card .info {
-            padding: 14px;
+            padding: 16px;
         }
 
         .blog-card .info .category {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 600;
             color: #FA4616;
             text-transform: uppercase;
@@ -907,23 +1122,35 @@
         }
 
         .blog-card .info .date {
-            font-size: 10px;
+            font-size: 11px;
             color: #7A6F7E;
             margin-left: 6px;
         }
 
         .blog-card .info h4 {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             color: #2E1033;
-            margin: 4px 0 3px;
+            margin: 6px 0 4px;
             line-height: 1.3;
         }
 
         .blog-card .info p {
-            font-size: 12px;
+            font-size: 13px;
             color: #7A6F7E;
             line-height: 1.5;
+        }
+
+        .blog-card .info .read-more {
+            color: #FA4616;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        .blog-card .info .read-more:hover {
+            color: #C5462B;
         }
 
         /* ============================================================ */
@@ -931,7 +1158,7 @@
         /* ============================================================ */
         .testimonial {
             background: #F5EDF2;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
             border-top: 1px solid #E9E1EC;
             border-bottom: 1px solid #E9E1EC;
@@ -939,21 +1166,21 @@
 
         .testimonial .rating {
             color: #FA4616;
-            font-size: 16px;
-            margin-bottom: 6px;
+            font-size: 18px;
+            margin-bottom: 8px;
         }
 
         .testimonial .text {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 500;
             color: #2E1033;
-            max-width: 680px;
-            margin: 0 auto 6px;
+            max-width: 720px;
+            margin: 0 auto 8px;
             line-height: 1.5;
         }
 
         .testimonial .author {
-            font-size: 13px;
+            font-size: 14px;
             color: #7A6F7E;
         }
 
@@ -962,26 +1189,26 @@
         /* ============================================================ */
         .newsletter {
             background: #6A2C99;
-            padding: 40px 30px;
+            padding: 50px 30px;
             text-align: center;
         }
 
         .newsletter h2 {
             color: #FFFFFF;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
         }
 
         .newsletter p {
             color: rgba(255,255,255,0.7);
-            font-size: 15px;
-            margin: 6px 0 16px;
+            font-size: 16px;
+            margin: 8px 0 20px;
         }
 
         .newsletter form {
             display: flex;
             gap: 10px;
-            max-width: 420px;
+            max-width: 440px;
             margin: 0 auto;
             flex-wrap: wrap;
             justify-content: center;
@@ -989,13 +1216,13 @@
 
         .newsletter form input {
             flex: 1;
-            min-width: 200px;
-            padding: 12px 18px;
+            min-width: 220px;
+            padding: 14px 20px;
             border-radius: 50px;
             border: 1px solid rgba(255,255,255,0.15);
             background: rgba(255,255,255,0.06);
             color: #FFFFFF;
-            font-size: 13px;
+            font-size: 14px;
             outline: none;
             font-family: 'DM Sans', Arial, sans-serif;
         }
@@ -1008,10 +1235,10 @@
             background: #FA4616;
             border: none;
             color: #FFFFFF;
-            padding: 12px 32px;
+            padding: 14px 36px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -1023,8 +1250,8 @@
 
         .newsletter .small {
             color: rgba(255,255,255,0.25);
-            font-size: 11px;
-            margin-top: 10px;
+            font-size: 12px;
+            margin-top: 12px;
         }
 
         /* ============================================================ */
@@ -1033,7 +1260,7 @@
         .footer {
             background: #2E1033;
             color: rgba(255,255,255,0.7);
-            padding: 40px 30px 16px;
+            padding: 50px 30px 20px;
         }
 
         .footer-grid {
@@ -1041,12 +1268,12 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 35px;
+            gap: 40px;
         }
 
         .footer-grid .brand h3 {
             color: #FFFFFF;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
         }
 
@@ -1055,16 +1282,16 @@
         }
 
         .footer-grid .brand p {
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.8;
-            max-width: 240px;
+            max-width: 260px;
             margin-top: 8px;
         }
 
         .footer-grid h4 {
             color: #FFFFFF;
-            font-size: 15px;
-            margin-bottom: 12px;
+            font-size: 16px;
+            margin-bottom: 14px;
         }
 
         .footer-grid ul {
@@ -1075,8 +1302,8 @@
 
         .footer-grid ul li a {
             color: rgba(255,255,255,0.6);
-            font-size: 13px;
-            line-height: 2;
+            font-size: 14px;
+            line-height: 2.2;
             transition: all 0.3s;
         }
 
@@ -1085,24 +1312,24 @@
         }
 
         .footer-grid .contact p {
-            font-size: 13px;
-            line-height: 2;
+            font-size: 14px;
+            line-height: 2.2;
         }
 
         .footer-grid .contact i {
             color: #FA4616;
-            width: 18px;
+            width: 22px;
         }
 
         .footer-grid .social {
             display: flex;
-            gap: 14px;
+            gap: 16px;
             margin-top: 10px;
         }
 
         .footer-grid .social a {
             color: rgba(255,255,255,0.4);
-            font-size: 18px;
+            font-size: 20px;
             transition: all 0.3s;
         }
 
@@ -1112,16 +1339,48 @@
 
         .footer .bottom {
             max-width: 1200px;
-            margin: 25px auto 0;
-            padding-top: 16px;
+            margin: 30px auto 0;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.06);
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             color: rgba(255,255,255,0.25);
         }
 
         .footer .bottom .heart {
             color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* LOADING & EMPTY STATES */
+        /* ============================================================ */
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: #6A2C99;
+            font-size: 16px;
+            gap: 12px;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner i {
+            font-size: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        .empty-products {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7A6F7E;
+            grid-column: 1 / -1;
+        }
+
+        .empty-products i {
+            font-size: 48px;
+            color: #E9E1EC;
+            margin-bottom: 16px;
         }
 
         /* ============================================================ */
@@ -1143,31 +1402,53 @@
         }
 
         @media (max-width: 768px) {
+            /* Show hamburger, hide desktop nav */
+            .hamburger {
+                display: flex;
+            }
+            .nav {
+                display: none;
+            }
+
+            /* Top bar */
             .top-bar {
                 font-size: 10px;
                 padding: 5px 14px;
                 justify-content: center;
                 text-align: center;
             }
+
+            /* Header */
             .header {
                 padding: 10px 14px;
-                flex-direction: column;
             }
             .search-bar {
                 max-width: 100%;
                 width: 100%;
+                order: 3;
             }
             .account-cart {
-                width: 100%;
-                justify-content: center;
+                gap: 12px;
             }
-            .nav {
-                padding: 0 10px;
+            .account-cart a span {
+                display: none;
             }
-            .nav ul li a {
-                padding: 10px 12px;
-                font-size: 12px;
+
+            /* Logo */
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
             }
+            .logo-text {
+                font-size: 18px;
+            }
+            .logo-sub {
+                font-size: 8px;
+                letter-spacing: 3px;
+            }
+
+            /* Trust bar */
             .trust-bar {
                 padding: 6px 14px;
                 justify-content: center;
@@ -1176,12 +1457,14 @@
             .trust-bar .item {
                 font-size: 10px;
             }
+
+            /* Hero */
             .hero {
-                padding: 25px 14px;
+                padding: 30px 16px;
                 text-align: center;
             }
             .hero .content h1 {
-                font-size: 28px;
+                font-size: 30px;
             }
             .hero .content .btn-group {
                 justify-content: center;
@@ -1189,8 +1472,10 @@
             .hero .content p {
                 max-width: 100%;
             }
+
+            /* Sections */
             .section {
-                padding: 25px 14px;
+                padding: 30px 14px;
             }
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1206,7 +1491,7 @@
             }
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
                 text-align: center;
             }
             .footer-grid .brand p {
@@ -1215,46 +1500,51 @@
             .footer-grid .social {
                 justify-content: center;
             }
+
+            /* Spotlight */
             .spotlight {
-                padding: 25px 14px;
+                padding: 30px 14px;
                 text-align: center;
             }
             .spotlight .content p {
                 max-width: 100%;
             }
+
+            /* Limited time */
             .limited-time {
                 padding: 10px 14px;
             }
             .limited-time .title {
                 font-size: 14px;
             }
+
+            /* Free gift */
             .free-gift {
-                padding: 12px 14px;
+                padding: 14px;
             }
+            .free-gift .title {
+                font-size: 17px;
+            }
+
+            /* Newsletter */
             .newsletter {
-                padding: 25px 14px;
+                padding: 30px 14px;
             }
             .newsletter h2 {
                 font-size: 22px;
             }
-            .testimonial .text {
-                font-size: 17px;
-            }
-            .section-header h2 {
-                font-size: 22px;
-            }
 
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+            /* Testimonial */
+            .testimonial {
+                padding: 24px 14px;
             }
-            .logo-text {
+            .testimonial .text {
                 font-size: 18px;
             }
-            .logo-sub {
-                font-size: 8px;
-                letter-spacing: 3px;
+
+            /* Section header */
+            .section-header h2 {
+                font-size: 22px;
             }
         }
 
@@ -1299,41 +1589,11 @@
                 font-size: 7px;
                 letter-spacing: 2px;
             }
-        }
 
-        /* Loading spinner */
-        .loading-spinner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            color: #6A2C99;
-            font-size: 16px;
-            gap: 12px;
-            grid-column: 1 / -1;
-        }
-
-        .loading-spinner i {
-            font-size: 24px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .empty-products {
-            text-align: center;
-            padding: 60px 20px;
-            color: #7A6F7E;
-            grid-column: 1 / -1;
-        }
-
-        .empty-products i {
-            font-size: 48px;
-            color: #E9E1EC;
-            margin-bottom: 16px;
+            .mobile-nav {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -1374,16 +1634,63 @@
         </div>
 
         <div class="account-cart">
-            <a href="login.html"><i class="fa-light fa-user"></i> Account</a>
+            <a href="login.html"><i class="fa-light fa-user"></i> <span>Account</span></a>
             <a href="#" class="cart-icon">
                 <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
                 <span class="badge">0</span>
             </a>
         </div>
+
+        <!-- ===== HAMBURGER MENU BUTTON ===== -->
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <!-- ============================================================ -->
-    <!-- NAVIGATION -->
+    <!-- MOBILE NAVIGATION OVERLAY -->
+    <!-- ============================================================ -->
+    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-brand">
+            <div class="logo-icon-sm">TE</div>
+            <div>
+                <div class="logo-text-sm">TRUE<span>ESSENCE</span></div>
+                <div class="logo-sub-sm">Wellness</div>
+            </div>
+        </div>
+
+        <ul class="mobile-menu">
+            <div class="menu-label">Main</div>
+            <li><a href="index.html"><i class="fa-light fa-house"></i> Home</a></li>
+            <li><a href="sex-toys.html"><i class="fa-light fa-toy"></i> Sex Toys</a></li>
+            <li><a href="for-vulvas.html"><i class="fa-light fa-person-dress"></i> For Vulvas</a></li>
+            <li><a href="for-penises.html"><i class="fa-light fa-person"></i> For Penises</a></li>
+            <li><a href="for-couples.html"><i class="fa-light fa-users"></i> For Couples</a></li>
+            <li><a href="vibrators.html"><i class="fa-light fa-vibrate"></i> Vibrators</a></li>
+            <li><a href="dildos.html"><i class="fa-light fa-hand"></i> Dildos</a></li>
+            <li><a href="anal-toys.html"><i class="fa-light fa-circle"></i> Anal Toys</a></li>
+            <li><a href="lingerie.html"><i class="fa-light fa-tshirt"></i> Lingerie</a></li>
+            <li><a href="bdsm.html"><i class="fa-light fa-handcuffs"></i> BDSM</a></li>
+            <li><a href="lubes-essentials.html"><i class="fa-light fa-droplet"></i> Lubes & Essentials</a></li>
+            
+            <div class="menu-label">More</div>
+            <li><a href="brands.html"><i class="fa-light fa-star"></i> Brands</a></li>
+            <li><a href="sale.html"><i class="fa-light fa-tag"></i> Sale</a></li>
+            <li><a href="gift-cards.html"><i class="fa-light fa-gift"></i> Gift Cards</a></li>
+        </ul>
+
+        <div class="mobile-footer">
+            <a href="login.html"><i class="fa-light fa-right-to-bracket"></i> Log In</a>
+            <a href="signup.html"><i class="fa-light fa-user-plus"></i> Sign Up</a>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DESKTOP NAVIGATION -->
     <!-- ============================================================ -->
     <nav class="nav">
         <ul>
@@ -1429,7 +1736,7 @@
         </div>
         <div class="image">
             <div class="box">
-                <span style="color:rgba(255,255,255,0.2);font-size:12px;letter-spacing:1px;">[ PRODUCT IMAGE ]</span>
+                <span style="color:rgba(255,255,255,0.15);font-size:13px;letter-spacing:1px;">[ PRODUCT IMAGE ]</span>
                 <div class="icons">
                     <div class="badge-box"><span>★</span>Premium Quality</div>
                     <div class="badge-box"><span>🔒</span>Discreet</div>
@@ -1443,12 +1750,12 @@
     <!-- ============================================================ -->
     <div class="limited-time">
         <span class="label">Limited Time</span>
-        <span class="title">Pick & Mix — Build your own wellness edit from hundreds of products</span>
+        <span class="title">Pick & Mix — Build your own wellness edit</span>
         <a href="#" class="btn">Start Mixing →</a>
     </div>
 
     <!-- ============================================================ -->
-    <!-- TRENDING / BEST SELLERS -->
+    <!-- TRENDING PRODUCTS -->
     <!-- ============================================================ -->
     <section class="section">
         <div class="section-header">
@@ -1477,36 +1784,28 @@
         </div>
         <div class="desire-grid">
             <a href="for-penises.html" class="desire-card">
-                <div class="image" style="background:#6A2C99;"><i class="fa-light fa-person"></i></div>
-                <div class="info">
-                    <h3>For Men</h3>
-                    <p>Enhancement & Vitality</p>
-                    <span class="count">Loading...</span>
-                </div>
+                <div class="icon"><i class="fa-light fa-person"></i></div>
+                <h3>For Men</h3>
+                <p>Enhancement &amp; Vitality</p>
+                <span class="count" id="countMen">Loading...</span>
             </a>
             <a href="for-vulvas.html" class="desire-card">
-                <div class="image" style="background:#55217A;"><i class="fa-light fa-person-dress"></i></div>
-                <div class="info">
-                    <h3>For Women</h3>
-                    <p>Care & Freshness</p>
-                    <span class="count">Loading...</span>
-                </div>
+                <div class="icon"><i class="fa-light fa-person-dress"></i></div>
+                <h3>For Women</h3>
+                <p>Care &amp; Freshness</p>
+                <span class="count" id="countWomen">Loading...</span>
             </a>
             <a href="lubes-essentials.html" class="desire-card">
-                <div class="image" style="background:#FA4616;"><i class="fa-light fa-droplet"></i></div>
-                <div class="info">
-                    <h3>Lubricants</h3>
-                    <p>Smooth & Sensual</p>
-                    <span class="count">Loading...</span>
-                </div>
+                <div class="icon"><i class="fa-light fa-droplet"></i></div>
+                <h3>Lubricants</h3>
+                <p>Smooth &amp; Sensual</p>
+                <span class="count" id="countLubes">Loading...</span>
             </a>
             <a href="#" class="desire-card">
-                <div class="image" style="background:#B89BBE;"><i class="fa-light fa-leaf"></i></div>
-                <div class="info">
-                    <h3>Wellness</h3>
-                    <p>Natural Health</p>
-                    <span class="count">Loading...</span>
-                </div>
+                <div class="icon"><i class="fa-light fa-leaf"></i></div>
+                <h3>Wellness</h3>
+                <p>Natural Health</p>
+                <span class="count" id="countWellness">Loading...</span>
             </a>
         </div>
     </section>
@@ -1544,7 +1843,7 @@
         <div class="section-header">
             <div>
                 <h2>The Essence</h2>
-                <span class="sub">No-judgement guides, honest reviews & expert advice</span>
+                <span class="sub">No-judgement guides, honest reviews &amp; expert advice</span>
             </div>
             <a href="#">Visit hub →</a>
         </div>
@@ -1555,6 +1854,7 @@
                     <span class="category">Wellness Guide</span><span class="date">· 7 Aug</span>
                     <h4>Beginner's Guide to Sexual Wellness</h4>
                     <p>Everything you need to know about starting your wellness journey...</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
             <div class="blog-card">
@@ -1563,6 +1863,7 @@
                     <span class="category">Sexual Health</span><span class="date">· 7 Aug</span>
                     <h4>How to Choose the Right Products</h4>
                     <p>Finding the perfect products for your unique needs...</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
             <div class="blog-card">
@@ -1571,6 +1872,7 @@
                     <span class="category">Sex Tips</span><span class="date">· 21 Jul</span>
                     <h4>5 Ways to Enhance Intimacy</h4>
                     <p>Simple, effective tips to deepen your connection...</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
             <div class="blog-card">
@@ -1579,6 +1881,7 @@
                     <span class="category">Sex Toy Guides</span><span class="date">· 12 Jul</span>
                     <h4>Understanding Your True Essence</h4>
                     <p>A guide to self-discovery and embracing your unique desires...</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
         </div>
@@ -1597,8 +1900,8 @@
     <!-- NEWSLETTER -->
     <!-- ============================================================ -->
     <section class="newsletter">
-        <h2>Subscribe & get 10% off</h2>
-        <p>Valid during August. T&C's apply.</p>
+        <h2>Subscribe &amp; get 10% off</h2>
+        <p>Valid during August. T&amp;C's apply.</p>
         <form>
             <input type="email" placeholder="Email address..."/>
             <button>Subscribe</button>
@@ -1616,11 +1919,11 @@
                 <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
             </div>
             <div>
-                <h4>Help & Information</h4>
+                <h4>Help &amp; Information</h4>
                 <ul>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#">Accounts & Loyalty</a></li>
+                    <li><a href="#">Accounts &amp; Loyalty</a></li>
                     <li><a href="#">Payment Info</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Returns</a></li>
@@ -1657,6 +1960,31 @@
 
     <script>
         // ============================================================ //
+        // MOBILE NAVIGATION
+        // ============================================================ //
+        function toggleMobileNav() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('mobileOverlay');
+            
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            overlay.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        }
+
+        function closeMobileNav() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('mobileOverlay');
+            
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // ============================================================ //
         // SUPABASE CONFIG
         // ============================================================ //
         const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
@@ -1665,9 +1993,9 @@
         const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
         // ============================================================ //
-        // LOAD PRODUCTS
+        // LOAD TRENDING PRODUCTS (5 products)
         // ============================================================ //
-        async function loadProducts() {
+        async function loadTrendingProducts() {
             const container = document.getElementById('trendingProducts');
 
             try {
@@ -1703,9 +2031,16 @@
                     const ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
                     const reviewCount = p.review_count || 0;
 
+                    let bgColor = '#F5EDF2';
+                    if (p.badge === 'Best Seller') bgColor = '#6A2C99';
+                    else if (p.badge === 'Sale') bgColor = '#FA4616';
+                    else if (p.badge === 'New') bgColor = '#2E1033';
+                    else if (p.badge === 'Popular') bgColor = '#FA4616';
+                    else if (p.badge === 'Top Rated') bgColor = '#55217A';
+
                     html += `
                         <div class="product-card">
-                            <div class="image" style="background:${p.image_url ? `url('${p.image_url}') center/cover` : '#F5EDF2'};">
+                            <div class="image" style="background:${p.image_url ? `url('${p.image_url}') center/cover` : bgColor};">
                                 ${badgeHtml}
                                 ${p.image_url ? '' : '[Image]'}
                             </div>
@@ -1715,11 +2050,11 @@
                                     <span class="stars">${ratingStars}</span>
                                     <span class="count">(${reviewCount})</span>
                                 </div>
-                                <div class="name">${p.name}</div>
+                                <div class="name"><a href="#">${p.name}</a></div>
                                 <div class="desc">${p.short_description || ''}</div>
                                 <div class="price-row">
                                     ${priceDisplay}
-                                    <button class="btn-add">Add</button>
+                                    <button class="btn-add" onclick="addToCart('${p.id}')">Add</button>
                                 </div>
                             </div>
                         </div>
@@ -1731,9 +2066,9 @@
             } catch (error) {
                 console.error('Error loading products:', error);
                 container.innerHTML = `
-                    <div class="empty-products" style="grid-column:1/-1;">
+                    <div class="empty-products">
                         <i class="fa-light fa-circle-exclamation"></i>
-                        <p>Error loading products. Please try again later.</p>
+                        <p>Error loading products.</p>
                     </div>
                 `;
             }
@@ -1743,11 +2078,6 @@
         // LOAD CATEGORY COUNTS
         // ============================================================ //
         async function loadCategoryCounts() {
-            const categories = ['For Men', 'For Women', 'Lubricants'];
-
-            const cards = document.querySelectorAll('.desire-card .count');
-            const cardLinks = document.querySelectorAll('.desire-card');
-
             try {
                 const { data: products, error } = await supabase
                     .from('products')
@@ -1763,33 +2093,70 @@
                     }
                 });
 
+                // Map category names to element IDs
+                const categoryMap = {
+                    'For Men': 'countMen',
+                    'For Women': 'countWomen',
+                    'Lubricants': 'countLubes'
+                };
+
                 // Update counts
-                cards.forEach((card, index) => {
-                    const categoryMap = {
-                        'For Men': 'For Men',
-                        'For Women': 'For Women',
-                        'Lubricants': 'Lubricants'
-                    };
-
-                    const catName = cardLinks[index]?.querySelector('h3')?.textContent.trim();
-                    const key = categoryMap[catName] || catName;
-
-                    if (key && counts[key]) {
-                        card.textContent = `${counts[key]}+ products`;
-                    } else {
-                        card.textContent = '0 products';
+                Object.keys(categoryMap).forEach(key => {
+                    const element = document.getElementById(categoryMap[key]);
+                    if (element) {
+                        const count = counts[key] || 0;
+                        element.textContent = `${count}+ products`;
                     }
                 });
 
+                // Wellness count (all products not in other categories)
+                const wellnessCount = products.filter(p => 
+                    p.category && 
+                    !['For Men', 'For Women', 'Lubricants'].includes(p.category)
+                ).length;
+                
+                const wellnessEl = document.getElementById('countWellness');
+                if (wellnessEl) {
+                    wellnessEl.textContent = `${wellnessCount}+ products`;
+                }
+
             } catch (error) {
                 console.error('Error loading category counts:', error);
+                // Set fallback values
+                ['countMen', 'countWomen', 'countLubes', 'countWellness'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = '0 products';
+                });
             }
+        }
+
+        // ============================================================ //
+        // ADD TO CART (placeholder function)
+        // ============================================================ //
+        function addToCart(productId) {
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                const badge = document.querySelector('.cart-icon .badge');
+                if (badge) {
+                    const current = parseInt(badge.textContent) || 0;
+                    badge.textContent = current + 1;
+                }
+                btn.innerHTML = '<i class="fa-light fa-check"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1000);
+            }, 500);
         }
 
         // ============================================================ //
         // INIT
         // ============================================================ //
-        loadProducts();
+        loadTrendingProducts();
         loadCategoryCounts();
     </script>
 
