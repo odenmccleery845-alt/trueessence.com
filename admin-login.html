@@ -6,6 +6,7 @@
     <title>Admin Login – TrueEssence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         * {
             margin: 0;
@@ -14,8 +15,8 @@
         }
 
         body {
-            font-family: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
-            background: #F4F1F6;
+            font-family: 'DM Sans', Arial, sans-serif;
+            background: linear-gradient(145deg, #6A2C99 0%, #3A1555 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -25,12 +26,24 @@
 
         .login-container {
             background: #FFFFFF;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 48px 40px;
             max-width: 420px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(106,44,153,0.12);
-            border: 1px solid #E9E1EC;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(106,44,153,0.05);
+            border-radius: 50%;
         }
 
         .login-container .logo {
@@ -172,6 +185,12 @@
             margin-right: 8px;
         }
 
+        .login-container .btn-login:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .login-container .error-msg {
             background: rgba(194,43,61,0.08);
             border: 1px solid #C22B3D;
@@ -184,6 +203,21 @@
         }
 
         .login-container .error-msg.show {
+            display: block;
+        }
+
+        .login-container .success-msg {
+            background: rgba(28,140,106,0.08);
+            border: 1px solid #1C8C6A;
+            color: #1C8C6A;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .login-container .success-msg.show {
             display: block;
         }
 
@@ -203,12 +237,9 @@
             color: #FA4616;
         }
 
-        /* ============================================================ */
-        /* RESPONSIVE */
-        /* ============================================================ */
         @media (max-width: 480px) {
             .login-container {
-                padding: 32px 24px;
+                padding: 32px 20px;
             }
             .login-container .logo h1 {
                 font-size: 20px;
@@ -223,12 +254,8 @@
 </head>
 <body>
 
-    <!-- ============================================================ -->
-    <!-- LOGIN CONTAINER -->
-    <!-- ============================================================ -->
     <div class="login-container">
 
-        <!-- ===== LOGO ===== -->
         <div class="logo">
             <div class="logo-icon">TE</div>
             <h1>TRUE<span>ESSENCE</span></h1>
@@ -236,12 +263,13 @@
             <p>Sign in to manage your store</p>
         </div>
 
-        <!-- ===== ERROR MESSAGE ===== -->
         <div class="error-msg" id="errorMsg">
-            <i class="fa-light fa-circle-exclamation"></i> Invalid email or password. Please try again.
+            <i class="fa-light fa-circle-exclamation"></i> <span id="errorText">Invalid credentials</span>
+        </div>
+        <div class="success-msg" id="successMsg">
+            <i class="fa-light fa-check-circle"></i> Login successful! Redirecting...
         </div>
 
-        <!-- ===== LOGIN FORM ===== -->
         <form id="loginForm" onsubmit="return handleLogin(event)">
 
             <div class="form-group">
@@ -261,53 +289,102 @@
                 <a href="#">Forgot password?</a>
             </div>
 
-            <button type="submit" class="btn-login">
+            <button type="submit" class="btn-login" id="loginBtn">
                 <i class="fa-light fa-right-to-bracket"></i> Sign In
             </button>
 
         </form>
 
         <div class="footer-text">
-            Demo credentials: <strong>admin@trueessence.com</strong> / <strong>password</strong>
+            <strong>Demo:</strong> admin@trueessence.com / password
         </div>
 
     </div>
 
     <script>
         // ============================================================ //
+        // SUPABASE CONFIG
+        // ============================================================ //
+        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+        // ============================================================ //
         // LOGIN HANDLER
         // ============================================================ //
-        function handleLogin(event) {
+        async function handleLogin(event) {
             event.preventDefault();
 
-            var email = document.getElementById('email').value.trim();
-            var password = document.getElementById('password').value.trim();
-            var errorMsg = document.getElementById('errorMsg');
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+            const errorText = document.getElementById('errorText');
+            const successMsg = document.getElementById('successMsg');
+            const loginBtn = document.getElementById('loginBtn');
 
-            // Demo credentials
-            var validEmail = 'admin@trueessence.com';
-            var validPassword = 'password';
+            // Hide previous messages
+            errorMsg.classList.remove('show');
+            successMsg.classList.remove('show');
 
-            if (email === validEmail && password === validPassword) {
-                // Success — redirect to admin panel
-                window.location.href = 'admin-panel.html';
-                return false;
-            } else {
-                // Show error
+            // Validate
+            if (!email || !password) {
+                errorText.textContent = 'Please enter both email and password.';
                 errorMsg.classList.add('show');
-                setTimeout(function() {
-                    errorMsg.classList.remove('show');
-                }, 4000);
                 return false;
             }
+
+            // Disable button
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Signing in...';
+
+            try {
+                // Attempt login with Supabase
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    throw error;
+                }
+
+                // Success
+                successMsg.classList.add('show');
+                setTimeout(() => {
+                    window.location.href = 'admin-panel.html';
+                }, 1000);
+
+            } catch (error) {
+                // Show error
+                errorText.textContent = error.message || 'Invalid email or password.';
+                errorMsg.classList.add('show');
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '<i class="fa-light fa-right-to-bracket"></i> Sign In';
+                return false;
+            }
+
+            return false;
         }
+
+        // ============================================================ //
+        // CHECK IF ALREADY LOGGED IN
+        // ============================================================ //
+        async function checkSession() {
+            const { data: { user }, error } = await supabase.auth.getUser();
+            if (user && !error) {
+                window.location.href = 'admin-panel.html';
+            }
+        }
+
+        checkSession();
 
         // ============================================================ //
         // ENTER KEY SUPPORT
         // ============================================================ //
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
-                var form = document.getElementById('loginForm');
+                const form = document.getElementById('loginForm');
                 if (form) {
                     form.dispatchEvent(new Event('submit'));
                 }
