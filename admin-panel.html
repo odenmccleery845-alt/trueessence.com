@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TrueEssence – Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ============================================================ */
+        /* RESET & BASE */
+        /* ============================================================ */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            font-size: 14px;
+            color: #1A1A2E;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: #F4F1F6;
+            display: flex;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        ::selection {
+            background: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        /* ============================================================ */
+        /* SIDEBAR */
+        /* ============================================================ */
+        .sidebar {
+            width: 260px;
+            min-height: 100vh;
+            background: #1A1A2E;
+            color: rgba(255,255,255,0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #6A2C99;
+            border-radius: 4px;
+        }
+
+        .sidebar .brand {
+            padding: 24px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar .brand .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: #FFFFFF;
+            border: 2px solid #FA4616;
+        }
+
+        .sidebar .brand .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .sidebar .brand .logo-text span {
+            color: #FA4616;
+        }
+
+        .sidebar .brand .logo-sub {
+            font-size: 8px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .sidebar .menu {
+            padding: 16px 0;
+        }
+
+        .sidebar .menu .menu-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.25);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 20px 4px;
+        }
+
+        .sidebar .menu a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 20px;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar .menu a:hover {
+            background: rgba(255,255,255,0.04);
+            color: #FFFFFF;
+        }
+
+        .sidebar .menu a.active {
+            background: rgba(106,44,153,0.15);
+            color: #FA4616;
+            border-left-color: #FA4616;
+        }
+
+        .sidebar .menu a i {
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .sidebar .menu a .badge {
+            margin-left: auto;
+            background: #FA4616;
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .sidebar .menu a .badge.purple {
+            background: #6A2C99;
+        }
+
+        /* ============================================================ */
+        /* MAIN CONTENT */
+        /* ============================================================ */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================================ */
+        /* TOP HEADER */
+        /* ============================================================ */
+        .top-header {
+            background: #FFFFFF;
+            padding: 16px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E9E1EC;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .top-header .page-title h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .top-header .page-title p {
+            font-size: 13px;
+            color: #7A6F7E;
+        }
+
+        .top-header .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .top-header .header-actions .search-box {
+            display: flex;
+            border: 1px solid #E9E1EC;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #FAF6F8;
+        }
+
+        .top-header .header-actions .search-box input {
+            border: none;
+            padding: 8px 16px;
+            font-size: 13px;
+            background: transparent;
+            outline: none;
+            font-family: 'DM Sans', Arial, sans-serif;
+            width: 200px;
+        }
+
+        .top-header .header-actions .search-box button {
+            background: #6A2C99;
+            border: none;
+            padding: 8px 16px;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        /* ============================================================ */
+        /* PAGE CONTENT */
+        /* ============================================================ */
+        .page-content {
+            padding: 30px;
+            flex: 1;
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* ============================================================ */
+        /* DASHBOARD STATS */
+        /* ============================================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #E9E1EC;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(106,44,153,0.08);
+        }
+
+        .stat-card .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .stat-card .stat-icon.purple {
+            background: rgba(106,44,153,0.12);
+            color: #6A2C99;
+        }
+        .stat-card .stat-icon.orange {
+            background: rgba(250,70,22,0.12);
+            color: #FA4616;
+        }
+        .stat-card .stat-icon.green {
+            background: rgba(28,140,106,0.12);
+            color: #1C8C6A;
+        }
+        .stat-card .stat-icon.blue {
+            background: rgba(74,144,217,0.12);
+            color: #4A90D9;
+        }
+
+        .stat-card .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1A1A2E;
+        }
+
+        .stat-card .stat-label {
+            font-size: 14px;
+            color: #7A6F7E;
+        }
+
+        .stat-card .stat-change {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-top: 6px;
+        }
+
+        .stat-card .stat-change.up {
+            background: rgba(28,140,106,0.12);
+            color: #1C8C6A;
+        }
+
+        .stat-card .stat-change.down {
+            background: rgba(194,43,61,0.12);
+            color: #C22B3D;
+        }
+
+        /* ============================================================ */
+        /* FORM STYLES */
+        /* ============================================================ */
+        .form-container {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #E9E1EC;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-container .form-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 6px;
+        }
+
+        .form-container .form-subtitle {
+            font-size: 14px;
+            color: #7A6F7E;
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .form-row .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1A1A2E;
+        }
+
+        .form-group label .required {
+            color: #FA4616;
+            margin-left: 2px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px 14px;
+            border: 1px solid #E9E1EC;
+            border-radius: 8px;
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 14px;
+            color: #1A1A2E;
+            background: #FAF6F8;
+            transition: all 0.3s;
+            outline: none;
+            width: 100%;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #6A2C99;
+            box-shadow: 0 0 0 3px rgba(106,44,153,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group .help-text {
+            font-size: 12px;
+            color: #7A6F7E;
+        }
+
+        .form-group .image-preview {
+            width: 120px;
+            height: 120px;
+            border: 2px dashed #E9E1EC;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7A6F7E;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #FAF6F8;
+        }
+
+        .form-group .image-preview:hover {
+            border-color: #6A2C99;
+        }
+
+        .form-group .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #E9E1EC;
+        }
+
+        .btn {
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'DM Sans', Arial, sans-serif;
+        }
+
+        .btn-primary {
+            background: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background: #55217A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(106,44,153,0.3);
+        }
+
+        .btn-secondary {
+            background: #E9E1EC;
+            color: #1A1A2E;
+        }
+
+        .btn-secondary:hover {
+            background: #D3C0D8;
+        }
+
+        .btn-danger {
+            background: #C22B3D;
+            color: #FFFFFF;
+        }
+
+        .btn-danger:hover {
+            background: #A02232;
+        }
+
+        .btn-success {
+            background: #1C8C6A;
+            color: #FFFFFF;
+        }
+
+        .btn-success:hover {
+            background: #146B50;
+        }
+
+        .btn-orange {
+            background: #FA4616;
+            color: #FFFFFF;
+        }
+
+        .btn-orange:hover {
+            background: #C5462B;
+        }
+
+        /* ============================================================ */
+        /* PRODUCTS TABLE */
+        /* ============================================================ */
+        .table-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .table-toolbar .left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .table-toolbar .left select {
+            padding: 8px 12px;
+            border: 1px solid #E9E1EC;
+            border-radius: 8px;
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 13px;
+            background: #FFFFFF;
+        }
+
+        .table-toolbar .right {
+            display: flex;
+            gap: 10px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 14px 16px;
+            background: #F4F1F6;
+            font-weight: 600;
+            color: #1A1A2E;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #F4F1F6;
+        }
+
+        .data-table tr:hover td {
+            background: #FAF6F8;
+        }
+
+        .data-table .product-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .data-table .product-cell .thumb {
+            width: 40px;
+            height: 40px;
+            background: #F4F1F6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #7A6F7E;
+        }
+
+        .data-table .product-cell .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .data-table .status-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .data-table .status-badge.active {
+            background: rgba(28,140,106,0.12);
+            color: #1C8C6A;
+        }
+
+        .data-table .status-badge.inactive {
+            background: rgba(194,43,61,0.12);
+            color: #C22B3D;
+        }
+
+        .data-table .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .data-table .actions .btn-sm {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .data-table .actions .btn-sm.edit {
+            background: rgba(106,44,153,0.12);
+            color: #6A2C99;
+        }
+
+        .data-table .actions .btn-sm.edit:hover {
+            background: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        .data-table .actions .btn-sm.delete {
+            background: rgba(194,43,61,0.12);
+            color: #C22B3D;
+        }
+
+        .data-table .actions .btn-sm.delete:hover {
+            background: #C22B3D;
+            color: #FFFFFF;
+        }
+
+        /* ============================================================ */
+        /* SECTION TOGGLE */
+        /* ============================================================ */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .section-header p {
+            font-size: 14px;
+            color: #7A6F7E;
+        }
+
+        /* ============================================================ */
+        /* RESPONSIVE */
+        /* ============================================================ */
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 220px;
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .top-header {
+                padding: 12px 16px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .top-header .header-actions {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .top-header .header-actions .search-box input {
+                width: 120px;
+            }
+            .page-content {
+                padding: 16px;
+            }
+            .form-container {
+                padding: 16px;
+            }
+            .table-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .data-table {
+                font-size: 12px;
+            }
+            .data-table th,
+            .data-table td {
+                padding: 10px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-actions {
+                flex-direction: column;
+            }
+            .form-actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ============================================================ */
+        /* TOGGLE BUTTON */
+        /* ============================================================ */
+        .mobile-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: #6A2C99;
+            color: #fff;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(106,44,153,0.3);
+            display: none;
+        }
+
+        .mobile-toggle:hover {
+            background: #55217A;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+        }
+
+        /* ============================================================ */
+        /* ALERT / NOTIFICATION */
+        /* ============================================================ */
+        .alert {
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .alert-success {
+            background: rgba(28,140,106,0.1);
+            border: 1px solid #1C8C6A;
+            color: #1C8C6A;
+        }
+
+        .alert-danger {
+            background: rgba(194,43,61,0.1);
+            border: 1px solid #C22B3D;
+            color: #C22B3D;
+        }
+
+        .alert-warning {
+            background: rgba(250,70,22,0.1);
+            border: 1px solid #FA4616;
+            color: #FA4616;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- SIDEBAR -->
+<!-- ============================================================ -->
+<aside class="sidebar" id="sidebar">
+    <div class="brand">
+        <div class="logo-icon">TE</div>
+        <div>
+            <div class="logo-text">TRUE<span>ESSENCE</span></div>
+            <div class="logo-sub">Admin Panel</div>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <div class="menu-label">Main</div>
+        <a class="active" data-page="dashboard"><i class="fa-light fa-gauge-high"></i> Dashboard</a>
+        <a data-page="products"><i class="fa-light fa-box"></i> Products <span class="badge">128</span></a>
+        <a data-page="add-product"><i class="fa-light fa-plus-circle"></i> Add Product</a>
+        <a data-page="categories"><i class="fa-light fa-tags"></i> Categories</a>
+        <a data-page="orders"><i class="fa-light fa-shopping-bag"></i> Orders <span class="badge">12</span></a>
+        <a data-page="customers"><i class="fa-light fa-users"></i> Customers</a>
+
+        <div class="menu-label">Content</div>
+        <a data-page="blog"><i class="fa-light fa-file-lines"></i> Blog Posts</a>
+        <a data-page="banners"><i class="fa-light fa-image"></i> Banners</a>
+        <a data-page="gift-cards"><i class="fa-light fa-gift"></i> Gift Cards</a>
+
+        <div class="menu-label">Settings</div>
+        <a data-page="settings"><i class="fa-light fa-gear"></i> Site Settings</a>
+        <a data-page="shipping"><i class="fa-light fa-truck"></i> Shipping</a>
+        <a data-page="payment"><i class="fa-light fa-credit-card"></i> Payment</a>
+        <a href="#" style="color:#FA4616;"><i class="fa-light fa-right-from-bracket"></i> Logout</a>
+    </nav>
+</aside>
+
+<!-- ============================================================ -->
+<!-- MAIN CONTENT -->
+<!-- ============================================================ -->
+<main class="main-content">
+
+    <!-- ============================================================ -->
+    <!-- TOP HEADER -->
+    <!-- ============================================================ -->
+    <header class="top-header">
+        <div class="page-title">
+            <h1 id="pageTitle">Dashboard</h1>
+            <p id="pageSubtitle">Welcome back, Admin! Here's what's happening today.</p>
+        </div>
+        <div class="header-actions">
+            <div class="search-box">
+                <input type="text" placeholder="Search..."/>
+                <button><i class="fa-light fa-search"></i></button>
+            </div>
+            <div class="admin-profile" style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:4px 12px 4px 4px;border-radius:50px;border:1px solid #E9E1EC;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#6A2C99;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:700;font-size:14px;">A</div>
+                <div>
+                    <div style="font-weight:600;font-size:13px;color:#1A1A2E;">Admin</div>
+                    <div style="font-size:11px;color:#7A6F7E;">Super Admin</div>
+                </div>
+                <i class="fa-light fa-chevron-down" style="font-size:12px;color:#7A6F7E;"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: DASHBOARD -->
+    <!-- ============================================================ -->
+    <section class="page-content active" id="page-dashboard">
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon purple"><i class="fa-light fa-dollar-sign"></i></div>
+                <div class="stat-number">$24,580</div>
+                <div class="stat-label">Total Revenue</div>
+                <span class="stat-change up"><i class="fa-light fa-arrow-up"></i> 12.5%</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon orange"><i class="fa-light fa-shopping-bag"></i></div>
+                <div class="stat-number">342</div>
+                <div class="stat-label">Total Orders</div>
+                <span class="stat-change up"><i class="fa-light fa-arrow-up"></i> 8.2%</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green"><i class="fa-light fa-users"></i></div>
+                <div class="stat-number">1,847</div>
+                <div class="stat-label">Total Customers</div>
+                <span class="stat-change up"><i class="fa-light fa-arrow-up"></i> 5.7%</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="fa-light fa-box"></i></div>
+                <div class="stat-number">128</div>
+                <div class="stat-label">Total Products</div>
+                <span class="stat-change down"><i class="fa-light fa-arrow-down"></i> 2.1%</span>
+            </div>
+        </div>
+
+        <div style="background:#FFFFFF;border-radius:16px;padding:24px;border:1px solid #E9E1EC;">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Recent Orders</h3>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#ORD-001</strong></td>
+                            <td>John Doe</td>
+                            <td>$149.95</td>
+                            <td><span class="status-badge active">Completed</span></td>
+                            <td>2 hours ago</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#ORD-002</strong></td>
+                            <td>Sarah Miller</td>
+                            <td>$89.95</td>
+                            <td><span class="status-badge" style="background:rgba(250,70,22,0.12);color:#FA4616;">Processing</span></td>
+                            <td>5 hours ago</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#ORD-003</strong></td>
+                            <td>Robert Johnson</td>
+                            <td>$239.95</td>
+                            <td><span class="status-badge" style="background:rgba(74,144,217,0.12);color:#4A90D9;">Shipped</span></td>
+                            <td>Yesterday</td>
+                        </tr>
+                        <tr>
+                            <td><strong>#ORD-004</strong></td>
+                            <td>Emma Wilson</td>
+                            <td>$49.95</td>
+                            <td><span class="status-badge" style="background:rgba(250,181,159,0.3);color:#C5462B;">Pending</span></td>
+                            <td>Yesterday</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: PRODUCTS -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-products">
+        <div class="section-header">
+            <div>
+                <h2>All Products</h2>
+                <p>Manage your product inventory</p>
+            </div>
+            <button class="btn btn-primary" onclick="switchPage('add-product')"><i class="fa-light fa-plus"></i> Add New Product</button>
+        </div>
+
+        <div class="alert alert-success">
+            <i class="fa-light fa-check-circle"></i> 128 products found.
+        </div>
+
+        <div class="table-toolbar">
+            <div class="left">
+                <select>
+                    <option>All Categories</option>
+                    <option>Sex Toys</option>
+                    <option>For Vulvas</option>
+                    <option>For Penises</option>
+                    <option>Vibrators</option>
+                </select>
+                <select>
+                    <option>Sort by: Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Most Popular</option>
+                </select>
+            </div>
+            <div class="right">
+                <button class="btn btn-secondary"><i class="fa-light fa-download"></i> Export</button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="thumb">[Img]</div>
+                                <div>
+                                    <div style="font-weight:600;">Titan Gel</div>
+                                    <div style="font-size:12px;color:#7A6F7E;">SKU: TG-001</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>For Men</td>
+                        <td><span style="color:#FA4616;font-weight:600;">$49.99</span> <span style="text-decoration:line-through;color:#7A6F7E;font-size:12px;">$69.99</span></td>
+                        <td>100</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i> Edit</button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="thumb">[Img]</div>
+                                <div>
+                                    <div style="font-weight:600;">Feminine Wash</div>
+                                    <div style="font-size:12px;color:#7A6F7E;">SKU: FW-001</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>For Women</td>
+                        <td><span style="font-weight:600;">$24.99</span></td>
+                        <td>200</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i> Edit</button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="thumb">[Img]</div>
+                                <div>
+                                    <div style="font-weight:600;">Silicone Lubricant</div>
+                                    <div style="font-size:12px;color:#7A6F7E;">SKU: SL-001</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Lubricants</td>
+                        <td><span style="font-weight:600;">$19.99</span></td>
+                        <td>0</td>
+                        <td><span class="status-badge inactive">Out of Stock</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i> Edit</button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="thumb">[Img]</div>
+                                <div>
+                                    <div style="font-weight:600;">Satisfyer Pro 2</div>
+                                    <div style="font-size:12px;color:#7A6F7E;">SKU: SP-002</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Vibrators</td>
+                        <td><span style="color:#FA4616;font-weight:600;">$79.95</span> <span style="text-decoration:line-through;color:#7A6F7E;font-size:12px;">$129.95</span></td>
+                        <td>45</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i> Edit</button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="thumb">[Img]</div>
+                                <div>
+                                    <div style="font-weight:600;">Intimate Wipes</div>
+                                    <div style="font-size:12px;color:#7A6F7E;">SKU: IW-001</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>For Women</td>
+                        <td><span style="font-weight:600;">$12.99</span></td>
+                        <td>350</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i> Edit</button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;flex-wrap:wrap;gap:10px;">
+            <span style="font-size:13px;color:#7A6F7E;">Showing 1-5 of 128 products</span>
+            <div style="display:flex;gap:6px;">
+                <button class="btn btn-secondary" style="padding:6px 14px;">Previous</button>
+                <button class="btn btn-primary" style="padding:6px 14px;">1</button>
+                <button class="btn btn-secondary" style="padding:6px 14px;">2</button>
+                <button class="btn btn-secondary" style="padding:6px 14px;">3</button>
+                <span style="padding:6px 8px;color:#7A6F7E;">…</span>
+                <button class="btn btn-secondary" style="padding:6px 14px;">26</button>
+                <button class="btn btn-secondary" style="padding:6px 14px;">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: ADD PRODUCT -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-add-product">
+        <div class="form-container">
+            <div class="form-title"><i class="fa-light fa-plus-circle" style="color:#6A2C99;"></i> Add New Product</div>
+            <div class="form-subtitle">Fill in the details below to add a new product to your store.</div>
+
+            <form id="addProductForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Product Name <span class="required">*</span></label>
+                        <input type="text" placeholder="e.g. Titan Gel" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Product Slug <span class="required">*</span></label>
+                        <input type="text" placeholder="e.g. titan-gel" required />
+                        <span class="help-text">This will be the URL: trueessence.com/product/<strong>titan-gel</strong></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>Description <span class="required">*</span></label>
+                        <textarea placeholder="Full product description..." rows="4"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>Short Description</label>
+                        <textarea placeholder="Brief product summary..." rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Price <span class="required">*</span></label>
+                        <input type="number" step="0.01" placeholder="49.99" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Sale Price</label>
+                        <input type="number" step="0.01" placeholder="39.99" />
+                        <span class="help-text">Leave blank if not on sale</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category <span class="required">*</span></label>
+                        <select>
+                            <option value="">Select Category</option>
+                            <option>Sex Toys</option>
+                            <option>For Vulvas</option>
+                            <option>For Penises</option>
+                            <option>For Couples</option>
+                            <option>Vibrators</option>
+                            <option>Dildos</option>
+                            <option>Anal Toys</option>
+                            <option>Lingerie</option>
+                            <option>BDSM</option>
+                            <option>Lubes & Essentials</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Sub-Category</label>
+                        <select>
+                            <option value="">Select Sub-Category</option>
+                            <option>Enhancement</option>
+                            <option>Vitality</option>
+                            <option>Care & Freshness</option>
+                            <option>Cleansing</option>
+                            <option>Smooth & Sensual</option>
+                            <option>Natural Health</option>
+                            <option>Clitoral</option>
+                            <option>G-Spot</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <input type="text" placeholder="e.g. Share Satisfaction" />
+                    </div>
+                    <div class="form-group">
+                        <label>SKU <span class="required">*</span></label>
+                        <input type="text" placeholder="e.g. TG-001" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Stock Quantity <span class="required">*</span></label>
+                        <input type="number" placeholder="100" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Badge / Tag</label>
+                        <select>
+                            <option value="">None</option>
+                            <option>Best Seller</option>
+                            <option>Sale</option>
+                            <option>New</option>
+                            <option>Popular</option>
+                            <option>Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Product Image</label>
+                        <div class="image-preview" onclick="document.getElementById('imageInput').click()">
+                            <div>
+                                <i class="fa-light fa-cloud-arrow-up" style="font-size:24px;display:block;margin-bottom:4px;"></i>
+                                Click to upload image
+                            </div>
+                        </div>
+                        <input type="file" id="imageInput" accept="image/*" style="display:none;" />
+                        <span class="help-text">Recommended: 800x800px, JPG or PNG</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Images</label>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                            <div class="image-preview" style="width:80px;height:80px;" onclick="document.getElementById('imageInput2').click()">
+                                <i class="fa-light fa-plus"></i>
+                            </div>
+                            <div class="image-preview" style="width:80px;height:80px;" onclick="document.getElementById('imageInput3').click()">
+                                <i class="fa-light fa-plus"></i>
+                            </div>
+                            <div class="image-preview" style="width:80px;height:80px;" onclick="document.getElementById('imageInput4').click()">
+                                <i class="fa-light fa-plus"></i>
+                            </div>
+                        </div>
+                        <input type="file" id="imageInput2" accept="image/*" style="display:none;" />
+                        <input type="file" id="imageInput3" accept="image/*" style="display:none;" />
+                        <input type="file" id="imageInput4" accept="image/*" style="display:none;" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                            <input type="checkbox" checked /> Featured Product
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                            <input type="checkbox" checked /> Active / Visible
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fa-light fa-check"></i> Save Product</button>
+                    <button type="reset" class="btn btn-secondary"><i class="fa-light fa-rotate"></i> Reset</button>
+                    <button type="button" class="btn btn-secondary" onclick="switchPage('products')"><i class="fa-light fa-arrow-left"></i> Cancel</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: CATEGORIES -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-categories">
+        <div class="section-header">
+            <div>
+                <h2>Categories</h2>
+                <p>Manage your product categories</p>
+            </div>
+            <button class="btn btn-primary"><i class="fa-light fa-plus"></i> Add Category</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Category Name</th>
+                        <th>Slug</th>
+                        <th>Products</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sex Toys</strong></td>
+                        <td>sex-toys</td>
+                        <td>128</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>For Vulvas</strong></td>
+                        <td>for-vulvas</td>
+                        <td>45</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>For Penises</strong></td>
+                        <td>for-penises</td>
+                        <td>38</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vibrators</strong></td>
+                        <td>vibrators</td>
+                        <td>62</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: ORDERS -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-orders">
+        <div class="section-header">
+            <div>
+                <h2>Orders</h2>
+                <p>Manage all customer orders</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <select style="padding:8px 12px;border:1px solid #E9E1EC;border-radius:8px;font-family:'DM Sans',Arial,sans-serif;">
+                    <option>All Status</option>
+                    <option>Pending</option>
+                    <option>Processing</option>
+                    <option>Shipped</option>
+                    <option>Completed</option>
+                    <option>Cancelled</option>
+                </select>
+                <button class="btn btn-secondary"><i class="fa-light fa-download"></i> Export</button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#ORD-001</strong></td>
+                        <td>John Doe</td>
+                        <td>3 items</td>
+                        <td>$149.95</td>
+                        <td><span class="status-badge active">Completed</span></td>
+                        <td>2 hours ago</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>#ORD-002</strong></td>
+                        <td>Sarah Miller</td>
+                        <td>2 items</td>
+                        <td>$89.95</td>
+                        <td><span class="status-badge" style="background:rgba(250,70,22,0.12);color:#FA4616;">Processing</span></td>
+                        <td>5 hours ago</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>#ORD-003</strong></td>
+                        <td>Robert Johnson</td>
+                        <td>4 items</td>
+                        <td>$239.95</td>
+                        <td><span class="status-badge" style="background:rgba(74,144,217,0.12);color:#4A90D9;">Shipped</span></td>
+                        <td>Yesterday</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>#ORD-004</strong></td>
+                        <td>Emma Wilson</td>
+                        <td>1 item</td>
+                        <td>$49.95</td>
+                        <td><span class="status-badge" style="background:rgba(250,181,159,0.3);color:#C5462B;">Pending</span></td>
+                        <td>Yesterday</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: CUSTOMERS -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-customers">
+        <div class="section-header">
+            <div>
+                <h2>Customers</h2>
+                <p>Manage your customer base</p>
+            </div>
+            <button class="btn btn-primary"><i class="fa-light fa-plus"></i> Add Customer</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Email</th>
+                        <th>Orders</th>
+                        <th>Total Spent</th>
+                        <th>Joined</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>John Doe</strong></td>
+                        <td>john@email.com</td>
+                        <td>12</td>
+                        <td>$1,247</td>
+                        <td>Jan 2025</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm edit"><i class="fa-light fa-envelope"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sarah Miller</strong></td>
+                        <td>sarah@email.com</td>
+                        <td>8</td>
+                        <td>$894</td>
+                        <td>Mar 2025</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm edit"><i class="fa-light fa-envelope"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: BLOG -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-blog">
+        <div class="section-header">
+            <div>
+                <h2>Blog Posts</h2>
+                <p>Manage your blog content</p>
+            </div>
+            <button class="btn btn-primary"><i class="fa-light fa-plus"></i> New Post</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Beginner's Guide to Sexual Wellness</strong></td>
+                        <td>Wellness Guide</td>
+                        <td>Admin</td>
+                        <td>7 Aug 2026</td>
+                        <td><span class="status-badge active">Published</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>5 Ways to Enhance Intimacy</strong></td>
+                        <td>Sex Tips</td>
+                        <td>Admin</td>
+                        <td>21 Jul 2026</td>
+                        <td><span class="status-badge active">Published</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: BANNERS -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-banners">
+        <div class="section-header">
+            <div>
+                <h2>Banners</h2>
+                <p>Manage your homepage banners</p>
+            </div>
+            <button class="btn btn-primary"><i class="fa-light fa-plus"></i> Add Banner</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Banner</th>
+                        <th>Title</th>
+                        <th>Position</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hero Banner</td>
+                        <td>Discover Your True Essence</td>
+                        <td>Homepage Hero</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sale Banner</td>
+                        <td>Mega Sale Up to 80% Off</td>
+                        <td>Homepage Middle</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: GIFT CARDS -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-gift-cards">
+        <div class="section-header">
+            <div>
+                <h2>Gift Cards</h2>
+                <p>Manage digital gift cards</p>
+            </div>
+            <button class="btn btn-primary"><i class="fa-light fa-plus"></i> Create Gift Card</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Card Code</th>
+                        <th>Amount</th>
+                        <th>Recipient</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>GC-2026-001</strong></td>
+                        <td>$50.00</td>
+                        <td>john@email.com</td>
+                        <td><span class="status-badge active">Active</span></td>
+                        <td>2 days ago</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>GC-2026-002</strong></td>
+                        <td>$100.00</td>
+                        <td>sarah@email.com</td>
+                        <td><span class="status-badge" style="background:rgba(250,181,159,0.3);color:#C5462B;">Redeemed</span></td>
+                        <td>5 days ago</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn-sm edit"><i class="fa-light fa-eye"></i></button>
+                                <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: SETTINGS -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-settings">
+        <div class="form-container">
+            <div class="form-title"><i class="fa-light fa-gear" style="color:#6A2C99;"></i> Site Settings</div>
+            <div class="form-subtitle">Configure your store settings.</div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label>Store Name</label>
+                    <input type="text" value="TrueEssence Wellness" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Store Email</label>
+                    <input type="email" value="support@trueessence.com" />
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" value="0800 238 588" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label>Store Address</label>
+                    <textarea rows="3">123 Wellness Street, Auckland, New Zealand</textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Currency</label>
+                    <select>
+                        <option>USD ($)</option>
+                        <option>NZD ($)</option>
+                        <option>EUR (€)</option>
+                        <option>GBP (£)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Timezone</label>
+                    <select>
+                        <option>Pacific/Auckland</option>
+                        <option>America/New_York</option>
+                        <option>Europe/London</option>
+                        <option>Asia/Dubai</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary"><i class="fa-light fa-check"></i> Save Settings</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: SHIPPING -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-shipping">
+        <div class="form-container">
+            <div class="form-title"><i class="fa-light fa-truck" style="color:#6A2C99;"></i> Shipping Settings</div>
+            <div class="form-subtitle">Configure your shipping options.</div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="checkbox" checked /> Free Shipping Over $150
+                    </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Free Shipping Threshold</label>
+                    <input type="number" value="150" />
+                </div>
+                <div class="form-group">
+                    <label>Standard Shipping Cost</label>
+                    <input type="number" value="10" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label>Standard Shipping Time</label>
+                    <input type="text" value="1 - 2 business days" />
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary"><i class="fa-light fa-check"></i> Save Shipping Settings</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGE: PAYMENT -->
+    <!-- ============================================================ -->
+    <section class="page-content" id="page-payment">
+        <div class="form-container">
+            <div class="form-title"><i class="fa-light fa-credit-card" style="color:#6A2C99;"></i> Payment Settings</div>
+            <div class="form-subtitle">Configure your payment gateways.</div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="checkbox" checked /> Stripe (Credit Card)
+                    </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="checkbox" checked /> PayPal
+                    </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                        <input type="checkbox" /> Afterpay / Klarna
+                    </label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Stripe Secret Key</label>
+                    <input type="password" placeholder="sk_live_..." />
+                </div>
+                <div class="form-group">
+                    <label>Stripe Publishable Key</label>
+                    <input type="text" placeholder="pk_live_..." />
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary"><i class="fa-light fa-check"></i> Save Payment Settings</button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ============================================================ -->
+<!-- MOBILE TOGGLE BUTTON -->
+<!-- ============================================================ -->
+<button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+    <i class="fa-light fa-bars"></i>
+</button>
+
+<script>
+    // ============================================================ //
+    // PAGE SWITCHING
+    // ============================================================ //
+    function switchPage(page) {
+        // Hide all pages
+        document.querySelectorAll('.page-content').forEach(function(el) {
+            el.classList.remove('active');
+        });
+
+        // Show selected page
+        var target = document.getElementById('page-' + page);
+        if (target) {
+            target.classList.add('active');
+        }
+
+        // Update sidebar active state
+        document.querySelectorAll('.sidebar .menu a').forEach(function(el) {
+            el.classList.remove('active');
+            if (el.getAttribute('data-page') === page) {
+                el.classList.add('active');
+            }
+        });
+
+        // Update page title
+        var titles = {
+            'dashboard': { title: 'Dashboard', sub: 'Welcome back, Admin! Here\'s what\'s happening today.' },
+            'products': { title: 'Products', sub: 'Manage your product inventory' },
+            'add-product': { title: 'Add Product', sub: 'Add a new product to your store' },
+            'categories': { title: 'Categories', sub: 'Manage your product categories' },
+            'orders': { title: 'Orders', sub: 'Manage all customer orders' },
+            'customers': { title: 'Customers', sub: 'Manage your customer base' },
+            'blog': { title: 'Blog Posts', sub: 'Manage your blog content' },
+            'banners': { title: 'Banners', sub: 'Manage your homepage banners' },
+            'gift-cards': { title: 'Gift Cards', sub: 'Manage digital gift cards' },
+            'settings': { title: 'Site Settings', sub: 'Configure your store settings' },
+            'shipping': { title: 'Shipping Settings', sub: 'Configure your shipping options' },
+            'payment': { title: 'Payment Settings', sub: 'Configure your payment gateways' }
+        };
+
+        var info = titles[page] || { title: 'Page', sub: '' };
+        document.getElementById('pageTitle').textContent = info.title;
+        document.getElementById('pageSubtitle').textContent = info.sub;
+
+        // Close sidebar on mobile
+        if (window.innerWidth <= 768) {
+            document.getElementById('sidebar').classList.remove('open');
+        }
+    }
+
+    // ============================================================ //
+    // SIDEBAR CLICK HANDLING
+    // ============================================================ //
+    document.querySelectorAll('.sidebar .menu a[data-page]').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            var page = this.getAttribute('data-page');
+            if (page) {
+                switchPage(page);
+            }
+        });
+    });
+
+    // ============================================================ //
+    // PRODUCT ADD FORM SUBMIT
+    // ============================================================ //
+    document.getElementById('addProductForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('🎉 Product added successfully! (This is a demo — backend integration coming soon)');
+        switchPage('products');
+    });
+
+    // ============================================================ //
+    // IMAGE PREVIEW
+    // ============================================================ //
+    document.getElementById('imageInput').addEventListener('change', function(e) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            var preview = document.querySelector('.image-preview');
+            preview.innerHTML = '<img src="' + event.target.result + '" />';
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    });
+</script>
+
+</body>
+</html>
