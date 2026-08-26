@@ -751,7 +751,7 @@
             <a data-page="products"><i class="fa-light fa-box"></i> Products <span class="badge" id="productCount">0</span></a>
             <a data-page="add-product"><i class="fa-light fa-plus-circle"></i> Add Product</a>
             <a data-page="categories"><i class="fa-light fa-tags"></i> Categories</a>
-            <a data-page="orders"><i class="fa-light fa-shopping-bag"></i> Orders <span class="badge">12</span></a>
+            <a data-page="orders"><i class="fa-light fa-shopping-bag"></i> Orders <span class="badge">0</span></a>
             <a data-page="customers"><i class="fa-light fa-users"></i> Customers</a>
 
             <div class="menu-label">Settings</div>
@@ -814,11 +814,11 @@
             </div>
 
             <div style="background:#FFFFFF;border-radius:16px;padding:24px;border:1px solid #E9E1EC;">
-                <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Recent Orders</h3>
-                <div id="recentOrders">
+                <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Recent Products</h3>
+                <div id="recentProducts">
                     <div class="empty-state">
-                        <i class="fa-light fa-shopping-bag"></i>
-                        <p>No orders yet</p>
+                        <i class="fa-light fa-box"></i>
+                        <p>No products yet. <a href="#" onclick="switchPage('add-product')" style="color:#6A2C99;font-weight:600;">Add your first product</a></p>
                     </div>
                 </div>
             </div>
@@ -1077,7 +1077,6 @@
                 window.location.href = 'admin-login.html';
                 return null;
             }
-            // Update admin name
             if (user.email) {
                 const name = user.email.split('@')[0];
                 document.getElementById('adminName').textContent = name.charAt(0).toUpperCase() + name.slice(1);
@@ -1098,18 +1097,15 @@
         // PAGE SWITCHING
         // ============================================================ //
         function switchPage(page) {
-            // Hide all pages
             document.querySelectorAll('.page-content').forEach(function(el) {
                 el.classList.remove('active');
             });
 
-            // Show selected page
             var target = document.getElementById('page-' + page);
             if (target) {
                 target.classList.add('active');
             }
 
-            // Update sidebar
             document.querySelectorAll('.sidebar .menu a[data-page]').forEach(function(el) {
                 el.classList.remove('active');
                 if (el.getAttribute('data-page') === page) {
@@ -1117,7 +1113,6 @@
                 }
             });
 
-            // Update title
             var titles = {
                 'dashboard': { title: 'Dashboard', sub: 'Welcome back, Admin!' },
                 'products': { title: 'Products', sub: 'Manage your product inventory' },
@@ -1132,11 +1127,9 @@
             document.getElementById('pageTitle').textContent = info.title;
             document.getElementById('pageSubtitle').textContent = info.sub;
 
-            // Load data if needed
             if (page === 'products') loadProducts();
             if (page === 'dashboard') loadDashboardStats();
 
-            // Close sidebar on mobile
             if (window.innerWidth <= 768) {
                 document.getElementById('sidebar').classList.remove('open');
             }
@@ -1210,7 +1203,7 @@
                             <td><span class="status-badge ${statusClass}">${statusText}</span></td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-sm edit" onclick="deleteProduct('${p.id}')"><i class="fa-light fa-trash"></i></button>
+                                    <button class="btn-sm delete" onclick="deleteProduct('${p.id}')"><i class="fa-light fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -1245,11 +1238,9 @@
             const errorAlert = document.getElementById('errorAlert');
             const errorText = document.getElementById('errorText');
 
-            // Hide alerts
             successAlert.classList.remove('show');
             errorAlert.classList.remove('show');
 
-            // Get form data
             const productData = {
                 name: document.getElementById('productName').value.trim(),
                 slug: document.getElementById('productSlug').value.trim(),
@@ -1266,14 +1257,12 @@
                 is_active: document.getElementById('productActive').checked
             };
 
-            // Validate
             if (!productData.name || !productData.slug || !productData.price || !productData.sku) {
                 errorText.textContent = 'Please fill in all required fields.';
                 errorAlert.classList.add('show');
                 return false;
             }
 
-            // Disable button
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Saving...';
 
@@ -1285,7 +1274,6 @@
 
                 if (error) throw error;
 
-                // Success
                 successAlert.classList.add('show');
                 document.getElementById('addProductForm').reset();
 
@@ -1339,14 +1327,13 @@
                     document.getElementById('statProducts').textContent = productCount || 0;
                 }
 
-                // Load recent products for now
                 const { data: recentProducts, error: recentError } = await supabase
                     .from('products')
                     .select('*')
                     .order('created_at', { ascending: false })
                     .limit(5);
 
-                const ordersContainer = document.getElementById('recentOrders');
+                const container = document.getElementById('recentProducts');
 
                 if (!recentError && recentProducts && recentProducts.length > 0) {
                     let html = `
@@ -1379,9 +1366,9 @@
                             </table>
                         </div>
                     `;
-                    ordersContainer.innerHTML = html;
+                    container.innerHTML = html;
                 } else {
-                    ordersContainer.innerHTML = `
+                    container.innerHTML = `
                         <div class="empty-state">
                             <i class="fa-light fa-box"></i>
                             <p>No products yet. <a href="#" onclick="switchPage('add-product')" style="color:#6A2C99;font-weight:600;">Add your first product</a></p>
@@ -1479,7 +1466,7 @@
         });
 
         // ============================================================ //
-        // INIT - CHECK AUTH & LOAD DATA
+        // INIT
         // ============================================================ //
         (async function init() {
             const user = await checkAuth();
