@@ -122,12 +122,8 @@
             text-align: center; margin-top: 20px;
             font-size: 13px; color: #7A6F7E;
         }
-        .login-container .footer-text a {
-            color: #6A2C99; font-weight: 600;
-        }
-        .login-container .footer-text a:hover { color: #FA4616; }
+        .login-container .footer-text strong { color: #1A1A2E; }
 
-        /* Debug info */
         .debug-info {
             background: #F4F1F6;
             border-radius: 8px;
@@ -140,6 +136,8 @@
             display: none;
         }
         .debug-info.show { display: block; }
+        .debug-info .success { color: #1C8C6A; }
+        .debug-info .error { color: #C22B3D; }
 
         @media (max-width: 480px) {
             .login-container { padding: 32px 20px; }
@@ -194,7 +192,7 @@
         </form>
 
         <div class="debug-info" id="debugInfo">
-            <strong>Debug Info:</strong><br />
+            <strong>🔍 Debug Info:</strong><br />
             <span id="debugText">Waiting for login attempt...</span>
         </div>
 
@@ -206,15 +204,15 @@
 
     <script>
         // ============================================================ //
-        // SUPABASE CONFIG
+        // SUPABASE CONFIG - Using 'window' to avoid duplicate declaration
         // ============================================================ //
         const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
         const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
 
         console.log('🔐 Supabase URL:', SUPABASE_URL);
-        console.log('🔑 Supabase Key:', SUPABASE_PUBLISHABLE_KEY);
 
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        // Create Supabase client - use window to make it globally available
+        window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
         // ============================================================ //
         // LOGIN HANDLER
@@ -248,13 +246,13 @@
             loginBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Signing in...';
 
             // Show debug
-            debugText.textContent = `Attempting login with: ${email}`;
+            debugText.textContent = `🔄 Attempting login with: ${email}`;
             debugInfo.classList.add('show');
 
             try {
                 console.log('🔄 Attempting login with:', email);
 
-                const { data, error } = await supabase.auth.signInWithPassword({
+                const { data, error } = await window.supabase.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
@@ -264,11 +262,13 @@
 
                 if (error) {
                     debugText.textContent = `❌ Error: ${error.message}`;
+                    debugInfo.classList.add('show');
                     throw error;
                 }
 
                 if (data && data.user) {
-                    debugText.textContent = `✅ Success! User: ${data.user.email}`;
+                    debugText.innerHTML = `✅ <span class="success">Success! User: ${data.user.email}</span>`;
+                    debugInfo.classList.add('show');
                     console.log('✅ User authenticated:', data.user);
 
                     // Success
@@ -282,7 +282,6 @@
 
             } catch (error) {
                 console.error('❌ Login error:', error);
-                debugText.textContent = `❌ Error: ${error.message}`;
 
                 // Show error
                 errorText.textContent = error.message || 'Invalid email or password.';
@@ -301,7 +300,7 @@
         // ============================================================ //
         async function checkSession() {
             try {
-                const { data: { user }, error } = await supabase.auth.getUser();
+                const { data: { user }, error } = await window.supabase.auth.getUser();
                 console.log('🔍 Session check:', user, error);
                 if (user && !error) {
                     console.log('✅ User already logged in, redirecting...');
@@ -332,7 +331,7 @@
         async function testConnection() {
             try {
                 console.log('🔄 Testing Supabase connection...');
-                const { data, error } = await supabase.auth.getSession();
+                const { data, error } = await window.supabase.auth.getSession();
                 console.log('📦 Session test:', data, error);
                 if (!error) {
                     console.log('✅ Supabase connection successful!');
