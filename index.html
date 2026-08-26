@@ -130,7 +130,7 @@
         }
 
         /* ============================================================ */
-        /* HEADER */
+        /* HEADER - Hamburger on the right corner */
         /* ============================================================ */
         .header {
             background: #FFFFFF;
@@ -147,6 +147,26 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-center {
+            flex: 1;
+            max-width: 460px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Logo */
         .logo-icon {
             width: 48px;
             height: 48px;
@@ -196,6 +216,7 @@
             text-decoration: none;
         }
 
+        /* Search */
         .search-bar {
             flex: 1;
             max-width: 460px;
@@ -230,6 +251,7 @@
             background: #55217A;
         }
 
+        /* Account & Cart */
         .account-cart {
             display: flex;
             align-items: center;
@@ -265,7 +287,7 @@
         }
 
         /* ============================================================ */
-        /* HAMBURGER MENU */
+        /* HAMBURGER MENU - Far Right Corner */
         /* ============================================================ */
         .hamburger {
             display: none;
@@ -276,6 +298,7 @@
             background: transparent;
             border: none;
             z-index: 1001;
+            order: 10;
         }
 
         .hamburger span {
@@ -885,17 +908,13 @@
             transform: scale(1.05);
         }
 
-        .product-card .info .btn-add .fa-spinner {
-            animation: spin 1s linear infinite;
-        }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
         /* ============================================================ */
-        /* DESIRE GRID */
+        /* DESIRE GRID - WITH IMAGES FROM SUPABASE */
         /* ============================================================ */
         .desire-grid {
             display: grid;
@@ -911,7 +930,6 @@
             transition: all 0.3s;
             color: inherit;
             text-align: center;
-            padding: 24px 16px;
         }
 
         .desire-card:hover {
@@ -920,31 +938,46 @@
             border-color: #6A2C99;
         }
 
-        .desire-card .icon {
-            font-size: 36px;
-            color: #6A2C99;
-            margin-bottom: 10px;
+        .desire-card .image {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F5EDF2;
+            font-size: 12px;
+            color: #7A6F7E;
+            position: relative;
         }
 
-        .desire-card .icon .fa-person { color: #6A2C99; }
-        .desire-card .icon .fa-person-dress { color: #55217A; }
-        .desire-card .icon .fa-droplet { color: #FA4616; }
-        .desire-card .icon .fa-leaf { color: #1C8C6A; }
+        .desire-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .desire-card h3 {
+        .desire-card .image .icon-fallback {
+            font-size: 40px;
+            color: #6A2C99;
+        }
+
+        .desire-card .info {
+            padding: 16px;
+        }
+
+        .desire-card .info h3 {
             font-size: 16px;
             font-weight: 700;
             color: #2E1033;
             margin-bottom: 2px;
         }
 
-        .desire-card p {
+        .desire-card .info p {
             font-size: 13px;
             color: #7A6F7E;
             margin-bottom: 2px;
         }
 
-        .desire-card .count {
+        .desire-card .info .count {
             font-size: 12px;
             color: #FA4616;
             font-weight: 600;
@@ -1404,10 +1437,63 @@
         @media (max-width: 768px) {
             /* Show hamburger, hide desktop nav */
             .hamburger {
-                display: flex;
+                display: flex !important;
             }
             .nav {
+                display: none !important;
+            }
+
+            /* Header - hamburger on far right */
+            .header {
+                padding: 10px 14px;
+                flex-wrap: nowrap;
+            }
+            .header-left {
+                flex: 0 0 auto;
+            }
+            .header-center {
+                flex: 1;
+                max-width: 100%;
+                order: 2;
+            }
+            .header-right {
+                flex: 0 0 auto;
+                gap: 8px;
+            }
+            .hamburger {
+                margin-left: auto;
+                order: 3;
+            }
+
+            .search-bar {
+                max-width: 100%;
+                width: 100%;
+            }
+            .search-bar input {
+                font-size: 12px;
+                padding: 7px 14px;
+            }
+            .search-bar button {
+                padding: 7px 14px;
+                font-size: 12px;
+            }
+
+            .account-cart a span {
                 display: none;
+            }
+
+            /* Logo */
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .logo-text {
+                font-size: 16px;
+            }
+            .logo-sub {
+                font-size: 7px;
+                letter-spacing: 2px;
             }
 
             /* Top bar */
@@ -1416,36 +1502,6 @@
                 padding: 5px 14px;
                 justify-content: center;
                 text-align: center;
-            }
-
-            /* Header */
-            .header {
-                padding: 10px 14px;
-            }
-            .search-bar {
-                max-width: 100%;
-                width: 100%;
-                order: 3;
-            }
-            .account-cart {
-                gap: 12px;
-            }
-            .account-cart a span {
-                display: none;
-            }
-
-            /* Logo */
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-            .logo-text {
-                font-size: 18px;
-            }
-            .logo-sub {
-                font-size: 8px;
-                letter-spacing: 3px;
             }
 
             /* Trust bar */
@@ -1546,6 +1602,12 @@
             .section-header h2 {
                 font-size: 22px;
             }
+
+            /* Mobile nav */
+            .mobile-nav {
+                width: 100%;
+                max-width: 300px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1578,21 +1640,16 @@
             }
 
             .logo-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 14px;
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
             }
             .logo-text {
-                font-size: 16px;
+                font-size: 14px;
             }
             .logo-sub {
-                font-size: 7px;
+                font-size: 6px;
                 letter-spacing: 2px;
-            }
-
-            .mobile-nav {
-                width: 100%;
-                max-width: 300px;
             }
         }
     </style>
@@ -1613,44 +1670,52 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- HEADER -->
+    <!-- HEADER - Hamburger on far right -->
     <!-- ============================================================ -->
     <header class="header">
-        <a href="index.html" class="logo-wrapper">
-            <div class="logo-icon">TE</div>
-            <div>
-                <div class="logo-text">
-                    <span class="purple">✦</span> 
-                    True<span class="purple">Essence</span>
-                    <span class="orange">✦</span>
+        <!-- Left: Logo -->
+        <div class="header-left">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo-icon">TE</div>
+                <div>
+                    <div class="logo-text">
+                        <span class="purple">✦</span> 
+                        True<span class="purple">Essence</span>
+                        <span class="orange">✦</span>
+                    </div>
+                    <div class="logo-sub">Wellness</div>
                 </div>
-                <div class="logo-sub">Wellness</div>
-            </div>
-        </a>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Search products..."/>
-            <button><i class="fa-light fa-search"></i></button>
-        </div>
-
-        <div class="account-cart">
-            <a href="login.html"><i class="fa-light fa-user"></i> <span>Account</span></a>
-            <a href="#" class="cart-icon">
-                <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
-                <span class="badge">0</span>
             </a>
         </div>
 
-        <!-- ===== HAMBURGER MENU BUTTON ===== -->
-        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <!-- Center: Search -->
+        <div class="header-center">
+            <div class="search-bar">
+                <input type="text" placeholder="Search products..."/>
+                <button><i class="fa-light fa-search"></i></button>
+            </div>
+        </div>
+
+        <!-- Right: Account, Cart, Hamburger -->
+        <div class="header-right">
+            <div class="account-cart">
+                <a href="login.html"><i class="fa-light fa-user"></i> <span>Account</span></a>
+                <a href="#" class="cart-icon">
+                    <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+                    <span class="badge">0</span>
+                </a>
+            </div>
+            <!-- Hamburger - Far Right Corner -->
+            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
 
     <!-- ============================================================ -->
-    <!-- MOBILE NAVIGATION OVERLAY -->
+    <!-- MOBILE NAVIGATION -->
     <!-- ============================================================ -->
     <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
 
@@ -1773,7 +1838,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- BY DESIRE -->
+    <!-- BY DESIRE - WITH IMAGES FROM SUPABASE -->
     <!-- ============================================================ -->
     <section class="section" style="padding-top:0;">
         <div class="section-header">
@@ -1782,31 +1847,8 @@
                 <span class="sub">What are you in the mood for?</span>
             </div>
         </div>
-        <div class="desire-grid">
-            <a href="for-penises.html" class="desire-card">
-                <div class="icon"><i class="fa-light fa-person"></i></div>
-                <h3>For Men</h3>
-                <p>Enhancement &amp; Vitality</p>
-                <span class="count" id="countMen">Loading...</span>
-            </a>
-            <a href="for-vulvas.html" class="desire-card">
-                <div class="icon"><i class="fa-light fa-person-dress"></i></div>
-                <h3>For Women</h3>
-                <p>Care &amp; Freshness</p>
-                <span class="count" id="countWomen">Loading...</span>
-            </a>
-            <a href="lubes-essentials.html" class="desire-card">
-                <div class="icon"><i class="fa-light fa-droplet"></i></div>
-                <h3>Lubricants</h3>
-                <p>Smooth &amp; Sensual</p>
-                <span class="count" id="countLubes">Loading...</span>
-            </a>
-            <a href="#" class="desire-card">
-                <div class="icon"><i class="fa-light fa-leaf"></i></div>
-                <h3>Wellness</h3>
-                <p>Natural Health</p>
-                <span class="count" id="countWellness">Loading...</span>
-            </a>
+        <div class="desire-grid" id="desireGrid">
+            <!-- Loaded from JavaScript with images from Supabase -->
         </div>
     </section>
 
@@ -1837,7 +1879,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- BLOG / THE ESSENCE -->
+    <!-- BLOG -->
     <!-- ============================================================ -->
     <section class="section">
         <div class="section-header">
@@ -1993,7 +2035,7 @@
         const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
         // ============================================================ //
-        // LOAD TRENDING PRODUCTS (5 products)
+        // LOAD TRENDING PRODUCTS
         // ============================================================ //
         async function loadTrendingProducts() {
             const container = document.getElementById('trendingProducts');
@@ -2075,63 +2117,114 @@
         }
 
         // ============================================================ //
-        // LOAD CATEGORY COUNTS
+        // LOAD CATEGORY IMAGES & COUNTS FROM SUPABASE
         // ============================================================ //
-        async function loadCategoryCounts() {
+        async function loadDesireCategories() {
+            const container = document.getElementById('desireGrid');
+
+            // Define categories with their mapping
+            const categories = [
+                { 
+                    key: 'For Men', 
+                    slug: 'for-penises.html', 
+                    icon: 'fa-person',
+                    color: '#6A2C99'
+                },
+                { 
+                    key: 'For Women', 
+                    slug: 'for-vulvas.html', 
+                    icon: 'fa-person-dress',
+                    color: '#55217A'
+                },
+                { 
+                    key: 'Lubricants', 
+                    slug: 'lubes-essentials.html', 
+                    icon: 'fa-droplet',
+                    color: '#FA4616'
+                },
+                { 
+                    key: 'Wellness', 
+                    slug: '#', 
+                    icon: 'fa-leaf',
+                    color: '#1C8C6A'
+                }
+            ];
+
             try {
+                // Fetch all products to count categories
                 const { data: products, error } = await supabase
                     .from('products')
-                    .select('category')
+                    .select('category, image_url')
                     .eq('is_active', true);
 
                 if (error) throw error;
 
+                // Count products per category
                 const counts = {};
+                const categoryImages = {};
                 products.forEach(p => {
                     if (p.category) {
                         counts[p.category] = (counts[p.category] || 0) + 1;
+                        // Store one image per category (first one found)
+                        if (!categoryImages[p.category] && p.image_url) {
+                            categoryImages[p.category] = p.image_url;
+                        }
                     }
                 });
 
-                // Map category names to element IDs
-                const categoryMap = {
-                    'For Men': 'countMen',
-                    'For Women': 'countWomen',
-                    'Lubricants': 'countLubes'
-                };
+                // Build HTML
+                let html = '';
 
-                // Update counts
-                Object.keys(categoryMap).forEach(key => {
-                    const element = document.getElementById(categoryMap[key]);
-                    if (element) {
-                        const count = counts[key] || 0;
-                        element.textContent = `${count}+ products`;
-                    }
+                categories.forEach(function(cat) {
+                    const count = counts[cat.key] || 0;
+                    const imageUrl = categoryImages[cat.key] || null;
+                    const countText = count > 0 ? `${count}+ products` : '0 products';
+
+                    html += `
+                        <a href="${cat.slug}" class="desire-card">
+                            <div class="image" style="background:${imageUrl ? `url('${imageUrl}') center/cover` : '#F5EDF2'};">
+                                ${imageUrl ? '' : `<div class="icon-fallback"><i class="fa-light ${cat.icon}"></i></div>`}
+                            </div>
+                            <div class="info">
+                                <h3>${cat.key}</h3>
+                                <p>${cat.key === 'For Men' ? 'Enhancement & Vitality' : 
+                                    cat.key === 'For Women' ? 'Care & Freshness' : 
+                                    cat.key === 'Lubricants' ? 'Smooth & Sensual' : 
+                                    'Natural Health'}</p>
+                                <span class="count">${countText}</span>
+                            </div>
+                        </a>
+                    `;
                 });
 
-                // Wellness count (all products not in other categories)
-                const wellnessCount = products.filter(p => 
-                    p.category && 
-                    !['For Men', 'For Women', 'Lubricants'].includes(p.category)
-                ).length;
-                
-                const wellnessEl = document.getElementById('countWellness');
-                if (wellnessEl) {
-                    wellnessEl.textContent = `${wellnessCount}+ products`;
-                }
+                container.innerHTML = html;
 
             } catch (error) {
-                console.error('Error loading category counts:', error);
-                // Set fallback values
-                ['countMen', 'countWomen', 'countLubes', 'countWellness'].forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) el.textContent = '0 products';
-                });
+                console.error('Error loading desire categories:', error);
+                // Fallback - show icons only
+                container.innerHTML = `
+                    <a href="for-penises.html" class="desire-card">
+                        <div class="image" style="background:#6A2C99;"><div class="icon-fallback"><i class="fa-light fa-person"></i></div></div>
+                        <div class="info"><h3>For Men</h3><p>Enhancement & Vitality</p><span class="count">0 products</span></div>
+                    </a>
+                    <a href="for-vulvas.html" class="desire-card">
+                        <div class="image" style="background:#55217A;"><div class="icon-fallback"><i class="fa-light fa-person-dress"></i></div></div>
+                        <div class="info"><h3>For Women</h3><p>Care & Freshness</p><span class="count">0 products</span></div>
+                    </a>
+                    <a href="lubes-essentials.html" class="desire-card">
+                        <div class="image" style="background:#FA4616;"><div class="icon-fallback"><i class="fa-light fa-droplet"></i></div></div>
+                        <div class="info"><h3>Lubricants</h3><p>Smooth & Sensual</p><span class="count">0 products</span></div>
+                    </a>
+                    <a href="#" class="desire-card">
+                        <div class="image" style="background:#1C8C6A;"><div class="icon-fallback"><i class="fa-light fa-leaf"></i></div></div>
+                        <div class="info"><h3>Wellness</h3><p>Natural Health</p><span class="count">0 products</span></div>
+                    </a>
+                `;
             }
         }
 
         // ============================================================ //
-        // ADD TO CART (placeholder function)
+        // ADD TO CART
         // ============================================================ //
         function addToCart(productId) {
             const btn = event.target;
@@ -2157,7 +2250,7 @@
         // INIT
         // ============================================================ //
         loadTrendingProducts();
-        loadCategoryCounts();
+        loadDesireCategories();
     </script>
 
 </body>
