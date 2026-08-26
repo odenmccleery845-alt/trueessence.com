@@ -6,8 +6,11 @@
     <title>Dildos – TrueEssence Premium Wellness</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ============================================================ */
+        /* RESET & BASE */
+        /* ============================================================ */
         * {
             padding: 0;
             margin: 0;
@@ -40,7 +43,9 @@
             color: #2E1033;
         }
 
-        /* ===== CSS VARIABLES ===== */
+        /* ============================================================ */
+        /* CSS VARIABLES */
+        /* ============================================================ */
         :root {
             --atms-purple: #6A2C99;
             --atms-purple-deep: #55217A;
@@ -94,7 +99,9 @@
             --atms-weight-black: 900;
         }
 
-        /* ===== TOP BAR ===== */
+        /* ============================================================ */
+        /* TOP BAR */
+        /* ============================================================ */
         .top-bar {
             background: #55217A;
             color: rgba(255,255,255,0.8);
@@ -122,7 +129,9 @@
             font-weight: 600;
         }
 
-        /* ===== HEADER ===== */
+        /* ============================================================ */
+        /* HEADER */
+        /* ============================================================ */
         .header {
             background: #FFFFFF;
             padding: 12px 30px;
@@ -251,7 +260,9 @@
             font-weight: 700;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* ============================================================ */
+        /* NAVIGATION */
+        /* ============================================================ */
         .nav {
             background: #6A2C99;
             padding: 0 30px;
@@ -288,7 +299,9 @@
             border-bottom-color: #FA4616;
         }
 
-        /* ===== TRUST BAR ===== */
+        /* ============================================================ */
+        /* TRUST BAR */
+        /* ============================================================ */
         .trust-bar {
             background: #6A2C99;
             padding: 8px 30px;
@@ -313,7 +326,9 @@
             font-size: 14px;
         }
 
-        /* ===== HERO BANNER ===== */
+        /* ============================================================ */
+        /* CATEGORY HERO BANNER */
+        /* ============================================================ */
         .category-hero {
             background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
             padding: 50px 30px;
@@ -394,7 +409,9 @@
             margin: 0 8px;
         }
 
-        /* ===== CATEGORY DESCRIPTION ===== */
+        /* ============================================================ */
+        /* CATEGORY DESCRIPTION */
+        /* ============================================================ */
         .category-description {
             background: #F5EDF2;
             padding: 30px 30px 25px;
@@ -423,7 +440,9 @@
             color: #C5462B;
         }
 
-        /* ===== SECTION ===== */
+        /* ============================================================ */
+        /* SECTION */
+        /* ============================================================ */
         .section {
             padding: 40px 30px;
             max-width: 1200px;
@@ -460,7 +479,9 @@
             color: #C5462B;
         }
 
-        /* ===== SUB-CATEGORY GRID ===== */
+        /* ============================================================ */
+        /* SUB-CATEGORY GRID */
+        /* ============================================================ */
         .sub-category-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -518,7 +539,9 @@
             color: #FA4616;
         }
 
-        /* ===== PRODUCT GRID ===== */
+        /* ============================================================ */
+        /* PRODUCT GRID */
+        /* ============================================================ */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -577,6 +600,21 @@
             color: #FFFFFF;
         }
 
+        .product-card .image .badge.new {
+            background: #2E1033;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.popular {
+            background: #FA4616;
+            color: #FFFFFF;
+        }
+
+        .product-card .image .badge.top-rated {
+            background: #6A2C99;
+            color: #FFFFFF;
+        }
+
         .product-card .info {
             padding: 14px;
         }
@@ -621,6 +659,12 @@
             color: #6A2C99;
         }
 
+        .product-card .info .desc {
+            font-size: 12px;
+            color: #7A6F7E;
+            margin-bottom: 8px;
+        }
+
         .product-card .info .price-row {
             display: flex;
             justify-content: space-between;
@@ -660,7 +704,9 @@
             transform: scale(1.05);
         }
 
-        /* ===== PAGINATION ===== */
+        /* ============================================================ */
+        /* PAGINATION */
+        /* ============================================================ */
         .pagination {
             display: flex;
             justify-content: center;
@@ -704,7 +750,9 @@
             color: #7A6F7E;
         }
 
-        /* ===== FAQ SECTION ===== */
+        /* ============================================================ */
+        /* FAQ SECTION */
+        /* ============================================================ */
         .faq-section {
             background: #FFFFFF;
             border-radius: 12px;
@@ -766,7 +814,9 @@
             margin-bottom: 4px;
         }
 
-        /* ===== TRUST BADGES ===== */
+        /* ============================================================ */
+        /* TRUST BADGES */
+        /* ============================================================ */
         .trust-badges {
             background: #F5EDF2;
             padding: 30px;
@@ -799,7 +849,9 @@
             color: #B89BBE;
         }
 
-        /* ===== BLOG SECTION ===== */
+        /* ============================================================ */
+        /* BLOG / CONTENT SECTION */
+        /* ============================================================ */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -867,7 +919,9 @@
             color: #C5462B;
         }
 
-        /* ===== NEWSLETTER ===== */
+        /* ============================================================ */
+        /* NEWSLETTER */
+        /* ============================================================ */
         .newsletter {
             background: #6A2C99;
             padding: 40px 30px;
@@ -935,7 +989,9 @@
             margin-top: 10px;
         }
 
-        /* ===== FOOTER ===== */
+        /* ============================================================ */
+        /* FOOTER */
+        /* ============================================================ */
         .footer {
             background: #2E1033;
             color: rgba(255,255,255,0.7);
@@ -1030,7 +1086,9 @@
             color: #FA4616;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ============================================================ */
+        /* RESPONSIVE */
+        /* ============================================================ */
         @media (max-width: 1024px) {
             .product-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -1202,366 +1260,224 @@
                 letter-spacing: 2px;
             }
         }
+
+        /* Loading spinner */
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: #6A2C99;
+            font-size: 16px;
+            gap: 12px;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner i {
+            font-size: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-products {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7A6F7E;
+            grid-column: 1 / -1;
+        }
+
+        .empty-products i {
+            font-size: 48px;
+            color: #E9E1EC;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<div class="top-bar">
-    <div>
-        <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
-    </div>
-    <div>
-        <a href="#">Log In</a>
-        <a href="#">Register</a>
-    </div>
-</div>
-
-<!-- ===== HEADER ===== -->
-<header class="header">
-    <a href="index.html" class="logo-wrapper">
-        <div class="logo-icon">TE</div>
+    <!-- ============================================================ -->
+    <!-- TOP BAR -->
+    <!-- ============================================================ -->
+    <div class="top-bar">
         <div>
-            <div class="logo-text">
-                <span class="purple">✦</span> 
-                True<span class="purple">Essence</span>
-                <span class="orange">✦</span>
-            </div>
-            <div class="logo-sub">Wellness</div>
+            <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
         </div>
-    </a>
-
-    <div class="search-bar">
-        <input type="text" placeholder="Search 500+ products..."/>
-        <button><i class="fa-light fa-search"></i></button>
-    </div>
-
-    <div class="account-cart">
-        <a href="#"><i class="fa-light fa-user"></i> Account</a>
-        <a href="#" class="cart-icon">
-            <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
-            <span class="badge">0</span>
-        </a>
-    </div>
-</header>
-
-<!-- ===== NAVIGATION ===== -->
-<nav class="nav">
-    <ul>
-        <li><a href="sex-toys.html">Sex Toys</a></li>
-       <li><a href="for-vulvas.html">For Vulvas</a></li>
-        <li><a href="for-penises.html">For Penises</a></li>
-        <li><a href="for-couples.html">For Couples</a></li>
-        <li><a href="vibrators.html">Vibrators</a></li>
-        <li><a href="dildos.html">Dildos</a></li>
-        <li><a href="anal-toys.html" class="active">Anal Toys</a></li>
-        <li><a href="lingerie.html">Lingerie</a></li>
-        <li><a href="bdsm.html">BDSM</a></li>
-        <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
-        <li><a href="brands.html">Brands</a></li>
-        <li><a href="sale.html">Sale</a></li>
-        <li><a href="gift-cards.html">Gift Cards</a></li>
-    </ul>
-</nav>
-
-
-<!-- ===== TRUST BAR ===== -->
-<div class="trust-bar">
-    <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
-    <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
-    <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
-    <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
-</div>
-
-<!-- ===== HERO BANNER ===== -->
-<section class="category-hero">
-    <div class="content">
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span class="sep">›</span>
-            <span style="color:rgba(255,255,255,0.8);">Dildos</span>
-        </div>
-        <h1><span>Dildos</span></h1>
-        <p>Say hello to the OG pleasure toy – the dildo! Dildos are a must-have for every sex toy collection as they are simple yet so versatile. Perfect for solo play, couples play and strap-on sex.</p>
-    </div>
-</section>
-
-<!-- ===== CATEGORY DESCRIPTION ===== -->
-<div class="category-description">
-    <p>A classic dildo can be smooth or textured but won't look like a real penis. You'll need a realistic dildo if that's what you are after! A G-spot dildo will have a curved or bulbous tip ideal for massaging the G-spot. There are also squirting dildos, glass dildos and strap-on dildos.</p>
-    <p>And, if you want to live out your werewolf, tentacle or monster fantasy, check out our range of fantasy dildos.</p>
-</div>
-
-<!-- ===== TOP SUB-CATEGORIES ===== -->
-<section class="section" style="padding-top:20px;">
-    <div class="section-header">
         <div>
-            <h2>Top Dildo Categories</h2>
-            <span class="sub">Explore our most popular dildo sub-categories</span>
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Register</a>
         </div>
     </div>
 
-    <div class="sub-category-grid">
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-hand"></i></span>
-            <div class="name">Realistic Dildos</div>
-            <div class="count">80+ products</div>
+    <!-- ============================================================ -->
+    <!-- HEADER -->
+    <!-- ============================================================ -->
+    <header class="header">
+        <a href="index.html" class="logo-wrapper">
+            <div class="logo-icon">TE</div>
+            <div>
+                <div class="logo-text">
+                    <span class="purple">✦</span> 
+                    True<span class="purple">Essence</span>
+                    <span class="orange">✦</span>
+                </div>
+                <div class="logo-sub">Wellness</div>
+            </div>
         </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-circle"></i></span>
-            <div class="name">Suction Cup Dildos</div>
-            <div class="count">45+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-palette"></i></span>
-            <div class="name">Coloured Phallic Dildos</div>
-            <div class="count">35+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-dragon"></i></span>
-            <div class="name">Fantasy Dildos</div>
-            <div class="count">30+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-flask"></i></span>
-            <div class="name">Glass Dildos</div>
-            <div class="count">25+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-arrow-up"></i></span>
-            <div class="name">Huge Dildos</div>
-            <div class="count">20+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-vest"></i></span>
-            <div class="name">Strap Ons</div>
-            <div class="count">40+ products</div>
-        </a>
-        <a href="#" class="sub-category-card">
-            <span class="icon"><i class="fa-light fa-shapes"></i></span>
-            <div class="name">Classic Dildos</div>
-            <div class="count">50+ products</div>
-        </a>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search 500+ products..."/>
+            <button><i class="fa-light fa-search"></i></button>
+        </div>
+
+        <div class="account-cart">
+            <a href="login.html"><i class="fa-light fa-user"></i> Account</a>
+            <a href="#" class="cart-icon">
+                <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+                <span class="badge">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================================ -->
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sex-toys.html">Sex Toys</a></li>
+            <li><a href="for-vulvas.html">For Vulvas</a></li>
+            <li><a href="for-penises.html">For Penises</a></li>
+            <li><a href="for-couples.html">For Couples</a></li>
+            <li><a href="vibrators.html">Vibrators</a></li>
+            <li><a href="dildos.html" class="active">Dildos</a></li>
+            <li><a href="anal-toys.html">Anal Toys</a></li>
+            <li><a href="lingerie.html">Lingerie</a></li>
+            <li><a href="bdsm.html">BDSM</a></li>
+            <li><a href="lubes-essentials.html">Lubes & Essentials</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="sale.html">Sale</a></li>
+            <li><a href="gift-cards.html">Gift Cards</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- TRUST BAR -->
+    <!-- ============================================================ -->
+    <div class="trust-bar">
+        <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
+        <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
+        <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
+        <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
     </div>
 
-    <div class="show-all-link">
-        <a href="#">Show all Dildo Categories <i class="fa-light fa-arrow-right"></i></a>
-    </div>
-</section>
-
-<!-- ===== TOP PRODUCTS ===== -->
-<section class="section" style="padding-top:0;">
-    <div class="section-header">
-        <div>
-            <h2>Top Dildo Products</h2>
-            <span class="sub">Our most popular and best-selling dildos</span>
+    <!-- ============================================================ -->
+    <!-- HERO BANNER -->
+    <!-- ============================================================ -->
+    <section class="category-hero">
+        <div class="content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="sep">›</span>
+                <span style="color:rgba(255,255,255,0.8);">Dildos</span>
+            </div>
+            <h1><span>Dildos</span></h1>
+            <p>Say hello to the OG pleasure toy – the dildo! Dildos are a must-have for every sex toy collection as they are simple yet so versatile. Perfect for solo play, couples play and strap-on sex.</p>
         </div>
-        <a href="#">View All →</a>
-    </div>
+    </section>
 
-    <div class="product-grid">
-        <!-- Product 1 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Nood</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(2)</span>
-                </div>
-                <div class="name"><a href="#">Nood Dildo with Balls</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$39.95</span> $19.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge deal">3 for $100</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Lucent</div>
-                <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(303)</span>
-                </div>
-                <div class="name"><a href="#">Lucent Rippled Glass Massager</a></div>
-                <div class="price-row">
-                    <span class="price">$59.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Nood</div>
-                <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(4)</span>
-                </div>
-                <div class="name"><a href="#">Nood Colours 8 Inch RealSkin Dildo</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$99.95</span> $69.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Nood</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(3)</span>
-                </div>
-                <div class="name"><a href="#">Nood Suction Cup Dildo</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$39.95</span> $29.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Lucent</div>
-                <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(15)</span>
-                </div>
-                <div class="name"><a href="#">Lucent Teardrops Glass Massager</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$69.95</span> $29.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 6 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Nood</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(13)</span>
-                </div>
-                <div class="name"><a href="#">Suction Cup PVC Dildo</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$49.95</span> $14.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 7 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Nood</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(3)</span>
-                </div>
-                <div class="name"><a href="#">Nood Realistic Veined Dildo</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$59.95</span> $29.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 8 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">KinKi</div>
-                <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(1)</span>
-                </div>
-                <div class="name"><a href="#">KinKi Double Trouble Anal Strap On</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$79.95</span> $29.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 9 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Nood</div>
-                <div class="rating">
-                    <span class="stars">★★★★★</span>
-                    <span class="count">(1)</span>
-                </div>
-                <div class="name"><a href="#">Nood Silicone Dildo with Balls</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$59.95</span> $24.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 10 -->
-        <div class="product-card">
-            <div class="image" style="background:#F5EDF2;">
-                <span class="badge sale">SALE</span>
-                [Image]
-            </div>
-            <div class="info">
-                <div class="brand">Bound Luxury</div>
-                <div class="rating">
-                    <span class="stars">★★★★☆</span>
-                    <span class="count">(2)</span>
-                </div>
-                <div class="name"><a href="#">Bound Luxury Pegging Panty with Dildo</a></div>
-                <div class="price-row">
-                    <span class="price"><span class="was">$79.95</span> $28.95</span>
-                    <button class="btn-add">Add</button>
-                </div>
-            </div>
-        </div>
+    <!-- ============================================================ -->
+    <!-- CATEGORY DESCRIPTION -->
+    <!-- ============================================================ -->
+    <div class="category-description">
+        <p>A classic dildo can be smooth or textured but won't look like a real penis. You'll need a realistic dildo if that's what you are after! A G-spot dildo will have a curved or bulbous tip ideal for massaging the G-spot. There are also squirting dildos, glass dildos and strap-on dildos.</p>
+        <p>And, if you want to live out your werewolf, tentacle or monster fantasy, check out our range of fantasy dildos.</p>
     </div>
 
-    <!-- ===== PAGINATION ===== -->
+    <!-- ============================================================ -->
+    <!-- TOP SUB-CATEGORIES -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:20px;">
+        <div class="section-header">
+            <div>
+                <h2>Top Dildo Categories</h2>
+                <span class="sub">Explore our most popular dildo sub-categories</span>
+            </div>
+        </div>
+
+        <div class="sub-category-grid">
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-hand"></i></span>
+                <div class="name">Realistic Dildos</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-circle"></i></span>
+                <div class="name">Suction Cup Dildos</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-palette"></i></span>
+                <div class="name">Coloured Phallic Dildos</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-dragon"></i></span>
+                <div class="name">Fantasy Dildos</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-flask"></i></span>
+                <div class="name">Glass Dildos</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-arrow-up"></i></span>
+                <div class="name">Huge Dildos</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-vest"></i></span>
+                <div class="name">Strap Ons</div>
+                <div class="count">Loading...</div>
+            </a>
+            <a href="#" class="sub-category-card">
+                <span class="icon"><i class="fa-light fa-shapes"></i></span>
+                <div class="name">Classic Dildos</div>
+                <div class="count">Loading...</div>
+            </a>
+        </div>
+
+        <div class="show-all-link">
+            <a href="#">Show all Dildo Categories <i class="fa-light fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TOP PRODUCTS -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="section-header">
+            <div>
+                <h2>Top Dildo Products</h2>
+                <span class="sub">Our most popular and best-selling dildos</span>
+            </div>
+            <a href="#">View All →</a>
+        </div>
+
+        <div class="product-grid" id="productsList">
+            <div class="loading-spinner">
+                <i class="fa-light fa-spinner"></i> Loading products...
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PAGINATION -->
+    <!-- ============================================================ -->
     <div class="pagination">
         <a href="#" class="active">1</a>
         <a href="#">2</a>
@@ -1570,171 +1486,325 @@
         <a href="#">33</a>
         <a href="#"><i class="fa-light fa-chevron-right"></i></a>
     </div>
-</section>
 
-<!-- ===== FAQ SECTION ===== -->
-<section class="section" style="padding-top:0;">
-    <div class="faq-section">
-        <h2>Frequently Asked Questions</h2>
+    <!-- ============================================================ -->
+    <!-- FAQ SECTION -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
 
-        <div class="faq-item">
-            <div class="question">
-                What is a Dildo?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
+            <div class="faq-item">
+                <div class="question">
+                    What is a Dildo?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    A dildo is a simple sex toy made for intimate play. It's usually shaped like the real thing and comes in different sizes. Unlike vibrators, it doesn't buzz on its own. You control how it moves. People use it alone or with a partner. Dildos offer a basic and hands-on way to have fun in the bedroom. They come in different styles, from lifelike to more creative shapes. If you want a straightforward and customisable tool to spice up your intimate moments, a dildo might be just what you're looking for.
+                </div>
             </div>
-            <div class="answer">
-                A dildo is a simple sex toy made for intimate play. It's usually shaped like the real thing and comes in different sizes. Unlike vibrators, it doesn't buzz on its own. You control how it moves. People use it alone or with a partner. Dildos offer a basic and hands-on way to have fun in the bedroom. They come in different styles, from lifelike to more creative shapes. If you want a straightforward and customisable tool to spice up your intimate moments, a dildo might be just what you're looking for.
-            </div>
-        </div>
 
-        <div class="faq-item">
-            <div class="question">
-                What types of dildos are there?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
+            <div class="faq-item">
+                <div class="question">
+                    What types of dildos are there?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    There are many types of dildos to explore, each offering a different experience. Realistic dildos are designed to look and feel like the real thing, while classic styles keep things simple with smooth, easy shapes. Glass dildos are firm, sleek, and can be warmed or cooled for temperature play. Whether you're after something lifelike, minimal, or a little adventurous, there's a dildo to match every preference.
+                </div>
             </div>
-            <div class="answer">
-                There are many types of dildos to explore, each offering a different experience. Realistic dildos are designed to look and feel like the real thing, while classic styles keep things simple with smooth, easy shapes. Glass dildos are firm, sleek, and can be warmed or cooled for temperature play. Whether you're after something lifelike, minimal, or a little adventurous, there's a dildo to match every preference.
-            </div>
-        </div>
 
-        <div class="faq-item">
-            <div class="question">
-                What makes a good first time dildo?
-                <span class="icon"><i class="fa-light fa-plus"></i></span>
-            </div>
-            <div class="answer">
-                When choosing your first dildo, start with something small and simple. A beginner-friendly design made from body-safe materials like silicone is a great choice. Pick one with a flat bottom so it doesn't go in too deep, and consider a gentle curve or flexible shape for added comfort. Take your time, explore at your own pace, and choose what feels right for you - it's all about comfort and confidence as you try something new.
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== TRUST BADGES ===== -->
-<section class="section" style="padding-top:0;">
-    <div class="trust-badges">
-        <div class="item">
-            <div class="number">4.9 / 5</div>
-            <div class="label">Google Reviews</div>
-            <div class="sub-label">7,000+ reviews</div>
-        </div>
-        <div class="item">
-            <div class="number">97%</div>
-            <div class="label">On-time Delivery</div>
-            <div class="sub-label">Average delivery: Next Day</div>
-        </div>
-        <div class="item">
-            <div class="number">Under 1 Hour</div>
-            <div class="label">Queries Resolved</div>
-            <div class="sub-label">Customer support response time</div>
-        </div>
-        <div class="item">
-            <div class="number">★</div>
-            <div class="label">Most Trusted</div>
-            <div class="sub-label">Adult Provider</div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== BLOG SECTION ===== -->
-<section class="section" style="padding-top:0;">
-    <div class="section-header">
-        <div>
-            <h2>From The Essence</h2>
-            <span class="sub">Guides, reviews, and expert advice</span>
-        </div>
-        <a href="#">Visit the hub →</a>
-    </div>
-
-    <div class="blog-grid">
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Guide</span>
-                <h4>Inflatable Dildos Guide</h4>
-                <p>Inflatable dildos are versatile sex toys that enable you to pump and pump until you're filled right up! Learn how to use them safely.</p>
-                <a href="#" class="read-more">Read More →</a>
+            <div class="faq-item">
+                <div class="question">
+                    What makes a good first time dildo?
+                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                </div>
+                <div class="answer">
+                    When choosing your first dildo, start with something small and simple. A beginner-friendly design made from body-safe materials like silicone is a great choice. Pick one with a flat bottom so it doesn't go in too deep, and consider a gentle curve or flexible shape for added comfort. Take your time, explore at your own pace, and choose what feels right for you - it's all about comfort and confidence as you try something new.
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Product Range</span>
-                <h4>How to Use Fisting Toys</h4>
-                <p>The act of fisting is something that isn't often talked about when it comes to sex toys. Learn how to use fisting toys safely and effectively.</p>
-                <a href="#" class="read-more">Read More →</a>
+    <!-- ============================================================ -->
+    <!-- TRUST BADGES -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="trust-badges">
+            <div class="item">
+                <div class="number">4.9 / 5</div>
+                <div class="label">Google Reviews</div>
+                <div class="sub-label">7,000+ reviews</div>
+            </div>
+            <div class="item">
+                <div class="number">97%</div>
+                <div class="label">On-time Delivery</div>
+                <div class="sub-label">Average delivery: Next Day</div>
+            </div>
+            <div class="item">
+                <div class="number">Under 1 Hour</div>
+                <div class="label">Queries Resolved</div>
+                <div class="sub-label">Customer support response time</div>
+            </div>
+            <div class="item">
+                <div class="number">★</div>
+                <div class="label">Most Trusted</div>
+                <div class="sub-label">Adult Provider</div>
             </div>
         </div>
+    </section>
 
-        <div class="blog-card">
-            <div class="image">[Image]</div>
-            <div class="info">
-                <span class="category">Podcast</span>
-                <h4>Sex Magic with Vixen Temple</h4>
-                <p>Listen to our very own podcast featuring sex educator Emma Hewitt as we talk about how to practise sex magic with sex witch Vixen Temple.</p>
-                <a href="#" class="read-more">Read More →</a>
+    <!-- ============================================================ -->
+    <!-- BLOG / CONTENT SECTION -->
+    <!-- ============================================================ -->
+    <section class="section" style="padding-top:0;">
+        <div class="section-header">
+            <div>
+                <h2>From The Essence</h2>
+                <span class="sub">Guides, reviews, and expert advice</span>
+            </div>
+            <a href="#">Visit the hub →</a>
+        </div>
+
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Guide</span>
+                    <h4>Inflatable Dildos Guide</h4>
+                    <p>Inflatable dildos are versatile sex toys that enable you to pump and pump until you're filled right up! Learn how to use them safely.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Product Range</span>
+                    <h4>How to Use Fisting Toys</h4>
+                    <p>The act of fisting is something that isn't often talked about when it comes to sex toys. Learn how to use fisting toys safely and effectively.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="image">[Image]</div>
+                <div class="info">
+                    <span class="category">Podcast</span>
+                    <h4>Sex Magic with Vixen Temple</h4>
+                    <p>Listen to our very own podcast featuring sex educator Emma Hewitt as we talk about how to practise sex magic with sex witch Vixen Temple.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ===== NEWSLETTER ===== -->
-<section class="newsletter">
-    <h2>Subscribe & get 10% off</h2>
-    <p>Valid during August. T&C's apply.</p>
-    <form>
-        <input type="email" placeholder="Email address..."/>
-        <button>Subscribe</button>
-    </form>
-    <div class="small">No spam. Unsubscribe anytime.</div>
-</section>
+    <!-- ============================================================ -->
+    <!-- NEWSLETTER -->
+    <!-- ============================================================ -->
+    <section class="newsletter">
+        <h2>Subscribe & get 10% off</h2>
+        <p>Valid during August. T&C's apply.</p>
+        <form>
+            <input type="email" placeholder="Email address..."/>
+            <button>Subscribe</button>
+        </form>
+        <div class="small">No spam. Unsubscribe anytime.</div>
+    </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-    <div class="footer-grid">
-        <div class="brand">
-            <h3>TRUE<span>ESSENCE</span></h3>
-            <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
-        </div>
-        <div>
-            <h4>Help & Information</h4>
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Accounts & Loyalty</a></li>
-                <li><a href="#">Payment Info</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Returns</a></li>
-                <li><a href="#">Shipping</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Discover More</h4>
-            <ul>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="#">Partner with Us</a></li>
-                <li><a href="#">The Essence Blog</a></li>
-                <li><a href="#">Student Discount</a></li>
-            </ul>
-        </div>
-        <div class="contact">
-            <h4>Customer Service</h4>
-            <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
-            <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
-            <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
-            <p><i class="fa-light fa-comment"></i> Live Chat</p>
-            <div class="social">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="brand">
+                <h3>TRUE<span>ESSENCE</span></h3>
+                <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
+            </div>
+            <div>
+                <h4>Help & Information</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Accounts & Loyalty</a></li>
+                    <li><a href="#">Payment Info</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Discover More</h4>
+                <ul>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Partner with Us</a></li>
+                    <li><a href="#">The Essence Blog</a></li>
+                    <li><a href="#">Student Discount</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Customer Service</h4>
+                <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
+                <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
+                <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
+                <p><i class="fa-light fa-comment"></i> Live Chat</p>
+                <div class="social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="bottom">
-        &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
-    </div>
-</footer>
+        <div class="bottom">
+            &copy; 2026 TrueEssence Wellness. All rights reserved. Made with <span class="heart">♥</span> for your wellness journey.
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================ //
+        // SUPABASE CONFIG
+        // ============================================================ //
+        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+        // ============================================================ //
+        // LOAD PRODUCTS BY CATEGORY
+        // ============================================================ //
+        async function loadProducts() {
+            const container = document.getElementById('productsList');
+
+            try {
+                const { data: products, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .eq('category', 'Dildos')
+                    .eq('is_active', true)
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (!products || products.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-products">
+                            <i class="fa-light fa-box"></i>
+                            <p>No products found in this category.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+
+                products.forEach(function(p) {
+                    const priceDisplay = p.sale_price ? 
+                        `<span class="price"><span class="was">$${p.price}</span> $${p.sale_price}</span>` :
+                        `<span class="price">$${p.price}</span>`;
+
+                    const badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
+                    const badgeHtml = p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
+
+                    const ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
+                    const reviewCount = p.review_count || 0;
+
+                    let bgColor = '#F5EDF2';
+                    if (p.badge === 'Best Seller') bgColor = '#6A2C99';
+                    else if (p.badge === 'Sale') bgColor = '#FA4616';
+                    else if (p.badge === 'New') bgColor = '#2E1033';
+                    else if (p.badge === 'Popular') bgColor = '#FA4616';
+                    else if (p.badge === 'Top Rated') bgColor = '#55217A';
+
+                    html += `
+                        <div class="product-card">
+                            <div class="image" style="background:${p.image_url ? `url('${p.image_url}') center/cover` : bgColor};">
+                                ${badgeHtml}
+                                ${p.image_url ? '' : '[Image]'}
+                            </div>
+                            <div class="info">
+                                ${p.brand ? `<div class="brand">${p.brand}</div>` : ''}
+                                <div class="rating">
+                                    <span class="stars">${ratingStars}</span>
+                                    <span class="count">(${reviewCount})</span>
+                                </div>
+                                <div class="name"><a href="#">${p.name}</a></div>
+                                <div class="desc">${p.short_description || ''}</div>
+                                <div class="price-row">
+                                    ${priceDisplay}
+                                    <button class="btn-add">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error loading products:', error);
+                container.innerHTML = `
+                    <div class="empty-products">
+                        <i class="fa-light fa-circle-exclamation"></i>
+                        <p>Error loading products. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================================ //
+        // LOAD SUB-CATEGORY COUNTS
+        // ============================================================ //
+        async function loadSubCategoryCounts() {
+            const subCategories = [
+                'Realistic Dildos',
+                'Suction Cup Dildos',
+                'Coloured Phallic Dildos',
+                'Fantasy Dildos',
+                'Glass Dildos',
+                'Huge Dildos',
+                'Strap Ons',
+                'Classic Dildos'
+            ];
+
+            try {
+                const { data: products, error } = await supabase
+                    .from('products')
+                    .select('sub_category')
+                    .eq('is_active', true);
+
+                if (error) throw error;
+
+                const counts = {};
+                products.forEach(p => {
+                    if (p.sub_category) {
+                        counts[p.sub_category] = (counts[p.sub_category] || 0) + 1;
+                    }
+                });
+
+                const cards = document.querySelectorAll('.sub-category-card .count');
+                const names = document.querySelectorAll('.sub-category-card .name');
+
+                cards.forEach((card, index) => {
+                    const name = names[index]?.textContent.trim();
+                    if (name && counts[name]) {
+                        card.textContent = `${counts[name]}+ products`;
+                    } else {
+                        card.textContent = '0 products';
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading sub-category counts:', error);
+            }
+        }
+
+        // ============================================================ //
+        // INIT
+        // ============================================================ //
+        loadProducts();
+        loadSubCategoryCounts();
+    </script>
 
 </body>
 </html>
