@@ -130,7 +130,7 @@
         }
 
         /* ============================================================ */
-        /* HEADER - Hamburger on the right corner */
+        /* HEADER - Logo Left, Cart Center, Hamburger Right Corner */
         /* ============================================================ */
         .header {
             background: #FFFFFF;
@@ -139,8 +139,6 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #E9E1EC;
-            flex-wrap: wrap;
-            gap: 12px;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -150,20 +148,18 @@
         .header-left {
             display: flex;
             align-items: center;
-            gap: 12px;
         }
 
         .header-center {
-            flex: 1;
-            max-width: 460px;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            gap: 16px;
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         /* Logo */
@@ -216,62 +212,18 @@
             text-decoration: none;
         }
 
-        /* Search */
-        .search-bar {
-            flex: 1;
-            max-width: 460px;
-            display: flex;
-            border: 1px solid #E9E1EC;
-            border-radius: 30px;
-            overflow: hidden;
-            background: #FAF6F8;
-        }
-
-        .search-bar input {
-            flex: 1;
-            border: none;
-            padding: 9px 18px;
-            font-size: 13px;
-            background: transparent;
-            outline: none;
-            font-family: 'DM Sans', Arial, sans-serif;
-        }
-
-        .search-bar button {
-            background: #6A2C99;
-            border: none;
-            padding: 9px 18px;
-            color: #FFFFFF;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-
-        .search-bar button:hover {
-            background: #55217A;
-        }
-
-        /* Account & Cart */
-        .account-cart {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .account-cart a {
-            color: #2E1033;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .account-cart a:hover {
-            color: #6A2C99;
-        }
-
+        /* Cart (moved to center) */
         .cart-icon {
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #2E1033;
+            font-size: 14px;
+        }
+
+        .cart-icon:hover {
+            color: #6A2C99;
         }
 
         .cart-icon .badge {
@@ -286,6 +238,18 @@
             font-weight: 700;
         }
 
+        .account-link {
+            color: #2E1033;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .account-link:hover {
+            color: #6A2C99;
+        }
+
         /* ============================================================ */
         /* HAMBURGER MENU - Far Right Corner */
         /* ============================================================ */
@@ -298,7 +262,6 @@
             background: transparent;
             border: none;
             z-index: 1001;
-            order: 10;
         }
 
         .hamburger span {
@@ -458,7 +421,7 @@
         }
 
         /* ============================================================ */
-        /* DESKTOP NAVIGATION */
+        /* DESKTOP NAVIGATION - HIDDEN ON MOBILE */
         /* ============================================================ */
         .nav {
             background: #6A2C99;
@@ -914,7 +877,7 @@
         }
 
         /* ============================================================ */
-        /* DESIRE GRID - WITH IMAGES FROM SUPABASE */
+        /* DESIRE GRID - ORIGINAL ICON STYLE */
         /* ============================================================ */
         .desire-grid {
             display: grid;
@@ -925,11 +888,12 @@
         .desire-card {
             background: #FFFFFF;
             border-radius: 14px;
-            overflow: hidden;
+            padding: 30px 20px;
+            text-align: center;
             border: 1px solid #E9E1EC;
             transition: all 0.3s;
             color: inherit;
-            text-align: center;
+            display: block;
         }
 
         .desire-card:hover {
@@ -938,46 +902,31 @@
             border-color: #6A2C99;
         }
 
-        .desire-card .image {
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #F5EDF2;
-            font-size: 12px;
-            color: #7A6F7E;
-            position: relative;
-        }
-
-        .desire-card .image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .desire-card .image .icon-fallback {
+        .desire-card .icon {
             font-size: 40px;
-            color: #6A2C99;
+            margin-bottom: 12px;
+            display: block;
         }
 
-        .desire-card .info {
-            padding: 16px;
-        }
+        .desire-card .icon .fa-person { color: #6A2C99; }
+        .desire-card .icon .fa-person-dress { color: #55217A; }
+        .desire-card .icon .fa-droplet { color: #FA4616; }
+        .desire-card .icon .fa-leaf { color: #1C8C6A; }
 
-        .desire-card .info h3 {
+        .desire-card h3 {
             font-size: 16px;
             font-weight: 700;
             color: #2E1033;
             margin-bottom: 2px;
         }
 
-        .desire-card .info p {
+        .desire-card p {
             font-size: 13px;
             color: #7A6F7E;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
-        .desire-card .info .count {
+        .desire-card .count {
             font-size: 12px;
             color: #FA4616;
             font-weight: 600;
@@ -1443,46 +1392,18 @@
                 display: none !important;
             }
 
-            /* Header - hamburger on far right */
+            /* Header */
             .header {
                 padding: 10px 14px;
                 flex-wrap: nowrap;
             }
-            .header-left {
-                flex: 0 0 auto;
-            }
-            .header-center {
-                flex: 1;
-                max-width: 100%;
-                order: 2;
-            }
-            .header-right {
-                flex: 0 0 auto;
-                gap: 8px;
-            }
-            .hamburger {
-                margin-left: auto;
-                order: 3;
-            }
 
+            /* Hide search bar on mobile */
             .search-bar {
-                max-width: 100%;
-                width: 100%;
-            }
-            .search-bar input {
-                font-size: 12px;
-                padding: 7px 14px;
-            }
-            .search-bar button {
-                padding: 7px 14px;
-                font-size: 12px;
+                display: none !important;
             }
 
-            .account-cart a span {
-                display: none;
-            }
-
-            /* Logo */
+            /* Logo smaller */
             .logo-icon {
                 width: 36px;
                 height: 36px;
@@ -1494,6 +1415,11 @@
             .logo-sub {
                 font-size: 7px;
                 letter-spacing: 2px;
+            }
+
+            /* Account link text hidden */
+            .account-link span {
+                display: none;
             }
 
             /* Top bar */
@@ -1670,7 +1596,7 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- HEADER - Hamburger on far right -->
+    <!-- HEADER -->
     <!-- ============================================================ -->
     <header class="header">
         <!-- Left: Logo -->
@@ -1688,24 +1614,20 @@
             </a>
         </div>
 
-        <!-- Center: Search -->
+        <!-- Center: Cart + Account -->
         <div class="header-center">
-            <div class="search-bar">
-                <input type="text" placeholder="Search products..."/>
-                <button><i class="fa-light fa-search"></i></button>
-            </div>
+            <a href="#" class="cart-icon">
+                <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+                <span class="badge">0</span>
+            </a>
+            <a href="login.html" class="account-link">
+                <i class="fa-light fa-user"></i>
+                <span>Account</span>
+            </a>
         </div>
 
-        <!-- Right: Account, Cart, Hamburger -->
+        <!-- Right: Hamburger (far right corner) -->
         <div class="header-right">
-            <div class="account-cart">
-                <a href="login.html"><i class="fa-light fa-user"></i> <span>Account</span></a>
-                <a href="#" class="cart-icon">
-                    <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
-                    <span class="badge">0</span>
-                </a>
-            </div>
-            <!-- Hamburger - Far Right Corner -->
             <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
                 <span></span>
                 <span></span>
@@ -1838,7 +1760,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- BY DESIRE - WITH IMAGES FROM SUPABASE -->
+    <!-- BY DESIRE - ORIGINAL ICON STYLE -->
     <!-- ============================================================ -->
     <section class="section" style="padding-top:0;">
         <div class="section-header">
@@ -1848,7 +1770,7 @@
             </div>
         </div>
         <div class="desire-grid" id="desireGrid">
-            <!-- Loaded from JavaScript with images from Supabase -->
+            <!-- Loaded from JavaScript -->
         </div>
     </section>
 
@@ -2117,36 +2039,39 @@
         }
 
         // ============================================================ //
-        // LOAD CATEGORY IMAGES & COUNTS FROM SUPABASE
+        // LOAD DESIRE CATEGORIES - ORIGINAL ICON STYLE
         // ============================================================ //
         async function loadDesireCategories() {
             const container = document.getElementById('desireGrid');
 
-            // Define categories with their mapping
             const categories = [
                 { 
                     key: 'For Men', 
                     slug: 'for-penises.html', 
                     icon: 'fa-person',
-                    color: '#6A2C99'
+                    color: '#6A2C99',
+                    desc: 'Enhancement & Vitality'
                 },
                 { 
                     key: 'For Women', 
                     slug: 'for-vulvas.html', 
                     icon: 'fa-person-dress',
-                    color: '#55217A'
+                    color: '#55217A',
+                    desc: 'Care & Freshness'
                 },
                 { 
                     key: 'Lubricants', 
                     slug: 'lubes-essentials.html', 
                     icon: 'fa-droplet',
-                    color: '#FA4616'
+                    color: '#FA4616',
+                    desc: 'Smooth & Sensual'
                 },
                 { 
                     key: 'Wellness', 
                     slug: '#', 
                     icon: 'fa-leaf',
-                    color: '#1C8C6A'
+                    color: '#1C8C6A',
+                    desc: 'Natural Health'
                 }
             ];
 
@@ -2154,45 +2079,32 @@
                 // Fetch all products to count categories
                 const { data: products, error } = await supabase
                     .from('products')
-                    .select('category, image_url')
+                    .select('category')
                     .eq('is_active', true);
 
                 if (error) throw error;
 
                 // Count products per category
                 const counts = {};
-                const categoryImages = {};
                 products.forEach(p => {
                     if (p.category) {
                         counts[p.category] = (counts[p.category] || 0) + 1;
-                        // Store one image per category (first one found)
-                        if (!categoryImages[p.category] && p.image_url) {
-                            categoryImages[p.category] = p.image_url;
-                        }
                     }
                 });
 
-                // Build HTML
+                // Build HTML with icons
                 let html = '';
 
                 categories.forEach(function(cat) {
                     const count = counts[cat.key] || 0;
-                    const imageUrl = categoryImages[cat.key] || null;
                     const countText = count > 0 ? `${count}+ products` : '0 products';
 
                     html += `
                         <a href="${cat.slug}" class="desire-card">
-                            <div class="image" style="background:${imageUrl ? `url('${imageUrl}') center/cover` : '#F5EDF2'};">
-                                ${imageUrl ? '' : `<div class="icon-fallback"><i class="fa-light ${cat.icon}"></i></div>`}
-                            </div>
-                            <div class="info">
-                                <h3>${cat.key}</h3>
-                                <p>${cat.key === 'For Men' ? 'Enhancement & Vitality' : 
-                                    cat.key === 'For Women' ? 'Care & Freshness' : 
-                                    cat.key === 'Lubricants' ? 'Smooth & Sensual' : 
-                                    'Natural Health'}</p>
-                                <span class="count">${countText}</span>
-                            </div>
+                            <span class="icon"><i class="fa-light ${cat.icon}" style="color:${cat.color};"></i></span>
+                            <h3>${cat.key}</h3>
+                            <p>${cat.desc}</p>
+                            <span class="count">${countText}</span>
                         </a>
                     `;
                 });
@@ -2201,23 +2113,31 @@
 
             } catch (error) {
                 console.error('Error loading desire categories:', error);
-                // Fallback - show icons only
+                // Fallback with icons
                 container.innerHTML = `
                     <a href="for-penises.html" class="desire-card">
-                        <div class="image" style="background:#6A2C99;"><div class="icon-fallback"><i class="fa-light fa-person"></i></div></div>
-                        <div class="info"><h3>For Men</h3><p>Enhancement & Vitality</p><span class="count">0 products</span></div>
+                        <span class="icon"><i class="fa-light fa-person" style="color:#6A2C99;"></i></span>
+                        <h3>For Men</h3>
+                        <p>Enhancement & Vitality</p>
+                        <span class="count">0 products</span>
                     </a>
                     <a href="for-vulvas.html" class="desire-card">
-                        <div class="image" style="background:#55217A;"><div class="icon-fallback"><i class="fa-light fa-person-dress"></i></div></div>
-                        <div class="info"><h3>For Women</h3><p>Care & Freshness</p><span class="count">0 products</span></div>
+                        <span class="icon"><i class="fa-light fa-person-dress" style="color:#55217A;"></i></span>
+                        <h3>For Women</h3>
+                        <p>Care & Freshness</p>
+                        <span class="count">0 products</span>
                     </a>
                     <a href="lubes-essentials.html" class="desire-card">
-                        <div class="image" style="background:#FA4616;"><div class="icon-fallback"><i class="fa-light fa-droplet"></i></div></div>
-                        <div class="info"><h3>Lubricants</h3><p>Smooth & Sensual</p><span class="count">0 products</span></div>
+                        <span class="icon"><i class="fa-light fa-droplet" style="color:#FA4616;"></i></span>
+                        <h3>Lubricants</h3>
+                        <p>Smooth & Sensual</p>
+                        <span class="count">0 products</span>
                     </a>
                     <a href="#" class="desire-card">
-                        <div class="image" style="background:#1C8C6A;"><div class="icon-fallback"><i class="fa-light fa-leaf"></i></div></div>
-                        <div class="info"><h3>Wellness</h3><p>Natural Health</p><span class="count">0 products</span></div>
+                        <span class="icon"><i class="fa-light fa-leaf" style="color:#1C8C6A;"></i></span>
+                        <h3>Wellness</h3>
+                        <p>Natural Health</p>
+                        <span class="count">0 products</span>
                     </a>
                 `;
             }
