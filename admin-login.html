@@ -8,12 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'DM Sans', Arial, sans-serif;
             background: linear-gradient(145deg, #6A2C99 0%, #3A1555 100%);
@@ -23,7 +18,6 @@
             justify-content: center;
             padding: 20px;
         }
-
         .login-container {
             background: #FFFFFF;
             border-radius: 24px;
@@ -34,7 +28,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .login-container::before {
             content: '';
             position: absolute;
@@ -45,209 +38,114 @@
             background: rgba(106,44,153,0.05);
             border-radius: 50%;
         }
-
-        .login-container .logo {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
+        .login-container .logo { text-align: center; margin-bottom: 32px; }
         .login-container .logo .logo-icon {
-            width: 64px;
-            height: 64px;
-            background: #6A2C99;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: 800;
-            color: #FFFFFF;
-            border: 3px solid #FA4616;
-            margin: 0 auto 12px;
+            width: 64px; height: 64px; background: #6A2C99; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; font-weight: 800; color: #FFFFFF;
+            border: 3px solid #FA4616; margin: 0 auto 12px;
         }
-
-        .login-container .logo h1 {
-            font-size: 24px;
-            font-weight: 800;
-            color: #1A1A2E;
-        }
-
-        .login-container .logo h1 span {
-            color: #FA4616;
-        }
-
-        .login-container .logo p {
-            font-size: 14px;
-            color: #7A6F7E;
-            margin-top: 4px;
-        }
-
+        .login-container .logo h1 { font-size: 24px; font-weight: 800; color: #1A1A2E; }
+        .login-container .logo h1 span { color: #FA4616; }
+        .login-container .logo p { font-size: 14px; color: #7A6F7E; margin-top: 4px; }
         .login-container .logo .sub {
-            font-size: 11px;
-            color: #7A6F7E;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: 2px;
+            font-size: 11px; color: #7A6F7E; letter-spacing: 3px;
+            text-transform: uppercase; margin-top: 2px;
         }
-
-        .login-container .form-group {
-            margin-bottom: 20px;
-        }
-
+        .login-container .form-group { margin-bottom: 20px; }
         .login-container .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #1A1A2E;
-            margin-bottom: 6px;
+            display: block; font-size: 13px; font-weight: 600;
+            color: #1A1A2E; margin-bottom: 6px;
         }
-
-        .login-container .form-group label .required {
-            color: #FA4616;
-        }
-
+        .login-container .form-group label .required { color: #FA4616; }
         .login-container .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #E9E1EC;
-            border-radius: 10px;
-            font-family: 'DM Sans', Arial, sans-serif;
-            font-size: 14px;
-            color: #1A1A2E;
-            background: #FAF6F8;
-            transition: all 0.3s;
-            outline: none;
+            width: 100%; padding: 12px 16px;
+            border: 1px solid #E9E1EC; border-radius: 10px;
+            font-family: 'DM Sans', Arial, sans-serif; font-size: 14px;
+            color: #1A1A2E; background: #FAF6F8;
+            transition: all 0.3s; outline: none;
         }
-
         .login-container .form-group input:focus {
             border-color: #6A2C99;
             box-shadow: 0 0 0 3px rgba(106,44,153,0.1);
         }
-
-        .login-container .form-group input::placeholder {
-            color: #B89BBE;
-        }
-
+        .login-container .form-group input::placeholder { color: #B89BBE; }
         .login-container .form-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
+            display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 24px;
         }
-
         .login-container .form-options label {
-            font-size: 13px;
-            color: #7A6F7E;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
+            font-size: 13px; color: #7A6F7E;
+            display: flex; align-items: center; gap: 6px; cursor: pointer;
         }
-
         .login-container .form-options label input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            accent-color: #6A2C99;
-            cursor: pointer;
+            width: 16px; height: 16px; accent-color: #6A2C99; cursor: pointer;
         }
-
         .login-container .form-options a {
-            font-size: 13px;
-            color: #6A2C99;
-            font-weight: 500;
+            font-size: 13px; color: #6A2C99; font-weight: 500;
         }
-
-        .login-container .form-options a:hover {
-            color: #FA4616;
-        }
-
+        .login-container .form-options a:hover { color: #FA4616; }
         .login-container .btn-login {
-            width: 100%;
-            padding: 14px;
-            background: #6A2C99;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 700;
+            width: 100%; padding: 14px;
+            background: #6A2C99; color: #FFFFFF;
+            border: none; border-radius: 10px;
+            font-size: 16px; font-weight: 700;
             font-family: 'DM Sans', Arial, sans-serif;
-            cursor: pointer;
-            transition: all 0.3s;
+            cursor: pointer; transition: all 0.3s;
         }
-
         .login-container .btn-login:hover {
             background: #55217A;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(106,44,153,0.3);
         }
-
-        .login-container .btn-login i {
-            margin-right: 8px;
-        }
-
+        .login-container .btn-login i { margin-right: 8px; }
         .login-container .btn-login:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+            opacity: 0.6; cursor: not-allowed; transform: none;
         }
-
         .login-container .error-msg {
             background: rgba(194,43,61,0.08);
-            border: 1px solid #C22B3D;
-            color: #C22B3D;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 13px;
-            margin-bottom: 16px;
+            border: 1px solid #C22B3D; color: #C22B3D;
+            padding: 12px 16px; border-radius: 8px;
+            font-size: 13px; margin-bottom: 16px;
             display: none;
         }
-
-        .login-container .error-msg.show {
-            display: block;
-        }
-
+        .login-container .error-msg.show { display: block; }
         .login-container .success-msg {
             background: rgba(28,140,106,0.08);
-            border: 1px solid #1C8C6A;
-            color: #1C8C6A;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 13px;
-            margin-bottom: 16px;
+            border: 1px solid #1C8C6A; color: #1C8C6A;
+            padding: 12px 16px; border-radius: 8px;
+            font-size: 13px; margin-bottom: 16px;
             display: none;
         }
-
-        .login-container .success-msg.show {
-            display: block;
-        }
-
+        .login-container .success-msg.show { display: block; }
         .login-container .footer-text {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #7A6F7E;
+            text-align: center; margin-top: 20px;
+            font-size: 13px; color: #7A6F7E;
         }
-
         .login-container .footer-text a {
-            color: #6A2C99;
-            font-weight: 600;
+            color: #6A2C99; font-weight: 600;
         }
+        .login-container .footer-text a:hover { color: #FA4616; }
 
-        .login-container .footer-text a:hover {
-            color: #FA4616;
+        /* Debug info */
+        .debug-info {
+            background: #F4F1F6;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 16px;
+            font-size: 12px;
+            color: #7A6F7E;
+            font-family: monospace;
+            word-break: break-all;
+            display: none;
         }
+        .debug-info.show { display: block; }
 
         @media (max-width: 480px) {
-            .login-container {
-                padding: 32px 20px;
-            }
-            .login-container .logo h1 {
-                font-size: 20px;
-            }
+            .login-container { padding: 32px 20px; }
+            .login-container .logo h1 { font-size: 20px; }
             .login-container .form-options {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
+                flex-direction: column; gap: 10px; align-items: flex-start;
             }
         }
     </style>
@@ -274,12 +172,12 @@
 
             <div class="form-group">
                 <label>Email Address <span class="required">*</span></label>
-                <input type="email" id="email" placeholder="admin@trueessence.com" required />
+                <input type="email" id="email" placeholder="admin@trueessence.com" value="admin@trueessence.com" required />
             </div>
 
             <div class="form-group">
                 <label>Password <span class="required">*</span></label>
-                <input type="password" id="password" placeholder="Enter your password" required />
+                <input type="password" id="password" placeholder="Enter your password" value="password" required />
             </div>
 
             <div class="form-options">
@@ -295,6 +193,11 @@
 
         </form>
 
+        <div class="debug-info" id="debugInfo">
+            <strong>Debug Info:</strong><br />
+            <span id="debugText">Waiting for login attempt...</span>
+        </div>
+
         <div class="footer-text">
             <strong>Demo:</strong> admin@trueessence.com / password
         </div>
@@ -307,6 +210,9 @@
         // ============================================================ //
         const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
         const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+
+        console.log('🔐 Supabase URL:', SUPABASE_URL);
+        console.log('🔑 Supabase Key:', SUPABASE_PUBLISHABLE_KEY);
 
         const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
@@ -322,10 +228,13 @@
             const errorText = document.getElementById('errorText');
             const successMsg = document.getElementById('successMsg');
             const loginBtn = document.getElementById('loginBtn');
+            const debugInfo = document.getElementById('debugInfo');
+            const debugText = document.getElementById('debugText');
 
             // Hide previous messages
             errorMsg.classList.remove('show');
             successMsg.classList.remove('show');
+            debugInfo.classList.remove('show');
 
             // Validate
             if (!email || !password) {
@@ -338,27 +247,47 @@
             loginBtn.disabled = true;
             loginBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Signing in...';
 
+            // Show debug
+            debugText.textContent = `Attempting login with: ${email}`;
+            debugInfo.classList.add('show');
+
             try {
-                // Attempt login with Supabase
+                console.log('🔄 Attempting login with:', email);
+
                 const { data, error } = await supabase.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
 
+                console.log('📦 Response:', data);
+                console.log('❌ Error:', error);
+
                 if (error) {
+                    debugText.textContent = `❌ Error: ${error.message}`;
                     throw error;
                 }
 
-                // Success
-                successMsg.classList.add('show');
-                setTimeout(() => {
-                    window.location.href = 'admin-panel.html';
-                }, 1000);
+                if (data && data.user) {
+                    debugText.textContent = `✅ Success! User: ${data.user.email}`;
+                    console.log('✅ User authenticated:', data.user);
+
+                    // Success
+                    successMsg.classList.add('show');
+                    setTimeout(() => {
+                        window.location.href = 'admin-panel.html';
+                    }, 1500);
+                } else {
+                    throw new Error('No user data returned');
+                }
 
             } catch (error) {
+                console.error('❌ Login error:', error);
+                debugText.textContent = `❌ Error: ${error.message}`;
+
                 // Show error
                 errorText.textContent = error.message || 'Invalid email or password.';
                 errorMsg.classList.add('show');
+
                 loginBtn.disabled = false;
                 loginBtn.innerHTML = '<i class="fa-light fa-right-to-bracket"></i> Sign In';
                 return false;
@@ -371,9 +300,15 @@
         // CHECK IF ALREADY LOGGED IN
         // ============================================================ //
         async function checkSession() {
-            const { data: { user }, error } = await supabase.auth.getUser();
-            if (user && !error) {
-                window.location.href = 'admin-panel.html';
+            try {
+                const { data: { user }, error } = await supabase.auth.getUser();
+                console.log('🔍 Session check:', user, error);
+                if (user && !error) {
+                    console.log('✅ User already logged in, redirecting...');
+                    window.location.href = 'admin-panel.html';
+                }
+            } catch (e) {
+                console.log('ℹ️ No active session');
             }
         }
 
@@ -390,6 +325,26 @@
                 }
             }
         });
+
+        // ============================================================ //
+        // TEST SUPABASE CONNECTION
+        // ============================================================ //
+        async function testConnection() {
+            try {
+                console.log('🔄 Testing Supabase connection...');
+                const { data, error } = await supabase.auth.getSession();
+                console.log('📦 Session test:', data, error);
+                if (!error) {
+                    console.log('✅ Supabase connection successful!');
+                } else {
+                    console.warn('⚠️ Supabase connection issue:', error);
+                }
+            } catch (e) {
+                console.error('❌ Supabase connection failed:', e);
+            }
+        }
+
+        testConnection();
     </script>
 
 </body>
