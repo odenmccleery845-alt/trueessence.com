@@ -130,7 +130,7 @@
         }
 
         /* ============================================================ */
-        /* HEADER - Logo Left, Cart Center, Hamburger Right Corner */
+        /* HEADER */
         /* ============================================================ */
         .header {
             background: #FFFFFF;
@@ -159,7 +159,6 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 12px;
         }
 
         /* Logo */
@@ -212,7 +211,7 @@
             text-decoration: none;
         }
 
-        /* Cart (moved to center) */
+        /* Cart & Account */
         .cart-icon {
             position: relative;
             display: flex;
@@ -251,7 +250,7 @@
         }
 
         /* ============================================================ */
-        /* HAMBURGER MENU - Far Right Corner */
+        /* HAMBURGER MENU - ALWAYS VISIBLE ON MOBILE */
         /* ============================================================ */
         .hamburger {
             display: none;
@@ -421,7 +420,7 @@
         }
 
         /* ============================================================ */
-        /* DESKTOP NAVIGATION - HIDDEN ON MOBILE */
+        /* DESKTOP NAVIGATION */
         /* ============================================================ */
         .nav {
             background: #6A2C99;
@@ -877,7 +876,7 @@
         }
 
         /* ============================================================ */
-        /* DESIRE GRID - ORIGINAL ICON STYLE */
+        /* DESIRE GRID */
         /* ============================================================ */
         .desire-grid {
             display: grid;
@@ -1384,26 +1383,22 @@
         }
 
         @media (max-width: 768px) {
-            /* Show hamburger, hide desktop nav */
+            /* HAMBURGER - ALWAYS VISIBLE ON MOBILE */
             .hamburger {
                 display: flex !important;
             }
+
+            /* HIDE DESKTOP NAV */
             .nav {
                 display: none !important;
             }
 
-            /* Header */
+            /* HEADER */
             .header {
                 padding: 10px 14px;
-                flex-wrap: nowrap;
             }
 
-            /* Hide search bar on mobile */
-            .search-bar {
-                display: none !important;
-            }
-
-            /* Logo smaller */
+            /* LOGO SMALLER */
             .logo-icon {
                 width: 36px;
                 height: 36px;
@@ -1417,12 +1412,12 @@
                 letter-spacing: 2px;
             }
 
-            /* Account link text hidden */
+            /* ACCOUNT LINK TEXT HIDDEN */
             .account-link span {
                 display: none;
             }
 
-            /* Top bar */
+            /* TOP BAR */
             .top-bar {
                 font-size: 10px;
                 padding: 5px 14px;
@@ -1430,7 +1425,7 @@
                 text-align: center;
             }
 
-            /* Trust bar */
+            /* TRUST BAR */
             .trust-bar {
                 padding: 6px 14px;
                 justify-content: center;
@@ -1440,7 +1435,7 @@
                 font-size: 10px;
             }
 
-            /* Hero */
+            /* HERO */
             .hero {
                 padding: 30px 16px;
                 text-align: center;
@@ -1455,7 +1450,7 @@
                 max-width: 100%;
             }
 
-            /* Sections */
+            /* SECTIONS */
             .section {
                 padding: 30px 14px;
             }
@@ -1483,7 +1478,7 @@
                 justify-content: center;
             }
 
-            /* Spotlight */
+            /* SPOTLIGHT */
             .spotlight {
                 padding: 30px 14px;
                 text-align: center;
@@ -1492,7 +1487,7 @@
                 max-width: 100%;
             }
 
-            /* Limited time */
+            /* LIMITED TIME */
             .limited-time {
                 padding: 10px 14px;
             }
@@ -1500,7 +1495,7 @@
                 font-size: 14px;
             }
 
-            /* Free gift */
+            /* FREE GIFT */
             .free-gift {
                 padding: 14px;
             }
@@ -1508,7 +1503,7 @@
                 font-size: 17px;
             }
 
-            /* Newsletter */
+            /* NEWSLETTER */
             .newsletter {
                 padding: 30px 14px;
             }
@@ -1516,7 +1511,7 @@
                 font-size: 22px;
             }
 
-            /* Testimonial */
+            /* TESTIMONIAL */
             .testimonial {
                 padding: 24px 14px;
             }
@@ -1524,12 +1519,12 @@
                 font-size: 18px;
             }
 
-            /* Section header */
+            /* SECTION HEADER */
             .section-header h2 {
                 font-size: 22px;
             }
 
-            /* Mobile nav */
+            /* MOBILE NAV */
             .mobile-nav {
                 width: 100%;
                 max-width: 300px;
@@ -1760,7 +1755,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- BY DESIRE - ORIGINAL ICON STYLE -->
+    <!-- BY DESIRE -->
     <!-- ============================================================ -->
     <section class="section" style="padding-top:0;">
         <div class="section-header">
@@ -1770,7 +1765,30 @@
             </div>
         </div>
         <div class="desire-grid" id="desireGrid">
-            <!-- Loaded from JavaScript -->
+            <a href="for-penises.html" class="desire-card">
+                <span class="icon"><i class="fa-light fa-person"></i></span>
+                <h3>For Men</h3>
+                <p>Enhancement & Vitality</p>
+                <span class="count" id="countMen">Loading...</span>
+            </a>
+            <a href="for-vulvas.html" class="desire-card">
+                <span class="icon"><i class="fa-light fa-person-dress"></i></span>
+                <h3>For Women</h3>
+                <p>Care & Freshness</p>
+                <span class="count" id="countWomen">Loading...</span>
+            </a>
+            <a href="lubes-essentials.html" class="desire-card">
+                <span class="icon"><i class="fa-light fa-droplet"></i></span>
+                <h3>Lubricants</h3>
+                <p>Smooth & Sensual</p>
+                <span class="count" id="countLubes">Loading...</span>
+            </a>
+            <a href="#" class="desire-card">
+                <span class="icon"><i class="fa-light fa-leaf"></i></span>
+                <h3>Wellness</h3>
+                <p>Natural Health</p>
+                <span class="count" id="countWellness">Loading...</span>
+            </a>
         </div>
     </section>
 
@@ -1924,23 +1942,30 @@
 
     <script>
         // ============================================================ //
-        // MOBILE NAVIGATION
+        // MOBILE NAVIGATION - FIXED
         // ============================================================ //
         function toggleMobileNav() {
-            const hamburger = document.getElementById('hamburger');
-            const mobileNav = document.getElementById('mobileNav');
-            const overlay = document.getElementById('mobileOverlay');
+            var hamburger = document.getElementById('hamburger');
+            var mobileNav = document.getElementById('mobileNav');
+            var overlay = document.getElementById('mobileOverlay');
             
+            // Toggle classes
             hamburger.classList.toggle('open');
             mobileNav.classList.toggle('open');
             overlay.classList.toggle('open');
-            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+            
+            // Prevent body scroll when menu is open
+            if (mobileNav.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         }
 
         function closeMobileNav() {
-            const hamburger = document.getElementById('hamburger');
-            const mobileNav = document.getElementById('mobileNav');
-            const overlay = document.getElementById('mobileOverlay');
+            var hamburger = document.getElementById('hamburger');
+            var mobileNav = document.getElementById('mobileNav');
+            var overlay = document.getElementById('mobileOverlay');
             
             hamburger.classList.remove('open');
             mobileNav.classList.remove('open');
@@ -1951,19 +1976,19 @@
         // ============================================================ //
         // SUPABASE CONFIG
         // ============================================================ //
-        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
-        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+        var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
 
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
         // ============================================================ //
         // LOAD TRENDING PRODUCTS
         // ============================================================ //
         async function loadTrendingProducts() {
-            const container = document.getElementById('trendingProducts');
+            var container = document.getElementById('trendingProducts');
 
             try {
-                const { data: products, error } = await supabase
+                var { data: products, error } = await supabase
                     .from('products')
                     .select('*')
                     .eq('is_active', true)
@@ -1982,20 +2007,20 @@
                     return;
                 }
 
-                let html = '';
+                var html = '';
 
                 products.forEach(function(p) {
-                    const priceDisplay = p.sale_price ? 
-                        `<span class="price">$${p.sale_price} <span class="was">$${p.price}</span></span>` :
-                        `<span class="price">$${p.price}</span>`;
+                    var priceDisplay = p.sale_price ? 
+                        '<span class="price">$' + p.sale_price + ' <span class="was">$' + p.price + '</span></span>' :
+                        '<span class="price">$' + p.price + '</span>';
 
-                    const badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
-                    const badgeHtml = p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
+                    var badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
+                    var badgeHtml = p.badge ? '<span class="badge ' + badgeClass + '">' + p.badge + '</span>' : '';
 
-                    const ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
-                    const reviewCount = p.review_count || 0;
+                    var ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
+                    var reviewCount = p.review_count || 0;
 
-                    let bgColor = '#F5EDF2';
+                    var bgColor = '#F5EDF2';
                     if (p.badge === 'Best Seller') bgColor = '#6A2C99';
                     else if (p.badge === 'Sale') bgColor = '#FA4616';
                     else if (p.badge === 'New') bgColor = '#2E1033';
@@ -2004,12 +2029,12 @@
 
                     html += `
                         <div class="product-card">
-                            <div class="image" style="background:${p.image_url ? `url('${p.image_url}') center/cover` : bgColor};">
+                            <div class="image" style="background:${p.image_url ? 'url(' + p.image_url + ') center/cover' : bgColor};">
                                 ${badgeHtml}
                                 ${p.image_url ? '' : '[Image]'}
                             </div>
                             <div class="info">
-                                ${p.brand ? `<div class="brand">${p.brand}</div>` : ''}
+                                ${p.brand ? '<div class="brand">' + p.brand + '</div>' : ''}
                                 <div class="rating">
                                     <span class="stars">${ratingStars}</span>
                                     <span class="count">(${reviewCount})</span>
@@ -2039,107 +2064,56 @@
         }
 
         // ============================================================ //
-        // LOAD DESIRE CATEGORIES - ORIGINAL ICON STYLE
+        // LOAD CATEGORY COUNTS
         // ============================================================ //
-        async function loadDesireCategories() {
-            const container = document.getElementById('desireGrid');
-
-            const categories = [
-                { 
-                    key: 'For Men', 
-                    slug: 'for-penises.html', 
-                    icon: 'fa-person',
-                    color: '#6A2C99',
-                    desc: 'Enhancement & Vitality'
-                },
-                { 
-                    key: 'For Women', 
-                    slug: 'for-vulvas.html', 
-                    icon: 'fa-person-dress',
-                    color: '#55217A',
-                    desc: 'Care & Freshness'
-                },
-                { 
-                    key: 'Lubricants', 
-                    slug: 'lubes-essentials.html', 
-                    icon: 'fa-droplet',
-                    color: '#FA4616',
-                    desc: 'Smooth & Sensual'
-                },
-                { 
-                    key: 'Wellness', 
-                    slug: '#', 
-                    icon: 'fa-leaf',
-                    color: '#1C8C6A',
-                    desc: 'Natural Health'
-                }
-            ];
-
+        async function loadCategoryCounts() {
             try {
-                // Fetch all products to count categories
-                const { data: products, error } = await supabase
+                var { data: products, error } = await supabase
                     .from('products')
                     .select('category')
                     .eq('is_active', true);
 
                 if (error) throw error;
 
-                // Count products per category
-                const counts = {};
-                products.forEach(p => {
+                var counts = {};
+                products.forEach(function(p) {
                     if (p.category) {
                         counts[p.category] = (counts[p.category] || 0) + 1;
                     }
                 });
 
-                // Build HTML with icons
-                let html = '';
+                var categoryMap = {
+                    'For Men': 'countMen',
+                    'For Women': 'countWomen',
+                    'Lubricants': 'countLubes'
+                };
 
-                categories.forEach(function(cat) {
-                    const count = counts[cat.key] || 0;
-                    const countText = count > 0 ? `${count}+ products` : '0 products';
-
-                    html += `
-                        <a href="${cat.slug}" class="desire-card">
-                            <span class="icon"><i class="fa-light ${cat.icon}" style="color:${cat.color};"></i></span>
-                            <h3>${cat.key}</h3>
-                            <p>${cat.desc}</p>
-                            <span class="count">${countText}</span>
-                        </a>
-                    `;
+                Object.keys(categoryMap).forEach(function(key) {
+                    var element = document.getElementById(categoryMap[key]);
+                    if (element) {
+                        var count = counts[key] || 0;
+                        element.textContent = count + '+ products';
+                    }
                 });
 
-                container.innerHTML = html;
+                var wellnessCount = 0;
+                products.forEach(function(p) {
+                    if (p.category && !['For Men', 'For Women', 'Lubricants'].includes(p.category)) {
+                        wellnessCount++;
+                    }
+                });
+                
+                var wellnessEl = document.getElementById('countWellness');
+                if (wellnessEl) {
+                    wellnessEl.textContent = wellnessCount + '+ products';
+                }
 
             } catch (error) {
-                console.error('Error loading desire categories:', error);
-                // Fallback with icons
-                container.innerHTML = `
-                    <a href="for-penises.html" class="desire-card">
-                        <span class="icon"><i class="fa-light fa-person" style="color:#6A2C99;"></i></span>
-                        <h3>For Men</h3>
-                        <p>Enhancement & Vitality</p>
-                        <span class="count">0 products</span>
-                    </a>
-                    <a href="for-vulvas.html" class="desire-card">
-                        <span class="icon"><i class="fa-light fa-person-dress" style="color:#55217A;"></i></span>
-                        <h3>For Women</h3>
-                        <p>Care & Freshness</p>
-                        <span class="count">0 products</span>
-                    </a>
-                    <a href="lubes-essentials.html" class="desire-card">
-                        <span class="icon"><i class="fa-light fa-droplet" style="color:#FA4616;"></i></span>
-                        <h3>Lubricants</h3>
-                        <p>Smooth & Sensual</p>
-                        <span class="count">0 products</span>
-                    </a>
-                    <a href="#" class="desire-card">
-                        <span class="icon"><i class="fa-light fa-leaf" style="color:#1C8C6A;"></i></span>
-                        <h3>Wellness</h3>
-                        <p>Natural Health</p>
-                        <span class="count">0 products</span>
-                    </a>
-                `;
+                console.error('Error loading category counts:', error);
+                ['countMen', 'countWomen', 'countLubes', 'countWellness'].forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) el.textContent = '0 products';
+                });
             }
         }
 
@@ -2147,19 +2121,19 @@
         // ADD TO CART
         // ============================================================ //
         function addToCart(productId) {
-            const btn = event.target;
-            const originalText = btn.textContent;
+            var btn = event.target;
+            var originalText = btn.textContent;
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i>';
             
-            setTimeout(() => {
-                const badge = document.querySelector('.cart-icon .badge');
+            setTimeout(function() {
+                var badge = document.querySelector('.cart-icon .badge');
                 if (badge) {
-                    const current = parseInt(badge.textContent) || 0;
+                    var current = parseInt(badge.textContent) || 0;
                     badge.textContent = current + 1;
                 }
                 btn.innerHTML = '<i class="fa-light fa-check"></i>';
-                setTimeout(() => {
+                setTimeout(function() {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                 }, 1000);
@@ -2170,7 +2144,7 @@
         // INIT
         // ============================================================ //
         loadTrendingProducts();
-        loadDesireCategories();
+        loadCategoryCounts();
     </script>
 
 </body>
