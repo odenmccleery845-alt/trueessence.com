@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Login – TrueEssence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'DM Sans-fallback', Arial, sans-serif;
+            background: #F4F1F6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 48px 40px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(106,44,153,0.12);
+            border: 1px solid #E9E1EC;
+        }
+
+        .login-container .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .login-container .logo .logo-icon {
+            width: 64px;
+            height: 64px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: #FFFFFF;
+            border: 3px solid #FA4616;
+            margin: 0 auto 12px;
+        }
+
+        .login-container .logo h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1A1A2E;
+        }
+
+        .login-container .logo h1 span {
+            color: #FA4616;
+        }
+
+        .login-container .logo p {
+            font-size: 14px;
+            color: #7A6F7E;
+            margin-top: 4px;
+        }
+
+        .login-container .logo .sub {
+            font-size: 11px;
+            color: #7A6F7E;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .login-container .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-container .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1A1A2E;
+            margin-bottom: 6px;
+        }
+
+        .login-container .form-group label .required {
+            color: #FA4616;
+        }
+
+        .login-container .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #E9E1EC;
+            border-radius: 10px;
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 14px;
+            color: #1A1A2E;
+            background: #FAF6F8;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .login-container .form-group input:focus {
+            border-color: #6A2C99;
+            box-shadow: 0 0 0 3px rgba(106,44,153,0.1);
+        }
+
+        .login-container .form-group input::placeholder {
+            color: #B89BBE;
+        }
+
+        .login-container .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .login-container .form-options label {
+            font-size: 13px;
+            color: #7A6F7E;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .login-container .form-options label input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #6A2C99;
+            cursor: pointer;
+        }
+
+        .login-container .form-options a {
+            font-size: 13px;
+            color: #6A2C99;
+            font-weight: 500;
+        }
+
+        .login-container .form-options a:hover {
+            color: #FA4616;
+        }
+
+        .login-container .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: #6A2C99;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'DM Sans', Arial, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .login-container .btn-login:hover {
+            background: #55217A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(106,44,153,0.3);
+        }
+
+        .login-container .btn-login i {
+            margin-right: 8px;
+        }
+
+        .login-container .error-msg {
+            background: rgba(194,43,61,0.08);
+            border: 1px solid #C22B3D;
+            color: #C22B3D;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .login-container .error-msg.show {
+            display: block;
+        }
+
+        .login-container .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #7A6F7E;
+        }
+
+        .login-container .footer-text a {
+            color: #6A2C99;
+            font-weight: 600;
+        }
+
+        .login-container .footer-text a:hover {
+            color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* RESPONSIVE */
+        /* ============================================================ */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 32px 24px;
+            }
+            .login-container .logo h1 {
+                font-size: 20px;
+            }
+            .login-container .form-options {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- LOGIN CONTAINER -->
+    <!-- ============================================================ -->
+    <div class="login-container">
+
+        <!-- ===== LOGO ===== -->
+        <div class="logo">
+            <div class="logo-icon">TE</div>
+            <h1>TRUE<span>ESSENCE</span></h1>
+            <div class="sub">Admin Panel</div>
+            <p>Sign in to manage your store</p>
+        </div>
+
+        <!-- ===== ERROR MESSAGE ===== -->
+        <div class="error-msg" id="errorMsg">
+            <i class="fa-light fa-circle-exclamation"></i> Invalid email or password. Please try again.
+        </div>
+
+        <!-- ===== LOGIN FORM ===== -->
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+
+            <div class="form-group">
+                <label>Email Address <span class="required">*</span></label>
+                <input type="email" id="email" placeholder="admin@trueessence.com" required />
+            </div>
+
+            <div class="form-group">
+                <label>Password <span class="required">*</span></label>
+                <input type="password" id="password" placeholder="Enter your password" required />
+            </div>
+
+            <div class="form-options">
+                <label>
+                    <input type="checkbox" /> Remember me
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-login">
+                <i class="fa-light fa-right-to-bracket"></i> Sign In
+            </button>
+
+        </form>
+
+        <div class="footer-text">
+            Demo credentials: <strong>admin@trueessence.com</strong> / <strong>password</strong>
+        </div>
+
+    </div>
+
+    <script>
+        // ============================================================ //
+        // LOGIN HANDLER
+        // ============================================================ //
+        function handleLogin(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var errorMsg = document.getElementById('errorMsg');
+
+            // Demo credentials
+            var validEmail = 'admin@trueessence.com';
+            var validPassword = 'password';
+
+            if (email === validEmail && password === validPassword) {
+                // Success — redirect to admin panel
+                window.location.href = 'admin-panel.html';
+                return false;
+            } else {
+                // Show error
+                errorMsg.classList.add('show');
+                setTimeout(function() {
+                    errorMsg.classList.remove('show');
+                }, 4000);
+                return false;
+            }
+        }
+
+        // ============================================================ //
+        // ENTER KEY SUPPORT
+        // ============================================================ //
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                var form = document.getElementById('loginForm');
+                if (form) {
+                    form.dispatchEvent(new Event('submit'));
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
