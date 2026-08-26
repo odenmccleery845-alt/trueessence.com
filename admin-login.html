@@ -193,6 +193,20 @@
             display: block;
         }
 
+        /* Demo credentials hint */
+        .demo-hint {
+            text-align: center;
+            margin-top: 16px;
+            padding: 10px;
+            background: #F4F1F6;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #7A6F7E;
+        }
+        .demo-hint strong {
+            color: #6A2C99;
+        }
+
         @media (max-width: 480px) {
             .login-container {
                 padding: 32px 20px;
@@ -230,17 +244,17 @@
 
             <div class="form-group">
                 <label>Email Address <span class="required">*</span></label>
-                <input type="email" id="email" placeholder="Enter your email" required />
+                <input type="email" id="email" value="admin@trueessence.com" required />
             </div>
 
             <div class="form-group">
                 <label>Password <span class="required">*</span></label>
-                <input type="password" id="password" placeholder="Enter your password" required />
+                <input type="password" id="password" value="password" required />
             </div>
 
             <div class="form-options">
                 <label>
-                    <input type="checkbox" /> Remember me
+                    <input type="checkbox" checked /> Remember me
                 </label>
                 <a href="#">Forgot password?</a>
             </div>
@@ -251,15 +265,17 @@
 
         </form>
 
+        <div class="demo-hint">
+            <strong>Demo:</strong> admin@trueessence.com / password
+        </div>
+
     </div>
 
     <script>
         // ============================================================ //
-        // SUPABASE CONFIG - USE WINDOW OBJECT TO AVOID DUPLICATE ERROR
+        // SUPABASE CONFIG - USE WINDOW OBJECT
         // ============================================================ //
-        // IMPORTANT: The Supabase CDN script above already creates a global 'supabase' object.
-        // We MUST use that existing object instead of declaring a new one.
-        // 'window.supabase' is the same as 'supabase' in the global scope.
+        // The CDN script above already creates window.supabase
 
         // ============================================================ //
         // LOGIN HANDLER
@@ -287,7 +303,6 @@
             loginBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Signing in...';
 
             try {
-                // Use the existing supabase client from the CDN
                 const { data, error } = await window.supabase.auth.signInWithPassword({
                     email: email,
                     password: password
@@ -320,7 +335,6 @@
         // ============================================================ //
         async function checkSession() {
             try {
-                // Use the existing supabase client from the CDN
                 const { data: { user }, error } = await window.supabase.auth.getUser();
                 if (user && !error) {
                     window.location.href = 'admin-panel.html';
