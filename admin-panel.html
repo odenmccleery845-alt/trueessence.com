@@ -188,11 +188,11 @@
         }
 
         /* ============================================================ */
-        /* TOP HEADER */
+        /* TOP HEADER - Clean, just title and hamburger */
         /* ============================================================ */
         .top-header {
             background: #FFFFFF;
-            padding: 16px 30px;
+            padding: 12px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -201,7 +201,7 @@
             top: 0;
             z-index: 998;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .top-header .page-title h1 {
@@ -215,65 +215,8 @@
             color: #7A6F7E;
         }
 
-        .top-header .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .top-header .header-actions .admin-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            padding: 4px 12px 4px 4px;
-            border-radius: 50px;
-            border: 1px solid #E9E1EC;
-        }
-
-        .top-header .header-actions .admin-profile .avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #6A2C99;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFFF;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .top-header .header-actions .admin-profile .name {
-            font-weight: 600;
-            font-size: 13px;
-            color: #1A1A2E;
-        }
-
-        .top-header .header-actions .admin-profile .role {
-            font-size: 11px;
-            color: #7A6F7E;
-        }
-
-        .top-header .header-actions .logout-btn {
-            background: #C22B3D;
-            color: #FFFFFF;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'DM Sans', Arial, sans-serif;
-        }
-
-        .top-header .header-actions .logout-btn:hover {
-            background: #A02232;
-        }
-
         /* ============================================================ */
-        /* HAMBURGER MENU BUTTON (mobile) */
+        /* HAMBURGER MENU BUTTON (mobile) - ON THE CORNER */
         /* ============================================================ */
         .hamburger-btn {
             display: none;
@@ -881,25 +824,14 @@
 
             /* Top header */
             .top-header {
-                padding: 12px 14px;
-                flex-wrap: nowrap;
+                padding: 10px 14px;
             }
             .top-header .page-title h1 {
                 font-size: 17px;
             }
             .top-header .page-title p {
                 font-size: 11px;
-            }
-            .top-header .header-actions .admin-profile .name,
-            .top-header .header-actions .admin-profile .role {
                 display: none;
-            }
-            .top-header .header-actions {
-                gap: 8px;
-            }
-            .top-header .header-actions .logout-btn {
-                padding: 6px 12px;
-                font-size: 11px;
             }
 
             /* Page content */
@@ -925,7 +857,7 @@
             }
             .data-table th,
             .data-table td {
-                padding: 10px 12px;
+                padding: 8px 10px;
             }
             .table-toolbar {
                 flex-direction: column;
@@ -939,7 +871,7 @@
                 gap: 10px;
             }
             .stat-card {
-                padding: 14px;
+                padding: 12px;
             }
             .stat-card .stat-number {
                 font-size: 18px;
@@ -990,16 +922,16 @@
 
         <nav class="menu">
             <div class="menu-label">Main</div>
-            <a class="active" data-page="dashboard"><i class="fa-light fa-gauge-high"></i> Dashboard</a>
-            <a data-page="products"><i class="fa-light fa-box"></i> Products <span class="badge" id="productCount">0</span></a>
-            <a data-page="add-product"><i class="fa-light fa-plus-circle"></i> Add Product</a>
-            <a data-page="categories"><i class="fa-light fa-tags"></i> Categories</a>
-            <a data-page="orders"><i class="fa-light fa-shopping-bag"></i> Orders <span class="badge">0</span></a>
-            <a data-page="customers"><i class="fa-light fa-users"></i> Customers</a>
+            <a class="active" data-page="dashboard"><i class="fas fa-gauge-high"></i> Dashboard</a>
+            <a data-page="products"><i class="fas fa-box"></i> Products <span class="badge" id="productCount">0</span></a>
+            <a data-page="add-product"><i class="fas fa-plus-circle"></i> Add Product</a>
+            <a data-page="categories"><i class="fas fa-tags"></i> Categories</a>
+            <a data-page="orders"><i class="fas fa-shopping-bag"></i> Orders <span class="badge">0</span></a>
+            <a data-page="customers"><i class="fas fa-users"></i> Customers</a>
 
             <div class="menu-label">Settings</div>
-            <a data-page="settings"><i class="fa-light fa-gear"></i> Site Settings</a>
-            <a href="#" onclick="handleLogout()" style="color:#FA4616;"><i class="fa-light fa-right-from-bracket"></i> Logout</a>
+            <a data-page="settings"><i class="fas fa-gear"></i> Site Settings</a>
+            <a href="#" onclick="handleLogout()" style="color:#FA4616;"><i class="fas fa-right-from-bracket"></i> Logout</a>
         </nav>
     </aside>
 
@@ -1009,31 +941,20 @@
     <main class="main-content">
 
         <!-- ============================================================ -->
-        <!-- TOP HEADER -->
+        <!-- TOP HEADER - Clean (NO logout button) -->
         <!-- ============================================================ -->
         <header class="top-header">
             <div class="page-title">
                 <h1 id="pageTitle">Dashboard</h1>
                 <p id="pageSubtitle">Welcome back, Admin!</p>
             </div>
-            <div class="header-actions">
-                <!-- Hamburger button (mobile) -->
-                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
 
-                <div class="admin-profile">
-                    <div class="avatar" id="adminAvatar">A</div>
-                    <div>
-                        <div class="name" id="adminName">Admin</div>
-                        <div class="role">Super Admin</div>
-                    </div>
-                    <i class="fa-light fa-chevron-down" style="font-size:12px;color:#7A6F7E;"></i>
-                </div>
-                <button class="logout-btn" onclick="handleLogout()"><i class="fa-light fa-right-from-bracket"></i> Logout</button>
-            </div>
+            <!-- Hamburger button (mobile) - ON THE CORNER -->
+            <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </header>
 
         <!-- ============================================================ -->
@@ -1042,22 +963,22 @@
         <section class="page-content active" id="page-dashboard">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-icon purple"><i class="fa-light fa-dollar-sign"></i></div>
+                    <div class="stat-icon purple"><i class="fas fa-dollar-sign"></i></div>
                     <div class="stat-number" id="statRevenue">$0</div>
                     <div class="stat-label">Total Revenue</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon orange"><i class="fa-light fa-shopping-bag"></i></div>
+                    <div class="stat-icon orange"><i class="fas fa-shopping-bag"></i></div>
                     <div class="stat-number" id="statOrders">0</div>
                     <div class="stat-label">Total Orders</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon green"><i class="fa-light fa-users"></i></div>
+                    <div class="stat-icon green"><i class="fas fa-users"></i></div>
                     <div class="stat-number" id="statCustomers">0</div>
                     <div class="stat-label">Total Customers</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon blue"><i class="fa-light fa-box"></i></div>
+                    <div class="stat-icon blue"><i class="fas fa-box"></i></div>
                     <div class="stat-number" id="statProducts">0</div>
                     <div class="stat-label">Total Products</div>
                 </div>
@@ -1067,7 +988,7 @@
                 <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Recent Products</h3>
                 <div id="recentProducts">
                     <div class="empty-state">
-                        <i class="fa-light fa-box"></i>
+                        <i class="fas fa-box"></i>
                         <p>No products yet. <a href="#" onclick="switchPage('add-product')" style="color:#6A2C99;font-weight:600;">Add your first product</a></p>
                     </div>
                 </div>
@@ -1083,12 +1004,12 @@
                     <h2 style="font-size:22px;font-weight:700;">All Products</h2>
                     <p style="font-size:14px;color:#7A6F7E;">Manage your product inventory</p>
                 </div>
-                <button class="btn btn-primary" onclick="switchPage('add-product')"><i class="fa-light fa-plus"></i> Add New Product</button>
+                <button class="btn btn-primary" onclick="switchPage('add-product')"><i class="fas fa-plus"></i> Add New Product</button>
             </div>
 
             <div id="productsList">
                 <div class="loading-spinner">
-                    <i class="fa-light fa-spinner"></i> Loading products...
+                    <i class="fas fa-spinner"></i> Loading products...
                 </div>
             </div>
         </section>
@@ -1098,14 +1019,14 @@
         <!-- ============================================================ -->
         <section class="page-content" id="page-add-product">
             <div class="form-container">
-                <div class="form-title"><i class="fa-light fa-plus-circle" style="color:#6A2C99;"></i> Add New Product</div>
+                <div class="form-title"><i class="fas fa-plus-circle" style="color:#6A2C99;"></i> Add New Product</div>
                 <div class="form-subtitle">Fill in the details below to add a new product.</div>
 
                 <div class="alert alert-success" id="successAlert">
-                    <i class="fa-light fa-check-circle"></i> Product added successfully!
+                    <i class="fas fa-check-circle"></i> Product added successfully!
                 </div>
                 <div class="alert alert-danger" id="errorAlert">
-                    <i class="fa-light fa-circle-exclamation"></i> <span id="errorText">Error adding product.</span>
+                    <i class="fas fa-circle-exclamation"></i> <span id="errorText">Error adding product.</span>
                 </div>
 
                 <form id="addProductForm" onsubmit="return handleAddProduct(event)">
@@ -1191,7 +1112,7 @@
 
                             <div class="file-upload-container">
                                 <div class="file-upload-area" id="fileUploadArea" onclick="document.getElementById('productImageInput').click()">
-                                    <i class="fa-light fa-cloud-arrow-up"></i>
+                                    <i class="fas fa-cloud-arrow-up"></i>
                                     <p><strong>Click to upload</strong> or drag and drop</p>
                                     <span class="file-types">PNG, JPG, WEBP up to 5MB</span>
                                 </div>
@@ -1201,7 +1122,7 @@
                                 <div class="image-preview-container" id="imagePreviewContainer"></div>
 
                                 <div class="upload-progress" id="uploadProgress">
-                                    <i class="fa-light fa-spinner fa-spin"></i>
+                                    <i class="fas fa-spinner fa-spin"></i>
                                     <div class="progress-bar">
                                         <div class="fill" id="progressFill"></div>
                                     </div>
@@ -1227,9 +1148,9 @@
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fa-light fa-check"></i> Save Product</button>
-                        <button type="reset" class="btn btn-secondary" onclick="resetForm()"><i class="fa-light fa-rotate"></i> Reset</button>
-                        <button type="button" class="btn btn-secondary" onclick="switchPage('products')"><i class="fa-light fa-arrow-left"></i> Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fas fa-check"></i> Save Product</button>
+                        <button type="reset" class="btn btn-secondary" onclick="resetForm()"><i class="fas fa-rotate"></i> Reset</button>
+                        <button type="button" class="btn btn-secondary" onclick="switchPage('products')"><i class="fas fa-arrow-left"></i> Cancel</button>
                     </div>
                 </form>
             </div>
@@ -1244,12 +1165,12 @@
                     <h2 style="font-size:22px;font-weight:700;">Categories</h2>
                     <p style="font-size:14px;color:#7A6F7E;">Manage your product categories</p>
                 </div>
-                <button class="btn btn-primary"><i class="fa-light fa-plus"></i> Add Category</button>
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Category</button>
             </div>
 
             <div id="categoriesList">
                 <div class="loading-spinner">
-                    <i class="fa-light fa-spinner"></i> Loading categories...
+                    <i class="fas fa-spinner"></i> Loading categories...
                 </div>
             </div>
         </section>
@@ -1266,7 +1187,7 @@
             </div>
             <div id="ordersList">
                 <div class="empty-state">
-                    <i class="fa-light fa-shopping-bag"></i>
+                    <i class="fas fa-shopping-bag"></i>
                     <p>No orders yet</p>
                 </div>
             </div>
@@ -1284,7 +1205,7 @@
             </div>
             <div id="customersList">
                 <div class="empty-state">
-                    <i class="fa-light fa-users"></i>
+                    <i class="fas fa-users"></i>
                     <p>No customers yet</p>
                 </div>
             </div>
@@ -1295,7 +1216,7 @@
         <!-- ============================================================ -->
         <section class="page-content" id="page-settings">
             <div class="form-container">
-                <div class="form-title"><i class="fa-light fa-gear" style="color:#6A2C99;"></i> Site Settings</div>
+                <div class="form-title"><i class="fas fa-gear" style="color:#6A2C99;"></i> Site Settings</div>
                 <div class="form-subtitle">Configure your store settings.</div>
 
                 <div class="form-row">
@@ -1315,7 +1236,7 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button class="btn btn-primary"><i class="fa-light fa-check"></i> Save Settings</button>
+                    <button class="btn btn-primary"><i class="fas fa-check"></i> Save Settings</button>
                 </div>
             </div>
         </section>
@@ -1327,9 +1248,9 @@
         // SIDEBAR TOGGLE (mobile)
         // ============================================================ //
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            const hamburger = document.getElementById('hamburgerBtn');
+            var sidebar = document.getElementById('sidebar');
+            var overlay = document.getElementById('sidebarOverlay');
+            var hamburger = document.getElementById('hamburgerBtn');
 
             sidebar.classList.toggle('open');
             overlay.classList.toggle('open');
@@ -1337,9 +1258,9 @@
         }
 
         function closeSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            const hamburger = document.getElementById('hamburgerBtn');
+            var sidebar = document.getElementById('sidebar');
+            var overlay = document.getElementById('sidebarOverlay');
+            var hamburger = document.getElementById('hamburgerBtn');
 
             sidebar.classList.remove('open');
             overlay.classList.remove('open');
@@ -1349,24 +1270,19 @@
         // ============================================================ //
         // SUPABASE CONFIG
         // ============================================================ //
-        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
-        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+        var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
 
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
         // ============================================================ //
         // CHECK AUTH
         // ============================================================ //
         async function checkAuth() {
-            const { data: { user }, error } = await supabase.auth.getUser();
+            var { data: { user }, error } = await supabase.auth.getUser();
             if (error || !user) {
                 window.location.href = 'admin-login.html';
                 return null;
-            }
-            if (user.email) {
-                const name = user.email.split('@')[0];
-                document.getElementById('adminName').textContent = name.charAt(0).toUpperCase() + name.slice(1);
-                document.getElementById('adminAvatar').textContent = name.charAt(0).toUpperCase();
             }
             return user;
         }
@@ -1383,16 +1299,18 @@
         // PAGE SWITCHING
         // ============================================================ //
         function switchPage(page) {
-            document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
-            const target = document.getElementById('page-' + page);
+            document.querySelectorAll('.page-content').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            var target = document.getElementById('page-' + page);
             if (target) target.classList.add('active');
 
-            document.querySelectorAll('.sidebar .menu a[data-page]').forEach(el => {
+            document.querySelectorAll('.sidebar .menu a[data-page]').forEach(function(el) {
                 el.classList.remove('active');
                 if (el.getAttribute('data-page') === page) el.classList.add('active');
             });
 
-            const titles = {
+            var titles = {
                 'dashboard': { title: 'Dashboard', sub: 'Welcome back, Admin!' },
                 'products': { title: 'Products', sub: 'Manage your product inventory' },
                 'add-product': { title: 'Add Product', sub: 'Add a new product to your store' },
@@ -1402,7 +1320,7 @@
                 'settings': { title: 'Site Settings', sub: 'Configure your store settings' }
             };
 
-            const info = titles[page] || { title: 'Page', sub: '' };
+            var info = titles[page] || { title: 'Page', sub: '' };
             document.getElementById('pageTitle').textContent = info.title;
             document.getElementById('pageSubtitle').textContent = info.sub;
 
@@ -1410,21 +1328,20 @@
             if (page === 'dashboard') loadDashboardStats();
             if (page === 'categories') loadCategories();
 
-            // Close sidebar on mobile
             closeSidebar();
         }
 
         // ============================================================ //
         // FILE UPLOAD HANDLING
         // ============================================================ //
-        let selectedFile = null;
-        let uploadedImageUrl = null;
+        var selectedFile = null;
+        var uploadedImageUrl = null;
 
         function handleFileSelect(event) {
-            const file = event.target.files[0];
+            var file = event.target.files[0];
             if (!file) return;
 
-            const validTypes = ['image/png', 'image/jpeg', 'image/webp'];
+            var validTypes = ['image/png', 'image/jpeg', 'image/webp'];
             if (!validTypes.includes(file.type)) {
                 alert('Please select a PNG, JPG, or WEBP image.');
                 return;
@@ -1438,9 +1355,9 @@
             selectedFile = file;
             uploadedImageUrl = null;
 
-            const reader = new FileReader();
+            var reader = new FileReader();
             reader.onload = function(e) {
-                const container = document.getElementById('imagePreviewContainer');
+                var container = document.getElementById('imagePreviewContainer');
                 container.innerHTML = `
                     <div class="image-preview">
                         <img src="${e.target.result}" alt="Product image" />
@@ -1456,26 +1373,26 @@
         }
 
         async function uploadImageToSupabase(file) {
-            const progressContainer = document.getElementById('uploadProgress');
-            const progressFill = document.getElementById('progressFill');
-            const progressText = document.getElementById('progressText');
+            var progressContainer = document.getElementById('uploadProgress');
+            var progressFill = document.getElementById('progressFill');
+            var progressText = document.getElementById('progressText');
 
             progressContainer.classList.add('active');
             progressFill.style.width = '0%';
             progressText.textContent = '0%';
 
-            const fileExt = file.name.split('.').pop();
-            const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
-            const filePath = `products/${fileName}`;
+            var fileExt = file.name.split('.').pop();
+            var fileName = Date.now() + '-' + Math.random().toString(36).substring(7) + '.' + fileExt;
+            var filePath = 'products/' + fileName;
 
             try {
-                const { data, error } = await supabase.storage
+                var { data, error } = await supabase.storage
                     .from('product-images')
                     .upload(filePath, file, {
                         cacheControl: '3600',
                         upsert: false,
                         onUploadProgress: function(progress) {
-                            const percent = Math.round((progress.loaded / progress.total) * 100);
+                            var percent = Math.round((progress.loaded / progress.total) * 100);
                             progressFill.style.width = percent + '%';
                             progressText.textContent = percent + '%';
                         }
@@ -1483,7 +1400,7 @@
 
                 if (error) throw error;
 
-                const { data: urlData } = supabase.storage
+                var { data: urlData } = supabase.storage
                     .from('product-images')
                     .getPublicUrl(filePath);
 
@@ -1493,11 +1410,9 @@
                 progressFill.style.width = '100%';
                 progressText.textContent = 'Done ✓';
 
-                setTimeout(() => {
+                setTimeout(function() {
                     progressContainer.classList.remove('active');
                 }, 1500);
-
-                console.log('✅ Image uploaded:', uploadedImageUrl);
 
             } catch (error) {
                 console.error('Upload error:', error);
@@ -1531,10 +1446,10 @@
         // LOAD PRODUCTS
         // ============================================================ //
         async function loadProducts() {
-            const container = document.getElementById('productsList');
+            var container = document.getElementById('productsList');
 
             try {
-                const { data: products, error } = await supabase
+                var { data: products, error } = await supabase
                     .from('products')
                     .select('*')
                     .order('created_at', { ascending: false });
@@ -1544,7 +1459,7 @@
                 if (!products || products.length === 0) {
                     container.innerHTML = `
                         <div class="empty-state">
-                            <i class="fa-light fa-box"></i>
+                            <i class="fas fa-box"></i>
                             <p>No products yet. <a href="#" onclick="switchPage('add-product')" style="color:#6A2C99;font-weight:600;">Add your first product</a></p>
                         </div>
                     `;
@@ -1554,7 +1469,7 @@
 
                 document.getElementById('productCount').textContent = products.length;
 
-                let html = `
+                var html = `
                     <div class="table-responsive">
                         <table class="data-table">
                             <thead>
@@ -1571,17 +1486,17 @@
                 `;
 
                 products.forEach(function(p) {
-                    const statusClass = p.is_active !== false ? 'active' : 'inactive';
-                    const statusText = p.is_active !== false ? 'Active' : 'Inactive';
-                    const priceDisplay = p.sale_price ? `<span style="color:#FA4616;font-weight:600;">$${p.sale_price}</span> <span style="text-decoration:line-through;color:#7A6F7E;font-size:12px;">$${p.price}</span>` :
-                        `<span style="font-weight:600;">$${p.price}</span>`;
-                    const badgeHtml = p.badge ? `<span style="display:inline-block;background:#6A2C99;color:#fff;font-size:9px;padding:1px 10px;border-radius:20px;margin-right:6px;">${p.badge}</span>` : '';
+                    var statusClass = p.is_active !== false ? 'active' : 'inactive';
+                    var statusText = p.is_active !== false ? 'Active' : 'Inactive';
+                    var priceDisplay = p.sale_price ? '<span style="color:#FA4616;font-weight:600;">$' + p.sale_price + '</span> <span style="text-decoration:line-through;color:#7A6F7E;font-size:12px;">$' + p.price + '</span>' :
+                        '<span style="font-weight:600;">$' + p.price + '</span>';
+                    var badgeHtml = p.badge ? '<span style="display:inline-block;background:#6A2C99;color:#fff;font-size:9px;padding:1px 10px;border-radius:20px;margin-right:6px;">' + p.badge + '</span>' : '';
 
                     html += `
                         <tr>
                             <td>
                                 <div class="product-cell">
-                                    <div class="thumb">${p.image_url ? `<img src="${p.image_url}" />` : '[Img]'}</div>
+                                    <div class="thumb">${p.image_url ? '<img src="' + p.image_url + '" />' : '[Img]'}</div>
                                     <div>
                                         <div style="font-weight:600;">${p.name}</div>
                                         <div style="font-size:12px;color:#7A6F7E;">SKU: ${p.sku || 'N/A'}</div>
@@ -1595,7 +1510,7 @@
                             <td><span class="status-badge ${statusClass}">${statusText}</span></td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-sm delete" onclick="deleteProduct('${p.id}')"><i class="fa-light fa-trash"></i></button>
+                                    <button class="btn-sm delete" onclick="deleteProduct('${p.id}')"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -1613,7 +1528,7 @@
             } catch (error) {
                 container.innerHTML = `
                     <div class="alert alert-danger show" style="margin-top:16px;">
-                        <i class="fa-light fa-circle-exclamation"></i> Error loading products: ${error.message}
+                        <i class="fas fa-circle-exclamation"></i> Error loading products: ${error.message}
                     </div>
                 `;
             }
@@ -1625,15 +1540,15 @@
         async function handleAddProduct(event) {
             event.preventDefault();
 
-            const submitBtn = document.getElementById('submitBtn');
-            const successAlert = document.getElementById('successAlert');
-            const errorAlert = document.getElementById('errorAlert');
-            const errorText = document.getElementById('errorText');
+            var submitBtn = document.getElementById('submitBtn');
+            var successAlert = document.getElementById('successAlert');
+            var errorAlert = document.getElementById('errorAlert');
+            var errorText = document.getElementById('errorText');
 
             successAlert.classList.remove('show');
             errorAlert.classList.remove('show');
 
-            const productData = {
+            var productData = {
                 name: document.getElementById('productName').value.trim(),
                 slug: document.getElementById('productSlug').value.trim(),
                 description: document.getElementById('productDesc').value.trim(),
@@ -1648,7 +1563,7 @@
                 is_active: document.getElementById('productActive').checked
             };
 
-            const imageUrl = document.getElementById('productImageUrl').value.trim();
+            var imageUrl = document.getElementById('productImageUrl').value.trim();
 
             if (!productData.name || !productData.slug || !productData.price || !productData.sku) {
                 errorText.textContent = 'Please fill in all required fields.';
@@ -1665,10 +1580,10 @@
             productData.image_url = imageUrl;
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Saving...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
 
             try {
-                const { data, error } = await supabase
+                var { data, error } = await supabase
                     .from('products')
                     .insert([productData])
                     .select();
@@ -1678,7 +1593,7 @@
                 successAlert.classList.add('show');
                 resetForm();
 
-                setTimeout(() => {
+                setTimeout(function() {
                     successAlert.classList.remove('show');
                     switchPage('products');
                 }, 2000);
@@ -1689,7 +1604,7 @@
             }
 
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fa-light fa-check"></i> Save Product';
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Save Product';
             return false;
         }
 
@@ -1700,7 +1615,7 @@
             if (!confirm('Are you sure you want to delete this product?')) return;
 
             try {
-                const { error } = await supabase
+                var { error } = await supabase
                     .from('products')
                     .delete()
                     .eq('id', id);
@@ -1720,7 +1635,7 @@
         // ============================================================ //
         async function loadDashboardStats() {
             try {
-                const { count: productCount, error: productError } = await supabase
+                var { count: productCount, error: productError } = await supabase
                     .from('products')
                     .select('*', { count: 'exact', head: true });
 
@@ -1728,16 +1643,16 @@
                     document.getElementById('statProducts').textContent = productCount || 0;
                 }
 
-                const { data: recentProducts, error: recentError } = await supabase
+                var { data: recentProducts, error: recentError } = await supabase
                     .from('products')
                     .select('*')
                     .order('created_at', { ascending: false })
                     .limit(5);
 
-                const container = document.getElementById('recentProducts');
+                var container = document.getElementById('recentProducts');
 
                 if (!recentError && recentProducts && recentProducts.length > 0) {
-                    let html = `
+                    var html = `
                         <div class="table-responsive">
                             <table class="data-table">
                                 <thead>
@@ -1771,7 +1686,7 @@
                 } else {
                     container.innerHTML = `
                         <div class="empty-state">
-                            <i class="fa-light fa-box"></i>
+                            <i class="fas fa-box"></i>
                             <p>No products yet. <a href="#" onclick="switchPage('add-product')" style="color:#6A2C99;font-weight:600;">Add your first product</a></p>
                         </div>
                     `;
@@ -1786,10 +1701,10 @@
         // LOAD CATEGORIES
         // ============================================================ //
         async function loadCategories() {
-            const container = document.getElementById('categoriesList');
+            var container = document.getElementById('categoriesList');
 
             try {
-                const { data: categories, error } = await supabase
+                var { data: categories, error } = await supabase
                     .from('categories')
                     .select('*')
                     .order('display_order', { ascending: true });
@@ -1799,14 +1714,14 @@
                 if (!categories || categories.length === 0) {
                     container.innerHTML = `
                         <div class="empty-state">
-                            <i class="fa-light fa-tags"></i>
+                            <i class="fas fa-tags"></i>
                             <p>No categories yet.</p>
                         </div>
                     `;
                     return;
                 }
 
-                let html = `
+                var html = `
                     <div class="table-responsive">
                         <table class="data-table">
                             <thead>
@@ -1828,8 +1743,8 @@
                             <td><span class="status-badge ${c.is_active !== false ? 'active' : 'inactive'}">${c.is_active !== false ? 'Active' : 'Inactive'}</span></td>
                             <td>
                                 <div class="actions">
-                                    <button class="btn-sm edit"><i class="fa-light fa-pen"></i></button>
-                                    <button class="btn-sm delete"><i class="fa-light fa-trash"></i></button>
+                                    <button class="btn-sm edit"><i class="fas fa-pen"></i></button>
+                                    <button class="btn-sm delete"><i class="fas fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -1847,7 +1762,7 @@
             } catch (error) {
                 container.innerHTML = `
                     <div class="alert alert-danger show" style="margin-top:16px;">
-                        <i class="fa-light fa-circle-exclamation"></i> Error loading categories: ${error.message}
+                        <i class="fas fa-circle-exclamation"></i> Error loading categories: ${error.message}
                     </div>
                 `;
             }
@@ -1857,7 +1772,7 @@
         // SLUG AUTO-GENERATE
         // ============================================================ //
         document.getElementById('productName').addEventListener('input', function() {
-            const slug = this.value
+            var slug = this.value
                 .toLowerCase()
                 .replace(/[^a-z0-9]+/g, '-')
                 .replace(/^-|-$/g, '');
@@ -1871,7 +1786,7 @@
         document.querySelectorAll('.sidebar .menu a[data-page]').forEach(function(el) {
             el.addEventListener('click', function(e) {
                 e.preventDefault();
-                const page = this.getAttribute('data-page');
+                var page = this.getAttribute('data-page');
                 if (page) switchPage(page);
             });
         });
@@ -1880,9 +1795,9 @@
         // CLOSE SIDEBAR ON OUTSIDE CLICK (mobile)
         // ============================================================ //
         document.addEventListener('click', function(e) {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            const hamburger = document.getElementById('hamburgerBtn');
+            var sidebar = document.getElementById('sidebar');
+            var overlay = document.getElementById('sidebarOverlay');
+            var hamburger = document.getElementById('hamburgerBtn');
             if (window.innerWidth <= 768 &&
                 !sidebar.contains(e.target) &&
                 !hamburger.contains(e.target) &&
@@ -1895,7 +1810,7 @@
         // INIT
         // ============================================================ //
         (async function init() {
-            const user = await checkAuth();
+            var user = await checkAuth();
             if (user) {
                 loadDashboardStats();
                 loadProducts();
