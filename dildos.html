@@ -678,7 +678,7 @@
         }
 
         /* ============================================================ */
-        /* PRODUCT GRID */
+        /* PRODUCT GRID - UPDATED (Badges removed from images) */
         /* ============================================================ */
         .product-grid {
             display: grid;
@@ -718,57 +718,7 @@
             object-fit: cover;
         }
 
-        .product-card .image .badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 3px 14px;
-            border-radius: 20px;
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 2;
-        }
-
-        .product-card .image .badge.sale {
-            background: #FA4616;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.deal {
-            background: #55217A;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.best-seller {
-            background: #6A2C99;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.new {
-            background: #2E1033;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.popular {
-            background: #FA4616;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.top-rated {
-            background: #6A2C99;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.discount {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            left: auto;
-            background: #C22B3D;
-            color: #FFFFFF;
-        }
+        /* REMOVED: .product-card .image .badge - No badges on images */
 
         .product-card .info {
             padding: 16px;
@@ -818,6 +768,30 @@
             font-size: 12px;
             color: #7A6F7E;
             margin-bottom: 8px;
+        }
+
+        /* BADGE TEXT - Small labels below product name */
+        .product-card .info .badge-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #FA4616;
+            margin-bottom: 4px;
+            display: inline-block;
+            background: #FBE8E2;
+            padding: 1px 10px;
+            border-radius: 12px;
+        }
+
+        .product-card .info .discount-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #C22B3D;
+            margin-bottom: 4px;
+            display: inline-block;
+            background: #F9E7EA;
+            padding: 1px 10px;
+            border-radius: 12px;
+            margin-left: 4px;
         }
 
         .product-card .info .price-row {
@@ -1732,7 +1706,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- TOP PRODUCTS -->
+    <!-- TOP PRODUCTS - UPDATED (Badges removed from images) -->
     <!-- ============================================================ -->
     <section class="section" style="padding-top:0;" id="products">
         <div class="section-header">
@@ -1968,7 +1942,7 @@
         }
 
         // ============================================================ //
-        // SUPABASE CONFIG - FAST & CLEAN
+        // SUPABASE CONFIG
         // ============================================================ //
         var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
         var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
@@ -1978,7 +1952,7 @@
         console.log('🔐 Supabase connected');
 
         // ============================================================ //
-        // LOAD PRODUCTS BY CATEGORY (DILDOS)
+        // LOAD PRODUCTS - UPDATED (Badges removed from images)
         // ============================================================ //
         async function loadProducts() {
             var container = document.getElementById('productsList');
@@ -2010,31 +1984,30 @@
                         '<span class="price"><span class="was">$' + p.price + '</span> $' + p.sale_price + '</span>' :
                         '<span class="price">$' + p.price + '</span>';
 
-                    var badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
-                    var badgeHtml = p.badge ? '<span class="badge ' + badgeClass + '">' + p.badge + '</span>' : '';
-
                     var ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
                     var reviewCount = p.review_count || 0;
 
                     var bgColor = '#F5EDF2';
-                    if (p.badge === 'Best Seller') bgColor = '#6A2C99';
-                    else if (p.badge === 'Sale') bgColor = '#FA4616';
-                    else if (p.badge === 'New') bgColor = '#2E1033';
-                    else if (p.badge === 'Popular') bgColor = '#FA4616';
-                    else if (p.badge === 'Top Rated') bgColor = '#55217A';
 
                     // Calculate discount percentage
                     var discountPercent = 0;
                     if (p.price && p.sale_price) {
                         discountPercent = Math.round(((p.price - p.sale_price) / p.price) * 100);
                     }
-                    var discountHtml = discountPercent > 0 ? '<span class="badge discount">' + discountPercent + '% OFF</span>' : '';
+
+                    // BADGES AS TEXT (NOT on image)
+                    var badgeText = '';
+                    if (p.badge) {
+                        badgeText = '<div class="badge-text">🔥 ' + p.badge + '</div>';
+                    }
+                    var discountText = '';
+                    if (discountPercent > 0) {
+                        discountText = '<div class="discount-text">🏷️ ' + discountPercent + '% OFF</div>';
+                    }
 
                     html += `
                         <div class="product-card">
                             <div class="image" style="background:${p.image_url ? 'url(' + p.image_url + ') center/cover' : bgColor};">
-                                ${badgeHtml}
-                                ${discountHtml}
                                 ${p.image_url ? '' : '[Image]'}
                             </div>
                             <div class="info">
@@ -2044,6 +2017,8 @@
                                     <span class="count">(${reviewCount})</span>
                                 </div>
                                 <div class="name"><a href="#">${p.name}</a></div>
+                                ${badgeText}
+                                ${discountText}
                                 <div class="desc">${p.short_description || ''}</div>
                                 <div class="price-row">
                                     ${priceDisplay}
