@@ -100,28 +100,19 @@
         }
 
         /* ============================================================ */
-        /* TOP BAR */
+        /* TOP BAR - UPDATED (Removed Login/Register) */
         /* ============================================================ */
         .top-bar {
             background: #55217A;
             color: rgba(255,255,255,0.8);
             padding: 6px 30px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             font-size: 12px;
             flex-wrap: wrap;
             gap: 6px;
-        }
-
-        .top-bar a {
-            color: rgba(255,255,255,0.7);
-            margin-left: 14px;
-            font-size: 12px;
-        }
-
-        .top-bar a:hover {
-            color: #FA4616;
+            text-align: center;
         }
 
         .top-bar .highlight {
@@ -287,7 +278,7 @@
         }
 
         /* ============================================================ */
-        /* MOBILE NAV */
+        /* MOBILE NAV OVERLAY */
         /* ============================================================ */
         .mobile-nav-overlay {
             position: fixed;
@@ -488,19 +479,20 @@
         }
 
         /* ============================================================ */
-        /* HERO - MODERN SPLIT LAYOUT WITH IMAGE */
+        /* HERO - UPDATED (COMPACT, NO SPACE, REMOVED BUTTONS & IMAGE) */
         /* ============================================================ */
         .hero {
             background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
-            padding: 60px 30px;
+            padding: 20px 30px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 400px;
+            min-height: auto;
+            margin: 0;
+            border-bottom: none;
         }
 
         .hero::before {
@@ -530,31 +522,12 @@
             min-width: 280px;
             position: relative;
             z-index: 1;
-        }
-
-        .hero .content .breadcrumb {
-            color: rgba(255,255,255,0.5);
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .hero .content .breadcrumb a {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .hero .content .breadcrumb a:hover {
-            color: #FA4616;
-        }
-
-        .hero .content .breadcrumb .sep {
-            color: rgba(255,255,255,0.3);
-            margin: 0 8px;
+            max-width: 800px;
         }
 
         .hero .content .tag {
             color: #FA4616;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -562,10 +535,10 @@
 
         .hero .content h1 {
             color: #FFFFFF;
-            font-size: 48px;
+            font-size: 28px;
             font-weight: 800;
             line-height: 1.1;
-            margin: 8px 0 16px;
+            margin: 4px 0 8px;
         }
 
         .hero .content h1 span {
@@ -573,104 +546,24 @@
         }
 
         .hero .content p {
-            color: rgba(255,255,255,0.8);
-            font-size: 17px;
-            line-height: 1.7;
-            margin-bottom: 24px;
-            max-width: 500px;
-        }
-
-        .hero .content .btn-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .hero .content .btn-primary {
-            background: #FA4616;
-            color: #FFFFFF;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 15px;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        .hero .content .btn-primary:hover {
-            background: #FB6B42;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(250,70,22,0.3);
-        }
-
-        .hero .content .btn-secondary {
-            background: transparent;
-            color: #FFFFFF;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            border: 2px solid rgba(255,255,255,0.25);
-            display: inline-block;
-        }
-
-        .hero .content .btn-secondary:hover {
-            border-color: #FA4616;
-            color: #FA4616;
-        }
-
-        .hero .image {
-            flex: 1;
-            min-width: 280px;
-            max-width: 500px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero .image .placeholder {
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.06);
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .hero .image .placeholder .icon-big {
-            font-size: 80px;
-            color: rgba(250,70,22,0.3);
-            margin-bottom: 16px;
-        }
-
-        .hero .image .placeholder .label {
-            color: rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.85);
             font-size: 14px;
-            letter-spacing: 2px;
-        }
-
-        .hero .image .placeholder .sub-label {
-            color: rgba(255,255,255,0.1);
-            font-size: 12px;
-            margin-top: 4px;
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
         /* ============================================================ */
-        /* CATEGORY DESCRIPTION */
+        /* CATEGORY DESCRIPTION - UPDATED (NO SPACE) */
         /* ============================================================ */
         .category-description {
             background: #F5EDF2;
-            padding: 30px 30px 25px;
-            border-radius: 12px;
-            margin: 30px auto 0;
-            max-width: 1200px;
+            padding: 20px 30px;
             font-size: 14px;
             line-height: 1.7;
             color: #2E1033;
+            margin: 0;
+            border-radius: 0;
         }
 
         .category-description p {
@@ -1474,38 +1367,29 @@
                 font-size: 10px;
             }
 
+            /* HERO - COMPACT ON MOBILE */
             .hero {
-                padding: 30px 16px;
+                padding: 16px 16px;
                 text-align: center;
                 min-height: auto;
             }
             .hero .content h1 {
-                font-size: 32px;
+                font-size: 22px;
             }
-            .hero .content .btn-group {
-                justify-content: center;
+            .hero .content .tag {
+                font-size: 10px;
             }
             .hero .content p {
+                font-size: 13px;
+                line-height: 1.5;
                 max-width: 100%;
-            }
-            .hero .image {
-                min-width: 100%;
-                max-width: 100%;
-                margin-top: 20px;
-            }
-            .hero .image .placeholder {
-                min-height: 180px;
-                padding: 24px;
-            }
-            .hero .image .placeholder .icon-big {
-                font-size: 50px;
             }
 
             .category-description {
-                padding: 20px 16px;
+                padding: 16px 14px;
                 font-size: 13px;
-                margin: 20px 14px 0;
-                border-radius: 10px;
+                margin: 0;
+                border-radius: 0;
             }
 
             .section {
@@ -1611,11 +1495,20 @@
                 padding: 4px 10px;
             }
 
+            /* HERO - EVEN MORE COMPACT ON SMALL */
+            .hero {
+                padding: 12px 12px;
+            }
             .hero .content h1 {
-                font-size: 26px;
+                font-size: 20px;
             }
             .hero .content p {
-                font-size: 14px;
+                font-size: 12px;
+                line-height: 1.4;
+            }
+            .hero .content .tag {
+                font-size: 9px;
+                letter-spacing: 2px;
             }
 
             .trust-bar .item {
@@ -1650,15 +1543,11 @@
 <body>
 
     <!-- ============================================================ -->
-    <!-- TOP BAR -->
+    <!-- TOP BAR - UPDATED (Removed Login/Register) -->
     <!-- ============================================================ -->
     <div class="top-bar">
         <div>
             <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
-        </div>
-        <div>
-            <a href="login.html">Log In</a>
-            <a href="signup.html">Register</a>
         </div>
     </div>
 
@@ -1771,36 +1660,18 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- HERO - MODERN SPLIT LAYOUT WITH IMAGE -->
+    <!-- HERO - UPDATED (COMPACT, NO SPACE, REMOVED BUTTONS & IMAGE) -->
     <!-- ============================================================ -->
     <section class="hero">
         <div class="content">
-            <div class="breadcrumb">
-                <a href="index.html">Home</a>
-                <span class="sep">›</span>
-                <span style="color:rgba(255,255,255,0.8);">Dildos</span>
-            </div>
-            <div class="tag">The OG Pleasure Toy</div>
-            <h1><span>Dildos</span></h1>
+            <div class="tag">✦ DILDOS ✦</div>
+            <h1>The OG Pleasure Toy</h1>
             <p>Say hello to the OG pleasure toy – the dildo! Dildos are a must-have for every sex toy collection as they are simple yet so versatile. Perfect for solo play, couples play and strap-on sex.</p>
-            <div class="btn-group">
-                <a href="#products" class="btn-primary">Shop Now</a>
-                <a href="#" class="btn-secondary">Learn More</a>
-            </div>
-        </div>
-        <div class="image">
-            <div class="placeholder">
-                <div class="icon-big">
-                    <i class="fas fa-hand-peace"></i>
-                </div>
-                <div class="label">Explore Our Collection</div>
-                <div class="sub-label">High-quality dildos for every desire</div>
-            </div>
         </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- CATEGORY DESCRIPTION -->
+    <!-- CATEGORY DESCRIPTION - UPDATED (NO SPACE) -->
     <!-- ============================================================ -->
     <div class="category-description">
         <p>A classic dildo can be smooth or textured but won't look like a real penis. You'll need a realistic dildo if that's what you are after! A G-spot dildo will have a curved or bulbous tip ideal for massaging the G-spot. There are also squirting dildos, glass dildos and strap-on dildos.</p>
