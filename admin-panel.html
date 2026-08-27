@@ -52,7 +52,7 @@
             bottom: 0;
             overflow-y: auto;
             z-index: 1000;
-            transition: all 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .sidebar::-webkit-scrollbar {
@@ -159,6 +159,24 @@
         }
 
         /* ============================================================ */
+        /* SIDEBAR OVERLAY (mobile) */
+        /* ============================================================ */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .sidebar-overlay.open {
+            display: block;
+        }
+
+        /* ============================================================ */
         /* MAIN CONTENT */
         /* ============================================================ */
         .main-content {
@@ -181,7 +199,7 @@
             border-bottom: 1px solid #E9E1EC;
             position: sticky;
             top: 0;
-            z-index: 999;
+            z-index: 998;
             flex-wrap: wrap;
             gap: 12px;
         }
@@ -200,7 +218,7 @@
         .top-header .header-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .top-header .header-actions .admin-profile {
@@ -255,6 +273,41 @@
         }
 
         /* ============================================================ */
+        /* HAMBURGER MENU BUTTON (mobile) */
+        /* ============================================================ */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            background: transparent;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #1A1A2E;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-btn.open span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-btn.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ============================================================ */
         /* PAGE CONTENT */
         /* ============================================================ */
         .page-content {
@@ -291,7 +344,7 @@
         }
 
         /* ============================================================ */
-        /* DASHBOARD STATS */
+        /* DASHBOARD STATS - 2 columns on mobile */
         /* ============================================================ */
         .stats-grid {
             display: grid;
@@ -529,7 +582,7 @@
         }
 
         /* ============================================================ */
-        /* ADD PRODUCT FORM - WITH FILE UPLOAD */
+        /* ADD PRODUCT FORM */
         /* ============================================================ */
         .form-container {
             background: #FFFFFF;
@@ -608,7 +661,7 @@
         }
 
         /* ============================================================ */
-        /* FILE UPLOAD - IMAGE PREVIEW */
+        /* FILE UPLOAD */
         /* ============================================================ */
         .file-upload-container {
             display: flex;
@@ -789,6 +842,7 @@
         }
 
         @media (max-width: 768px) {
+            /* Sidebar - hidden by default, slides in */
             .sidebar {
                 transform: translateX(-100%);
             }
@@ -798,21 +852,62 @@
             .main-content {
                 margin-left: 0;
             }
+
+            /* Hamburger button - visible on mobile */
+            .hamburger-btn {
+                display: flex !important;
+            }
+
+            /* Stats - 2 columns */
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 12px;
             }
-            .top-header {
-                padding: 12px 16px;
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .top-header .header-actions {
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
-            .page-content {
+
+            .stat-card {
                 padding: 16px;
             }
+            .stat-card .stat-number {
+                font-size: 22px;
+            }
+            .stat-card .stat-label {
+                font-size: 12px;
+            }
+            .stat-card .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            /* Top header */
+            .top-header {
+                padding: 12px 14px;
+                flex-wrap: nowrap;
+            }
+            .top-header .page-title h1 {
+                font-size: 17px;
+            }
+            .top-header .page-title p {
+                font-size: 11px;
+            }
+            .top-header .header-actions .admin-profile .name,
+            .top-header .header-actions .admin-profile .role {
+                display: none;
+            }
+            .top-header .header-actions {
+                gap: 8px;
+            }
+            .top-header .header-actions .logout-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            /* Page content */
+            .page-content {
+                padding: 14px;
+            }
+
+            /* Form */
             .form-container {
                 padding: 16px;
             }
@@ -823,6 +918,8 @@
                 width: 100%;
                 text-align: center;
             }
+
+            /* Table */
             .data-table {
                 font-size: 12px;
             }
@@ -834,55 +931,50 @@
                 flex-direction: column;
                 align-items: stretch;
             }
-            .image-preview-container {
-                flex-wrap: wrap;
-            }
-            .image-preview {
-                width: 80px;
-                height: 80px;
-            }
         }
 
         @media (max-width: 480px) {
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
             }
-            .top-header .header-actions .admin-profile .name,
-            .top-header .header-actions .admin-profile .role {
-                display: none;
+            .stat-card {
+                padding: 14px;
+            }
+            .stat-card .stat-number {
+                font-size: 18px;
+            }
+            .stat-card .stat-label {
+                font-size: 11px;
+            }
+            .stat-card .stat-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+            .top-header .page-title h1 {
+                font-size: 15px;
+            }
+            .image-preview {
+                width: 70px;
+                height: 70px;
             }
             .file-upload-area {
-                padding: 20px 14px;
+                padding: 16px;
             }
             .file-upload-area i {
-                font-size: 30px;
-            }
-        }
-
-        .mobile-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            background: #6A2C99;
-            color: #fff;
-            border: none;
-            padding: 14px 18px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(106,44,153,0.3);
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- ============================================================ -->
+    <!-- SIDEBAR OVERLAY (mobile) -->
+    <!-- ============================================================ -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
     <!-- ============================================================ -->
     <!-- SIDEBAR -->
@@ -925,6 +1017,13 @@
                 <p id="pageSubtitle">Welcome back, Admin!</p>
             </div>
             <div class="header-actions">
+                <!-- Hamburger button (mobile) -->
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
                 <div class="admin-profile">
                     <div class="avatar" id="adminAvatar">A</div>
                     <div>
@@ -995,7 +1094,7 @@
         </section>
 
         <!-- ============================================================ -->
-        <!-- PAGE: ADD PRODUCT - WITH FILE UPLOAD -->
+        <!-- PAGE: ADD PRODUCT -->
         <!-- ============================================================ -->
         <section class="page-content" id="page-add-product">
             <div class="form-container">
@@ -1010,7 +1109,6 @@
                 </div>
 
                 <form id="addProductForm" onsubmit="return handleAddProduct(event)">
-
                     <div class="form-row">
                         <div class="form-group">
                             <label>Product Name <span class="required">*</span></label>
@@ -1090,19 +1188,18 @@
                         </div>
                         <div class="form-group">
                             <label>Product Image <span class="required">*</span></label>
-                            
-                            <!-- File Upload Area -->
+
                             <div class="file-upload-container">
                                 <div class="file-upload-area" id="fileUploadArea" onclick="document.getElementById('productImageInput').click()">
                                     <i class="fa-light fa-cloud-arrow-up"></i>
                                     <p><strong>Click to upload</strong> or drag and drop</p>
                                     <span class="file-types">PNG, JPG, WEBP up to 5MB</span>
                                 </div>
-                                
+
                                 <input type="file" id="productImageInput" class="file-input-hidden" accept="image/png, image/jpeg, image/webp" onchange="handleFileSelect(event)" />
-                                
+
                                 <div class="image-preview-container" id="imagePreviewContainer"></div>
-                                
+
                                 <div class="upload-progress" id="uploadProgress">
                                     <i class="fa-light fa-spinner fa-spin"></i>
                                     <div class="progress-bar">
@@ -1110,7 +1207,7 @@
                                     </div>
                                     <span class="progress-text" id="progressText">0%</span>
                                 </div>
-                                
+
                                 <input type="hidden" id="productImageUrl" value="" />
                             </div>
                         </div>
@@ -1225,14 +1322,30 @@
 
     </main>
 
-    <!-- ============================================================ -->
-    <!-- MOBILE TOGGLE -->
-    <!-- ============================================================ -->
-    <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
-        <i class="fa-light fa-bars"></i>
-    </button>
-
     <script>
+        // ============================================================ //
+        // SIDEBAR TOGGLE (mobile)
+        // ============================================================ //
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const hamburger = document.getElementById('hamburgerBtn');
+
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const hamburger = document.getElementById('hamburgerBtn');
+
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
+            hamburger.classList.remove('open');
+        }
+
         // ============================================================ //
         // SUPABASE CONFIG
         // ============================================================ //
@@ -1297,7 +1410,8 @@
             if (page === 'dashboard') loadDashboardStats();
             if (page === 'categories') loadCategories();
 
-            if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+            // Close sidebar on mobile
+            closeSidebar();
         }
 
         // ============================================================ //
@@ -1310,14 +1424,12 @@
             const file = event.target.files[0];
             if (!file) return;
 
-            // Validate file type
             const validTypes = ['image/png', 'image/jpeg', 'image/webp'];
             if (!validTypes.includes(file.type)) {
                 alert('Please select a PNG, JPG, or WEBP image.');
                 return;
             }
 
-            // Validate file size (5MB max)
             if (file.size > 5 * 1024 * 1024) {
                 alert('Image size must be less than 5MB.');
                 return;
@@ -1326,7 +1438,6 @@
             selectedFile = file;
             uploadedImageUrl = null;
 
-            // Preview the image
             const reader = new FileReader();
             reader.onload = function(e) {
                 const container = document.getElementById('imagePreviewContainer');
@@ -1341,7 +1452,6 @@
             };
             reader.readAsDataURL(file);
 
-            // Auto-upload to Supabase Storage
             uploadImageToSupabase(file);
         }
 
@@ -1354,13 +1464,11 @@
             progressFill.style.width = '0%';
             progressText.textContent = '0%';
 
-            // Create a unique file name
             const fileExt = file.name.split('.').pop();
             const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
             const filePath = `products/${fileName}`;
 
             try {
-                // Upload to Supabase Storage
                 const { data, error } = await supabase.storage
                     .from('product-images')
                     .upload(filePath, file, {
@@ -1375,7 +1483,6 @@
 
                 if (error) throw error;
 
-                // Get public URL
                 const { data: urlData } = supabase.storage
                     .from('product-images')
                     .getPublicUrl(filePath);
@@ -1513,7 +1620,7 @@
         }
 
         // ============================================================ //
-        // ADD PRODUCT - WITH FILE UPLOAD
+        // ADD PRODUCT
         // ============================================================ //
         async function handleAddProduct(event) {
             event.preventDefault();
@@ -1526,7 +1633,6 @@
             successAlert.classList.remove('show');
             errorAlert.classList.remove('show');
 
-            // Get form data
             const productData = {
                 name: document.getElementById('productName').value.trim(),
                 slug: document.getElementById('productSlug').value.trim(),
@@ -1542,10 +1648,8 @@
                 is_active: document.getElementById('productActive').checked
             };
 
-            // Get image URL from upload
             const imageUrl = document.getElementById('productImageUrl').value.trim();
 
-            // Validate
             if (!productData.name || !productData.slug || !productData.price || !productData.sku) {
                 errorText.textContent = 'Please fill in all required fields.';
                 errorAlert.classList.add('show');
@@ -1560,7 +1664,6 @@
 
             productData.image_url = imageUrl;
 
-            // Disable button
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> Saving...';
 
@@ -1774,6 +1877,21 @@
         });
 
         // ============================================================ //
+        // CLOSE SIDEBAR ON OUTSIDE CLICK (mobile)
+        // ============================================================ //
+        document.addEventListener('click', function(e) {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const hamburger = document.getElementById('hamburgerBtn');
+            if (window.innerWidth <= 768 &&
+                !sidebar.contains(e.target) &&
+                !hamburger.contains(e.target) &&
+                sidebar.classList.contains('open')) {
+                closeSidebar();
+            }
+        });
+
+        // ============================================================ //
         // INIT
         // ============================================================ //
         (async function init() {
@@ -1784,20 +1902,6 @@
                 loadCategories();
             }
         })();
-
-        // ============================================================ //
-        // CLOSE SIDEBAR ON OUTSIDE CLICK (MOBILE)
-        // ============================================================ //
-        document.addEventListener('click', function(e) {
-            const sidebar = document.getElementById('sidebar');
-            const toggle = document.querySelector('.mobile-toggle');
-            if (window.innerWidth <= 768 &&
-                !sidebar.contains(e.target) &&
-                !toggle.contains(e.target) &&
-                sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-            }
-        });
     </script>
 
 </body>
