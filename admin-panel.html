@@ -1192,34 +1192,21 @@
 
     <script>
         // ============================================================ //
-        // SUPABASE CONFIG - VERIFY THESE ARE CORRECT
+        // SUPABASE CONFIG - FIXED
         // ============================================================ //
-        var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
-        var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+        // IMPORTANT: The CDN script creates a global 'supabase' object.
+        // We use window.supabase to access it (no redeclaration!)
+
+        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
 
         console.log('🔐 Supabase URL:', SUPABASE_URL);
         console.log('🔑 Supabase Key:', SUPABASE_PUBLISHABLE_KEY);
 
-        // Create client
-        var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        // Use window.supabase from the CDN
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
-        // Test connection
-        async function testConnection() {
-            try {
-                console.log('🔄 Testing Supabase connection...');
-                var { data, error } = await supabase.from('products').select('count', { count: 'exact', head: true });
-                if (error) {
-                    console.error('❌ Connection failed:', error);
-                    alert('⚠️ Cannot connect to Supabase. Please check:\n1. Internet connection\n2. Supabase URL and Key\n3. CORS settings in Supabase');
-                } else {
-                    console.log('✅ Supabase connection successful!');
-                }
-            } catch (e) {
-                console.error('❌ Network error:', e);
-                alert('⚠️ Network error. Please check your internet connection.');
-            }
-        }
-        testConnection();
+        console.log('✅ Supabase client initialized');
 
         // ============================================================ //
         // SIDEBAR TOGGLE (mobile)
@@ -1249,7 +1236,7 @@
         // ============================================================ //
         async function checkAuth() {
             try {
-                var { data: { user }, error } = await supabase.auth.getUser();
+                var { data: { user }, error } = await supabaseClient.auth.getUser();
                 if (error || !user) {
                     window.location.href = 'admin-login.html';
                     return null;
@@ -1266,7 +1253,7 @@
         // LOGOUT
         // ============================================================ //
         async function handleLogout() {
-            await supabase.auth.signOut();
+            await supabaseClient.auth.signOut();
             window.location.href = 'admin-login.html';
         }
 
@@ -1360,9 +1347,10 @@
             var fileName = Date.now() + '-' + Math.random().toString(36).substring(7) + '.' + fileExt;
 
             try {
-                console.log('📤 Uploading:', fileName);
+                console.log('📤 Uploading to bucket: product-images');
+                console.log('📤 File name:', fileName);
 
-                var { data, error } = await supabase.storage
+                var { data, error } = await supabaseClient.storage
                     .from('product-images')
                     .upload(fileName, file, {
                         cacheControl: '3600',
@@ -1376,7 +1364,7 @@
 
                 console.log('✅ Upload successful:', data);
 
-                var { data: urlData } = supabase.storage
+                var { data: urlData } = supabaseClient.storage
                     .from('product-images')
                     .getPublicUrl(fileName);
 
@@ -1427,7 +1415,7 @@
             var container = document.getElementById('productsList');
 
             try {
-                var { data: products, error } = await supabase
+                var { data: products, error } = await supabaseClient
                     .from('products')
                     .select('*')
                     .order('created_at', { ascending: false });
@@ -1562,7 +1550,7 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
 
             try {
-                var { data, error } = await supabase
+                var { data, error } = await supabaseClient
                     .from('products')
                     .insert([productData])
                     .select();
@@ -1594,7 +1582,7 @@
             if (!confirm('Are you sure you want to delete this product?')) return;
 
             try {
-                var { error } = await supabase
+                var { error } = await supabaseClient
                     .from('products')
                     .delete()
                     .eq('id', id);
@@ -1614,7 +1602,7 @@
         // ============================================================ //
         async function loadDashboardStats() {
             try {
-                var { count: productCount, error: productError } = await supabase
+                var { count: productCount, error: productError } = await supabaseClient
                     .from('products')
                     .select('*', { count: 'exact', head: true });
 
@@ -1622,7 +1610,7 @@
                     document.getElementById('statProducts').textContent = productCount || 0;
                 }
 
-                var { data: recentProducts, error: recentError } = await supabase
+                var { data: recentProducts, error: recentError } = await supabaseClient
                     .from('products')
                     .select('*')
                     .order('created_at', { ascending: false })
@@ -1683,7 +1671,7 @@
             var container = document.getElementById('categoriesList');
 
             try {
-                var { data: categories, error } = await supabase
+                var { data: categories, error } = await supabaseClient
                     .from('categories')
                     .select('*')
                     .order('display_order', { ascending: true });
