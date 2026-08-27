@@ -8,9 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        /* ============================================================ */
-        /* RESET & BASE */
-        /* ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -38,9 +35,6 @@
             color: #FFFFFF;
         }
 
-        /* ============================================================ */
-        /* SIDEBAR */
-        /* ============================================================ */
         .sidebar {
             width: 260px;
             min-height: 100vh;
@@ -158,9 +152,6 @@
             border-radius: 20px;
         }
 
-        /* ============================================================ */
-        /* SIDEBAR OVERLAY (mobile) */
-        /* ============================================================ */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -176,9 +167,6 @@
             display: block;
         }
 
-        /* ============================================================ */
-        /* MAIN CONTENT */
-        /* ============================================================ */
         .main-content {
             margin-left: 260px;
             flex: 1;
@@ -187,9 +175,6 @@
             flex-direction: column;
         }
 
-        /* ============================================================ */
-        /* TOP HEADER - Clean, just title and hamburger */
-        /* ============================================================ */
         .top-header {
             background: #FFFFFF;
             padding: 12px 30px;
@@ -200,8 +185,6 @@
             position: sticky;
             top: 0;
             z-index: 998;
-            flex-wrap: wrap;
-            gap: 10px;
         }
 
         .top-header .page-title h1 {
@@ -215,9 +198,6 @@
             color: #7A6F7E;
         }
 
-        /* ============================================================ */
-        /* HAMBURGER MENU BUTTON (mobile) - ON THE CORNER */
-        /* ============================================================ */
         .hamburger-btn {
             display: none;
             flex-direction: column;
@@ -250,9 +230,6 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* ============================================================ */
-        /* PAGE CONTENT */
-        /* ============================================================ */
         .page-content {
             padding: 30px;
             flex: 1;
@@ -263,9 +240,6 @@
             display: block;
         }
 
-        /* ============================================================ */
-        /* LOADING SPINNER */
-        /* ============================================================ */
         .loading-spinner {
             display: flex;
             align-items: center;
@@ -286,9 +260,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* ============================================================ */
-        /* DASHBOARD STATS - 2 columns on mobile */
-        /* ============================================================ */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -348,9 +319,6 @@
             color: #7A6F7E;
         }
 
-        /* ============================================================ */
-        /* PRODUCTS TABLE */
-        /* ============================================================ */
         .table-toolbar {
             display: flex;
             justify-content: space-between;
@@ -524,9 +492,6 @@
             margin-bottom: 16px;
         }
 
-        /* ============================================================ */
-        /* ADD PRODUCT FORM */
-        /* ============================================================ */
         .form-container {
             background: #FFFFFF;
             border-radius: 16px;
@@ -603,9 +568,6 @@
             min-height: 80px;
         }
 
-        /* ============================================================ */
-        /* FILE UPLOAD */
-        /* ============================================================ */
         .file-upload-container {
             display: flex;
             flex-direction: column;
@@ -737,9 +699,6 @@
             min-width: 40px;
         }
 
-        /* ============================================================ */
-        /* FORM ACTIONS */
-        /* ============================================================ */
         .form-actions {
             display: flex;
             gap: 12px;
@@ -772,9 +731,6 @@
             display: block;
         }
 
-        /* ============================================================ */
-        /* RESPONSIVE */
-        /* ============================================================ */
         @media (max-width: 1024px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -785,7 +741,6 @@
         }
 
         @media (max-width: 768px) {
-            /* Sidebar - hidden by default, slides in */
             .sidebar {
                 transform: translateX(-100%);
             }
@@ -796,12 +751,10 @@
                 margin-left: 0;
             }
 
-            /* Hamburger button - visible on mobile */
             .hamburger-btn {
                 display: flex !important;
             }
 
-            /* Stats - 2 columns */
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 12px;
@@ -822,7 +775,6 @@
                 font-size: 16px;
             }
 
-            /* Top header */
             .top-header {
                 padding: 10px 14px;
             }
@@ -834,12 +786,10 @@
                 display: none;
             }
 
-            /* Page content */
             .page-content {
                 padding: 14px;
             }
 
-            /* Form */
             .form-container {
                 padding: 16px;
             }
@@ -851,7 +801,6 @@
                 text-align: center;
             }
 
-            /* Table */
             .data-table {
                 font-size: 12px;
             }
@@ -941,15 +890,13 @@
     <main class="main-content">
 
         <!-- ============================================================ -->
-        <!-- TOP HEADER - Clean (NO logout button) -->
+        <!-- TOP HEADER -->
         <!-- ============================================================ -->
         <header class="top-header">
             <div class="page-title">
                 <h1 id="pageTitle">Dashboard</h1>
                 <p id="pageSubtitle">Welcome back, Admin!</p>
             </div>
-
-            <!-- Hamburger button (mobile) - ON THE CORNER -->
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()">
                 <span></span>
                 <span></span>
@@ -1245,6 +1192,36 @@
 
     <script>
         // ============================================================ //
+        // SUPABASE CONFIG - VERIFY THESE ARE CORRECT
+        // ============================================================ //
+        var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+
+        console.log('🔐 Supabase URL:', SUPABASE_URL);
+        console.log('🔑 Supabase Key:', SUPABASE_PUBLISHABLE_KEY);
+
+        // Create client
+        var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+        // Test connection
+        async function testConnection() {
+            try {
+                console.log('🔄 Testing Supabase connection...');
+                var { data, error } = await supabase.from('products').select('count', { count: 'exact', head: true });
+                if (error) {
+                    console.error('❌ Connection failed:', error);
+                    alert('⚠️ Cannot connect to Supabase. Please check:\n1. Internet connection\n2. Supabase URL and Key\n3. CORS settings in Supabase');
+                } else {
+                    console.log('✅ Supabase connection successful!');
+                }
+            } catch (e) {
+                console.error('❌ Network error:', e);
+                alert('⚠️ Network error. Please check your internet connection.');
+            }
+        }
+        testConnection();
+
+        // ============================================================ //
         // SIDEBAR TOGGLE (mobile)
         // ============================================================ //
         function toggleSidebar() {
@@ -1268,23 +1245,21 @@
         }
 
         // ============================================================ //
-        // SUPABASE CONFIG
-        // ============================================================ //
-        var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
-        var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
-
-        var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-
-        // ============================================================ //
         // CHECK AUTH
         // ============================================================ //
         async function checkAuth() {
-            var { data: { user }, error } = await supabase.auth.getUser();
-            if (error || !user) {
+            try {
+                var { data: { user }, error } = await supabase.auth.getUser();
+                if (error || !user) {
+                    window.location.href = 'admin-login.html';
+                    return null;
+                }
+                return user;
+            } catch (e) {
+                console.error('Auth check error:', e);
                 window.location.href = 'admin-login.html';
                 return null;
             }
-            return user;
         }
 
         // ============================================================ //
@@ -1383,26 +1358,27 @@
 
             var fileExt = file.name.split('.').pop();
             var fileName = Date.now() + '-' + Math.random().toString(36).substring(7) + '.' + fileExt;
-            var filePath = 'products/' + fileName;
 
             try {
+                console.log('📤 Uploading:', fileName);
+
                 var { data, error } = await supabase.storage
                     .from('product-images')
-                    .upload(filePath, file, {
+                    .upload(fileName, file, {
                         cacheControl: '3600',
-                        upsert: false,
-                        onUploadProgress: function(progress) {
-                            var percent = Math.round((progress.loaded / progress.total) * 100);
-                            progressFill.style.width = percent + '%';
-                            progressText.textContent = percent + '%';
-                        }
+                        upsert: false
                     });
 
-                if (error) throw error;
+                if (error) {
+                    console.error('❌ Upload error:', error);
+                    throw error;
+                }
+
+                console.log('✅ Upload successful:', data);
 
                 var { data: urlData } = supabase.storage
                     .from('product-images')
-                    .getPublicUrl(filePath);
+                    .getPublicUrl(fileName);
 
                 uploadedImageUrl = urlData.publicUrl;
                 document.getElementById('productImageUrl').value = uploadedImageUrl;
@@ -1414,8 +1390,10 @@
                     progressContainer.classList.remove('active');
                 }, 1500);
 
+                console.log('✅ Image URL:', uploadedImageUrl);
+
             } catch (error) {
-                console.error('Upload error:', error);
+                console.error('❌ Upload error:', error);
                 alert('Error uploading image: ' + error.message);
                 progressContainer.classList.remove('active');
                 removeImage();
@@ -1526,6 +1504,7 @@
                 container.innerHTML = html;
 
             } catch (error) {
+                console.error('Error loading products:', error);
                 container.innerHTML = `
                     <div class="alert alert-danger show" style="margin-top:16px;">
                         <i class="fas fa-circle-exclamation"></i> Error loading products: ${error.message}
