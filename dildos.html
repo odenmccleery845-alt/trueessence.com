@@ -479,66 +479,58 @@
         }
 
         /* ============================================================ */
-        /* HERO - UPDATED (COMPACT, NO SPACE, REMOVED BUTTONS & IMAGE) */
+        /* HERO - WITH CLEAR BACKGROUND IMAGE */
         /* ============================================================ */
         .hero {
-            background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
-            padding: 20px 30px;
+            padding: 50px 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: auto;
+            min-height: 350px;
             margin: 0;
             border-bottom: none;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
+        /* Dark overlay for text readability */
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(250,70,22,0.06) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(106,44,153,0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106,44,153,0.85) 0%, rgba(42,17,61,0.92) 100%);
+            z-index: 1;
         }
 
         .hero .content {
             flex: 1;
             min-width: 280px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 800px;
         }
 
         .hero .content .tag {
             color: #FA4616;
-            font-size: 12px;
+            font-size: 16px;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             text-transform: uppercase;
         }
 
         .hero .content h1 {
             color: #FFFFFF;
-            font-size: 28px;
+            font-size: 42px;
             font-weight: 800;
             line-height: 1.1;
-            margin: 4px 0 8px;
+            margin: 8px 0 16px;
         }
 
         .hero .content h1 span {
@@ -546,15 +538,15 @@
         }
 
         .hero .content p {
-            color: rgba(255,255,255,0.85);
-            font-size: 14px;
-            line-height: 1.6;
+            color: rgba(255,255,255,0.92);
+            font-size: 17px;
+            line-height: 1.7;
             max-width: 650px;
             margin: 0 auto;
         }
 
         /* ============================================================ */
-        /* CATEGORY DESCRIPTION - UPDATED (NO SPACE) */
+        /* CATEGORY DESCRIPTION */
         /* ============================================================ */
         .category-description {
             background: #F5EDF2;
@@ -1369,19 +1361,20 @@
 
             /* HERO - COMPACT ON MOBILE */
             .hero {
-                padding: 16px 16px;
+                padding: 35px 16px;
                 text-align: center;
-                min-height: auto;
+                min-height: 280px;
             }
             .hero .content h1 {
-                font-size: 22px;
+                font-size: 30px;
             }
             .hero .content .tag {
-                font-size: 10px;
+                font-size: 12px;
+                letter-spacing: 3px;
             }
             .hero .content p {
-                font-size: 13px;
-                line-height: 1.5;
+                font-size: 15px;
+                line-height: 1.6;
                 max-width: 100%;
             }
 
@@ -1497,17 +1490,18 @@
 
             /* HERO - EVEN MORE COMPACT ON SMALL */
             .hero {
-                padding: 12px 12px;
+                padding: 25px 12px;
+                min-height: 220px;
             }
             .hero .content h1 {
-                font-size: 20px;
+                font-size: 24px;
             }
             .hero .content p {
-                font-size: 12px;
-                line-height: 1.4;
+                font-size: 14px;
+                line-height: 1.5;
             }
             .hero .content .tag {
-                font-size: 9px;
+                font-size: 10px;
                 letter-spacing: 2px;
             }
 
@@ -1660,9 +1654,9 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- HERO - UPDATED (COMPACT, NO SPACE, REMOVED BUTTONS & IMAGE) -->
+    <!-- HERO - WITH CLEAR BACKGROUND IMAGE -->
     <!-- ============================================================ -->
-    <section class="hero">
+    <section class="hero" style="background: linear-gradient(135deg, rgba(106,44,153,0.85) 0%, rgba(42,17,61,0.92) 100%), url('https://placehold.co/1600x700/6A2C99/FFFFFF?text=✦+DILDOS+COLLECTION+✦') center/cover no-repeat;">
         <div class="content">
             <div class="tag">✦ DILDOS ✦</div>
             <h1>The OG Pleasure Toy</h1>
@@ -1671,7 +1665,7 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- CATEGORY DESCRIPTION - UPDATED (NO SPACE) -->
+    <!-- CATEGORY DESCRIPTION -->
     <!-- ============================================================ -->
     <div class="category-description">
         <p>A classic dildo can be smooth or textured but won't look like a real penis. You'll need a realistic dildo if that's what you are after! A G-spot dildo will have a curved or bulbous tip ideal for massaging the G-spot. There are also squirting dildos, glass dildos and strap-on dildos.</p>
