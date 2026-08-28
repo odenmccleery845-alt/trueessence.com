@@ -100,28 +100,19 @@
         }
 
         /* ============================================================ */
-        /* TOP BAR */
+        /* TOP BAR - UPDATED (Removed Login/Register) */
         /* ============================================================ */
         .top-bar {
             background: #55217A;
             color: rgba(255,255,255,0.8);
             padding: 6px 30px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             font-size: 12px;
             flex-wrap: wrap;
             gap: 6px;
-        }
-
-        .top-bar a {
-            color: rgba(255,255,255,0.7);
-            margin-left: 14px;
-            font-size: 12px;
-        }
-
-        .top-bar a:hover {
-            color: #FA4616;
+            text-align: center;
         }
 
         .top-bar .highlight {
@@ -130,7 +121,7 @@
         }
 
         /* ============================================================ */
-        /* HEADER */
+        /* HEADER - Clean with hamburger */
         /* ============================================================ */
         .header {
             background: #FFFFFF;
@@ -139,8 +130,21 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #E9E1EC;
-            flex-wrap: wrap;
-            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .logo-icon {
@@ -192,66 +196,44 @@
             text-decoration: none;
         }
 
-        .search-bar {
-            flex: 1;
-            max-width: 460px;
+        .header-icons {
             display: flex;
-            border: 1px solid #E9E1EC;
-            border-radius: 30px;
-            overflow: hidden;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #2E1033;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 6px 10px;
+            border-radius: 8px;
             background: #FAF6F8;
         }
 
-        .search-bar input {
-            flex: 1;
-            border: none;
-            padding: 9px 18px;
-            font-size: 13px;
-            background: transparent;
-            outline: none;
-            font-family: 'DM Sans', Arial, sans-serif;
+        .header-icon:hover {
+            color: #6A2C99;
+            background: #F5EDF2;
         }
 
-        .search-bar button {
-            background: #6A2C99;
-            border: none;
-            padding: 9px 18px;
-            color: #FFFFFF;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-
-        .search-bar button:hover {
-            background: #55217A;
-        }
-
-        .account-cart {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .account-cart a {
+        .header-icon i {
+            font-size: 18px;
             color: #2E1033;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
 
-        .account-cart a:hover {
+        .header-icon:hover i {
             color: #6A2C99;
         }
 
-        .cart-icon {
-            position: relative;
-        }
-
-        .cart-icon .badge {
+        .header-icon .badge {
             position: absolute;
-            top: -8px;
-            right: -10px;
+            top: -4px;
+            right: -4px;
             background: #FA4616;
             color: #FFFFFF;
             border-radius: 50%;
@@ -261,7 +243,177 @@
         }
 
         /* ============================================================ */
-        /* NAVIGATION */
+        /* HAMBURGER MENU (mobile) */
+        /* ============================================================ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            background: transparent;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #2E1033;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ============================================================ */
+        /* MOBILE NAV OVERLAY */
+        /* ============================================================ */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-nav-overlay.open {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background: #1A1A2E;
+            z-index: 1000;
+            padding: 30px 24px;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.open {
+            right: 0;
+        }
+
+        .mobile-nav .mobile-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 20px;
+        }
+
+        .mobile-nav .mobile-brand .logo-icon-sm {
+            width: 40px;
+            height: 40px;
+            background: #6A2C99;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFFFFF;
+            border: 2px solid #FA4616;
+        }
+
+        .mobile-nav .mobile-brand .logo-text-sm {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .mobile-nav .mobile-brand .logo-text-sm span {
+            color: #FA4616;
+        }
+
+        .mobile-nav .mobile-brand .logo-sub-sm {
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .mobile-nav .mobile-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav .mobile-menu li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .mobile-nav .mobile-menu li a {
+            display: block;
+            padding: 14px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav .mobile-menu li a:hover {
+            color: #FA4616;
+            padding-left: 8px;
+        }
+
+        .mobile-nav .mobile-menu li a i {
+            width: 24px;
+            text-align: center;
+            margin-right: 12px;
+            color: #6A2C99;
+        }
+
+        .mobile-nav .mobile-menu .menu-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 0 6px;
+        }
+
+        .mobile-nav .mobile-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .mobile-nav .mobile-footer a {
+            display: block;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            padding: 6px 0;
+        }
+
+        .mobile-nav .mobile-footer a:hover {
+            color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* DESKTOP NAVIGATION */
         /* ============================================================ */
         .nav {
             background: #6A2C99;
@@ -327,72 +479,45 @@
         }
 
         /* ============================================================ */
-        /* CATEGORY HERO BANNER */
+        /* HERO - WITH SEX TOYS BACKGROUND IMAGE */
         /* ============================================================ */
         .category-hero {
-            background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
             padding: 50px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            margin: 0;
+            border-bottom: none;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .category-hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(250,70,22,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .category-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(250,70,22,0.08) 0%, transparent 70%);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106,44,153,0.88) 0%, rgba(42,17,61,0.92) 100%);
+            z-index: 1;
         }
 
         .category-hero .content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 800px;
-        }
-
-        .category-hero .content h1 {
-            color: #FFFFFF;
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .category-hero .content h1 span {
-            color: #FA4616;
-        }
-
-        .category-hero .content p {
-            color: rgba(255,255,255,0.8);
-            font-size: 17px;
-            line-height: 1.7;
-            max-width: 650px;
-            margin: 0 auto;
         }
 
         .category-hero .content .breadcrumb {
             color: rgba(255,255,255,0.5);
             font-size: 13px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             letter-spacing: 1px;
         }
 
@@ -409,18 +534,45 @@
             margin: 0 8px;
         }
 
+        .category-hero .content .tag {
+            color: #FA4616;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .category-hero .content h1 {
+            color: #FFFFFF;
+            font-size: 42px;
+            font-weight: 800;
+            margin: 6px 0 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .category-hero .content h1 span {
+            color: #FA4616;
+        }
+
+        .category-hero .content p {
+            color: rgba(255,255,255,0.92);
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
         /* ============================================================ */
         /* CATEGORY DESCRIPTION */
         /* ============================================================ */
         .category-description {
             background: #F5EDF2;
-            padding: 30px 30px 25px;
-            border-radius: 10px;
-            margin: 30px auto 0;
-            max-width: 1200px;
+            padding: 20px 30px;
             font-size: 14px;
             line-height: 1.7;
             color: #2E1033;
+            margin: 0;
+            border-radius: 0;
         }
 
         .category-description p {
@@ -447,32 +599,34 @@
             padding: 40px 30px;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .section-header h2 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
             color: #2E1033;
         }
 
         .section-header .sub {
             color: #7A6F7E;
-            font-size: 13px;
+            font-size: 14px;
+            display: block;
         }
 
         .section-header a {
             color: #FA4616;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .section-header a:hover {
@@ -520,8 +674,9 @@
         }
 
         .sub-category-card .count {
-            font-size: 11px;
-            color: #7A6F7E;
+            font-size: 12px;
+            color: #FA4616;
+            font-weight: 600;
         }
 
         .show-all-link {
@@ -540,17 +695,17 @@
         }
 
         /* ============================================================ */
-        /* PRODUCT GRID */
+        /* PRODUCT GRID - UPDATED (Badges removed from images) */
         /* ============================================================ */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .product-card {
             background: #FFFFFF;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid #E9E1EC;
             transition: all 0.3s;
@@ -558,12 +713,12 @@
         }
 
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(106,44,153,0.10);
         }
 
         .product-card .image {
-            height: 160px;
+            height: 170px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -571,52 +726,33 @@
             color: #7A6F7E;
             position: relative;
             background: #F5EDF2;
+            overflow: hidden;
         }
 
-        .product-card .image .badge {
+        .product-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* DISCOUNT BADGE - TOP CORNER OF IMAGE */
+        .product-card .image .discount-badge {
             position: absolute;
             top: 8px;
-            left: 8px;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 9px;
+            right: 8px;
+            background: #C22B3D;
+            color: #FFFFFF;
+            font-size: 10px;
             font-weight: 700;
-            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 12px;
+            z-index: 2;
             letter-spacing: 0.3px;
-        }
-
-        .product-card .image .badge.sale {
-            background: #FA4616;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.deal {
-            background: #55217A;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.best-seller {
-            background: #6A2C99;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.new {
-            background: #2E1033;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.popular {
-            background: #FA4616;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.top-rated {
-            background: #6A2C99;
-            color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(194, 43, 61, 0.3);
         }
 
         .product-card .info {
-            padding: 14px;
+            padding: 16px;
         }
 
         .product-card .info .brand {
@@ -630,7 +766,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .product-card .info .rating .stars {
@@ -641,6 +777,18 @@
         .product-card .info .rating .count {
             color: #7A6F7E;
             font-size: 11px;
+        }
+
+        /* BADGE TEXT - Below stars */
+        .product-card .info .badge-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #FA4616;
+            margin-bottom: 4px;
+            display: inline-block;
+            background: #FBE8E2;
+            padding: 1px 10px;
+            border-radius: 12px;
         }
 
         .product-card .info .name {
@@ -691,7 +839,7 @@
             background: #6A2C99;
             border: none;
             color: #FFFFFF;
-            padding: 5px 14px;
+            padding: 6px 16px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 11px;
@@ -702,6 +850,16 @@
         .product-card .info .btn-add:hover {
             background: #55217A;
             transform: scale(1.05);
+        }
+
+        .product-card .info .btn-add:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* ============================================================ */
@@ -855,20 +1013,20 @@
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .blog-card {
             background: #FFFFFF;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid #E9E1EC;
             transition: all 0.3s;
         }
 
         .blog-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(106,44,153,0.10);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(106,44,153,0.10);
         }
 
         .blog-card .image {
@@ -877,7 +1035,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.15);
             font-size: 12px;
         }
 
@@ -886,11 +1044,17 @@
         }
 
         .blog-card .info .category {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 600;
             color: #FA4616;
             text-transform: uppercase;
             letter-spacing: 0.8px;
+        }
+
+        .blog-card .info .date {
+            font-size: 11px;
+            color: #7A6F7E;
+            margin-left: 6px;
         }
 
         .blog-card .info h4 {
@@ -924,26 +1088,26 @@
         /* ============================================================ */
         .newsletter {
             background: #6A2C99;
-            padding: 40px 30px;
+            padding: 50px 30px;
             text-align: center;
         }
 
         .newsletter h2 {
             color: #FFFFFF;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
         }
 
         .newsletter p {
             color: rgba(255,255,255,0.7);
-            font-size: 15px;
-            margin: 6px 0 16px;
+            font-size: 16px;
+            margin: 8px 0 20px;
         }
 
         .newsletter form {
             display: flex;
             gap: 10px;
-            max-width: 420px;
+            max-width: 440px;
             margin: 0 auto;
             flex-wrap: wrap;
             justify-content: center;
@@ -951,13 +1115,13 @@
 
         .newsletter form input {
             flex: 1;
-            min-width: 200px;
-            padding: 12px 18px;
+            min-width: 220px;
+            padding: 14px 20px;
             border-radius: 50px;
             border: 1px solid rgba(255,255,255,0.15);
             background: rgba(255,255,255,0.06);
             color: #FFFFFF;
-            font-size: 13px;
+            font-size: 14px;
             outline: none;
             font-family: 'DM Sans', Arial, sans-serif;
         }
@@ -970,10 +1134,10 @@
             background: #FA4616;
             border: none;
             color: #FFFFFF;
-            padding: 12px 32px;
+            padding: 14px 36px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -985,8 +1149,8 @@
 
         .newsletter .small {
             color: rgba(255,255,255,0.25);
-            font-size: 11px;
-            margin-top: 10px;
+            font-size: 12px;
+            margin-top: 12px;
         }
 
         /* ============================================================ */
@@ -995,7 +1159,7 @@
         .footer {
             background: #2E1033;
             color: rgba(255,255,255,0.7);
-            padding: 40px 30px 16px;
+            padding: 50px 30px 20px;
         }
 
         .footer-grid {
@@ -1003,12 +1167,12 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 35px;
+            gap: 40px;
         }
 
         .footer-grid .brand h3 {
             color: #FFFFFF;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
         }
 
@@ -1017,16 +1181,16 @@
         }
 
         .footer-grid .brand p {
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.8;
-            max-width: 240px;
+            max-width: 260px;
             margin-top: 8px;
         }
 
         .footer-grid h4 {
             color: #FFFFFF;
-            font-size: 15px;
-            margin-bottom: 12px;
+            font-size: 16px;
+            margin-bottom: 14px;
         }
 
         .footer-grid ul {
@@ -1037,8 +1201,8 @@
 
         .footer-grid ul li a {
             color: rgba(255,255,255,0.6);
-            font-size: 13px;
-            line-height: 2;
+            font-size: 14px;
+            line-height: 2.2;
             transition: all 0.3s;
         }
 
@@ -1047,24 +1211,24 @@
         }
 
         .footer-grid .contact p {
-            font-size: 13px;
-            line-height: 2;
+            font-size: 14px;
+            line-height: 2.2;
         }
 
         .footer-grid .contact i {
             color: #FA4616;
-            width: 18px;
+            width: 22px;
         }
 
         .footer-grid .social {
             display: flex;
-            gap: 14px;
+            gap: 16px;
             margin-top: 10px;
         }
 
         .footer-grid .social a {
             color: rgba(255,255,255,0.4);
-            font-size: 18px;
+            font-size: 20px;
             transition: all 0.3s;
         }
 
@@ -1074,16 +1238,48 @@
 
         .footer .bottom {
             max-width: 1200px;
-            margin: 25px auto 0;
-            padding-top: 16px;
+            margin: 30px auto 0;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.06);
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             color: rgba(255,255,255,0.25);
         }
 
         .footer .bottom .heart {
             color: #FA4616;
+        }
+
+        /* ============================================================ */
+        /* LOADING & EMPTY STATES */
+        /* ============================================================ */
+        .loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: #6A2C99;
+            font-size: 16px;
+            gap: 12px;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner i {
+            font-size: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        .empty-products {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7A6F7E;
+            grid-column: 1 / -1;
+        }
+
+        .empty-products i {
+            font-size: 48px;
+            color: #E9E1EC;
+            margin-bottom: 16px;
         }
 
         /* ============================================================ */
@@ -1105,146 +1301,17 @@
         }
 
         @media (max-width: 768px) {
-            .top-bar {
-                font-size: 10px;
-                padding: 5px 14px;
-                justify-content: center;
-                text-align: center;
-            }
-            .header {
-                padding: 10px 14px;
-                flex-direction: column;
-            }
-            .search-bar {
-                max-width: 100%;
-                width: 100%;
-            }
-            .account-cart {
-                width: 100%;
-                justify-content: center;
+            /* Hamburger */
+            .hamburger {
+                display: flex !important;
             }
             .nav {
-                padding: 0 10px;
-            }
-            .nav ul li a {
-                padding: 10px 12px;
-                font-size: 12px;
-            }
-            .trust-bar {
-                padding: 6px 14px;
-                justify-content: center;
-                gap: 4px;
-            }
-            .trust-bar .item {
-                font-size: 10px;
-            }
-            .category-hero {
-                padding: 30px 14px;
-                min-height: 200px;
-            }
-            .category-hero .content h1 {
-                font-size: 28px;
-            }
-            .category-hero .content p {
-                font-size: 14px;
-            }
-            .category-description {
-                padding: 20px 16px;
-                font-size: 13px;
-                margin: 20px 14px 0;
-            }
-            .section {
-                padding: 25px 14px;
-            }
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            .sub-category-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
-            }
-            .footer-grid .brand p {
-                max-width: 100%;
-            }
-            .footer-grid .social {
-                justify-content: center;
-            }
-            .newsletter {
-                padding: 25px 14px;
-            }
-            .newsletter h2 {
-                font-size: 22px;
-            }
-            .section-header h2 {
-                font-size: 20px;
-            }
-            .faq-section {
-                padding: 20px 14px;
-            }
-            .trust-badges {
-                padding: 20px 14px;
-                gap: 12px;
-            }
-            .trust-badges .item .number {
-                font-size: 22px;
+                display: none !important;
             }
 
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-            .logo-text {
-                font-size: 18px;
-            }
-            .logo-sub {
-                font-size: 8px;
-                letter-spacing: 3px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .sub-category-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-            .product-card .info .name {
-                font-size: 13px;
-            }
-            .product-card .info .price {
-                font-size: 16px;
-            }
-            .product-card .info .btn-add {
-                font-size: 10px;
-                padding: 4px 10px;
-            }
-            .category-hero .content h1 {
-                font-size: 22px;
-            }
-            .category-hero .content p {
-                font-size: 13px;
-            }
-            .trust-bar .item {
-                font-size: 9px;
-            }
-            .pagination a {
-                padding: 6px 10px;
-                font-size: 12px;
-                min-width: 32px;
+            .header {
+                padding: 10px 14px;
+                flex-direction: row;
             }
 
             .logo-icon {
@@ -1259,56 +1326,208 @@
                 font-size: 7px;
                 letter-spacing: 2px;
             }
+
+            .header-icon .label {
+                display: none;
+            }
+            .header-icon {
+                padding: 6px 8px;
+            }
+            .header-icon i {
+                font-size: 18px;
+            }
+
+            .top-bar {
+                font-size: 10px;
+                padding: 5px 14px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .trust-bar {
+                padding: 6px 14px;
+                justify-content: center;
+                gap: 4px;
+            }
+            .trust-bar .item {
+                font-size: 10px;
+            }
+
+            /* HERO - COMPACT ON MOBILE */
+            .category-hero {
+                padding: 30px 16px;
+                text-align: center;
+                min-height: 280px;
+            }
+            .category-hero .content h1 {
+                font-size: 30px;
+            }
+            .category-hero .content .tag {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+            .category-hero .content p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .category-description {
+                padding: 16px 14px;
+                font-size: 13px;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .section {
+                padding: 30px 14px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .product-card .image .discount-badge {
+                font-size: 9px;
+                padding: 2px 6px;
+                top: 6px;
+                right: 6px;
+            }
+
+            .sub-category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                text-align: center;
+            }
+            .footer-grid .brand p {
+                max-width: 100%;
+            }
+            .footer-grid .social {
+                justify-content: center;
+            }
+
+            .newsletter {
+                padding: 30px 14px;
+            }
+            .newsletter h2 {
+                font-size: 22px;
+            }
+
+            .section-header h2 {
+                font-size: 22px;
+            }
+
+            .faq-section {
+                padding: 20px 14px;
+            }
+
+            .trust-badges {
+                padding: 20px 14px;
+                gap: 12px;
+            }
+            .trust-badges .item .number {
+                font-size: 22px;
+            }
+
+            .mobile-nav {
+                width: 100%;
+                max-width: 300px;
+            }
         }
 
-        /* Loading spinner */
-        .loading-spinner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            color: #6A2C99;
-            font-size: 16px;
-            gap: 12px;
-            grid-column: 1 / -1;
-        }
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
 
-        .loading-spinner i {
-            font-size: 24px;
-            animation: spin 1s linear infinite;
-        }
+            .sub-category-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+            .product-card .info .name {
+                font-size: 13px;
+            }
+            .product-card .info .price {
+                font-size: 16px;
+            }
+            .product-card .info .btn-add {
+                font-size: 10px;
+                padding: 4px 10px;
+            }
 
-        .empty-products {
-            text-align: center;
-            padding: 60px 20px;
-            color: #7A6F7E;
-            grid-column: 1 / -1;
-        }
+            .product-card .image .discount-badge {
+                font-size: 8px;
+                padding: 1px 5px;
+                top: 4px;
+                right: 4px;
+            }
 
-        .empty-products i {
-            font-size: 48px;
-            color: #E9E1EC;
-            margin-bottom: 16px;
+            /* HERO - EVEN MORE COMPACT ON SMALL */
+            .category-hero {
+                padding: 25px 12px;
+                min-height: 220px;
+            }
+            .category-hero .content h1 {
+                font-size: 24px;
+            }
+            .category-hero .content p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .category-hero .content .tag {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .trust-bar .item {
+                font-size: 9px;
+            }
+
+            .pagination a {
+                padding: 6px 10px;
+                font-size: 12px;
+                min-width: 32px;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .logo-text {
+                font-size: 14px;
+            }
+            .logo-sub {
+                font-size: 6px;
+                letter-spacing: 2px;
+            }
+
+            .mobile-nav {
+                max-width: 280px;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- ============================================================ -->
-    <!-- TOP BAR -->
+    <!-- TOP BAR - UPDATED (Removed Login/Register) -->
     <!-- ============================================================ -->
     <div class="top-bar">
         <div>
             <span class="highlight">★</span> Free Discreet Shipping Worldwide on orders over $150
-        </div>
-        <div>
-            <a href="login.html">Log In</a>
-            <a href="signup.html">Register</a>
         </div>
     </div>
 
@@ -1316,34 +1535,80 @@
     <!-- HEADER -->
     <!-- ============================================================ -->
     <header class="header">
-        <a href="index.html" class="logo-wrapper">
-            <div class="logo-icon">TE</div>
-            <div>
-                <div class="logo-text">
-                    <span class="purple">✦</span> 
-                    True<span class="purple">Essence</span>
-                    <span class="orange">✦</span>
+        <div class="header-left">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo-icon">TE</div>
+                <div>
+                    <div class="logo-text">
+                        <span class="purple">✦</span> 
+                        True<span class="purple">Essence</span>
+                        <span class="orange">✦</span>
+                    </div>
+                    <div class="logo-sub">Wellness</div>
                 </div>
-                <div class="logo-sub">Wellness</div>
-            </div>
-        </a>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Search 500+ products..."/>
-            <button><i class="fa-light fa-search"></i></button>
+            </a>
         </div>
 
-        <div class="account-cart">
-            <a href="login.html"><i class="fa-light fa-user"></i> Account</a>
-            <a href="#" class="cart-icon">
-                <i class="fa-light fa-bag-shopping" style="font-size:18px;"></i>
+        <div class="header-right">
+            <a href="#" class="header-icon">
+                <i class="fas fa-user"></i>
+                <span class="label">Account</span>
+            </a>
+            <a href="#" class="header-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="label">Cart</span>
                 <span class="badge">0</span>
             </a>
+            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <!-- ============================================================ -->
-    <!-- NAVIGATION -->
+    <!-- MOBILE NAV -->
+    <!-- ============================================================ -->
+    <div class="mobile-nav-overlay" id="mobileOverlay" onclick="closeMobileNav()"></div>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-brand">
+            <div class="logo-icon-sm">TE</div>
+            <div>
+                <div class="logo-text-sm">TRUE<span>ESSENCE</span></div>
+                <div class="logo-sub-sm">Wellness</div>
+            </div>
+        </div>
+
+        <ul class="mobile-menu">
+            <div class="menu-label">Main</div>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="sex-toys.html"><i class="fas fa-toy"></i> Sex Toys</a></li>
+            <li><a href="for-vulvas.html"><i class="fas fa-person-dress"></i> For Vulvas</a></li>
+            <li><a href="for-penises.html"><i class="fas fa-person"></i> For Penises</a></li>
+            <li><a href="for-couples.html"><i class="fas fa-users"></i> For Couples</a></li>
+            <li><a href="vibrators.html"><i class="fas fa-vibrate"></i> Vibrators</a></li>
+            <li><a href="dildos.html"><i class="fas fa-hand"></i> Dildos</a></li>
+            <li><a href="anal-toys.html"><i class="fas fa-circle"></i> Anal Toys</a></li>
+            <li><a href="lingerie.html"><i class="fas fa-tshirt"></i> Lingerie</a></li>
+            <li><a href="bdsm.html"><i class="fas fa-handcuffs"></i> BDSM</a></li>
+            <li><a href="lubes-essentials.html"><i class="fas fa-droplet"></i> Lubes & Essentials</a></li>
+            
+            <div class="menu-label">More</div>
+            <li><a href="brands.html"><i class="fas fa-star"></i> Brands</a></li>
+            <li><a href="sale.html"><i class="fas fa-tag"></i> Sale</a></li>
+            <li><a href="gift-cards.html"><i class="fas fa-gift"></i> Gift Cards</a></li>
+        </ul>
+
+        <div class="mobile-footer">
+            <a href="#"><i class="fas fa-sign-in-alt"></i> Log In</a>
+            <a href="#"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DESKTOP NAVIGATION -->
     <!-- ============================================================ -->
     <nav class="nav">
         <ul>
@@ -1368,22 +1633,23 @@
     <!-- TRUST BAR -->
     <!-- ============================================================ -->
     <div class="trust-bar">
-        <div class="item"><i class="fa-light fa-truck"></i> Free Std Shipping Over $150</div>
-        <div class="item"><i class="fa-light fa-lock"></i> Secure Checkout</div>
-        <div class="item"><i class="fa-light fa-rotate-left"></i> Easy Returns</div>
-        <div class="item"><i class="fa-light fa-box"></i> Discreet Packaging</div>
+        <div class="item"><i class="fas fa-truck"></i> Free Std Shipping Over $150</div>
+        <div class="item"><i class="fas fa-lock"></i> Secure Checkout</div>
+        <div class="item"><i class="fas fa-rotate-left"></i> Easy Returns</div>
+        <div class="item"><i class="fas fa-box"></i> Discreet Packaging</div>
     </div>
 
     <!-- ============================================================ -->
-    <!-- HERO BANNER -->
+    <!-- HERO - WITH SEX TOYS BACKGROUND IMAGE -->
     <!-- ============================================================ -->
-    <section class="category-hero">
+    <section class="category-hero" style="background: linear-gradient(135deg, rgba(106,44,153,0.88) 0%, rgba(42,17,61,0.92) 100%), url('https://placehold.co/1600x700/6A2C99/FFFFFF?text=✦+SEX+TOYS+COLLECTION+✦') center/cover no-repeat;">
         <div class="content">
             <div class="breadcrumb">
                 <a href="index.html">Home</a>
                 <span class="sep">›</span>
                 <span style="color:rgba(255,255,255,0.8);">Sex Toys</span>
             </div>
+            <div class="tag">✦ SEX TOYS ✦</div>
             <h1>Sex <span>Toys</span></h1>
             <p>Discover New Zealand's largest range of sex toys to bring some extra fun to your sex life. Whether you want a toy for solo or partnered fun, you'll find just the thing in our range of best-selling adult toys.</p>
         </div>
@@ -1411,56 +1677,56 @@
 
         <div class="sub-category-grid">
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-hand-sparkles"></i></span>
+                <span class="icon"><i class="fas fa-hand-sparkles"></i></span>
                 <div class="name">Clitoral Toys</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countClitoral">0 products</div>
             </a>
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-ring"></i></span>
+                <span class="icon"><i class="fas fa-ring"></i></span>
                 <div class="name">Cock Rings</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countCockRings">0 products</div>
             </a>
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-bullseye"></i></span>
+                <span class="icon"><i class="fas fa-bullseye"></i></span>
                 <div class="name">G-Spot Toys</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countGSpot">0 products</div>
             </a>
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-pump"></i></span>
+                <span class="icon"><i class="fas fa-pump"></i></span>
                 <div class="name">Pussy Pumps</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countPussyPumps">0 products</div>
             </a>
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-people-arrows"></i></span>
+                <span class="icon"><i class="fas fa-people-arrows"></i></span>
                 <div class="name">Couples Anal Toys</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countCouplesAnal">0 products</div>
             </a>
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-users"></i></span>
+                <span class="icon"><i class="fas fa-users"></i></span>
                 <div class="name">Couples Vibrators</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countCouplesVibes">0 products</div>
             </a>
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-pump"></i></span>
+                <span class="icon"><i class="fas fa-pump"></i></span>
                 <div class="name">Penis Pumps</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countPenisPumps">0 products</div>
             </a>
             <a href="#" class="sub-category-card">
-                <span class="icon"><i class="fa-light fa-tshirt"></i></span>
+                <span class="icon"><i class="fas fa-tshirt"></i></span>
                 <div class="name">Vibrating Panties</div>
-                <div class="count">Loading...</div>
+                <div class="count" id="countPanties">0 products</div>
             </a>
         </div>
 
         <div class="show-all-link">
-            <a href="#">Show all Sex Toy Categories <i class="fa-light fa-arrow-right"></i></a>
+            <a href="#">Show all Sex Toy Categories <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- TOP PRODUCTS -->
+    <!-- TOP PRODUCTS - UPDATED -->
     <!-- ============================================================ -->
-    <section class="section" style="padding-top:0;">
+    <section class="section" style="padding-top:0;" id="products">
         <div class="section-header">
             <div>
                 <h2>Top Sex Toy Products</h2>
@@ -1471,7 +1737,7 @@
 
         <div class="product-grid" id="productsList">
             <div class="loading-spinner">
-                <i class="fa-light fa-spinner"></i> Loading products...
+                <i class="fas fa-spinner"></i> Loading products...
             </div>
         </div>
     </section>
@@ -1485,7 +1751,7 @@
         <a href="#">3</a>
         <span class="dots">…</span>
         <a href="#">61</a>
-        <a href="#"><i class="fa-light fa-chevron-right"></i></a>
+        <a href="#"><i class="fas fa-chevron-right"></i></a>
     </div>
 
     <!-- ============================================================ -->
@@ -1498,7 +1764,7 @@
             <div class="faq-item">
                 <div class="question">
                     What types of sex toys are there?
-                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                    <span class="icon"><i class="fas fa-plus"></i></span>
                 </div>
                 <div class="answer">
                     There are many types of adult toys designed to enhance sexual pleasure and satisfaction during solo or partnered play. Popular types include vibrators, dildos, couples toys, masturbators, anal toys, and bondage gear. Sex toys are available in a range of shapes, materials, and functions to suit different preferences, anatomy, and fantasies. Explore our full sex toy categories to discover what excites you.
@@ -1508,7 +1774,7 @@
             <div class="faq-item">
                 <div class="question">
                     What is the most popular sex toy type?
-                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                    <span class="icon"><i class="fas fa-plus"></i></span>
                 </div>
                 <div class="answer">
                     Vibrators are consistently the most popular sex toy due to their versatility, ease of use, and ability to provide intense stimulation. Whether you're looking for a discreet bullet, a powerful wand, or a rabbit vibrator that stimulates multiple erogenous zones, there's something for everyone.
@@ -1518,7 +1784,7 @@
             <div class="faq-item">
                 <div class="question">
                     How do I clean my sex toys?
-                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                    <span class="icon"><i class="fas fa-plus"></i></span>
                 </div>
                 <div class="answer">
                     Cleaning your sex toys is essential for hygiene and toy longevity. Most non-porous toys (like silicone, ABS plastic, or glass) can be cleaned with warm water and mild soap, or a specialised toy cleaner. Always check the instructions on your specific toy and avoid submerging anything with electrical components unless it is waterproof.
@@ -1528,7 +1794,7 @@
             <div class="faq-item">
                 <div class="question">
                     What lube should I use with my sex toys?
-                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                    <span class="icon"><i class="fas fa-plus"></i></span>
                 </div>
                 <div class="answer">
                     Choosing the right lubricant depends on your toy's material and how you plan to use it:
@@ -1544,7 +1810,7 @@
             <div class="faq-item">
                 <div class="question">
                     Are your sex toys discreetly packaged?
-                    <span class="icon"><i class="fa-light fa-plus"></i></span>
+                    <span class="icon"><i class="fas fa-plus"></i></span>
                 </div>
                 <div class="answer">
                     Yes. All orders from TrueEssence are shipped in plain, unmarked packaging with no logos or brand names. The return address is generic, and we take your privacy seriously. You can shop with confidence knowing your purchase is for your eyes only.
@@ -1671,15 +1937,15 @@
             </div>
             <div class="contact">
                 <h4>Customer Service</h4>
-                <p><i class="fa-light fa-clock"></i> Mon–Fri: 8am–4pm</p>
-                <p><i class="fa-light fa-phone"></i> 0800 238 588</p>
-                <p><i class="fa-light fa-envelope"></i> support@trueessence.com</p>
-                <p><i class="fa-light fa-comment"></i> Live Chat</p>
+                <p><i class="fas fa-clock"></i> Mon–Fri: 8am–4pm</p>
+                <p><i class="fas fa-phone"></i> 0800 238 588</p>
+                <p><i class="fas fa-envelope"></i> support@trueessence.com</p>
+                <p><i class="fas fa-comment"></i> Live Chat</p>
                 <div class="social">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -1690,21 +1956,53 @@
 
     <script>
         // ============================================================ //
+        // MOBILE NAVIGATION
+        // ============================================================ //
+        function toggleMobileNav() {
+            var hamburger = document.getElementById('hamburger');
+            var mobileNav = document.getElementById('mobileNav');
+            var overlay = document.getElementById('mobileOverlay');
+
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            overlay.classList.toggle('open');
+
+            if (mobileNav.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMobileNav() {
+            var hamburger = document.getElementById('hamburger');
+            var mobileNav = document.getElementById('mobileNav');
+            var overlay = document.getElementById('mobileOverlay');
+
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // ============================================================ //
         // SUPABASE CONFIG
         // ============================================================ //
-        const SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
-        const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
+        var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
+        var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
 
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        var supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+        console.log('🔐 Supabase connected');
 
         // ============================================================ //
-        // LOAD PRODUCTS BY CATEGORY
+        // LOAD PRODUCTS - UPDATED
         // ============================================================ //
         async function loadProducts() {
-            const container = document.getElementById('productsList');
+            var container = document.getElementById('productsList');
 
             try {
-                const { data: products, error } = await supabase
+                var { data: products, error } = await supabaseClient
                     .from('products')
                     .select('*')
                     .eq('category', 'Sex Toys')
@@ -1716,51 +2014,61 @@
                 if (!products || products.length === 0) {
                     container.innerHTML = `
                         <div class="empty-products">
-                            <i class="fa-light fa-box"></i>
+                            <i class="fas fa-box"></i>
                             <p>No products found in this category.</p>
                         </div>
                     `;
                     return;
                 }
 
-                let html = '';
+                var html = '';
 
                 products.forEach(function(p) {
-                    const priceDisplay = p.sale_price ? 
-                        `<span class="price"><span class="was">$${p.price}</span> $${p.sale_price}</span>` :
-                        `<span class="price">$${p.price}</span>`;
+                    var priceDisplay = p.sale_price ? 
+                        '<span class="price"><span class="was">$' + p.price + '</span> $' + p.sale_price + '</span>' :
+                        '<span class="price">$' + p.price + '</span>';
 
-                    const badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
-                    const badgeHtml = p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
+                    var ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
+                    var reviewCount = p.review_count || 0;
 
-                    const ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
-                    const reviewCount = p.review_count || 0;
+                    var bgColor = '#F5EDF2';
 
-                    // Determine background color based on badge
-                    let bgColor = '#F5EDF2';
-                    if (p.badge === 'Best Seller') bgColor = '#6A2C99';
-                    else if (p.badge === 'Sale') bgColor = '#FA4616';
-                    else if (p.badge === 'New') bgColor = '#2E1033';
-                    else if (p.badge === 'Popular') bgColor = '#FA4616';
-                    else if (p.badge === 'Top Rated') bgColor = '#55217A';
+                    // Calculate discount percentage
+                    var discountPercent = 0;
+                    if (p.price && p.sale_price) {
+                        discountPercent = Math.round(((p.price - p.sale_price) / p.price) * 100);
+                    }
+
+                    // DISCOUNT BADGE - on image (top corner)
+                    var discountBadge = '';
+                    if (discountPercent > 0) {
+                        discountBadge = '<span class="discount-badge">🏷️ ' + discountPercent + '% OFF</span>';
+                    }
+
+                    // BADGE TEXT - below stars
+                    var badgeText = '';
+                    if (p.badge) {
+                        badgeText = '<div class="badge-text">🔥 ' + p.badge + '</div>';
+                    }
 
                     html += `
                         <div class="product-card">
-                            <div class="image" style="background:${p.image_url ? `url('${p.image_url}') center/cover` : bgColor};">
-                                ${badgeHtml}
+                            <div class="image" style="background:${p.image_url ? 'url(' + p.image_url + ') center/cover' : bgColor};">
+                                ${discountBadge}
                                 ${p.image_url ? '' : '[Image]'}
                             </div>
                             <div class="info">
-                                ${p.brand ? `<div class="brand">${p.brand}</div>` : ''}
+                                ${p.brand ? '<div class="brand">' + p.brand + '</div>' : ''}
                                 <div class="rating">
                                     <span class="stars">${ratingStars}</span>
                                     <span class="count">(${reviewCount})</span>
                                 </div>
+                                ${badgeText}
                                 <div class="name"><a href="#">${p.name}</a></div>
                                 <div class="desc">${p.short_description || ''}</div>
                                 <div class="price-row">
                                     ${priceDisplay}
-                                    <button class="btn-add">Add</button>
+                                    <button class="btn-add" onclick="addToCart('${p.id}')">Add</button>
                                 </div>
                             </div>
                         </div>
@@ -1773,8 +2081,8 @@
                 console.error('Error loading products:', error);
                 container.innerHTML = `
                     <div class="empty-products">
-                        <i class="fa-light fa-circle-exclamation"></i>
-                        <p>Error loading products. Please try again later.</p>
+                        <i class="fas fa-circle-exclamation"></i>
+                        <p>Error loading products.</p>
                     </div>
                 `;
             }
@@ -1784,52 +2092,73 @@
         // LOAD SUB-CATEGORY COUNTS
         // ============================================================ //
         async function loadSubCategoryCounts() {
-            const subCategories = [
-                'Clitoral Toys',
-                'Cock Rings',
-                'G-Spot Toys',
-                'Pussy Pumps',
-                'Couples Anal Toys',
-                'Couples Vibrators',
-                'Penis Pumps',
-                'Vibrating Panties'
+            var subCategories = [
+                { key: 'Clitoral Toys', id: 'countClitoral' },
+                { key: 'Cock Rings', id: 'countCockRings' },
+                { key: 'G-Spot Toys', id: 'countGSpot' },
+                { key: 'Pussy Pumps', id: 'countPussyPumps' },
+                { key: 'Couples Anal Toys', id: 'countCouplesAnal' },
+                { key: 'Couples Vibrators', id: 'countCouplesVibes' },
+                { key: 'Penis Pumps', id: 'countPenisPumps' },
+                { key: 'Vibrating Panties', id: 'countPanties' }
             ];
 
             try {
-                const { data: products, error } = await supabase
+                var { data: products, error } = await supabaseClient
                     .from('products')
                     .select('sub_category')
                     .eq('is_active', true);
 
                 if (error) throw error;
 
-                const counts = {};
-                products.forEach(p => {
+                var counts = {};
+                products.forEach(function(p) {
                     if (p.sub_category) {
                         counts[p.sub_category] = (counts[p.sub_category] || 0) + 1;
                     }
                 });
 
-                // Update sub-category counts
-                const cards = document.querySelectorAll('.sub-category-card .count');
-                const names = document.querySelectorAll('.sub-category-card .name');
-
-                cards.forEach((card, index) => {
-                    const name = names[index]?.textContent.trim();
-                    if (name && counts[name]) {
-                        card.textContent = `${counts[name]}+ products`;
-                    } else {
-                        card.textContent = '0 products';
+                subCategories.forEach(function(cat) {
+                    var el = document.getElementById(cat.id);
+                    if (el) {
+                        var count = counts[cat.key] || 0;
+                        el.textContent = count + '+ products';
                     }
                 });
 
             } catch (error) {
                 console.error('Error loading sub-category counts:', error);
+                document.querySelectorAll('.sub-category-card .count').forEach(function(el) {
+                    el.textContent = '0 products';
+                });
             }
         }
 
         // ============================================================ //
-        // INIT
+        // ADD TO CART
+        // ============================================================ //
+        function addToCart(productId) {
+            var btn = event.target;
+            var originalText = btn.textContent;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+            setTimeout(function() {
+                var badge = document.querySelector('.header-icon .badge');
+                if (badge) {
+                    var current = parseInt(badge.textContent) || 0;
+                    badge.textContent = current + 1;
+                }
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(function() {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1000);
+            }, 500);
+        }
+
+        // ============================================================ //
+        // INIT - LOAD EVERYTHING
         // ============================================================ //
         loadProducts();
         loadSubCategoryCounts();
