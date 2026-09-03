@@ -476,18 +476,18 @@
         }
 
         /* ============================================================ */
-        /* HERO BANNER */
+        /* HERO - ULTRA COMPACT TEXT-ONLY */
         /* ============================================================ */
         .hero {
             background: linear-gradient(145deg, #6A2C99 0%, #55217A 50%, #3A1555 100%);
-            padding: 60px 30px;
+            padding: 30px 30px;
+            text-align: center;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
+            justify-content: center;
             position: relative;
             overflow: hidden;
+            min-height: 160px;
         }
 
         .hero::before {
@@ -497,31 +497,41 @@
             right: -20%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(250,70,22,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(250,70,22,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(250,70,22,0.04) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .hero .content {
-            flex: 1;
-            min-width: 280px;
             position: relative;
             z-index: 1;
+            max-width: 800px;
         }
 
         .hero .content .tag {
             color: #FA4616;
             font-size: 13px;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
         .hero .content h1 {
             color: #FFFFFF;
-            font-size: 44px;
+            font-size: 34px;
             font-weight: 800;
-            line-height: 1.1;
-            margin: 12px 0 18px;
+            line-height: 1.15;
+            margin: 6px 0 8px;
         }
 
         .hero .content h1 span {
@@ -529,88 +539,11 @@
         }
 
         .hero .content p {
-            color: rgba(255,255,255,0.8);
-            font-size: 17px;
-            line-height: 1.7;
-            margin-bottom: 28px;
-            max-width: 500px;
-        }
-
-        .hero .content .btn-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .hero .content .btn-primary {
-            background: #FA4616;
-            color: #FFFFFF;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 700;
+            color: rgba(255,255,255,0.85);
             font-size: 15px;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        .hero .content .btn-primary:hover {
-            background: #FB6B42;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(250,70,22,0.3);
-        }
-
-        .hero .content .btn-secondary {
-            background: transparent;
-            color: #FFFFFF;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            border: 2px solid rgba(255,255,255,0.3);
-            display: inline-block;
-        }
-
-        .hero .content .btn-secondary:hover {
-            border-color: #FA4616;
-            color: #FA4616;
-        }
-
-        .hero .image {
-            flex: 1;
-            min-width: 260px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero .image .box {
-            background: rgba(255,255,255,0.04);
-            border-radius: 16px;
-            padding: 40px;
-            border: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .hero .image .box .icons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-
-        .hero .image .box .icons .badge-box {
-            background: rgba(250,70,22,0.1);
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: 1px solid rgba(250,70,22,0.12);
-            color: #FFFFFF;
-            font-size: 12px;
-        }
-
-        .hero .image .box .icons .badge-box span {
-            display: block;
-            font-size: 20px;
-            color: #FA4616;
+            line-height: 1.5;
+            max-width: 580px;
+            margin: 0 auto;
         }
 
         /* ============================================================ */
@@ -660,10 +593,99 @@
         }
 
         /* ============================================================ */
+        /* AD BANNER - ROTATING */
+        /* ============================================================ */
+        .ad-banner {
+            background: #FFFFFF;
+            padding: 18px 30px;
+            margin: 12px 30px;
+            border-radius: 12px;
+            border: 1px solid #E9E1EC;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.5s ease;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-banner .slide {
+            display: none;
+            animation: fadeSlide 0.6s ease;
+        }
+
+        .ad-banner .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .ad-banner .slide .icon {
+            font-size: 28px;
+            margin-right: 12px;
+        }
+
+        .ad-banner .slide .title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2E1033;
+        }
+
+        .ad-banner .slide .desc {
+            font-size: 14px;
+            color: #7A6F7E;
+            margin-top: 2px;
+        }
+
+        .ad-banner .slide .btn-ad {
+            display: inline-block;
+            background: #FA4616;
+            color: #FFFFFF;
+            padding: 6px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 6px;
+            transition: all 0.3s;
+        }
+
+        .ad-banner .slide .btn-ad:hover {
+            background: #55217A;
+            transform: scale(1.02);
+        }
+
+        .ad-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .ad-dots .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #D3C0D8;
+            margin: 0 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ad-dots .dot.active {
+            background: #FA4616;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* ============================================================ */
         /* SECTION */
         /* ============================================================ */
         .section {
-            padding: 50px 30px;
+            padding: 40px 30px;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
@@ -679,7 +701,7 @@
         }
 
         .section-header h2 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             color: #2E1033;
         }
@@ -702,7 +724,7 @@
         }
 
         /* ============================================================ */
-        /* PRODUCT GRID */
+        /* PRODUCT GRID - UPDATED (No badges on images) */
         /* ============================================================ */
         .product-grid {
             display: grid;
@@ -724,7 +746,7 @@
         }
 
         .product-card .image {
-            height: 170px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -732,43 +754,29 @@
             color: #7A6F7E;
             position: relative;
             background: #F5EDF2;
+            overflow: hidden;
         }
 
-        .product-card .image .badge {
+        .product-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* DISCOUNT BADGE - TOP CORNER OF IMAGE */
+        .product-card .image .discount-badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 3px 14px;
-            border-radius: 20px;
-            font-size: 9px;
+            top: 8px;
+            right: 8px;
+            background: #C22B3D;
+            color: #FFFFFF;
+            font-size: 10px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .product-card .image .badge.best-seller {
-            background: #FA4616;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.top-rated {
-            background: #6A2C99;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.new {
-            background: #2E1033;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.popular {
-            background: #FA4616;
-            color: #FFFFFF;
-        }
-
-        .product-card .image .badge.sale {
-            background: #FA4616;
-            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 12px;
+            z-index: 2;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 8px rgba(194, 43, 61, 0.3);
         }
 
         .product-card .info {
@@ -786,7 +794,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .product-card .info .rating .stars {
@@ -797,6 +805,18 @@
         .product-card .info .rating .count {
             color: #7A6F7E;
             font-size: 11px;
+        }
+
+        /* BADGE TEXT - Below stars */
+        .product-card .info .badge-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #FA4616;
+            margin-bottom: 4px;
+            display: inline-block;
+            background: #FBE8E2;
+            padding: 1px 10px;
+            border-radius: 12px;
         }
 
         .product-card .info .name {
@@ -860,13 +880,18 @@
             transform: scale(1.05);
         }
 
+        .product-card .info .btn-add:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
         /* ============================================================ */
-        /* DESIRE GRID - WITH IMAGES */
+        /* DESIRE GRID - ALL CATEGORIES WITH IMAGES */
         /* ============================================================ */
         .desire-grid {
             display: grid;
@@ -891,7 +916,7 @@
         }
 
         .desire-card .image {
-            height: 160px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -909,7 +934,7 @@
         }
 
         .desire-card .image .icon-fallback {
-            font-size: 40px;
+            font-size: 48px;
             color: #6A2C99;
         }
 
@@ -937,7 +962,7 @@
         }
 
         /* ============================================================ */
-        /* SPOTLIGHT */
+        /* SPOTLIGHT - WITH REAL PRODUCT IMAGE */
         /* ============================================================ */
         .spotlight {
             background: #55217A;
@@ -950,17 +975,28 @@
 
         .spotlight .image {
             flex: 1;
-            min-width: 240px;
+            min-width: 280px;
             text-align: center;
-        }
-
-        .spotlight .image .box {
+            height: 320px;
             background: rgba(255,255,255,0.05);
             border-radius: 16px;
-            padding: 40px;
             border: 1px solid rgba(255,255,255,0.06);
-            color: rgba(255,255,255,0.2);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spotlight .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .spotlight .image .placeholder {
+            color: rgba(255,255,255,0.15);
             font-size: 13px;
+            letter-spacing: 1px;
         }
 
         .spotlight .content {
@@ -1013,6 +1049,52 @@
             background: #FB6B42;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(250,70,22,0.3);
+        }
+
+        /* ============================================================ */
+        /* PAGINATION */
+        /* ============================================================ */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: 1px solid #E9E1EC;
+            color: #2E1033;
+            font-size: 13px;
+            font-weight: 500;
+            background: #FFFFFF;
+            transition: all 0.3s;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .pagination a:hover {
+            border-color: #6A2C99;
+            color: #6A2C99;
+        }
+
+        .pagination a.active {
+            background: #6A2C99;
+            border-color: #6A2C99;
+            color: #FFFFFF;
+        }
+
+        .pagination a.active:hover {
+            background: #55217A;
+        }
+
+        .pagination .dots {
+            padding: 8px 6px;
+            color: #7A6F7E;
         }
 
         /* ============================================================ */
@@ -1437,17 +1519,34 @@
             }
 
             .hero {
-                padding: 30px 16px;
-                text-align: center;
+                padding: 18px 16px;
+                min-height: 120px;
             }
             .hero .content h1 {
-                font-size: 30px;
+                font-size: 24px;
             }
-            .hero .content .btn-group {
-                justify-content: center;
+            .hero .content .tag {
+                font-size: 11px;
+                letter-spacing: 3px;
             }
             .hero .content p {
-                max-width: 100%;
+                font-size: 13px;
+                line-height: 1.4;
+            }
+
+            .ad-banner {
+                margin: 10px 14px;
+                padding: 16px 14px;
+                min-height: 70px;
+            }
+            .ad-banner .slide .icon {
+                font-size: 22px;
+            }
+            .ad-banner .slide .title {
+                font-size: 14px;
+            }
+            .ad-banner .slide .desc {
+                font-size: 13px;
             }
 
             .section {
@@ -1457,9 +1556,15 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
+            .product-card .image {
+                height: 160px;
+            }
             .desire-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
+            }
+            .desire-card .image {
+                height: 150px;
             }
             .blog-grid {
                 grid-template-columns: 1fr;
@@ -1483,6 +1588,10 @@
             }
             .spotlight .content p {
                 max-width: 100%;
+            }
+            .spotlight .image {
+                height: 220px;
+                min-width: 100%;
             }
 
             .limited-time {
@@ -1528,9 +1637,15 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 10px;
             }
+            .product-card .image {
+                height: 140px;
+            }
             .desire-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 10px;
+            }
+            .desire-card .image {
+                height: 130px;
             }
             .product-card .info .name {
                 font-size: 13px;
@@ -1542,11 +1657,18 @@
                 font-size: 10px;
                 padding: 4px 10px;
             }
+            .product-card .image .discount-badge {
+                font-size: 8px;
+                padding: 1px 5px;
+                top: 4px;
+                right: 4px;
+            }
+
             .hero .content h1 {
-                font-size: 24px;
+                font-size: 20px;
             }
             .hero .content p {
-                font-size: 14px;
+                font-size: 12px;
             }
             .trust-bar .item {
                 font-size: 9px;
@@ -1563,6 +1685,29 @@
             .logo-sub {
                 font-size: 6px;
                 letter-spacing: 2px;
+            }
+
+            .ad-banner {
+                margin: 8px 10px;
+                padding: 12px 10px;
+                min-height: 60px;
+            }
+            .ad-banner .slide .title {
+                font-size: 13px;
+            }
+            .ad-banner .slide .desc {
+                font-size: 12px;
+            }
+            .ad-banner .slide .btn-ad {
+                font-size: 12px;
+                padding: 4px 16px;
+            }
+
+            .spotlight .image {
+                height: 180px;
+            }
+            .spotlight .content h2 {
+                font-size: 24px;
             }
         }
     </style>
@@ -1597,7 +1742,7 @@
 
         <!-- Right: Cart ONLY + Hamburger -->
         <div class="header-right">
-            <!-- Cart Icon ONLY (real cart icon) -->
+            <!-- Cart Icon ONLY -->
             <a href="#" class="header-icon">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="label">Cart</span>
@@ -1686,26 +1831,13 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- HERO BANNER -->
+    <!-- HERO - ULTRA COMPACT TEXT-ONLY -->
     <!-- ============================================================ -->
     <section class="hero">
         <div class="content">
-            <div class="tag">Welcome to TrueEssence</div>
-            <h1>Discover Your<br/><span>True Essence</span></h1>
+            <div class="tag">✦ TRUE ESSENCE ✦</div>
+            <h1>Discover Your True Essence</h1>
             <p>Premium sexual wellness products for men and women. Discreet, natural, and designed to elevate your intimacy.</p>
-            <div class="btn-group">
-                <a href="sex-toys.html" class="btn-primary">Shop Now</a>
-                <a href="#" class="btn-secondary">Learn More</a>
-            </div>
-        </div>
-        <div class="image">
-            <div class="box">
-                <span style="color:rgba(255,255,255,0.15);font-size:13px;letter-spacing:1px;">[ PRODUCT IMAGE ]</span>
-                <div class="icons">
-                    <div class="badge-box"><span>★</span>Premium Quality</div>
-                    <div class="badge-box"><span>🔒</span>Discreet</div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1716,6 +1848,35 @@
         <span class="label">Limited Time</span>
         <span class="title">Pick & Mix — Build your own wellness edit</span>
         <a href="#" class="btn">Start Mixing →</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- AD BANNER - ROTATING -->
+    <!-- ============================================================ -->
+    <div class="ad-banner" id="adBanner">
+        <div class="slide active" data-slide="0">
+            <span class="icon">🔥</span>
+            <div class="title">SUMMER SALE — Up to 50% Off</div>
+            <div class="desc">Use code: SUMMER50 at checkout</div>
+            <a href="sale.html" class="btn-ad">Shop Sale</a>
+        </div>
+        <div class="slide" data-slide="1">
+            <span class="icon">🎁</span>
+            <div class="title">FREE GIFT with any purchase over $100</div>
+            <div class="desc">Choose your free gift at checkout</div>
+            <a href="sex-toys.html" class="btn-ad">Shop Now</a>
+        </div>
+        <div class="slide" data-slide="2">
+            <span class="icon">⭐</span>
+            <div class="title">NEW ARRIVALS — Explore our latest collection</div>
+            <div class="desc">Fresh products added weekly</div>
+            <a href="sex-toys.html" class="btn-ad">See New</a>
+        </div>
+        <div class="ad-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
     </div>
 
     <!-- ============================================================ -->
@@ -1734,10 +1895,19 @@
                 <i class="fas fa-spinner"></i> Loading products...
             </div>
         </div>
+        <!-- Pagination -->
+        <div class="pagination" id="trendingPagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <span class="dots">…</span>
+            <a href="#">5</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
+        </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- BY DESIRE -->
+    <!-- BY DESIRE - ALL CATEGORIES WITH IMAGES -->
     <!-- ============================================================ -->
     <section class="section" style="padding-top:0;">
         <div class="section-header">
@@ -1752,18 +1922,18 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- SPOTLIGHT -->
+    <!-- SPOTLIGHT - WITH PRODUCT IMAGE -->
     <!-- ============================================================ -->
-    <section class="spotlight">
-        <div class="image">
-            <div class="box">[ SPOTLIGHT IMAGE ]</div>
+    <section class="spotlight" id="spotlightSection">
+        <div class="image" id="spotlightImage">
+            <div class="placeholder">[ SPOTLIGHT IMAGE ]</div>
         </div>
         <div class="content">
             <div class="tag">Product Spotlight</div>
-            <h2>The Gold Standard</h2>
-            <p>It looks like a premium wellness product. It very much is. Quiet, easy to use, and discreet enough to leave out on the nightstand.</p>
-            <div class="price">$69.95</div>
-            <a href="#" class="btn">Take Me Home</a>
+            <h2 id="spotlightName">The Gold Standard</h2>
+            <p id="spotlightDesc">It looks like a premium wellness product. It very much is. Quiet, easy to use, and discreet enough to leave out on the nightstand.</p>
+            <div class="price" id="spotlightPrice">$69.95</div>
+            <a href="#" class="btn" id="spotlightBtn">Take Me Home</a>
         </div>
     </section>
 
@@ -1825,6 +1995,13 @@
                     <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
+        </div>
+        <!-- Pagination for Blog -->
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
         </div>
     </section>
 
@@ -1931,21 +2108,66 @@
         }
 
         // ============================================================ //
+        // AD BANNER ROTATION
+        // ============================================================ //
+        var currentSlide = 0;
+        var totalSlides = 3;
+        var adInterval;
+
+        function showSlide(index) {
+            var slides = document.querySelectorAll('.ad-banner .slide');
+            var dots = document.querySelectorAll('.ad-dots .dot');
+            
+            slides.forEach(function(s, i) {
+                s.classList.remove('active');
+                if (i === index) s.classList.add('active');
+            });
+            
+            dots.forEach(function(d, i) {
+                d.classList.remove('active');
+                if (i === index) d.classList.add('active');
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function startAdRotation() {
+            if (adInterval) clearInterval(adInterval);
+            adInterval = setInterval(nextSlide, 6000);
+        }
+
+        // Click on dots to change slide
+        document.querySelectorAll('.ad-dots .dot').forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                clearInterval(adInterval);
+                var index = parseInt(this.getAttribute('data-slide'));
+                currentSlide = index;
+                showSlide(index);
+                startAdRotation();
+            });
+        });
+
+        // ============================================================ //
         // SUPABASE CONFIG
         // ============================================================ //
         var SUPABASE_URL = 'https://slkhlvaxteobzxisfbqv.supabase.co';
         var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_60GqpCnOV_bz7jnnY2NA8w_NBO3LhHZ';
 
-        var supabase = supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        var supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+        console.log('🔐 Supabase connected');
 
         // ============================================================ //
-        // LOAD TRENDING PRODUCTS
+        // LOAD TRENDING PRODUCTS - UPDATED
         // ============================================================ //
         async function loadTrendingProducts() {
             var container = document.getElementById('trendingProducts');
 
             try {
-                var { data: products, error } = await supabase
+                var { data: products, error } = await supabaseClient
                     .from('products')
                     .select('*')
                     .eq('is_active', true)
@@ -1971,24 +2193,42 @@
                         '<span class="price">$' + p.sale_price + ' <span class="was">$' + p.price + '</span></span>' :
                         '<span class="price">$' + p.price + '</span>';
 
-                    var badgeClass = p.badge ? p.badge.toLowerCase().replace(/\s+/g, '-') : '';
-                    var badgeHtml = p.badge ? '<span class="badge ' + badgeClass + '">' + p.badge + '</span>' : '';
-
                     var ratingStars = p.rating ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★';
                     var reviewCount = p.review_count || 0;
 
                     var bgColor = '#F5EDF2';
-                    if (p.badge === 'Best Seller') bgColor = '#6A2C99';
-                    else if (p.badge === 'Sale') bgColor = '#FA4616';
-                    else if (p.badge === 'New') bgColor = '#2E1033';
-                    else if (p.badge === 'Popular') bgColor = '#FA4616';
-                    else if (p.badge === 'Top Rated') bgColor = '#55217A';
+
+                    // Calculate discount percentage
+                    var discountPercent = 0;
+                    if (p.price && p.sale_price) {
+                        discountPercent = Math.round(((p.price - p.sale_price) / p.price) * 100);
+                    }
+
+                    // DISCOUNT BADGE - on image (top corner)
+                    var discountBadge = '';
+                    if (discountPercent > 0) {
+                        discountBadge = '<span class="discount-badge">🏷️ ' + discountPercent + '% OFF</span>';
+                    }
+
+                    // BADGE TEXT - below stars
+                    var badgeText = '';
+                    if (p.badge) {
+                        badgeText = '<div class="badge-text">🔥 ' + p.badge + '</div>';
+                    }
+
+                    // Image handling - ensure image displays properly
+                    var imageContent = '';
+                    if (p.image_url) {
+                        imageContent = '<img src="' + p.image_url + '" alt="' + p.name + '" />';
+                    } else {
+                        imageContent = '[Image]';
+                    }
 
                     html += `
                         <div class="product-card">
-                            <div class="image" style="background:${p.image_url ? 'url(' + p.image_url + ') center/cover' : bgColor};">
-                                ${badgeHtml}
-                                ${p.image_url ? '' : '[Image]'}
+                            <div class="image" style="background:${bgColor};">
+                                ${discountBadge}
+                                ${imageContent}
                             </div>
                             <div class="info">
                                 ${p.brand ? '<div class="brand">' + p.brand + '</div>' : ''}
@@ -1996,6 +2236,7 @@
                                     <span class="stars">${ratingStars}</span>
                                     <span class="count">(${reviewCount})</span>
                                 </div>
+                                ${badgeText}
                                 <div class="name"><a href="#">${p.name}</a></div>
                                 <div class="desc">${p.short_description || ''}</div>
                                 <div class="price-row">
@@ -2009,6 +2250,9 @@
 
                 container.innerHTML = html;
 
+                // Load spotlight after products loaded
+                loadSpotlight(products);
+
             } catch (error) {
                 console.error('Error loading products:', error);
                 container.innerHTML = `
@@ -2021,58 +2265,165 @@
         }
 
         // ============================================================ //
-        // LOAD DESIRE CATEGORIES WITH IMAGES
+        // LOAD SPOTLIGHT - Uses first product with image
+        // ============================================================ //
+        function loadSpotlight(products) {
+            var spotlightImage = document.getElementById('spotlightImage');
+            var spotlightName = document.getElementById('spotlightName');
+            var spotlightDesc = document.getElementById('spotlightDesc');
+            var spotlightPrice = document.getElementById('spotlightPrice');
+            var spotlightBtn = document.getElementById('spotlightBtn');
+
+            // Find a product with an image
+            var spotlightProduct = null;
+            for (var i = 0; i < products.length; i++) {
+                if (products[i].image_url) {
+                    spotlightProduct = products[i];
+                    break;
+                }
+            }
+
+            // If no product has an image, use the first product
+            if (!spotlightProduct && products.length > 0) {
+                spotlightProduct = products[0];
+            }
+
+            if (spotlightProduct) {
+                if (spotlightProduct.image_url) {
+                    spotlightImage.innerHTML = '<img src="' + spotlightProduct.image_url + '" alt="' + spotlightProduct.name + '" />';
+                } else {
+                    spotlightImage.innerHTML = '<div class="placeholder">[ SPOTLIGHT IMAGE ]</div>';
+                }
+                spotlightName.textContent = spotlightProduct.name || 'The Gold Standard';
+                spotlightDesc.textContent = spotlightProduct.short_description || 'It looks like a premium wellness product. It very much is. Quiet, easy to use, and discreet enough to leave out on the nightstand.';
+                spotlightPrice.textContent = spotlightProduct.sale_price ? '$' + spotlightProduct.sale_price : '$' + spotlightProduct.price;
+                spotlightBtn.href = '#';
+            }
+        }
+
+        // ============================================================ //
+        // LOAD DESIRE CATEGORIES WITH IMAGES - ALL CATEGORIES
         // ============================================================ //
         async function loadDesireCategories() {
             var container = document.getElementById('desireGrid');
 
+            // All categories from the navigation
             var categories = [
                 { 
-                    key: 'For Men', 
-                    slug: 'for-penises.html', 
-                    icon: 'fa-person',
+                    key: 'Sex Toys', 
+                    slug: 'sex-toys.html', 
+                    icon: 'fa-toy',
                     color: '#6A2C99',
-                    desc: 'Enhancement & Vitality'
+                    desc: 'All pleasure products'
                 },
                 { 
-                    key: 'For Women', 
+                    key: 'For Vulvas', 
                     slug: 'for-vulvas.html', 
                     icon: 'fa-person-dress',
                     color: '#55217A',
                     desc: 'Care & Freshness'
                 },
                 { 
-                    key: 'Lubricants', 
+                    key: 'For Penises', 
+                    slug: 'for-penises.html', 
+                    icon: 'fa-person',
+                    color: '#6A2C99',
+                    desc: 'Enhancement & Vitality'
+                },
+                { 
+                    key: 'For Couples', 
+                    slug: 'for-couples.html', 
+                    icon: 'fa-users',
+                    color: '#FA4616',
+                    desc: 'Shared Pleasure'
+                },
+                { 
+                    key: 'Vibrators', 
+                    slug: 'vibrators.html', 
+                    icon: 'fa-vibrate',
+                    color: '#6A2C99',
+                    desc: 'All Types & Styles'
+                },
+                { 
+                    key: 'Dildos', 
+                    slug: 'dildos.html', 
+                    icon: 'fa-hand',
+                    color: '#55217A',
+                    desc: 'Realistic & Fantasy'
+                },
+                { 
+                    key: 'Anal Toys', 
+                    slug: 'anal-toys.html', 
+                    icon: 'fa-circle',
+                    color: '#C22B3D',
+                    desc: 'Butt Plugs & Beads'
+                },
+                { 
+                    key: 'Lubes & Essentials', 
                     slug: 'lubes-essentials.html', 
                     icon: 'fa-droplet',
                     color: '#FA4616',
                     desc: 'Smooth & Sensual'
                 },
                 { 
-                    key: 'Wellness', 
-                    slug: '#', 
-                    icon: 'fa-leaf',
+                    key: 'Lingerie', 
+                    slug: 'lingerie.html', 
+                    icon: 'fa-tshirt',
+                    color: '#C5462B',
+                    desc: 'Seductive Styles'
+                },
+                { 
+                    key: 'BDSM', 
+                    slug: 'bdsm.html', 
+                    icon: 'fa-handcuffs',
+                    color: '#2E1033',
+                    desc: 'Bondage & Kink'
+                },
+                { 
+                    key: 'Brands', 
+                    slug: 'brands.html', 
+                    icon: 'fa-star',
+                    color: '#6A2C99',
+                    desc: 'Shop by Brand'
+                },
+                { 
+                    key: 'Sale', 
+                    slug: 'sale.html', 
+                    icon: 'fa-tag',
+                    color: '#FA4616',
+                    desc: 'Best Deals'
+                },
+                { 
+                    key: 'Gift Cards', 
+                    slug: 'gift-cards.html', 
+                    icon: 'fa-gift',
                     color: '#1C8C6A',
-                    desc: 'Natural Health'
+                    desc: 'Perfect Gifts'
                 }
             ];
 
             try {
-                var { data: products, error } = await supabase
+                var { data: products, error } = await supabaseClient
                     .from('products')
                     .select('category, image_url')
                     .eq('is_active', true);
 
                 if (error) throw error;
 
-                var categoryProducts = {};
+                // Count products per category
+                var categoryCounts = {};
+                var categoryImages = {};
                 products.forEach(function(p) {
                     if (p.category) {
-                        if (!categoryProducts[p.category]) {
-                            categoryProducts[p.category] = [];
+                        // Count products
+                        categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
+                        
+                        // Store images
+                        if (!categoryImages[p.category]) {
+                            categoryImages[p.category] = [];
                         }
                         if (p.image_url) {
-                            categoryProducts[p.category].push(p.image_url);
+                            categoryImages[p.category].push(p.image_url);
                         }
                     }
                 });
@@ -2080,22 +2431,34 @@
                 var html = '';
 
                 categories.forEach(function(cat) {
-                    var count = 0;
-                    products.forEach(function(p) {
-                        if (p.category === cat.key) count++;
-                    });
-
+                    var count = categoryCounts[cat.key] || 0;
                     var countText = count > 0 ? count + '+ products' : '0 products';
-                    var images = categoryProducts[cat.key] || [];
-                    var randomImage = images.length > 0 ? images[Math.floor(Math.random() * images.length)] : null;
+                    var images = categoryImages[cat.key] || [];
+                    
+                    // Try to find a matching image, or use random from all products
+                    var imageUrl = null;
+                    if (images.length > 0) {
+                        imageUrl = images[Math.floor(Math.random() * images.length)];
+                    } else {
+                        // If no image for this category, try to find any product image
+                        var allImages = [];
+                        for (var key in categoryImages) {
+                            if (categoryImages[key].length > 0) {
+                                allImages = allImages.concat(categoryImages[key]);
+                            }
+                        }
+                        if (allImages.length > 0) {
+                            imageUrl = allImages[Math.floor(Math.random() * allImages.length)];
+                        }
+                    }
 
                     var iconClass = cat.icon;
 
                     html += `
                         <a href="${cat.slug}" class="desire-card">
                             <div class="image">
-                                ${randomImage ? 
-                                    '<img src="' + randomImage + '" alt="' + cat.key + '" />' : 
+                                ${imageUrl ? 
+                                    '<img src="' + imageUrl + '" alt="' + cat.key + '" />' : 
                                     '<div class="icon-fallback"><i class="fas ' + iconClass + '" style="color:' + cat.color + ';"></i></div>'
                                 }
                             </div>
@@ -2112,24 +2475,24 @@
 
             } catch (error) {
                 console.error('Error loading desire categories:', error);
-                container.innerHTML = `
-                    <a href="for-penises.html" class="desire-card">
-                        <div class="image"><div class="icon-fallback"><i class="fas fa-person" style="color:#6A2C99;"></i></div></div>
-                        <div class="info"><h3>For Men</h3><p>Enhancement & Vitality</p><span class="count">0 products</span></div>
-                    </a>
-                    <a href="for-vulvas.html" class="desire-card">
-                        <div class="image"><div class="icon-fallback"><i class="fas fa-person-dress" style="color:#55217A;"></i></div></div>
-                        <div class="info"><h3>For Women</h3><p>Care & Freshness</p><span class="count">0 products</span></div>
-                    </a>
-                    <a href="lubes-essentials.html" class="desire-card">
-                        <div class="image"><div class="icon-fallback"><i class="fas fa-droplet" style="color:#FA4616;"></i></div></div>
-                        <div class="info"><h3>Lubricants</h3><p>Smooth & Sensual</p><span class="count">0 products</span></div>
-                    </a>
-                    <a href="#" class="desire-card">
-                        <div class="image"><div class="icon-fallback"><i class="fas fa-leaf" style="color:#1C8C6A;"></i></div></div>
-                        <div class="info"><h3>Wellness</h3><p>Natural Health</p><span class="count">0 products</span></div>
-                    </a>
-                `;
+                // Fallback - show all categories without counts
+                var fallbackHtml = '';
+                categories.forEach(function(cat) {
+                    var iconClass = cat.icon;
+                    fallbackHtml += `
+                        <a href="${cat.slug}" class="desire-card">
+                            <div class="image">
+                                <div class="icon-fallback"><i class="fas ${iconClass}" style="color:${cat.color};"></i></div>
+                            </div>
+                            <div class="info">
+                                <h3>${cat.key}</h3>
+                                <p>${cat.desc}</p>
+                                <span class="count">0 products</span>
+                            </div>
+                        </a>
+                    `;
+                });
+                container.innerHTML = fallbackHtml;
             }
         }
 
@@ -2157,10 +2520,27 @@
         }
 
         // ============================================================ //
+        // PAGINATION CLICK HANDLERS
+        // ============================================================ //
+        document.querySelectorAll('.pagination a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Remove active class from all pagination links
+                var parent = this.parentElement;
+                var siblings = parent.querySelectorAll('a');
+                siblings.forEach(function(s) {
+                    s.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // ============================================================ //
         // INIT
         // ============================================================ //
         loadTrendingProducts();
         loadDesireCategories();
+        startAdRotation();
     </script>
 
 </body>
